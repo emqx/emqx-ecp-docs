@@ -390,7 +390,33 @@
           "children": [
             {
               "title": "流管理",
-              "path": "ekuiper/stream"
+              "path": "ekuiper/stream",
+              "children":[
+                {
+                  "title": "文件",
+                  "path": "ekuiper/file"
+                },
+                {
+                  "title": "HTTP 提取源",
+                  "path": "ekuiper/http_pull"
+                },
+                {
+                  "title": "HTTP Push源",
+                  "path": "ekuiper/http_push"
+                },
+                {
+                  "title": "MQTT 源",
+                  "path": "ekuiper/mqtt"
+                },
+                {
+                  "title": "Neuron 源",
+                  "path": "ekuiper/neuron"
+                },
+                {
+                  "title": "随机 源",
+                  "path": "ekuiper/random"
+                }
+              ]
             },
             {
               "title": "扫描表",
