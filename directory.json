@@ -422,12 +422,23 @@
         },
         {
             "title": "管理",
-            "path": "monitor/introduction"
+            "path": "management/introduction",
+            "children":[
+              {
+                "title": "日志",
+                "path": "management/logs"
+              },
+              {
+                "title": "修改密码",
+                "path": "management/password"
+              },
+              {
+                "title": "系统信息",
+                "path": "system/introduction"
+            }
+            ]
         },
-        {
-            "title": "系统信息",
-            "path": "system/introduction"
-        },
+
         {
             "title": "系统使用限制",
             "path": "others/known_limitations"
