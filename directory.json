@@ -297,6 +297,28 @@
                     ]
                   },
                   {
+                    "title": "创建组和点位",
+                    "path": "configuration/groups-tags/groups-tags",
+                    "children": [
+                      {
+                        "title": "设置属性",
+                        "path": "configuration/groups-tags/tag-attribute"
+                      },
+                      {
+                        "title": "设置乘系数",
+                        "path": "configuration/groups-tags/tag-decimal"
+                      },
+                      {
+                        "title": "设置精度",
+                        "path": "configuration/groups-tags/tag-precision"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "导入/导出组和点位",
+                    "path": "configuration/import-export/import-export"
+                  },
+                  {
                     "title": "创建一个北向应用",
                     "path": "configuration/north-apps/north-apps",
                     "children": [
@@ -355,6 +377,10 @@
                 {
                     "title": "插件管理",
                     "path": "config/neuron_plugin"
+                },
+                {
+                    "title": "订阅组",
+                    "path": "configuration/subscription/subscription"
                 }
             ]
         },
