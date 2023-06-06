@@ -1,0 +1,218 @@
+{
+    "cn": [
+        {
+            "title": "产品概览",
+            "path": "./"
+        },
+        {
+            "title": "快速开始",
+            "path": "quick_start/quick_start"
+        },
+        {
+            "title": "安装部署",
+            "path": "install/introduction",
+            "children": [
+                {
+                    "title": "Ubuntu/Debian",
+                    "path": "install/Ubuntu"
+                },
+                {
+                    "title": "CentOS",
+                    "path": "install/CentOS"
+                },
+                {
+                    "title": "其他 Linux",
+                    "path": "install/Linux"
+                },
+                {
+                    "title": "Docker",
+                    "path": "install/Docker"
+                },
+                {
+                    "title": "源代码",
+                    "path": "install/source"
+                },
+                {
+                    "title": "常见问题和故障排查",
+                    "path": "install/check"
+                }
+            ]
+        },
+        {
+            "title": "访问控制",
+            "path": "acl/introduction"
+        },
+        {
+            "title": "监控/数据监控",
+            "path": "monitor/introduction"
+        },
+        {
+            "title": "配置",
+            "path": "config/introduction",
+            "children": [
+                {
+                    "title": "南向设备配置",
+                    "path": "config/southdevice"
+                },
+                {
+                    "title": "北向应用配置",
+                    "path": "config/nothapp"
+                },
+                {
+                    "title": "插件管理",
+                    "path": "config/neuron_plugin"
+                }
+            ]
+        },
+        {
+            "title": "数据流处理",
+            "path": "ekuiper/introduction",
+            "children": [
+                {
+                    "title": "源管理",
+                    "path": "ekuiper/stream"
+                },
+                {
+                    "title": "规则管理",
+                    "path": "ekuiper/rules"
+                },
+                {
+                    "title": "拓展",
+                    "path": "ekuiper/ekuiper_plugin"
+                },
+                {
+                    "title": "配置管理",
+                    "path": "ekuiper/ekuiper_template"
+                }
+            ]
+        },
+        {
+            "title": "管理",
+            "path": "monitor/introduction"
+        },
+        {
+            "title": "系统信息",
+            "path": "system/introduction"
+        },
+        {
+            "title": "系统使用限制",
+            "path": "others/known_limitations"
+        },
+        {
+            "title": "版本兼容性",
+            "path": "others/version_limitations"
+        },
+        {
+            "title": "发版历史",
+            "path": "release_history/release_history"
+        }
+    ],
+    "en": [
+                {
+            "title": "Product Overview",
+            "path": "./"
+        },
+        {
+            "title": "Get Started",
+            "path": "quick_start/quick_start"
+        },
+        {
+            "title": "Installation",
+            "path": "install/introduction",
+            "children": [
+                {
+                    "title": "Ubuntu/Debian",
+                    "path": "install/Ubuntu"
+                },
+                {
+                    "title": "CentOS",
+                    "path": "install/CentOS"
+                },
+                {
+                    "title": "Others Linux",
+                    "path": "install/Linux"
+                },
+                {
+                    "title": "Docker",
+                    "path": "install/Docker"
+                },
+                {
+                    "title": "Source Code",
+                    "path": "install/source"
+                },
+                {
+                    "title": "Frequently asked questions and troubleshooting",
+                    "path": "install/check"
+                }
+            ]
+        },
+        {
+            "title": "Access Control",
+            "path": "acl/introduction"
+        },
+        {
+            "title": "Monitor/Data Monitor",
+            "path": "monitor/introduction"
+        },
+        {
+            "title": "Data Acquisition Configuration",
+            "path": "config/introduction",
+            "children": [
+                {
+                    "title": "Southbound Devices",
+                    "path": "config/southdevice"
+                },
+                {
+                    "title": "Northbound Application",
+                    "path": "config/nothapp"
+                },
+                {
+                    "title": "Data Acquisition Plugins Mangement",
+                    "path": "config/neuron_plugin"
+                }
+            ]
+        },
+        {
+            "title": "Data Streaming Configuration",
+            "path": "ekuiper/introduction",
+            "children": [
+                {
+                    "title": "Streaming Mangement",
+                    "path": "ekuiper/stream"
+                },
+                {
+                    "title": "Rules Mangement",
+                    "path": "ekuiper/rules"
+                },
+                {
+                    "title": "Data Streaming Plugins Mangement",
+                    "path": "ekuiper/ekuiper_plugin"
+                },
+                {
+                    "title": "Template Mangement",
+                    "path": "ekuiper/ekuiper_template"
+                }
+            ]
+        },
+        {
+            "title": "Mangement",
+            "path": "monitor/introduction"
+        },
+        {
+            "title": "System Information",
+            "path": "system/introduction"
+        },
+        {
+            "title": "Known Limitations",
+            "path": "others/known_limitations"
+        },
+        {
+            "title": "Version Compatibility",
+            "path": "others/version_limitations"
+        },
+        {
+            "title": "Release History",
+            "path": "release_history/release_history"
+        }
+    ]
+}

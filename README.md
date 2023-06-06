@@ -1,2 +1,1 @@
-# emqx-ecp-docs
-EMQX ECP products documentation
+# EMQX ECP Edge Product Description
