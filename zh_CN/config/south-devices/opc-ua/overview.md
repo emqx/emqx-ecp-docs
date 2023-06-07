@@ -1,8 +1,8 @@
-# 概览
+# OPC UA
 
 OPC UA 是一种面向工业自动化的机器到机器通信协议，由 OPC 基金会开发维护。OPC UA 提供一种标准化的方式， 使不同的设备和系统能够互相通信。
 
-Neuron OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway OPC Server、Prosys Simulation Server、Ignition 等 OPC UA 服务器。 也可以直接访问硬件设备的内置 OPC UA Server， 如：西门子 S7-1200 型 PLC 的内置 Server、 欧姆龙 NJ 系列 PLC 的内置 Server 等。
+ECP Edge OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway OPC Server、Prosys Simulation Server、Ignition 等 OPC UA 服务器。 也可以直接访问硬件设备的内置 OPC UA Server， 如：西门子 S7-1200 型 PLC 的内置 Server、 欧姆龙 NJ 系列 PLC 的内置 Server 等。
 
 ## 参数
 
@@ -31,21 +31,21 @@ Neuron OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway OP
 
 ### 数据类型转换
 
-| OPC UA 数据类型 | Neuron 数据类型 |
-| --------------- | --------------- |
-| SByte           | INT8            |
-| Int16           | INT16           |
-| Int32           | INT32           |
-| Int64           | INT64           |
-| Byte            | UINT8           |
-| UInt16          | UINT16          |
-| UInt32          | UINT32          |
-| UInt64          | UINT64          |
-| Float           | FLOAT           |
-| Double          | DOUBLE          |
-| Boolean         | BOOL            |
-| String          | STRING          |
-| Datetime        | UINT32          |
+| OPC UA 数据类型 | ECP Edge 数据类型 |
+| --------------- | ----------------- |
+| SByte           | INT8              |
+| Int16           | INT16             |
+| Int32           | INT32             |
+| Int64           | INT64             |
+| Byte            | UINT8             |
+| UInt16          | UINT16            |
+| UInt32          | UINT32            |
+| UInt64          | UINT64            |
+| Float           | FLOAT             |
+| Double          | DOUBLE            |
+| Boolean         | BOOL              |
+| String          | STRING            |
+| Datetime        | UINT32            |
 
 ## 地址格式
 
@@ -67,5 +67,5 @@ Neuron OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway OP
 :::tip
 关于命名空间索引和节点 ID 的解释，请参考 OPC UA 标准。
 
-Neuron 设置的数据类型必须与 OPC UA 数据类型相匹配。
+ECP Edge 设置的数据类型必须与 OPC UA 数据类型相匹配。
 :::

@@ -1,4 +1,4 @@
-# 概览
+# Fanuc Focas Ethernet
 
 **支持架构**: amd64, arm/v7
 
@@ -77,11 +77,11 @@
 
 *PMC 点位示例*
 
-| 地址 | 类型                                                         | 说明                                                    |
-| ---- | ------------------------------------------------------------ | ------------------------------------------------------- |
-| A0   | uint8/int8/uint16/int16/uint32/int32/int64/uint64/float/double | PMC **message demand** 区域，地址0的数据                |
-| A0.1 | bit                                                          | PMC **message demand** 区域，地址0的的字节，第1个 bit 位  |
-| A0.0 | bit                                                          | PMC **message demand** 区域，地址0的字节，第0个 bit 位    |
-| A0.2 | string                                                       | PMC **message demand** 区域，地址0开始，长度为2的字符串 |
-| D0.2 | string                                                       | PMC **data table** 区域，地址0开始，长度为2的字符串     |
-| D0.7 | bit                                                          | PMC **data table** 区域，地址0的字节，第7个 bit 位        |
+| 地址 | 类型                                                         | 说明                                                     |
+| ---- | ------------------------------------------------------------ | -------------------------------------------------------- |
+| A0   | uint8 <br>int8<br>uint16<br>int16<br>uint32<br>int32<br>int64<br>uint64<br>float<br>double | PMC **message demand** 区域，地址0的数据                 |
+| A0.1 | bit                                                          | PMC **message demand** 区域，地址0的的字节，第1个 bit 位 |
+| A0.0 | bit                                                          | PMC **message demand** 区域，地址0的字节，第0个 bit 位   |
+| A0.2 | string                                                       | PMC **message demand** 区域，地址0开始，长度为2的字符串  |
+| D0.2 | string                                                       | PMC **data table** 区域，地址0开始，长度为2的字符串      |
+| D0.7 | bit                                                          | PMC **data table** 区域，地址0的字节，第7个 bit 位       |

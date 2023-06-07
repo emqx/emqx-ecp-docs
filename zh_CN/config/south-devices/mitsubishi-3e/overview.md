@@ -1,4 +1,4 @@
-# 概览
+# Mitsubishi 3E
 
 Mitsubishi 3E 插件用于通过以太网访问三菱的 QnA 兼容 PLC，包括 Q 系列（MC）、iQ-F 系列（SLMP）和 iQ-L 系列。
 

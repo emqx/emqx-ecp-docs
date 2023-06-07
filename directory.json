@@ -299,36 +299,22 @@
         {
           "title": "建立设备与 ECP Edge 的通信",
           "path": "config/groups-tags/groups-tags",
-          "children": [
-            {
-              "title": "设置属性",
-              "path": "config/groups-tags/tag-attribute"
-            },
-            {
-              "title": "设置乘系数",
-              "path": "config/groups-tags/tag-decimal"
-            },
-            {
-              "title": "设置精度",
-              "path": "config/groups-tags/tag-precision"
-            },
-            {
-              "title": "导入/导出组和点位",
-              "path": "config/import-export"
-            }
-          ]
+        },         
+        {
+          "title": "导入/导出点位配置",
+          "path": "config/import-export"
         },
         {
-          "title": "创建一个北向应用",
+          "title": "创建北向应用",
           "path": "config/north-apps/north-apps",
           "children": [
             {
               "title": "数据统计与监控",
-              "path": "config/north-apps/monitor/overview"
+              "path": "config/north-apps/monitor"
             },
             {
               "title": "eKuiper 数据流处理引擎",
-              "path": "config/north-apps/ekuiper/overview",
+              "path": "config/north-apps/ekuiper/ekuiper",
               "children": [
                 {
                   "title": "常见问题",
@@ -338,7 +324,7 @@
             },
             {
               "title": "MQTT 客户端",
-              "path": "config/north-apps/mqtt/overview",
+              "path": "config/north-apps/mqtt/mqtt",
               "children": [
                 {
                   "title": "API",
@@ -352,7 +338,7 @@
             },
             {
               "title": "MQTT SparkPlugB",
-              "path": "config/north-apps/sparkplugb/overview",
+              "path": "config/north-apps/sparkplugb/sparkplugb",
               "children": [
                 {
                   "title": "连接 Ignition",
@@ -370,7 +356,7 @@
             },
             {
               "title": "WebSocket 客户端",
-              "path": "config/north-apps/websocket/websocket"
+              "path": "config/north-apps/websocket"
             }
           ]
         },

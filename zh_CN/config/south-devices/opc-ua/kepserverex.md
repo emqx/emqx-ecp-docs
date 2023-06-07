@@ -3,20 +3,20 @@
 ## 用户名/密码登录
 
 1. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **设置** -> **KEPServerEX 设置** -> **用户管理器**，在 `Administrators` 组下新建用户，设置用户名/密码;
-![kepware-1](./assets/kepware-1.jpg)
+<img src="./assets/kepware-1.jpg" alt="kepware-1" style="zoom:50%;" />
 
 2. 双击系统托盘中的 KEPServerEX 图标，在主界面中打开 **项目** -> **属性编辑器** -> **OPC UA**， `允许匿名登录` 设置为 `否`;
-![kepware-2](./assets/kepware-2.jpg)
+<img src="./assets/kepware-2.jpg" alt="kepware-2" style="zoom:50%;" />
 
 3. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **OPC UA 配置** -> **服务器端点**，双击端点条目，勾选所有安全策略。
-![kepware-3](./assets/kepware-3.jpg)
+<img src="./assets/kepware-3.jpg" alt="kepware-3" style="zoom:50%;" />
 
 4. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **重新初始化**；
 
-5. Neuron 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，无需添加证书/密钥，启动设备连接；
+5. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，无需添加证书/密钥，启动设备连接；
 
-6. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **OPC UA 配置** -> **受信任的客户端**，将 NeuronClient 证书设置为信任。
-![kepware-4](./assets/kepware-4.jpg)
+6. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **OPC UA 配置** -> **受信任的客户端**，将 ECP EdgeClient 证书设置为信任。
+<img src="./assets/kepware-4.jpg" alt="kepware-4" style="zoom:50%;" />
 
 7. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **重新初始化**；
 
@@ -30,12 +30,12 @@
 
 4. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **重新初始化**；
 
-## Neuron 设置
+## ECP Edge 设置
 
 1. 通过 UaExpert 软件查看 KepServerEx 测点信息， 参考 [UaExpert 试用方法](./uaexpert.md)。
 ![kepware-5](./assets/kepware-5.jpg)
 
-2. Neuron 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，添加证书/密钥，启动设备连接；
+2. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，添加证书/密钥，启动设备连接；
 
 3. 根据测点信息添加 `Groups` 和 `Tags`。
 

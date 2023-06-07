@@ -1,4 +1,4 @@
-# 概览
+# ABB COMLI
 
 comli 插件用于通过串口网络访问 ABB 的 COMLI 协议兼容控制系统。
 

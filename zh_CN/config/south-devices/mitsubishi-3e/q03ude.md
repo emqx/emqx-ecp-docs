@@ -16,9 +16,9 @@
 
 5. 点击菜单 `在线` -> `PLC写入` -> `执行`。
 
-## Neuron 设置
+## ECP Edge 设置
 
-1. 在 Neuron 南向设备管理中添加一个 Mitsubishi 3E 设备。
+1. 在 ECP Edge 南向设备管理中添加一个 Mitsubishi 3E 设备。
 
 2. 在设备配置中修改 `PLC IP 地址` 为目标设备 IP 地址。
 

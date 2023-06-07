@@ -1,7 +1,12 @@
 
 # Modbus Poll 连接示例
 
-## 下载安装 Modbus Poll 模拟器
+本节主要介绍 ECP Edge 作为 Server，Modbus Poll 作为 Client 时， ECP Edge 与 Modbus Poll 的相关配置。这种连接方式通常可用于以下场景，在某些设备使用 4G 上网时，因为 ECP Edge 无法主动连接到设备，所以，ECP Edge 只能选择 Server 模式，由设备主动连接到 ECP Edge。
+
+Modbus Poll 作为 Client，主动向 ECP Edge 发起连接请求，用户需要保证 Modbus Poll -> ECP Edge 的网络连通性。
+
+## 安装 Modbus Poll 模拟器
+
 Modbus Poll 是一款 Modbus 主机模拟器，主要用于帮助 Modbus 从设备开发者或其他想要测试和模拟 Modbus 协议的开发者使用。
 
 Modbus Poll 支持以下方式读写设备数据：
@@ -11,19 +16,14 @@ Modbus Poll 支持以下方式读写设备数据：
 * Modbus UDP/IP。
 * Modbus Over UDP/IP。（Modbus RTU/ASCII 封装于 UDP 报文）
   
+
 安装 Modbus Poll 软件，安装包可从 [modbus tool 下载](https://www.modbustools.com/download.html) 页面，根据运行环境选择对应的安装包下载。软件提供30天的免费使用时长。免费时长阶段，连接10分钟会断开一次，断开之后需要重启软件。
-  
-## 如何连接作为 Server 的 Neuron？
 
-本节主要介绍 Neuron 作为 Server，Modbus Poll 作为 Client 时， Neuron 与 Modbus Poll 的相关配置。
-
-Modbus Poll 作为 Client，主动向 Neuron 发起连接请求，用户需要保证 Modbus Poll -> Neuron 的网络连通性。这种连接方式通常可用于以下场景中，在某些设备使用 4G 上网时，因为 Neuron 无法主动连接到设备，所以，Neuron 只能选择 Server 模式，由设备主动连接到 Neuron。
-
-### 配置 Neuron 南向驱动 Server
+### 配置 ECP Edge 南向驱动 Server
 
 在南向驱动中，使用 Modbus RTU 插件新建一个名为 modbus-rtu-server 的节点，并进行驱动配置，如下图所示。
 
-![neuron-rtu-server-config](./assets/neuron-rtu-server-config.png)
+![ecp-edge-rtu-server-config](./assets/ecpedge-rtu-server-config.png)
 
 * 物理链路选择 TCP；
 * 连接模式选择 server；
@@ -33,7 +33,7 @@ Modbus Poll 作为 Client，主动向 Neuron 发起连接请求，用户需要�
 ### 配置 Modbus Poll Client
 
 * 安装完成后，运行 Modbus Poll。
-* 进入菜单 **Connection -> Connect**，根据实际情况选择连接方式（本示例为 Modbus RTU/ASCII Over TCP/IP），设置连接参数（Neuron 运行设备的 IP 和设置的 Port），然后点击 **OK** 完成配置， 如下图所示。
+* 进入菜单 **Connection -> Connect**，根据实际情况选择连接方式（本示例为 Modbus RTU/ASCII Over TCP/IP），设置连接参数（ECP Edge 运行设备的 IP 和设置的 Port），然后点击 **OK** 完成配置， 如下图所示。
 
 ![modbus-poll-rtu-connection-setup](./assets/modbus-poll-rtu-connection-setup.png)
 

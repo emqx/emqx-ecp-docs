@@ -8,27 +8,27 @@
 
 1. 按下 **WIN + R** 键后在弹出的对话框中输入 `dcomcnfg` 确定后进入组件服务，如图：
 
-![comcnf](./assets/comcnf.png)
+<img src="./assets/comcnf.png" alt="comcnf" style="zoom:40%;" />
 
 2. 先对本机属性进行总体的设置， 展开 **组件服务\计算机\我的电脑**，右键我的电脑打开菜单中的 **属性** 设置：
 
-![comcnf1](./assets/comcnf1.png)
+<img src="./assets/comcnf1.png" alt="comcnf1" style="zoom:40%;" />
 
 在 **默认属性** 中勾选 `在此计算机上启用分布式 COM`，`默认身份验证级别` 设置位 `无`：
 
-![comcnf2](./assets/comcnf2.png)
+<img src="./assets/comcnf2.png" alt="comcnf2" style="zoom:50%;" />
 
 在 **默认协议** 中只保留 `面向连接的 TCP/IP`：
 
-![comcnf3](./assets/comcnf3.png)
+<img src="./assets/comcnf3.png" alt="comcnf3" style="zoom:50%;" />
 
 在 **COM 安全** 中将 `访问权限` 和 `启动和激活权限` 中的 `编辑限制` 和 `编辑默认值` 都分别添加  `Everyone`、`Administrators`、`ANONYMOUS LOGON` 用户，并将其下所有权限都勾选上：
 
-![comcnf4](./assets/comcnf4.png)
+<img src="./assets/comcnf4.png" alt="comcnf4" style="zoom:50%;" />
 
 3. 展开 **组件服务\计算机\我的电脑\DCOM 配置**，分别设置 `OpcEnum` 和 `MatrikonOPC Server for Simulation and Testing` 的属性，在 **常规** 中 `身份验证级别` 选择 `无`：
 
-![comcnf5](./assets/comcnf5.png)
+<img src="./assets/comcnf5.png" alt="comcnf5" style="zoom:50%;" />
 
 在 **位置** 中勾选 `在数据所在的计算机上运行应用程序` 和 `在此计算机上运行应用程序`：
 

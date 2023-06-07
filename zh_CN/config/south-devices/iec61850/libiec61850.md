@@ -19,9 +19,9 @@ $ cd sudo ./examples/server_example_control/server_example_control
 2. 打开 IEDExplorer_0.79n.exe 设置好 `server_example_control` 服务器监听的 IP 地址和端口，启动连接。
 ![libiec61850_1](./assets/libiec61850_1.jpg)
 
-## 设置 Neuron
+## 设置 ECP Edge
 
-1. 在 Neuron 南向设备管理中添加一个 IEC61850 设备；
+1. 在 ECP Edge 南向设备管理中添加一个 IEC61850 设备；
 
 2. 在设备配置中修改 `设备 IP 地址` 为 `server_example_control` 服务器监听的 IP 地址。
 
