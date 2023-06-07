@@ -297,7 +297,7 @@
           ]
         },
         {
-          "title": "创建组和点位",
+          "title": "建立设备与 ECP Edge 的通信",
           "path": "config/groups-tags/groups-tags",
           "children": [
             {
@@ -311,17 +311,21 @@
             {
               "title": "设置精度",
               "path": "config/groups-tags/tag-precision"
+            },
+            {
+              "title": "导入/导出组和点位",
+              "path": "config/import-export"
             }
           ]
-        },
-        {
-          "title": "导入/导出组和点位",
-          "path": "config/import-export"
         },
         {
           "title": "创建一个北向应用",
           "path": "config/north-apps/north-apps",
           "children": [
+            {
+              "title": "数据统计与监控",
+              "path": "config/north-apps/monitor/overview"
+            },
             {
               "title": "eKuiper 数据流处理引擎",
               "path": "config/north-apps/ekuiper/overview",
@@ -331,10 +335,6 @@
                   "path": "config/north-apps/ekuiper/faq"
                 }
               ]
-            },
-            {
-              "title": "数据统计与监控",
-              "path": "config/north-apps/monitor/overview"
             },
             {
               "title": "MQTT 客户端",
