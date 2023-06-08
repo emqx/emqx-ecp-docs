@@ -1,70 +1,52 @@
-## 文件源
+## File
 
-<span style="background:green;color:white;">stream source</span>
-<span style="background:green;color:white">scan table source</span>
+<span style="background:green;color:white;">stream source</span>      <span style="background:green;color:white">scan table source</span>
 
-eKuiper 提供了内置支持，可将文件内容读入 eKuiper 处理管道。 文件源通常用作[表格](../../../sqls/tables.md)， 并且采用 create
-table 语句的默认类型。文件源也支持作为用作流，此时通常需要设置 `interval` 参数以定时拉取更新。
+ECP Edge 默认支持 File 类型数据源，File 类型可以作为流、扫描表的数据源，支持监控文件或文件夹。如果被监控的位置是一个文件夹，那么该文件夹中的所有文件必须是同一类型。当监测一个文件夹时，它将按照文件名的字母顺序来读取文件。
 
-```sql
-CREATE TABLE table1 (
-    name STRING,
-    size BIGINT,
-    id BIGINT
-) WITH (DATASOURCE="lookup.json", FORMAT="json", TYPE="file");
-```
+支持的 File 类型有：
 
-您可以使用 [cli](../../../api/cli/tables.md) 或 [rest api](../../../api/restapi/tables.md) 来管理表。
-
-文件源的配置文件是 */etc/sources/file.yaml* ，可以在其中指定文件的路径。
-
-```yaml
-default:
-  # 文件的类型，支持 json， csv 和 lines
-  fileType: json
-  # 文件以 eKuiper 为根目录的目录或文件的绝对路径。
-  # 请勿在此处包含文件名。文件名应在流数据源中定义
-  path: data
-  # 读取文件的时间间隔，单位为ms。 如果只读取一次，则将其设置为 0
-  interval: 0
-  # 读取后，两条数据发送的间隔时间
-  sendInterval: 0
-  # 文件读取后的操作
-  # 0: 文件保持不变
-  # 1: 删除文件
-  # 2: 移动文件到 moveTo 定义的位置
-  actionAfterRead: 0
-  # 移动文件的位置, 仅用于 actionAfterRead 为 2 的情况
-  moveTo: /tmp/kuiper/moved
-  # 是否包含文件头，多用于 csv。若为 true，则第一行解析为文件头。
-  hasHeader: false
-  # 定义文件的列。如果定义了文件头，该选项将被覆盖。
-  # columns: [id, name]
-  # 忽略开头多少行的内容。
-  ignoreStartLines: 0
-  # 忽略结尾多少行的内容。最后的空行不计算在内。
-  ignoreEndLines: 0
-  # 使用指定的压缩方法解压缩文件。现在支持`gzip`、`zstd` 方法。                                                                                                                                                                                                                                         |
-  decompression: ""
-```
-
-### 文件源
-
-文件源支持监控文件或文件夹。如果被监控的位置是一个文件夹，那么该文件夹中的所有文件必须是同一类型。当监测一个文件夹时，它将按照文件名的字母顺序来读取文件。
-
-支持的文件类型有：
-
-- json：标准的JSON数组格式文件。见[例子](https://github.com/lf-edge/ekuiper/tree/master/internal/topo/source/test/test.json)。如果文件格式是一个以行分隔的JSON字符串，它需要以 `lines` 格式定义。
+- json：标准的JSON数组格式文件。如果文件格式是一个以行分隔的JSON字符串，它需要以 `lines` 格式定义。
 - csv：支持逗号分隔的 csv 文件，也支持自定义分隔符。
 - lines：以行分隔的文件。每行的解码方法可以通过流定义中的 `format` 参数来定义。例如，对于一个按行分隔的 JSON 字符串文件，文件类型应设置为 `lines`，格式应设置为 `json`，表示单行的格式为 json。
 
 有些文件可能有大部分数据是标准格式，但在文件的开头和结尾行有一些元数据。用户可以使用`ignoreStartLines`和`ignoreEndLines`参数来删除非标准的开头和结尾的非标准部分，这样上述文件类型就可以被解析了。
 
-### 示例
+## 配置
+
+登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+
+在弹出的**源管理** / **创建**页面，进入如下配置：
+
+- **流名称**：输入流名称
+- **是否为带结构的流**：勾选确认是否为带结构的流，如为带结构的流，则需进一步添加流字段
+  - **名称**：字段名称
+  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
+- **流类型**：选择 File
+- **数据源**：指定文件或目录的相对地址。注：请输入不含路径的文件名，例如 test.json
+- **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
+  - **名称**：输入配置组名称。
+  - **文件类型**：定义了文件的类型，可以是 json、csv 或 lines。
+  - **文件夹路径**：设置文件的绝对路径。eKuiper是作为根目录，但这里不应包含文件名，文件名应数据源字段中定义。
+  - **间隔时间**：读取文件的时间间隔，单位为毫秒。如果设置为0，则只读取一次。
+  - **发送间隔**：事件发送的时间间隔，单位为毫秒。
+  - **读取后动作**：文件读取后的操作。可以选择 0（保留文件）、1（删除文件）或 2（移动文件到另一个位置）。
+  - **移动位置**：如果读取后动作设置为2（移动文件），在此处定义了文件移动到的目标位置。
+  - **是否包含头文件**：对于csv文件，定义是否有文件头。如果设置为 **True**，那么文件的第一行将被解析为文件头。
+  - **字段列表**：在这里定义文件的列，如果定义了文件头，将覆盖此处的设置。
+  - **文件开头忽略的行数**：忽略文件开头的几行。例如，如果设置为 3，那么文件的前三行将被忽略。
+  - **文件结尾忽略的行数**: 忽略文件结尾的几行。注意，文件的最后空行不计算在内。
+
+- **流格式**：支持 json、binary、protobuf、delimited、custom。
+- **时间戳字段**：指定代表时间的字段。
+- **时间戳格式**：指定时间戳格式。
+- **共享**：勾选确认是否共享源。
+
+## 示例
 
 文件源涉及对文件内容的解析，同时解析格式与数据流中的格式定义相关。我们用一些例子来描述如何结合文件类型和格式设置来解析文件源。
 
-#### 读取自定义分隔符的 CSV 文件
+### 读取自定义分隔符的 CSV 文件
 
 标准的 csv 文件，分隔符是一个逗号，但是有大量的文件使用类 csv 格式，但使用自定义的分隔符。另外，一些类 csv 的文件在第一行定义了列名，而不是数据，如下例所示。
 
@@ -89,7 +71,7 @@ create
 stream cscFileDemo () WITH (FORMAT="DELIMITED", DATASOURCE="abc.csv", TYPE="file", DELIMITER=" ", CONF_KEY="csv"
 ```
 
-#### 读取多行 JSON 数据
+### 读取多行 JSON 数据
 
 对于一个标准的 JSON 文件，整个文件应该是一个 JSON 对象或一个数组。在实践中，我们经常需要解析包含多个 JSON 对象的文件。这些文件实际上本身不是合法的 JSON 格式，但每行都是合法的 JSON 格式，可认为是多行JSON数据。
 

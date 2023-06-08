@@ -327,10 +327,6 @@
                 {
                   "title": "Neuron",
                   "path": "ekuiper/neuron"
-                },
-                {
-                  "title": "Random",
-                  "path": "ekuiper/random"
                 }
               ]
             },
@@ -371,14 +367,6 @@
           "path": "management/password"
         }
       ]
-    },
-    {
-      "title": "系统使用限制",
-      "path": "others/known_limitations"
-    },
-    {
-      "title": "版本兼容性",
-      "path": "others/version_limitations"
     },
     {
       "title": "发版历史",

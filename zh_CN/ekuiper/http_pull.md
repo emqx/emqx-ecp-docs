@@ -1,118 +1,74 @@
 # HTTP 提取源
 
-<span style="background:green;color:white;">stream source</span>
-<span style="background:green;color:white">scan table source</span>
+<span style="background:green;color:white;">stream source</span>        <span style="background:green;color:white">scan table source</span>
 
-eKuiper 为提取 HTTP 源流提供了内置支持，该支持可从 HTTP 服务器代理提取消息并输入 eKuiper 处理管道。 HTTP提取源的配置文件位于 `etc/sources/httppull.yaml`中。 以下是文件格式。
+ECP Edge 默认支持 HTTP 提取源，该支持可从 HTTP 服务器代理提取消息并输入 ECP Edge，该类型可以作为流、扫描表的数据源。
 
-```yaml
-#全局httppull配置
-default:
-  # 请求服务器地址的URL
-  url: http://localhost
-  # post, get, put, delete
-  method: post
-  # 请求之间的间隔，时间单位为 ms
-  interval: 10000
-  # http请求超时，时间单位为 ms
-  timeout: 5000
-  # 如果将其设置为 true，则将与最后的结果进行比较； 如果两个请求的响应相同，则将跳过发送结果。
-  # 可能的设置可能是：true/false
-  incremental: false
-  # 请求正文，例如'{"data": "data", "method": 1}'
-  body: '{}'
-  # 正文类型, none|text|json|html|xml|javascript|form
-  bodyType: json
-  # 请求所需的HTTP标头
-  headers:
-    Accept: application/json
-  # 如何检查响应状态，支持通过状态码或 body
-  responseType: code
-  # 获取 token
-#  oAuth:
-#    # 设置如何获取访问码
-#    access:
-#      # 获取访问码的 URL，总是使用 POST 方法发送请求
-#      url: https://127.0.0.1/api/token
-#      # 请求正文
-#      body: '{"username": "admin","password": "123456"}'
-#      # 令牌的过期时间，以字符串表示，时间单位为秒，允许使用模板
-#      expire: '3600'
-#    # 如何刷新令牌
-#    refresh:
-#      # 刷新令牌的 URL，总是使用 POST 方法发送请求
-#      url: https://127.0.0.1/api/refresh
-#      # HTTP 请求头，允许使用模板
-#      headers:
-#        identityId: '{{.data.identityId}}'
-#        token: '{{.data.token}}'
-#      # 请求正文
-#      body: ''
+## 配置
 
-#重载全局配置
-application_conf: #Conf_key
-  incremental: true
-  url: http://localhost:9090/pull
-```
+登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
-## 全局HTTP提取配置
+在弹出的**源管理** / **创建**页面，进入如下配置：
 
-用户可以在此处指定全局 HTTP 提取设置。 `default` 部分中指定的配置项将用作所有HTTP 连接的默认设置。
+- **流名称**：输入流名称
 
-### url
+- **是否为带结构的流**：勾选确认是否为带结构的流，如为带结构的流，则需进一步添加流字段
 
-获取结果的 URL。
+  - **名称**：字段名称
+  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
 
-### method
-HTTP 方法，它可以是 post、get、put 和 delete。
+- **流类型**：选择 httppull
 
-### interval
+- **数据源**：指定URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
 
-请求之间的间隔时间，单位为 ms。
+- **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
 
-### timeout
+  - **名称**：输入配置组名称。
 
-http 请求的超时时间，单位为 ms。
+  - **路径**： 指定请求服务器的地址。
 
-### incremental
+  - **HTTP方法**：HTTP 请求方法，可以是 post、get、put 或 delete。
 
-如果将其设置为 true，则将与最后的结果进行比较； 如果两个请求的响应相同，则将跳过发送结果。
+  - **间隔时间**： 两次请求之间的时间间隔，单位为毫秒。
 
-### body
+  - **超时时间**： HTTP 请求的超时时间，单位为毫秒。
 
-请求的正文, 例如 `{"data": "data", "method": 1}`
+  - **递增**： 如果设置为 True，将会与上一次的结果进行比较；如果连续两次请求的响应相同，则不会发送新的结果。可选值：True/False。
 
-### bodyType
+  - **正文**：请求的正文，例如 `{"data": "data", "method": 1}`。
 
-正文类型,可以是 none|text|json|html|xml|javascript|form。
+  - **正文类型**： 正文类型，可以是 none、text、json、html、xml、javascript 或 form。
 
-### certificationPath
+  - **证书类型**：证书路径。可以为绝对路径，也可以为相对路径。如果指定的是相对路径，那么父目录为执行 server 命令的路径。
 
-证书路径。可以为绝对路径，也可以为相对路径。如果指定的是相对路径，那么父目录为执行 `kuiperd` 命令的路径。比如，如果你在 `/var/kuiper` 中运行 `bin/kuiperd` ，那么父目录为 `/var/kuiper`; 如果运行从`/var/kuiper/bin`中运行`./kuiperd`，那么父目录为 `/var/kuiper/bin`。 比如  `d3807d9fa5-certificate.pem`。
+  - **私钥路径**：私钥路径。可以为绝对路径，也可以为相对路径。
 
-### privateKeyPath
+  - **根证书路径**：根证书路径，用以验证服务器证书。可以为绝对路径，也可以为相对路径。
 
-私钥路径。可以为绝对路径，也可以为相对路径。更详细的信息，请参考 `certificationPath`，比如 `d3807d9fa5-private.pem.key`。
+  - **跳过证书验证**：控制是否跳过证书认证。如设置为 True，将跳过证书认证；否则进行证书验证。
 
-### rootCaPath
+  - **HTTP 标头**： 需要与 HTTP 请求一起发送的 HTTP 请求标头。可通过文本模式或可视化模式进行配置。
 
-根证书路径。可以为绝对路径，也可以为相对路径。
+  - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 ECP Edge 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 ECP Edge 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。
 
-### insecureSkipVerify 
-控制是否跳过证书认证。如果被设置为 `true`，那么跳过证书认证；否则进行证书验证。缺省为 `true`
+  - **oAuth**： 配置 OAuth 验证流程，关于 OAuth 的详细介绍，见 [OAuth](#OAuth)
 
-### headers
+    - access
+      - url：获取访问码的网址，总是使用 POST 方法访问。
+      - body：获取访问令牌的请求主体。通常情况下，可在这里提供授权码。
+      - expire：令牌的过期时间，时间单位是秒，允许使用模板，所以必须是一个字符串。
 
-需要与 HTTP 请求一起发送的 HTTP 请求标头。
+    - refresh
+      - url：刷新令牌的网址，总是使用 POST 方式请求。
+      - headers：用于刷新令牌的请求头。通常把令牌放在这里，用于授权。
+      - body：刷新令牌的请求主体。当使用头文件来传递刷新令牌时，可能不需要配置此选项。
 
-### 响应类型
+- **流格式**：支持 json、binary、protobuf、delimited、custom。
+- **时间戳字段**：指定代表时间的字段。
+- **时间戳格式**：指定时间戳格式。
+- **共享**：勾选确认是否共享源。
 
-定义如何解析 HTTP 响应。目前支持两种方式：
-- code：通过 HTTP 响应码判断响应状态。
-- body：通过 HTTP 响应正文判断响应状态。要求响应正文为 JSON 格式且其中包含 code
- 字段。
-
-### OAuth
+## OAuth
 
 定义类 OAuth 的认证流程。其他的认证方式如 apikey 可以直接在 headers 设置密钥，不需要使用这个配置。
 
@@ -122,29 +78,17 @@ OAuth 2.0 是一个授权协议，让 API 客户端有限度地访问网络服�
 
 需要配置两个部分：用于获取访问代码的 access 配置和用于令牌刷新的 refresh 配置。其中，refresh 配置是可选的，只有存在单独的刷新流程时才需要配置。
 
-#### access
+### access
 
-- url：获取访问码的网址，总是使用POST方法访问。
+- url：获取访问码的网址，总是使用 POST 方法访问。
 - body：获取访问令牌的请求主体。通常情况下，可在这里提供授权码。
 - expire：令牌的过期时间，时间单位是秒，允许使用模板，所以必须是一个字符串。
 
-#### refresh
+### refresh
 
-- url：刷新令牌的网址，总是使用POST方式请求。
+- url：刷新令牌的网址，总是使用 POST 方式请求。
 - headers：用于刷新令牌的请求头。通常把令牌放在这里，用于授权。
 - body：刷新令牌的请求主体。当使用头文件来传递刷新令牌时，可能不需要配置此选项。
 
-## 重载默认设置
 
-如果您有特定的连接需要重载默认设置，则可以创建一个自定义部分。 在上一个示例中，我们创建了一个名为 `application_conf` 的特定设置。 然后，您可以在创建流定义时使用选项 `CONF_KEY` 指定配置（有关更多信息，请参见 [流规格](../../../sqls/streams.md)）。
-
-**样例**
-
-```
-demo (
-		...
-	) WITH (DATASOURCE="test/", FORMAT="JSON", TYPE="httppull", KEY="USERID", CONF_KEY="application_conf");
-```
-
-这些特定设置所使用的配置键与 `default` 设置中的配置键相同，在特定设置中指定的任何值都将重载 `default` 部分中的值。
 
