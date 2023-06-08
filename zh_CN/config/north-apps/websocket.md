@@ -5,7 +5,7 @@ WebSocket 协议于 2011 年由 IETF 标准化为 [RFC 6455] 。
 其规范定义了两种方案，即 **ws**（WebSocket）和 **wss**（WebSocket Secure），分别用于非安全的和安全的连接。
 WebSocket 相对传统的轮询技术具有许多优点，包括较低的延迟、较少的网络流量和更好的可伸缩性。
 
-Neuron WebSocket 插件是一款商用的北向插件，使用户可以将采集的数据推送到 WebSocket 服务器上。
+ECP Edge WebSocket 插件是一款商用的北向插件，使用户可以将采集的数据推送到 WebSocket 服务器上。
 
 ## Parameters
 
@@ -22,7 +22,7 @@ Neuron WebSocket 插件是一款商用的北向插件，使用户可以将采集
 
 ## Data upload
 
-Neuron WebSocket 插件作为客户端， 将从设备采集到的数据作以 JSON 形式推送到由**服务器 URL** 参数指定的 WebSocket 服务器上。
+ECP Edge WebSocket 插件作为客户端， 将从设备采集到的数据作以 JSON 形式推送到由**服务器 URL** 参数指定的 WebSocket 服务器上。
 
 上报数据的格式由**上报数据格式**参数控制。有两种格式，即 *tags-format* 和 *values-format* 。
 这两种格式与 [MQTT 插件]的相同，请参阅 [MQTT API tags 格式]。

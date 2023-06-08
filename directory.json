@@ -298,7 +298,7 @@
         },
         {
           "title": "建立设备与 ECP Edge 的通信",
-          "path": "config/groups-tags/groups-tags",
+          "path": "config/groups-tags/groups-tags"
         },         
         {
           "title": "导入/导出点位配置",

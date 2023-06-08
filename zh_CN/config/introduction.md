@@ -41,4 +41,4 @@
 
 整体流程如下图所示：
 
-<img src="/Users/lena/Documents/GitHub/ecp-edge/zh_CN/configuration/assets/config.png" alt="配置步骤" style="zoom:40%;" />
+<img src="./_assets/config.png" alt="配置步骤" style="zoom:40%;" />

@@ -1,8 +1,8 @@
-# 概览
+# Sparkplug B 
 
 Sparkplug B 是一种建立在 MQTT 3.1.1 基础上的工业物联网数据传输规范。Sparkplug B 在保证灵活性和效率的前提下，使 MQTT 网络具备状态感知和互操作性，为设备制造商和软件提供商提供了统一的数据共享方式。
 
-Neuron 从设备采集到的数据可以通过 Sparkplug B 协议从边缘端传输到 Sparkplug B 应用中，用户也可以从应用程序向 Neuron 发送数据修改指令。Sparkplug B 是运行在 MQTT 之上的应用型协议，所以在 Neuron 中的设置与 MQTT 驱动相似。
+ECP Edge 从设备采集到的数据可以通过 Sparkplug B 协议从边缘端传输到 Sparkplug B 应用中，用户也可以从应用程序向 ECP Edge 发送数据修改指令。Sparkplug B 是运行在 MQTT 之上的应用型协议，所以在 ECP Edge 中的设置与 MQTT 驱动相似。
 
 ## 参数
 
@@ -22,5 +22,5 @@ Neuron 从设备采集到的数据可以通过 Sparkplug B 协议从边缘端传
 | **私钥密码**   | key 文件密码，只有在 ssl 值为 true 时启用                     |
 
 :::tip
-以上参数中只有 `组 ID` 和 `节点 ID` 来源于 Sparkplug B 规范，其余均为 MQTT Broker 的连接参数，可以参阅 [MQTT 概览](../mqtt/overview.md)。
+以上参数中只有 `组 ID` 和 `节点 ID` 来源于 Sparkplug B 规范，其余均为 MQTT Broker 的连接参数，可以参阅 [MQTT 概览](../mqtt/mqtt.md)。
 :::

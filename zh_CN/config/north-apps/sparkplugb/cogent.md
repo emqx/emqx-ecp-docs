@@ -14,9 +14,9 @@
 ![cogent1](./assets/cogent1.jpg)
 ![cogent2](./assets/cogent2.jpg)
 
-## Neuron 设置
+## ECP Edge 设置
 
-1. 在 Neuron **北向应用管理** 中添加一个 Sparkplug B 应用。
+1. 在 ECP Edge **北向应用管理** 中添加一个 Sparkplug B 应用。
 
 2. 在 **应用配置** 中填写 `客户端 ID`、`组 ID`、`节点 ID`、`服务器地址` 和 `服务器端口`, 点击 `提交` 并启动连接。
 ![ignition2](./assets/ignition2.jpg)

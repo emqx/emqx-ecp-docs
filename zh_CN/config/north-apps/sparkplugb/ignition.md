@@ -13,9 +13,9 @@
 
 5. 打开 **Config** -> **MQTT ENGINE/Setting** -> **Servers** -> **Setting**，点击 `Create new MQTT Server Setting...` 创建一个 `Name` 为 EMQX 的连接，`URL` 设置为 `tcp://localhost:1883`，点击 `Save Changes` 保存设置。
 
-## Neuron 设置
+## ECP Edge 设置
 
-1. 在 Neuron **北向应用管理** 中添加一个 Sparkplug B 应用。
+1. 在 ECP Edge **北向应用管理** 中添加一个 Sparkplug B 应用。
 
 2. 在 **应用配置** 中填写 `客户端 ID`、`组 ID`、`节点 ID`、`服务器地址` 和 `服务器端口`, 点击 `提交` 并启动连接。
 ![ignition2](./assets/ignition2.jpg)
