@@ -133,28 +133,6 @@
               ]
             },
             {
-              "title": "OPC DA",
-              "path": "config/south-devices/opc-da/overview",
-              "children": [
-                {
-                  "title": "NeuOPC 安装",
-                  "path": "config/south-devices/opc-da/install"
-                },
-                {
-                  "title": "NeuOPC 远程访问",
-                  "path": "config/south-devices/opc-da/remote"
-                },
-                {
-                  "title": "连接 NeuOPC",
-                  "path": "config/south-devices/opc-da/neuopc"
-                },
-                {
-                  "title": "常见问题",
-                  "path": "config/south-devices/opc-da/faq"
-                }
-              ]
-            },
-            {
               "title": "EtherNet/IP(CIP)",
               "path": "config/south-devices/ethernet-ip/ethernet-ip"
             },
@@ -283,16 +261,6 @@
             {
               "title": "ABB COMLI",
               "path": "config/south-devices/comli/comli"
-            },
-            {
-              "title": "Panasonic Mewtocol",
-              "path": "config/south-devices/panasonic-mewtocol/overview",
-              "children": [
-                {
-                  "title": "常见问题",
-                  "path": "config/south-devices/panasonic-mewtocol/faq"
-                }
-              ]
             }
           ]
         },
@@ -383,23 +351,23 @@
                   "path": "ekuiper/file"
                 },
                 {
-                  "title": "HTTP 提取源",
+                  "title": "HTTP Pull",
                   "path": "ekuiper/http_pull"
                 },
                 {
-                  "title": "HTTP Push源",
+                  "title": "HTTP Push",
                   "path": "ekuiper/http_push"
                 },
                 {
-                  "title": "MQTT 源",
+                  "title": "MQTT",
                   "path": "ekuiper/mqtt"
                 },
                 {
-                  "title": "Neuron 源",
+                  "title": "Neuron",
                   "path": "ekuiper/neuron"
                 },
                 {
-                  "title": "随机 源",
+                  "title": "Random",
                   "path": "ekuiper/random"
                 }
               ]
