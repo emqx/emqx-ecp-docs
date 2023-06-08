@@ -5,44 +5,6 @@
       "path": "./"
     },
     {
-      "title": "快速开始",
-      "path": "quick_start/quick_start"
-    },
-    {
-      "title": "安装部署",
-      "path": "install/introduction",
-      "children": [
-        {
-          "title": "Ubuntu/Debian",
-          "path": "install/Ubuntu"
-        },
-        {
-          "title": "CentOS",
-          "path": "install/CentOS"
-        },
-        {
-          "title": "其他 Linux",
-          "path": "install/Linux"
-        },
-        {
-          "title": "Docker",
-          "path": "install/Docker"
-        },
-        {
-          "title": "源代码",
-          "path": "install/source"
-        },
-        {
-          "title": "常见问题和故障排查",
-          "path": "install/check"
-        }
-      ]
-    },
-    {
-      "title": "监控/数据监控",
-      "path": "monitor/introduction"
-    },
-    {
       "title": "配置",
       "path": "config/introduction",
       "children": [
@@ -295,10 +257,6 @@
               "path": "config/north-apps/mqtt/mqtt",
               "children": [
                 {
-                  "title": "API",
-                  "path": "config/north-apps/mqtt/api"
-                },
-                {
                   "title": "常见问题",
                   "path": "config/north-apps/mqtt/faq"
                 }
@@ -333,6 +291,10 @@
           "path": "config/subscription"
         }
       ]
+    },
+    {
+      "title": "监控/数据监控",
+      "path": "monitor/introduction"
     },
     {
       "title": "数据流处理",
