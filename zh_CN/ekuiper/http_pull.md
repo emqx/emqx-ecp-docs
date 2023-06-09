@@ -1,10 +1,10 @@
-# HTTP 提取源
+# HTTP Pull 源
 
 <span style="background:green;color:white;">stream source</span>        <span style="background:green;color:white">scan table source</span>
 
-ECP Edge 默认支持 HTTP 提取源，该支持可从 HTTP 服务器代理提取消息并输入 ECP Edge，该类型可以作为流、扫描表的数据源。
+ECP Edge 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取消息并输入 ECP Edge，该类型可以作为流、扫描表的数据源。
 
-## 配置
+## 创建流
 
 登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
@@ -17,9 +17,9 @@ ECP Edge 默认支持 HTTP 提取源，该支持可从 HTTP 服务器代理提�
   - **名称**：字段名称
   - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
 
-- **流类型**：选择 httppull
+- **流类型**：选择 httppull。
 
-- **数据源**：指定URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
+- **数据源**：指定 URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
 
 - **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
 
@@ -27,7 +27,7 @@ ECP Edge 默认支持 HTTP 提取源，该支持可从 HTTP 服务器代理提�
 
   - **路径**： 指定请求服务器的地址。
 
-  - **HTTP方法**：HTTP 请求方法，可以是 post、get、put 或 delete。
+  - **HTTP 方法**：HTTP 请求方法，可以是 post、get、put 或 delete。
 
   - **间隔时间**： 两次请求之间的时间间隔，单位为毫秒。
 
@@ -67,6 +67,23 @@ ECP Edge 默认支持 HTTP 提取源，该支持可从 HTTP 服务器代理提�
 - **时间戳字段**：指定代表时间的字段。
 - **时间戳格式**：指定时间戳格式。
 - **共享**：勾选确认是否共享源。
+
+## 创建扫描表
+
+HTTP Pull 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
+
+- **表名称**：输入表名称
+- **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
+  - **名称**：字段名称
+  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
+- **表类型**：选择 httppull。
+- **数据源**：指定 URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
+- **配置组**：可使用默认配置组，如希望自定义配置组，可参考[创建流](#创建流)部分
+
+- **表格式**：支持 json、binary、delimited、custom。
+- **保留大小**：指定保留大小。
+
+您也可选择通过文本模式进行配置，通过 SQL 定义。
 
 ## OAuth
 
