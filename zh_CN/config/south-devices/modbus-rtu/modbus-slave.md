@@ -4,7 +4,7 @@
 
 ECP Edge  作为 Client，主动向 Modbus Slave 发起连接请求，用户需要保证 ECP Edge  -> Modbus Slave 的网络连通性。
 
-## 下载安装 Modbus Slave 模拟器
+## 安装 Modbus Slave 模拟器
 
 Modbus Slave 是一款 Modbus 从机模拟器，主要用于 Modbus 主设备开发者在获得物理设备之前，加快 PLC 程序开发与测试。
 
@@ -17,7 +17,7 @@ Modbus Slave 支持以下方式读写设备数据：
 
 安装 Modbus Slave 软件，安装包可从 [modbus tool 下载](https://www.modbustools.com/download.html) 页面，根据运行环境选择对应的安装包下载。软件提供30天的免费使用时长。免费时长阶段，连接10分钟会断开一次，断开之后需要重启软件。
 
-### 配置 Modbus Slave
+## 配置 Modbus Slave
 
 * 安装完成后，运行 Modbus Slave。
 * 进入菜单 **Connection -> Connect**，根据实际情况选择连接方式（本示例为 Modbus RTU Over TCP/IP），设置连接参数（监听 Port），然后点击 **OK** 完成配置，如下图所示。
@@ -28,8 +28,7 @@ Modbus Slave 支持以下方式读写设备数据：
 * 主界面中独立文档窗口就可以看到地址配置相关的数据信息显示。如果想要配置多个从机地址定义，点击 **File -> New** 新建文档窗口，重复上一步从机地址配置即可。在独立文档窗口双击表头为地址的表格项目可以对数据进行修改。
 * 如果需要同时模拟多个从设备，运行 Modbus Slave 多个实例，重复上述步骤即可。
 
-
-### 配置 ECP Edge 南向驱动 Client
+## 配置 ECP Edge 南向驱动 Client
 
 在南向驱动中，使用 Modbus RTU 插件新建一个名为 modbus-rtu-client 的节点，并进行驱动配置，如下图所示。
 

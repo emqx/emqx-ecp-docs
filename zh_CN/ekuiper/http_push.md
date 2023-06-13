@@ -8,7 +8,10 @@ ECP Edge 默认支持 HTTP 提取源，它作为一个 HTTP 服务器，可以�
 
 ## 服务器配置
 
-服务器配置在 `etc/kuiper.yaml` 中的 `source` 部分。<!--这里需要看下路径-->
+服务器配置在 `etc/kuiper.yaml` 中的 `source` 部分。
+:::warning
+【attention】这里的路径需要明确
+:::
 
 ```yaml
 source:

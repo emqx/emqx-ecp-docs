@@ -22,7 +22,7 @@ ECP Edge 支持 BACnet IP 协议，可以通过 UDP 协议与 BACnet 设备进�
 
 ### 地址格式
 
-> AREA ADDRESS</span>
+> <span>AREA ADDRESS</span>
 
 | 区域  | 地址范围      | 属性    | 数据类型 |  备注        |
 | ---- | ------------ | ------ | ------- | ----------- |

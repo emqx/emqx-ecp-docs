@@ -1,8 +1,12 @@
-## File
+# 文件（File）
 
-<span style="background:green;color:white;">stream source</span>      <span style="background:green;color:white">scan table source</span>
+<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
-ECP Edge 默认支持 File 类型数据源，File 类型可以作为流、扫描表的数据源，支持监控文件或文件夹。如果被监控的位置是一个文件夹，那么该文件夹中的所有文件必须是同一类型。当监测一个文件夹时，它将按照文件名的字母顺序来读取文件。
+ECP Edge 默认支持 File 类型数据源，File 类型可以作为流、扫描表的数据源，支持监控文件或文件夹。当监控对象为文件夹时，ECP Edge 会按照文件名的字母顺序来读取文件。
+::: tip
+
+如果被监控的位置是一个文件夹，该文件夹内的文件类型必须相同。
+:::
 
 支持的 File 类型有：
 
@@ -10,7 +14,7 @@ ECP Edge 默认支持 File 类型数据源，File 类型可以作为流、扫描
 - csv：支持逗号分隔的 csv 文件，也支持自定义分隔符。
 - lines：以行分隔的文件。每行的解码方法可以通过流定义中的 `format` 参数来定义。例如，对于一个按行分隔的 JSON 字符串文件，文件类型应设置为 `lines`，格式应设置为 `json`，表示单行的格式为 json。
 
-有些文件可能有大部分数据是标准格式，但在文件的开头和结尾行有一些元数据。用户可以使用`ignoreStartLines`和`ignoreEndLines`参数来删除非标准的开头和结尾的非标准部分，这样上述文件类型就可以被解析了。
+有些文件可能有大部分数据是标准格式，但在文件的开头和结尾行有一些元数据。用户可以使用 `ignoreStartLines` 和 `ignoreEndLines` 参数来删除非标准的开头和结尾的非标准部分，以便解析上述文件类型。
 
 ## 创建流
 

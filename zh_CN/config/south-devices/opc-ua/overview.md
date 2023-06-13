@@ -49,7 +49,7 @@ ECP Edge OPC UA 插件可作为客户端访问 KEPServerEX、Industrial Gateway 
 
 ## 地址格式
 
-> NS!NODEID</span>
+> <span>NS!NODEID</span>
 
 **NS** 名字空间索引。
 

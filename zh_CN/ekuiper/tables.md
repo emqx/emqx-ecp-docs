@@ -40,7 +40,7 @@ CREATE TABLE alertTable() WITH (DATASOURCE="0", TYPE="redis", KIND="lookup")
 | SCHEMAID   | 是   | 解码时使用的模式，目前仅在格式为 PROTOBUF 的情况下使用。     |
 | KEY        | true | 表的主键。例如，对于SQL源，用于指定SQL表中的主键。并非所有的源类型都支持该属性。 |
 | TYPE       | true | 源类型。每个源类型可以支持一种或两种表。请参考相关文件。     |
-| CONF_KEY   | 是   | 如果需要配置其他配置项，请在此处指定 config 键。 有关更多信息，请参见 [MQTT stream](../sources/builtin/mqtt.md) 。 |
+| CONF_KEY   | 是   | 如果需要配置其他配置项，请在此处指定 config 键。 有关更多信息，请参见 [MQTT](./mqtt.md) 。 |
 | KIND       | true | 表的种类，可以是 `scan` 或 `lookup`。如果没有指定，默认值是`scan`。 |
 
 ## 使用场景
