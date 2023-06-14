@@ -302,16 +302,16 @@
       "children": []
     },
     {
-      "title": "源管理",
+      "title": "数据源",
       "path": "ekuiper/source",
       "collapsed": "true",
       "children": [
         {
-          "title": "流",
+          "title": "数据流",
           "path": "ekuiper/stream"
         },
         {
-          "title": "表",
+          "title": "数据表",
           "path": "ekuiper/tables",
           "children": [
             {
