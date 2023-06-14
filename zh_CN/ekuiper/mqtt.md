@@ -1,6 +1,6 @@
 # MQTT源
 
-<span style="background:green;color:white;">stream source</span>        <span style="background:green;color:white">scan table source</span>
+<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
 ECP Edge 为 MQTT 源流提供了内置支持，流可以订阅来自 MQTT 代理的消息并输入 ECP Edge  处理。
 

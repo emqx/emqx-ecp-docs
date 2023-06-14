@@ -1,6 +1,6 @@
 # 内存源
 
-<span style="background:green;color:white;">stream source</span>        <span style="background:green;color:white">scan table source</span>        <span style="background:green;color:white">lookup table source</span>
+<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>  <span style="background:green;color:white">查询表</span>
 
 内存源通过主题消费由内存目标生成的事件。该主题类似于 pubsub 主题，例如 mqtt，因此可能有多个内存目标发布到同一主题，也可能有多个内存源订阅同一主题。 内存动作的典型用途是形成规则管道。内存动作和内存源之间的数据传输采用内部格式，不经过编解码以提高效率。因此，内存源的`format`属性会被忽略。
 
@@ -56,7 +56,7 @@
 
 内存源支持查询表。在创建一个内存查询表后，它将开始积累由键字段索引的内存主题的数据。它将一直独立于规则运行。每个主题和键对将有一个虚拟表的内存拷贝。所有引用同一表或具有相同主题/键对的内存表的规则将共享同一数据副本。它可以在内存中存储任何流类型的历史，以便其他流可以与之合作。
 
-登录 ECP Edge，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建查询表**。
+登录 ECP Edge，点击**数据流处理** -> **源管理**。在**查询表**页签，点击**创建查询表**。
 
 - **表名称**：输入表名称
 - **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段

@@ -1,6 +1,6 @@
 # HTTP Push 源
 
-<span style="background:green;color:white;">stream source</span>        <span style="background:green;color:white">scan table source</span>
+<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
 ECP Edge 默认支持 HTTP 提取源，它作为一个 HTTP 服务器，可以接收来自 HTTP 客户端的消息。所有的 HTTP 推送源共用单一的全局 HTTP 数据服务器。每个源可以有自己的 URL，这样就可以支持多个端点。该类型可以作为流、扫描表的数据源。
 

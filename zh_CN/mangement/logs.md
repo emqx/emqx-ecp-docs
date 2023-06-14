@@ -1,8 +1,14 @@
 # 管理日志
 
+::: warning
+
+这个页面需要整体更新
+
+:::
+
 ## 下载日志
 
-Neuron 在 2.3 版本中已支持在 web 页面一键下载所有日志文件的功能，如下图所示。
+ECP Edge 支持在 web 页面一键下载所有日志文件的功能，如下图所示。
 
 ![download_log](./assets/download_log.png)
 

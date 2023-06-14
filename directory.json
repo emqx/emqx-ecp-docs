@@ -3,7 +3,7 @@
     {
       "title": "产品概览",
       "path": "./",
-      "children":[]
+      "children": []
     },
     {
       "title": "插件列表",
@@ -12,18 +12,18 @@
     {
       "title": "配置",
       "path": "config/introduction",
-      "children":[]
+      "children": []
     },
-      {
-       "title": "插件管理",
-       "path": "config/ecp_edge_plugin",
-       "children":[]
-      },
-     {
-       "title": "创建南向驱动",
-       "path": "config/south-devices/south-devices",
-       "collapsed": "true",
-        "children": [
+    {
+      "title": "插件管理",
+      "path": "config/ecp_edge_plugin",
+      "children": []
+    },
+    {
+      "title": "创建南向驱动",
+      "path": "config/south-devices/south-devices",
+      "collapsed": "true",
+      "children": [
         {
           "title": "File",
           "path": "config/south-devices/file/file"
@@ -290,7 +290,7 @@
     {
       "title": "订阅南向数据",
       "path": "config/subscription",
-      "children":[]
+      "children": []
     },
     {
       "title": "数据监控",
@@ -313,7 +313,7 @@
         {
           "title": "表",
           "path": "ekuiper/tables",
-          "children":[
+          "children": [
             {
               "title": "扫描表",
               "path": "ekuiper/scan"
@@ -343,17 +343,21 @@
         {
           "title": "Neuron",
           "path": "ekuiper/neuron"
+        },
+        {
+          "title": "Redis",
+          "path": "ekuiper/redis"
         }
       ]
-    },  
+    },
     {
-          "title": "规则管理",
-          "path": "ekuiper/rules"
+      "title": "规则管理",
+      "path": "ekuiper/rules"
     },
     {
       "title": "高级应用",
       "path": "customize",
-      "children":[
+      "children": [
         {
           "title": "拓展",
           "path": "ekuiper/extension"

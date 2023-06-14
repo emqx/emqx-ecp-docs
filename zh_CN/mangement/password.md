@@ -2,7 +2,7 @@
 
 进入**管理->修改密码**页面，可修改登录密码，如下图所示。
 
-![change_password](/Users/lena/Documents/GitHub/Lena Pan/neuron-docs/zh_CN/usage/admin/assets/change_password.png)
+![change_password](./assets/change_password.png)
 
 若用户忘记密码，可通过执行指令重置密码(默认0000)。
 
@@ -10,3 +10,8 @@
 ./neuron --reset-password
 ```
 
+::: warning
+
+【attention】界面需要更换，强制更改密码的命令怎么更新
+
+:::

@@ -1,6 +1,6 @@
 # HTTP Pull 源
 
-<span style="background:green;color:white;">stream source</span>        <span style="background:green;color:white">scan table source</span>
+<span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
 ECP Edge 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取消息并输入 ECP Edge，该类型可以作为流、扫描表的数据源。
 

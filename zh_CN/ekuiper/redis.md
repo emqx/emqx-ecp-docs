@@ -1,6 +1,6 @@
-## Redis 源
+# Redis 源
 
-<span style="background:green;color:white">lookup table source</span>
+<span style="background:green;color:white">查询表</span>
 
 eKuiper 提供了对 redis 中数据查询的内置支持。请注意，现在 redis 源只能作为一个查询表使用。不支持流和扫描表。
 
@@ -8,18 +8,32 @@ eKuiper 提供了对 redis 中数据查询的内置支持。请注意，现在 r
 create table table1 () WITH (DATASOURCE="0", FORMAT="json", TYPE="redis", KIND="lookup");
 ```
 
+::: warning
+
 您可以使用 [cli](../../../api/cli/tables.md) 或 [rest api](../../../api/restapi/tables.md) 来管理表。
 
-Redis 源的配置文件是 */etc/sources/redis.yaml* ，可以在其中指定 redis 的连接信息等属性。
+【attention】还需要保留吗？
 
-```yaml
-default:
-  # the redis host address
-  addr: "127.0.0.1:6379"
-  # currently supports string and list only
-  datatype: "string"
-#  username: ""
-#  password: ""
-```
+:::
 
-在这个 yaml 文件的配置中，表将引用的 redis 实例地址是127.0.0.1:6379。值的类型是 "string"。
+## 创建查询表
+
+Redis 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源管理**。在**查询表**页签，点击**创建查询表**。
+
+- **表名称**：输入表名称
+- **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段
+  - **名称**：字段名称
+  - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
+- **表类型**：选择 redis
+- **数据源**（主题）：将要订阅的内存主题， 例如 topic1。类似 MQTT 主题。
+- **配置组**：可使用默认配置组，也可点击添加配置组按钮，按照如下说明进行配置。设置完成后，可点击**测试连接**进行测试：
+  - **名称**：输入配置组名称
+  - **地址**：Redis的地址, 例如: 10.122.48.17:6379
+  - **用户名**：Redis 用户名
+  - **密码**：Redis 登录密码
+  - **数据类型**：选择 string 或者 list
+
+- **表格式**：支持 json、binary、delimited、custom。
+- **主键**：指定主键。
+
+您也可选择通过文本模式进行配置，通过 SQL 定义。
