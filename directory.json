@@ -298,98 +298,98 @@
     },
     {
       "title": "数据流处理",
-      "path": "ekuiper/overview",
+      "path": "streaming-processing/overview",
       "children": []
     },
     {
       "title": "数据源",
-      "path": "ekuiper/source",
+      "path": "streaming-processing/source",
       "collapsed": "true",
       "children": [
         {
           "title": "数据流",
-          "path": "ekuiper/stream"
+          "path": "streaming-processing/stream"
         },
         {
           "title": "数据表",
-          "path": "ekuiper/tables",
+          "path": "streaming-processing/tables",
           "children": [
             {
               "title": "扫描表",
-              "path": "ekuiper/scan"
+              "path": "streaming-processing/scan"
             },
             {
               "title": "查询表",
-              "path": "ekuiper/lookup"
+              "path": "streaming-processing/lookup"
             }
           ]
         },
         {
           "title": "文件",
-          "path": "ekuiper/file"
+          "path": "streaming-processing/file"
         },
         {
           "title": "HTTP Pull",
-          "path": "ekuiper/http_pull"
+          "path": "streaming-processing/http_pull"
         },
         {
           "title": "HTTP Push",
-          "path": "ekuiper/http_push"
+          "path": "streaming-processing/http_push"
         },
         {
           "title": "MQTT",
-          "path": "ekuiper/mqtt"
+          "path": "streaming-processing/mqtt"
         },
         {
           "title": "Neuron",
-          "path": "ekuiper/neuron"
+          "path": "streaming-processing/neuron"
         },
         {
           "title": "Redis",
-          "path": "ekuiper/redis"
+          "path": "streaming-processing/redis"
         }
       ]
     },
     {
       "title": "规则管理",
-      "path": "ekuiper/rules"
+      "path": "streaming-processing/rules"
     },
     {
       "title": "数据汇",
-      "path": "ekuiper/sink/sink",
+      "path": "streaming-processing/sink/sink",
       "collapsed": "true",
       "children": [
         {
           "title": "MQTT Sink",
-          "path": "ekuiper/sink/mqtt"
+          "path": "streaming-processing/sink/mqtt"
         },
         {
           "title": "Neuron Sink",
-          "path": "ekuiper/sink/neuron"
+          "path": "streaming-processing/sink/neuron"
         },
         {
           "title": "EdgeX Sink",
-          "path": "ekuiper/sink/edgex"
+          "path": "streaming-processing/sink/edgex"
         },
         {
           "title": "REST Sink",
-          "path": "ekuiper/sink/rest"
+          "path": "streaming-processing/sink/rest"
         },
         {
           "title": "Redis Sink",
-          "path": "ekuiper/sink/redis"
+          "path": "streaming-processing/sink/redis"
         },
         {
           "title": "File Sink",
-          "path": "ekuiper/sink/file"
+          "path": "streaming-processing/sink/file"
         },
         {
           "title": "Memory Sink",
-          "path": "ekuiper/sink/memory"
+          "path": "streaming-processing/sink/memory"
         },
         {
           "title": "Log Sink",
-          "path": "ekuiper/sink/log"
+          "path": "streaming-processing/sink/log"
         },
         {
           "title": "File Sink",
@@ -403,11 +403,11 @@
       "children": [
         {
           "title": "拓展",
-          "path": "ekuiper/extension"
+          "path": "streaming-processing/extension"
         },
         {
           "title": "配置管理",
-          "path": "ekuiper/configuration"
+          "path": "streaming-processing/config"
         }
       ]
     },
@@ -497,23 +497,23 @@
     },
     {
       "title": "Data Streaming Configuration",
-      "path": "ekuiper/introduction",
+      "path": "streaming-processing/introduction",
       "children": [
         {
           "title": "Streaming Mangement",
-          "path": "ekuiper/stream"
+          "path": "streaming-processing/stream"
         },
         {
           "title": "Rules Mangement",
-          "path": "ekuiper/rules"
+          "path": "streaming-processing/rules"
         },
         {
           "title": "Data Streaming Plugins Mangement",
-          "path": "ekuiper/ekuiper_plugin"
+          "path": "streaming-processing/ekuiper_plugin"
         },
         {
           "title": "Template Mangement",
-          "path": "ekuiper/ekuiper_template"
+          "path": "streaming-processing/ekuiper_template"
         }
       ]
     },
