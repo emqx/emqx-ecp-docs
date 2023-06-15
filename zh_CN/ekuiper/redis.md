@@ -2,19 +2,7 @@
 
 <span style="background:green;color:white">查询表</span>
 
-eKuiper 提供了对 redis 中数据查询的内置支持。请注意，现在 redis 源只能作为一个查询表使用。不支持流和扫描表。
-
-```text
-create table table1 () WITH (DATASOURCE="0", FORMAT="json", TYPE="redis", KIND="lookup");
-```
-
-::: warning
-
-您可以使用 [cli](../../../api/cli/tables.md) 或 [rest api](../../../api/restapi/tables.md) 来管理表。
-
-【attention】还需要保留吗？
-
-:::
+eKuiper 提供了对 redis 中数据查询的内置支持。请注意，现在 redis 源只能作为查询表使用。
 
 ## 创建查询表
 
@@ -32,8 +20,10 @@ Redis 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源�
   - **用户名**：Redis 用户名
   - **密码**：Redis 登录密码
   - **数据类型**：选择 string 或者 list
-
 - **表格式**：支持 json、binary、delimited、custom。
+  - 如选择 custom，还应配置对应的[模式和模式消息](./config.md#模式)
+  - 如选择 delimited，还应配置分隔符，如 ","
+
 - **主键**：指定主键。
 
 您也可选择通过文本模式进行配置，通过 SQL 定义。

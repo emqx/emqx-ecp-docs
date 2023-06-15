@@ -355,6 +355,49 @@
       "path": "ekuiper/rules"
     },
     {
+      "title": "数据汇",
+      "path": "ekuiper/sink/sink",
+      "collapsed": "true",
+      "children": [
+        {
+          "title": "MQTT Sink",
+          "path": "ekuiper/sink/mqtt"
+        },
+        {
+          "title": "Neuron Sink",
+          "path": "ekuiper/sink/neuron"
+        },
+        {
+          "title": "EdgeX Sink",
+          "path": "ekuiper/sink/edgex"
+        },
+        {
+          "title": "REST Sink",
+          "path": "ekuiper/sink/rest"
+        },
+        {
+          "title": "Redis Sink",
+          "path": "ekuiper/sink/redis"
+        },
+        {
+          "title": "File Sink",
+          "path": "ekuiper/sink/file"
+        },
+        {
+          "title": "Memory Sink",
+          "path": "ekuiper/sink/memory"
+        },
+        {
+          "title": "Log Sink",
+          "path": "ekuiper/sink/log"
+        },
+        {
+          "title": "File Sink",
+          "path": "Nop/sink/nop"
+        }
+      ]
+    },
+    {
       "title": "高级应用",
       "path": "customize",
       "children": [

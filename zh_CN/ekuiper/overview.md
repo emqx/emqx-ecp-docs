@@ -1,6 +1,18 @@
 # 数据流处理
 
+::: danger
+
+图片看下是否需要按照 ecp edge 的样式更新
+
+:::
+
 在边缘侧，大部分数据都是以连续流的形式诞生，如传感器事件等。随着物联网的广泛应用，越来越多的边缘计算节点需要访问云网络并产生大量的数据。为了降低通信成本，减少云端的数据量，同时提高数据处理的实时性，达到本地及时响应的目的，同时在网络断开的情况下进行本地及时数据处理，ECP Edge 支持在边缘进行实时的流处理。
+
+## 架构
+
+ECP Edge 数据流处理部分的架构如下：
+
+![arch](./_assets/arch.png)
 
 ## 流处理的特点
 
@@ -18,7 +30,15 @@
 
 [源](./source.md)提供了与外部系统的连接，以便将数据加载进来。在规则中，根据数据使用逻辑，数据源可作为流或者表使用。 
 
-目前 ECP Edge 支持以下数据源：
+- [流](./stream.md)：流是 ECP Edge 中数据源连接器的运行形式，用户可通过指定源类型来定义如何连接到外部资源。流的作用就像规则的触发器，每个事件都会触发规则中的计算。
+
+- [表](./tables.md)：表 （**Table**） 用于表示流的当前状态。它可以被认为是流的快照，您可通过表对数据进行批处理。
+
+  - [扫描表](./scan.md)：像一个由事件驱动的流一样，逐个加载数据事件。该模式的源可以用在流或扫描表中。
+
+  - [查找表](./lookup.md)：在需要时引用外部内容，只用于查找表。
+
+目前 ECP Edge 内置以下数据源：
 
 - [File](./file.md)：从文件中读取数据，通常用作表格，可以作为流、扫描表的数据源；
 - [HTTP pull](./http_pull.md)：从 HTTP 服务器中拉取数据，可以作为流、扫描表的数据源；
@@ -28,17 +48,20 @@
 - [Neuron](./neuron.md): 从本地 Neuron 实例读取数据，可以作为流、扫描表的数据源；
 - [Redis](./redis.md)：从 Redis 中查询数据，可以作为查询表的数据源。
 
-关于数据加载机制，有两种模式：
+### [规则](./rules.md)
 
-- [扫描](./scan.md)：像一个由事件驱动的流一样，逐个加载数据事件。该模式的源可以用在流或扫描表中。
-- [查找](./lookup.md)：在需要时引用外部内容，只用于查找表。
+规则代表了一个流处理流程，定义了从将数据输入流的数据源、到各种处理逻辑，再到将数据输入到外部系统的动作。您可通过两种方法来定义规则的业务逻辑，可视化模式或文本模式，在
 
-### 规则
-
-规则代表了一个流处理流程，定义了从将数据输入流的数据源、到各种处理逻辑，再到将数据输入到外部系统的动作。您可通过两种方法来定义规则的业务逻辑，可视化模式或文本模式。具体请阅读
-
-- [可视化方式创建规则](./rules.md)
-- [通过 SQL 创建规则](./sql.md)
+- [Sink](./sink.md)：在 ECP Edge，Sink 用来向外部系统写入数据，分为内置动作和扩展动作两类。
+  - [Mqtt sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/mqtt.html)：输出到外部 mqtt 服务。
+  - [Neuron sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/neuron.html)：输出到本地的 Neuron 实例。
+  - [EdgeX sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/edgex.html)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
+  - [Rest sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/rest.html)：输出到外部 http 服务器。
+  - [Redis sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/redis.html): 写入 Redis 。
+  - [File sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/file.html)： 写入文件。
+  - [Memory sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/memory.html)：输出到 eKuiper 内存主题以形成规则管道。
+  - [Log sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/log.html)：写入日志，通常只用于调试。
+  - [Nop sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/nop.html)：不输出，用于性能测试。
 
 ### 拓展
 
@@ -46,5 +69,5 @@ ECP Edge 允许用户自定义扩展，以支持更多功能。 用户可以通�
 
 ### 配置
 
-[配置](./configuration.md)页面介绍如何进行资源配置，如配置组和传输与存储模版、连接、模式以及文件管理。
+[配置](./config.md)页面介绍如何进行资源配置，如配置组和传输与存储模版、连接、模式以及文件管理。
 
