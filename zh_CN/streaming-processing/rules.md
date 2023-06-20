@@ -40,7 +40,7 @@ ECP Edge 支持通过批量导入规则，或通过 Web 界面创建规则。
   GROUP BY demo.temperature, HOPPINGWINDOW(ss, 20, 10)
   ```
 
-## 添加动作
+## 添加 Sink
 
 动作部分定义了一个规则的输出行为。每个规则可以有多个动作。一个动作是一个 sink 连接器的实例。当定义动作时，键是 sink 连接器的类型名称，而值是其属性。
 

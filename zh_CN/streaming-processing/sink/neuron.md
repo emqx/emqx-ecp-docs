@@ -46,7 +46,7 @@
 
 - **数据模版**：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [eKuiper - 数据模版](https://ekuiper.org/docs/zh/latest/guide/sinks/data_template.html)
 
-## 高级配置
+## 通用配置
 
 您可点击展开**高级**部分实现更加定制化的设置。
 
@@ -63,3 +63,75 @@
 
 完成设置后，可点击**测试连接**确认连接情况。最后点击**提交**，完成设置。
 
+## 示例
+
+假设接收到的结果如下所示：
+
+```json
+{
+  "temperature": 25.2,
+  "humidity": 72,
+  "status": "green",
+  "node": "myNode"
+}
+```
+
+### 发送选定的标签
+
+以下的示例 neuron 配置中，`raw` 参数为空，因此该动作将根据用户配置的其他参数将结果转换为 neuron 的默认格式。`tags` 参数指定了需要发送的标签的名字。
+
+```json
+{
+  "neuron": {
+    "groupName": "group1",
+    "nodeName": "node1",
+    "tags": ["temperature","humidity"]
+  }
+}
+```
+
+这个配置将发送两个标签 temperature 和 humidity 到 group1 组 node1 节点。
+
+### 发送所有列
+
+以下的配置中没有指定 `tags` 参数，因此所有结果中的列将作为标签发送。
+
+```json
+{
+  "neuron": {
+    "groupName": "group1",
+    "nodeName": "node1"
+  }
+}
+```
+
+这个配置将发送四个标签 temperature， humidity， status 和 node 到 group1 组 node1 节点。
+
+### 发送到动态的节点
+
+在此配置中，`nodeName` 设置为一个数据模板，从结果里提取 `node` 列的值作为发送的节点名。
+
+```json
+{
+  "neuron": {
+    "groupName": "group1",
+    "nodeName": "{{.node}}",
+    "tags": ["temperature","humidity"]
+  }
+}
+```
+
+这个配置将发送两个标签 temperature 和 humidity 到 group1 组 myNode 节点。
+
+### 发送原始字符串数据
+
+以下配置中，数据模板转换后的字符串数据将直接发送到 neuron 中。
+
+```json
+{
+  "neuron": {
+    "raw": true,
+    "dataTemplate": "your template here"
+  }
+}
+```
