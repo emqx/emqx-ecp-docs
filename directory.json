@@ -10,13 +10,9 @@
       "path": "./intro/plugin-list"
     },
     {
-      "title": "配置",
+      "title": "数据采集配置",
       "path": "config/introduction",
-      "children": []
-    },
-    {
-      "title": "南向驱动",
-      "children":[
+      "children": [
         {
           "title": "创建南向驱动",
           "path": "config/south-devices/south-devices",
@@ -242,59 +238,54 @@
               "path": "config/import-export"
             }
           ]
+        },
+        {
+          "title": "创建北向应用",
+          "path": "config/north-apps/north-apps",
+          "collapsed": "true",
+          "children": [
+            {
+              "title": "MQTT 插件",
+              "path": "config/north-apps/mqtt/mqtt"
+            },
+            {
+              "title": "eKuiper 插件",
+              "path": "config/north-apps/ekuiper/ekuiper"
+            },
+            {
+              "title": "Sparkplug B 插件",
+              "path": "config/north-apps/sparkplugb/sparkplugb",
+              "collapsed": "true",
+              "children": [
+                {
+                  "title": "连接 Ignition",
+                  "path": "config/north-apps/sparkplugb/ignition"
+                },
+                {
+                  "title": "连接 Cogent",
+                  "path": "config/north-apps/sparkplugb/cogent"
+                },
+                {
+                  "title": "常见问题",
+                  "path": "config/north-apps/sparkplugb/faq"
+                }
+              ]
+            },
+            {
+              "title": "WebSocket 客户端",
+              "path": "config/north-apps/websocket"
+            },
+            {
+              "title": "数据统计与监控",
+              "path": "config/north-apps/monitor"
+            }
+          ]
+        },
+        {
+          "title": "订阅南向数据",
+          "path": "config/subscription"
         }
       ]
-    },
-    {"title": "北向应用",
-     "children":[
-      {
-        "title": "创建北向应用",
-        "path": "config/north-apps/north-apps",
-        "collapsed": "true",
-        "children": [
-          {
-            "title": "MQTT 插件",
-            "path": "config/north-apps/mqtt/mqtt"
-          },
-          {
-            "title": "eKuiper 插件",
-            "path": "config/north-apps/ekuiper/ekuiper"
-          },
-          {
-            "title": "Sparkplug B 插件",
-            "path": "config/north-apps/sparkplugb/sparkplugb",
-            "collapsed": "true",
-            "children": [
-              {
-                "title": "连接 Ignition",
-                "path": "config/north-apps/sparkplugb/ignition"
-              },
-              {
-                "title": "连接 Cogent",
-                "path": "config/north-apps/sparkplugb/cogent"
-              },
-              {
-                "title": "常见问题",
-                "path": "config/north-apps/sparkplugb/faq"
-              }
-            ]
-          },
-          {
-            "title": "WebSocket 客户端",
-            "path": "config/north-apps/websocket"
-          },
-          {
-            "title": "数据统计与监控",
-            "path": "config/north-apps/monitor"
-          }
-        ]
-      },
-      {
-        "title": "订阅南向数据",
-        "path": "config/subscription",
-        "children": []
-      }
-     ]
     },
     {
       "title": "数据监控",
@@ -303,112 +294,107 @@
     {
       "title": "数据流处理",
       "path": "streaming-processing/overview",
-      "children": []
-    },
-    {
-      "title": "数据源",
-      "path": "streaming-processing/source",
-      "collapsed": "true",
       "children": [
         {
-          "title": "数据流",
-          "path": "streaming-processing/stream"
-        },
-        {
-          "title": "数据表",
-          "path": "streaming-processing/tables",
+          "title": "数据源",
+          "path": "streaming-processing/source",
+          "collapsed": "true",
           "children": [
             {
-              "title": "扫描表",
-              "path": "streaming-processing/scan"
+              "title": "数据流",
+              "path": "streaming-processing/stream"
             },
             {
-              "title": "查询表",
-              "path": "streaming-processing/lookup"
+              "title": "数据表",
+              "path": "streaming-processing/tables",
+              "children": [
+                {
+                  "title": "扫描表",
+                  "path": "streaming-processing/scan"
+                },
+                {
+                  "title": "查询表",
+                  "path": "streaming-processing/lookup"
+                }
+              ]
+            },
+            {
+              "title": "文件",
+              "path": "streaming-processing/file"
+            },
+            {
+              "title": "内存",
+              "path": "streaming-processing/memory"
+            },
+            {
+              "title": "HTTP Pull",
+              "path": "streaming-processing/http_pull"
+            },
+            {
+              "title": "HTTP Push",
+              "path": "streaming-processing/http_push"
+            },
+            {
+              "title": "MQTT",
+              "path": "streaming-processing/mqtt"
+            },
+            {
+              "title": "Neuron",
+              "path": "streaming-processing/neuron"
+            },
+            {
+              "title": "Redis",
+              "path": "streaming-processing/redis"
             }
           ]
         },
         {
-          "title": "文件",
-          "path": "streaming-processing/file"
-        },
-                {
-          "title": "内存",
-          "path": "streaming-processing/memory"
+          "title": "规则管理",
+          "path": "streaming-processing/rules"
         },
         {
-          "title": "HTTP Pull",
-          "path": "streaming-processing/http_pull"
+          "title": "数据汇（Sink）",
+          "path": "streaming-processing/sink/sink",
+          "collapsed": "true",
+          "children": [
+            {
+              "title": "MQTT Sink",
+              "path": "streaming-processing/sink/mqtt"
+            },
+            {
+              "title": "Neuron Sink",
+              "path": "streaming-processing/sink/neuron"
+            },
+            {
+              "title": "EdgeX Sink",
+              "path": "streaming-processing/sink/edgex"
+            },
+            {
+              "title": "REST Sink",
+              "path": "streaming-processing/sink/rest"
+            },
+            {
+              "title": "Redis Sink",
+              "path": "streaming-processing/sink/redis"
+            },
+            {
+              "title": "文件 Sink",
+              "path": "streaming-processing/sink/file"
+            },
+            {
+              "title": "内存 Sink",
+              "path": "streaming-processing/sink/memory"
+            },
+            {
+              "title": "Log Sink",
+              "path": "streaming-processing/sink/log"
+            },
+            {
+              "title": "File Sink",
+              "path": "Nop/sink/nop"
+            }
+          ]
         },
-        {
-          "title": "HTTP Push",
-          "path": "streaming-processing/http_push"
-        },
-        {
-          "title": "MQTT",
-          "path": "streaming-processing/mqtt"
-        },
-        {
-          "title": "Neuron",
-          "path": "streaming-processing/neuron"
-        },
-        {
-          "title": "Redis",
-          "path": "streaming-processing/redis"
-        }
-      ]
-    },
-    {
-      "title": "规则管理",
-      "path": "streaming-processing/rules"
-    },
-    {
-      "title": "数据汇（Sink）",
-      "path": "streaming-processing/sink/sink",
-      "collapsed": "true",
-      "children": [
-        {
-          "title": "MQTT Sink",
-          "path": "streaming-processing/sink/mqtt"
-        },
-        {
-          "title": "Neuron Sink",
-          "path": "streaming-processing/sink/neuron"
-        },
-        {
-          "title": "EdgeX Sink",
-          "path": "streaming-processing/sink/edgex"
-        },
-        {
-          "title": "REST Sink",
-          "path": "streaming-processing/sink/rest"
-        },
-        {
-          "title": "Redis Sink",
-          "path": "streaming-processing/sink/redis"
-        },
-        {
-          "title": "文件 Sink",
-          "path": "streaming-processing/sink/file"
-        },
-        {
-          "title": "内存 Sink",
-          "path": "streaming-processing/sink/memory"
-        },
-        {
-          "title": "Log Sink",
-          "path": "streaming-processing/sink/log"
-        },
-        {
-          "title": "File Sink",
-          "path": "Nop/sink/nop"
-        }
-      ]
-    },
-    {
-      "title": "高级应用",
-      "path": "customize",
-      "children": [
         {
           "title": "拓展",
           "path": "streaming-processing/extension"
