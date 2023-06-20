@@ -16,6 +16,12 @@
 
 在弹出的页面，进行如下设置：
 
+:::tip
+
+如希望将传输与存储设置保存为模版，也可点击 **添加传输与存储模版** 在弹出的窗口中进行设置。新添加的模版将自动添加到**传输与存储模版**列表，您可点击 **数据流处理** -> **配置** -> **资源** 的 **传输与存储模版** 查看或编辑已有的传输与存储模版。
+
+:::
+
 - **名称**：输入名称
 - **协议**：协议，默认值为 `redis` 
 - **绑定主机**：消息总线主机地址，默认值为 `localhost` 。
@@ -31,7 +37,7 @@
 - **设备名称**：指定设备名称，该名称将作为从 ECP Edge 中发出的 Event 结构体的设备名称。
 - **Profile 名称**：指定从 ECP Edge 中发出的 Event 结构体的 profile 名称。若在**元数据字段名**中设置了 Profile 名称，将会优先采用。
 - **源名称**：指定从 ECP Edge 中发出的 Event 结构体的源名称。若在**元数据字段名**中设置了源名称，将会优先采用。
-- **选项**：如消息总线类型使用了 MQTT 消息总线，还可以指定别的一些可选配置项。请注意，所有在可选的配置项里指定的值都必须为**字符类型**，因此这里出现的所有的配置应该是字符类型的 - 例如 KeepAlive: "5000"。
+- **选项**：如**消息总线类型**设为 **MQTT**，还可通过键值对的形式指定其他一些可选配置项，例如 `KeepAlive: "5000"`。请注意，所有可选配置项的值都必须为**字符类型**。
 - **是否忽略输出**：可选值 True、False，默认为 False，则忽略输出。
 - **将结果数据按条发送**：
 
@@ -42,56 +48,45 @@
   - 如选择 delimited，还应配置分隔符，如 ","
 - **数据模版**：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [eKuiper - 数据模版](https://ekuiper.org/docs/zh/latest/guide/sinks/data_template.html)
 
-
-
-:::tip
-
-如希望将传输与存储设置保存为模版，也可点击 **添加传输与存储模版** 在弹出的窗口中进行设置。新添加的模版将自动添加到**传输与存储模版**列表，您可点击 **数据流处理** -> **配置** -> **资源** 的 **传输与存储模版** 查看或编辑已有的传输与存储模版。
-
-:::
-
-
-
-| 名称                 | 可选  | Description                                                                                                                                                                    |
-|--------------------|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type               | 是   | 消息总线类型，目前支持三种类型的消息总线， `redis`, `zero` 或者 `mqtt`，其中 `redis` 为缺省类型。                                                                                                              |
-| protocol           | 是   | 协议，如未指定，使用缺省值 `tcp` 。                                                                                                                                                          |
-| host               | 是   | 消息总线主机地址，使用缺省值 `*` 。                                                                                                                                                           |
-| port               | 是   | 消息总线端口号。 如未指定，使用缺省值 `5563` 。                                                                                                                                                   |
-| connectionSelector | 是   | 重用到 EdgeX 消息总线的连接，详细信息，[请参考](../../sources/builtin/edgex.md#connectionselector)                                                                                                |
-| topic              | 是   | 发布的主题名称。该主题为固定值。若不同的消息需要动态指定主题，则将该属性置空，并设置 topicPrefix 属性。这两个属性只能设置一个。若两者都未设置，则使用缺省主题 `application` 。                                                                          |
-| topicPrefix        | 是   | 发布的主题的前缀。发送的主题将采用动态拼接，格式为`$topicPrefix/$profileName/$deviceName/$sourceName` 。                                                                                                 |
-| contentType        | 是   | 发布消息的内容类型，如未指定，使用缺省值 `application/json` 。                                                                                                                                      |
-| messageType        | 是   | EdgeX 消息模型类型。若要将消息发送为类似 apllication service 的 event 类型，则应设置为 `event`。否则，若要将消息发送为类似 device service 或者 core data service 的 event request 类型，则应设置为 `request`。如未指定，使用缺省值 `event` 。 |
-| metadata           | 是   | 该属性为一个字段名称，该字段是 SQL SELECT 子句的一个字段名称，这个字段应该类似于 `meta(*) AS xxx` ，用于选出消息中所有的 EdgeX 元数据 。                                                                                        |
-| profileName        | 是   | 允许用户指定 Profile 名称，该名称将作为从 eKuiper 中发送出来的 Event 结构体的 profile 名称。若在 metadata 中设置了 profileName 将会优先采用。                                                                            |
-| deviceName         | 是   | 允许用户指定设备名称，该名称将作为从 eKuiper 中发送出来的 Event 结构体的设备名称。若在 metadata 中设置了 deviceName 将会优先采用。                                                                                           |
-| sourceName         | 是   | 允许用户指定源名称，该名称将作为从 eKuiper 中发送出来的 Event 结构体的源名称。若在 metadata 中设置了 sourceName 将会优先采用。                                                                                             |
-| optional           | 是   | 如果指定了 `mqtt` 消息总线，那么还可以指定一下可选的值。请参考以下可选的支持的配置类型。                                                                                                                               |
+### 可选 MQTT 配置项
 
 以下为支持的可选的配置列表，您可以参考 MQTT 协议规范来获取更详尽的信息。
 
-- optional
-  - ClientId
-  - Username
-  - Password
-  - Qos
-  - KeepAlive
-  - Retained
-  - ConnectionPayload
-  - CertFile
-  - KeyFile
-  - CertPEMBlock
-  - KeyPEMBlock
-  - SkipCertVerify
+- ClientId
+- Username
+- Password
+- Qos
+- KeepAlive
+- Retained
+- ConnectionPayload
+- CertFile
+- KeyFile
+- CertPEMBlock
+- KeyPEMBlock
+- SkipCertVerify
 
-其他通用的 sink 属性也支持，请参阅[公共属性](../overview.md#公共属性)。
+## 通用配置
+
+您可点击展开**高级**部分实现更加定制化的设置。
+
+- **连接选择器**：重用到 mqttmsgbus、natsmsgbus、redismsgbus 或 zeromsgbus 连接器。
+- **线程数**：设置运行的线程数。该参数值大于 1 时，消息发出的顺序可能无法保证。
+- **缓存大小**：设置可缓存消息数目。若缓存消息数超过此限制，sink 将阻塞消息接收，直到缓存消息数目小于限制为止。
+- **是否启用缓存**：设置是否启用缓存，可选值 True、False
+- **停止时是否清理缓存**：设置停止时是否清理缓存，可选值 True、False
+- **内存缓存阈值**：内存中缓存的最大消息数。
+- **最大磁盘缓存**：缓存在磁盘中的最大消息数。
+- **缓冲区页面大小**：缓冲区页的消息数，单位为批量读/写磁盘，防止频繁 IO。
+- **重发间隔**：重新发送缓存消息的时间间隔（毫秒）。
+- **是否异步运行**：设置是否异步运行输出操作以提升性能。请注意，异步运行时，将无法保证输出结果的顺序。
+
+完成设置后，可点击**测试连接**确认连接情况。最后点击**提交**，完成设置。
 
 ::: v-pre
 EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模板的结果必须为 JSON 字符串的 object 形式，例如 `"{\"key\":\"{{.key}}\"}"`。数组形式的 JSON 字符串或者非 JSON 字符串都不支持。
 ::
 
-## 发送到各种目标
+## 示例：发送到 Redis
 
 通过设置不同的属性组合，我们可以将结果采用不同的格式发送到不同的 EdgeX 消息总线设置中。
 
@@ -143,7 +138,7 @@ EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模�
 }
 ```
 
-## 发送到 MQTT 消息总线
+## 示例：发送到 MQTT 消息总线
 
 以下是将分析结果发送到 MQTT 消息总线的规则，请注意在`optional` 中是如何指定 `ClientId` 的。
 
@@ -170,7 +165,7 @@ EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模�
 }
 ```
 
-## 发送到 zeromq 消息总线
+## 示例：发送到 zeromq 消息总线
 
 以下是将分析结果发送到 zeromq 消息总线的规则。
 
@@ -194,9 +189,9 @@ EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模�
 }
 ```
 
-## 使用连接重用功能发布
+## 连接重用
 
-以下是如何使用连接重用功能的示例。我们只需要删除连接相关的参数并使用 `connectionSelector` 指定要重用的连接。 [更多信息](../../sources/builtin/edgex.md#connectionselector)
+以下是如何使用连接重用功能的示例。我们只需要删除连接相关的参数并使用 `connectionSelector` 指定要重用的连接。 
 
 ```json
 {
@@ -318,10 +313,10 @@ EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模�
     ]
   }
   ```
-请注意，
-- `Events` 结构体的元数据依然保留，例如 `DeviceName` & `Origin`.
+请注意：
+- `Events` 结构体的元数据依然保留，例如 `DeviceName` & `Origin`
 - 对于在原有消息中可以找到的 reading，元数据将继续保留。 比如 `humidity` 的元数据就是从 EdgeX 消息总线里接收到的`原值 - 或者说是旧值`。
 - 对于在原有消息中无法找到的 reading，元数据将不会被设置。如例子中的 `t1` 的元数据被设置为 eKuiper 产生的缺省值。
 - 如果你的 SQL 包含了聚合函数，那保留原有的元数据就没有意义，但是 eKuiper 还是会使用时间窗口中的某一条记录的元数据。例如，在下面的 SQL 里，
-```SELECT avg(temperature) AS temperature, meta(*) AS edgex_meta FROM ... GROUP BY TUMBLINGWINDOW(ss, 10)```. 
+```SELECT avg(temperature) AS temperature, meta(*) AS edgex_meta FROM ... GROUP BY TUMBLINGWINDOW(ss, 10)```
 这种情况下，在时间窗口中可能有几条数据，eKuiper 会使用窗口中的第一条数据的元数据来填充 `temperature` 的元数据。

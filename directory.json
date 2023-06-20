@@ -332,6 +332,10 @@
           "title": "文件",
           "path": "streaming-processing/file"
         },
+                {
+          "title": "内存",
+          "path": "streaming-processing/memory"
+        },
         {
           "title": "HTTP Pull",
           "path": "streaming-processing/http_pull"
@@ -384,11 +388,11 @@
           "path": "streaming-processing/sink/redis"
         },
         {
-          "title": "File Sink",
+          "title": "文件 Sink",
           "path": "streaming-processing/sink/file"
         },
         {
-          "title": "Memory Sink",
+          "title": "内存 Sink",
           "path": "streaming-processing/sink/memory"
         },
         {
