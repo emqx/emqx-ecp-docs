@@ -26,7 +26,7 @@
 - **流格式**：支持 json、binary、protobuf、delimited、custom。
   - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](../config.md)
   - 如选择 delimited，还应配置分隔符，如 ","
-- **数据模版**：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [eKuiper - 数据模版](https://ekuiper.org/docs/zh/latest/guide/sinks/data_template.html)
+- **数据模版**：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [数据模版](./data_template.md)
 
 ## 高级配置
 
@@ -74,7 +74,7 @@
 
 ## 更新
 
-内存动作支持[更新](../overview.md#更新)。可用于更新订阅了与 sink 相同的主题的查询表。一个典型的用法是创建一个规则，使用可更新的 sink 来累积更新内存表。在下面的例子中，来自流alertStream的数据将更新内存主题`alertVal`。更新动作是由流入的数据中的 `action` 字段指定的。
+内存动作支持[更新](./sink.md#更新)。可用于更新订阅了与 sink 相同的主题的查询表。一个典型的用法是创建一个规则，使用可更新的 sink 来累积更新内存表。在下面的例子中，来自流alertStream的数据将更新内存主题`alertVal`。更新动作是由流入的数据中的 `action` 字段指定的。
 
 ```json
 {

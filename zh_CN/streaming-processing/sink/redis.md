@@ -25,7 +25,7 @@
 - **流格式**：支持 json、binary、protobuf、delimited、custom。
   - 如选择 protobuf 或 custom，还应配置对应的[模式和模式消息](../config.md)
   - 如选择 delimited，还应配置分隔符，如 ","
-- **数据模版**：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [eKuiper - 数据模版](https://ekuiper.org/docs/zh/latest/guide/sinks/data_template.html)。注意：如使用 **Key 字段**配置 Redis 的键值（key），则无需配置数据模版。
+- **数据模版**：Golang 模板，用于指定输出数据格式。如不指定数据模板，则将数据作为原始输入。关于数据模版的详细介绍，见 [数据模版](./data_template.md)。注意：如使用 **Key 字段**配置 Redis 的键值（key），则无需配置数据模版。
 
 ## 通用配置
 
