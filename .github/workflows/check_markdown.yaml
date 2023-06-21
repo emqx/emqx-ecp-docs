@@ -1,6 +1,6 @@
 name: Check Docs
 
-on:[push, pull_request]
+on: [push, pull_request]
 
 jobs:
   markdown_check:
