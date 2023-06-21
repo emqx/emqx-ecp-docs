@@ -16,7 +16,7 @@
         {
           "title": "创建南向驱动",
           "path": "config/south-devices/south-devices",
-          "collapsed": "true",
+          "collapsed": true,
           "children": [
             {
               "title": "File",
@@ -231,7 +231,7 @@
         {
           "title": "连接南向设备",
           "path": "config/groups-tags/groups-tags",
-          "collapsed": "true",
+          "collapsed": true,
           "children": [
             {
               "title": "导入/导出点位配置",
@@ -242,7 +242,7 @@
         {
           "title": "创建北向应用",
           "path": "config/north-apps/north-apps",
-          "collapsed": "true",
+          "collapsed": true,
           "children": [
             {
               "title": "MQTT 插件",
@@ -255,7 +255,7 @@
             {
               "title": "Sparkplug B 插件",
               "path": "config/north-apps/sparkplugb/sparkplugb",
-              "collapsed": "true",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接 Ignition",
@@ -298,7 +298,7 @@
         {
           "title": "数据源",
           "path": "streaming-processing/source",
-          "collapsed": "true",
+          "collapsed": true,
           "children": [
             {
               "title": "数据流",
@@ -359,7 +359,7 @@
         {
           "title": "数据汇（Sink）",
           "path": "streaming-processing/sink/sink",
-          "collapsed": "true",
+          "collapsed": true,
           "children": [
             {
               "title": "数据模版",
