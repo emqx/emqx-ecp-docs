@@ -1,5 +1,11 @@
 # 修改密码
 
+::: danger
+
+【attention】这个页面要等环境截图
+
+:::
+
 进入**管理->修改密码**页面，可修改登录密码，如下图所示。
 
 ![change_password](./assets/change_password.png)
@@ -10,8 +16,3 @@
 ./neuron --reset-password
 ```
 
-::: warning
-
-【attention】界面需要更换，强制更改密码的命令怎么更新
-
-:::

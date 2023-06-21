@@ -21,16 +21,6 @@ $ systemctl status neuron
 
 :::
 
-::: warning
-
-这里也需要确认下端口，还有命令
-
-:::
-
-## 关于
-
-
-
 ## 管理
 
 * [管理日志](./logs.md)
