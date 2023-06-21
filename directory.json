@@ -442,8 +442,14 @@
           ]
         },
         {
-          "title": "拓展",
-          "path": "streaming-processing/extension"
+          "title": "扩展",
+          "path": "streaming-processing/extension",
+          "children":[
+            {
+              "title": "外部服务",
+              "path": "streaming-processing/external_func"
+            }
+          ]
         },
         {
           "title": "配置管理",

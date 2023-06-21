@@ -18,6 +18,12 @@
 
 ## 连接
 
+::: danger
+
+这里的内容需要补充一下，不确定对应的那块内容
+
+:::
+
 ## 模式
 
 模式是一套元数据，用于定义数据结构。例如，Protobuf 格式中使用 .proto 文件作为模式定义传输的数据格式。目前，ECP Edge 仅支持 protobuf 和 custom 这两种模式。
@@ -85,4 +91,3 @@ ECP Edge 目前支持两种方式上传配置文件：上传文件或者提供�
 ```
 /opt/neuron/ekuiper/data/uploads/my.json
 ```
-
