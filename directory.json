@@ -7,7 +7,7 @@
     },
     {
       "title": "插件",
-      "path": "./intro/plugin-list"
+      "path": "/intro/plugin-list"
     },
     {
       "title": "数据采集配置",
@@ -484,7 +484,7 @@
     },
     {
       "title": "插件",
-      "path": "./intro/plugin-list"
+      "path": "/intro/plugin-list"
     },
     {
       "title": "数据采集配置",
