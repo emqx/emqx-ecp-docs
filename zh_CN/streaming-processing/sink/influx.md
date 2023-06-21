@@ -1,7 +1,7 @@
 # InfluxDB 目标（Sink）
 
 该插件将分析结果发送到 InfluxDB 中。
-## 编译插件&创建插件
+## 编译部署插件
 
 在编译之前，请对源代码做如下更改：
 
@@ -17,7 +17,7 @@
 # bin/kuiper create rule influx -f /tmp/influxRule.txt
 ```
 
-重新启动 eKuiper 服务器以激活插件。
+重新启动 ECP Edge 以激活插件。
 
 ## 属性
 
@@ -33,11 +33,12 @@
 
 其他通用的 sink 属性也支持，请参阅[公共属性](../overview.md#公共属性)。
 
-## 示例用法
+## 示例
 
-下面是选择温度大于50度的样本规则，和一些配置文件仅供参考。
+Zero MQ下面是选择温度大于50度的样本规则，和一些配置文件仅供参考。
 
-### ####/tmp/influxRule.txt
+### /tmp/influxRule.txt
+
 ```json
 {
   "id": "influx",
@@ -59,7 +60,7 @@
   ]
 }
 ```
-### ####/tmp/influxPlugin.txt
+### /tmp/influxPlugin.txt
 ```json
 {
   "file":"http://localhost:8080/influx.zip"
