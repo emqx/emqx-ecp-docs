@@ -2,7 +2,7 @@
 
 在 ECP Edge，Sink 用来向外部系统写入数据，分为内置动作和扩展动作两类。
 
-## 内置动作
+## 内置 Sink
 
 用户可以直接使用标准 eKuiper 实例中的内置动作。内建动作的列表如下。
 
@@ -16,9 +16,9 @@
 - [Log sink](./builtin/log.md)：写入日志，通常只用于调试。
 - [Nop sink](./builtin/nop.md)：不输出，用于性能测试。
 
-## 预定义的动作插件
+## 预定义插件（【attention】需要确认）
 
-我们已经开发了一些官方的动作插件。这些插件可以在 eKuiper 的源代码中找到，用户需要手动构建它们。详细信息请查看每个动作的构建和使用方法。
+除上述内置插件外，我们还开发了一些官方的动作插件。这些插件可以在 eKuiper 的源代码中找到，用户需要手动构建它们。详细信息请查看每个动作的构建和使用方法。
 
 这些插件有预编译的二进制文件，用于主流cpu架构，如AMD或ARM。预编译的插件托管在 `https：//packages.emqx.net/kuiper-plugins/$version/$os/sinks/$type_$arch.zip` 中。例如，要获得用于 debian amd64 的 tdengine 插件，请从 `https：//packages.emqx.net/kuiper-plugins/1.4.4/debian/sinks/tdengine_amd64.zip` 安装。
 
@@ -33,10 +33,10 @@
 
 ## 更新
 
-默认情况下，Sink 将数据附加到外部系统中。一些外部系统，如 SQL DB 本身是可更新的，允许更新或删除数据。与查找源类似，只有少数 Sink 是天然 "可更新 "的。可更新的 Sink 必须支持插入、更新和删除。产品自带的 Sink 种，可更新的包括: 
+默认情况下，Sink 将数据附加到外部系统中。一些外部系统，如 内存 本身是可更新的，允许更新或删除数据。与查找源类似，只有少数 Sink 是天然 "可更新 "的。可更新的 Sink 必须支持插入、更新和删除。产品自带的 Sink 种，可更新的包括: 
 
-- Memory Sink
-- Redis Sink
+- [内存 Sink](./memory.md)
+- [Redis Sink](./redis.md)
 - SQL Sink
 
 为了激活更新功能，Sink 必须设置 `rowkindField` 属性，以指定数据中的哪个字段代表要采取的动作。在下面的例子中，`rowkindField` 被设置为 `action`。
@@ -57,7 +57,7 @@
 {"action":"update", "id":5, "name":"abc"}
 ```
 
-这条信息将把id 为 5的数据更新为新的名字。
+这条信息将把 id 为 5的数据更新为新的名字。
 
 ## 公共属性
 

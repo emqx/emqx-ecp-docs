@@ -353,45 +353,91 @@
           "path": "streaming-processing/rules"
         },
         {
+          "title": "规则管道",
+          "path": "streaming-processing/rule_pipeline"
+        },
+        {
           "title": "数据汇（Sink）",
           "path": "streaming-processing/sink/sink",
           "collapsed": "true",
           "children": [
             {
-              "title": "MQTT Sink",
-              "path": "streaming-processing/sink/mqtt"
+              "title": "数据模版",
+              "path": "streaming-processing/sink/data_template"
             },
             {
-              "title": "Neuron Sink",
-              "path": "streaming-processing/sink/neuron"
+              "title": "内置插件",
+              "children": [
+                {
+                  "title": "MQTT Sink",
+                  "path": "streaming-processing/sink/mqtt"
+                },
+                {
+                  "title": "Neuron Sink",
+                  "path": "streaming-processing/sink/neuron"
+                },
+                {
+                  "title": "EdgeX Sink",
+                  "path": "streaming-processing/sink/edgex"
+                },
+                {
+                  "title": "REST Sink",
+                  "path": "streaming-processing/sink/rest"
+                },
+                {
+                  "title": "Redis Sink",
+                  "path": "streaming-processing/sink/redis"
+                },
+                {
+                  "title": "文件 Sink",
+                  "path": "streaming-processing/sink/file"
+                },
+                {
+                  "title": "内存 Sink",
+                  "path": "streaming-processing/sink/memory"
+                },
+                {
+                  "title": "Log Sink",
+                  "path": "streaming-processing/sink/log"
+                },
+                {
+                  "title": "File Sink",
+                  "path": "Nop/sink/nop"
+                }
+              ]
             },
             {
-              "title": "EdgeX Sink",
-              "path": "streaming-processing/sink/edgex"
-            },
-            {
-              "title": "REST Sink",
-              "path": "streaming-processing/sink/rest"
-            },
-            {
-              "title": "Redis Sink",
-              "path": "streaming-processing/sink/redis"
-            },
-            {
-              "title": "文件 Sink",
-              "path": "streaming-processing/sink/file"
-            },
-            {
-              "title": "内存 Sink",
-              "path": "streaming-processing/sink/memory"
-            },
-            {
-              "title": "Log Sink",
-              "path": "streaming-processing/sink/log"
-            },
-            {
-              "title": "File Sink",
-              "path": "Nop/sink/nop"
+              "title": "预定义插件",
+              "children": [
+                {
+                  "title": "SQL Sink",
+                  "path": "streaming-processing/sink/sql"
+                },
+                {
+                  "title": "InfluxDB Sink",
+                  "path": "streaming-processing/sink/influx"
+                },
+                {
+                  "title": "InfluxDBV2 Sink",
+                  "path": "streaming-processing/sink/influx2"
+                },
+                {
+                  "title": "TDengine Sink",
+                  "path": "streaming-processing/sink/tdengine"
+                },
+                {
+                  "title": "Image Sink",
+                  "path": "streaming-processing/sink/image"
+                },
+                {
+                  "title": "ZeroMQ Sink",
+                  "path": "streaming-processing/sink/zmq"
+                },
+                {
+                  "title": "Kafka Sink",
+                  "path": "streaming-processing/sink/kafka"
+                }
+              ]
             }
           ]
         },
@@ -404,132 +450,132 @@
           "path": "streaming-processing/config"
         }
       ]
-    },
-    {
-      "title": "管理",
-      "path": "management/introduction",
-      "children": [
-        {
-          "title": "日志",
-          "path": "management/logs"
-        },
-        {
-          "title": "修改密码",
-          "path": "management/password"
-        }
-      ]
-    },
-    {
-      "title": "发版历史",
-      "path": "release_history/release_history"
-    }
-  ],
-  "en": [
-    {
-      "title": "Product Overview",
-      "path": "./"
-    },
-    {
-      "title": "Get Started",
-      "path": "quick_start/quick_start"
-    },
-    {
-      "title": "Installation",
-      "path": "install/introduction",
-      "children": [
-        {
-          "title": "Ubuntu/Debian",
-          "path": "install/Ubuntu"
-        },
-        {
-          "title": "CentOS",
-          "path": "install/CentOS"
-        },
-        {
-          "title": "Others Linux",
-          "path": "install/Linux"
-        },
-        {
-          "title": "Docker",
-          "path": "install/Docker"
-        },
-        {
-          "title": "Source Code",
-          "path": "install/source"
-        },
-        {
-          "title": "Frequently asked questions and troubleshooting",
-          "path": "install/check"
-        }
-      ]
-    },
-    {
-      "title": "Access Control",
-      "path": "acl/introduction"
-    },
-    {
-      "title": "Monitor/Data Monitor",
-      "path": "monitor/introduction"
-    },
-    {
-      "title": "Data Acquisition Configuration",
-      "path": "config/introduction",
-      "children": [
-        {
-          "title": "Southbound Devices",
-          "path": "config/southdevice"
-        },
-        {
-          "title": "Northbound Application",
-          "path": "config/nothapp"
-        },
-        {
-          "title": "Data Acquisition Plugins Mangement",
-          "path": "config/neuron_plugin"
-        }
-      ]
-    },
-    {
-      "title": "Data Streaming Configuration",
-      "path": "streaming-processing/introduction",
-      "children": [
-        {
-          "title": "Streaming Mangement",
-          "path": "streaming-processing/stream"
-        },
-        {
-          "title": "Rules Mangement",
-          "path": "streaming-processing/rules"
-        },
-        {
-          "title": "Data Streaming Plugins Mangement",
-          "path": "streaming-processing/ekuiper_plugin"
-        },
-        {
-          "title": "Template Mangement",
-          "path": "streaming-processing/ekuiper_template"
-        }
-      ]
-    },
-    {
-      "title": "Mangement",
-      "path": "monitor/introduction"
-    },
-    {
-      "title": "System Information",
-      "path": "system/introduction"
-    },
-    {
-      "title": "Known Limitations",
-      "path": "others/known_limitations"
-    },
-    {
-      "title": "Version Compatibility",
-      "path": "others/version_limitations"
-    },
-    {
-      "title": "Release History",
-      "path": "release_history/release_history"
-    }
-  ]
-}
+      },
+      {
+        "title": "管理",
+        "path": "management/introduction",
+        "children": [
+          {
+            "title": "日志",
+            "path": "management/logs"
+          },
+          {
+            "title": "修改密码",
+            "path": "management/password"
+          }
+        ]
+      },
+      {
+        "title": "发版历史",
+        "path": "release_history/release_history"
+      }
+    ],
+    "en": [
+      {
+        "title": "Product Overview",
+        "path": "./"
+      },
+      {
+        "title": "Get Started",
+        "path": "quick_start/quick_start"
+      },
+      {
+        "title": "Installation",
+        "path": "install/introduction",
+        "children": [
+          {
+            "title": "Ubuntu/Debian",
+            "path": "install/Ubuntu"
+          },
+          {
+            "title": "CentOS",
+            "path": "install/CentOS"
+          },
+          {
+            "title": "Others Linux",
+            "path": "install/Linux"
+          },
+          {
+            "title": "Docker",
+            "path": "install/Docker"
+          },
+          {
+            "title": "Source Code",
+            "path": "install/source"
+          },
+          {
+            "title": "Frequently asked questions and troubleshooting",
+            "path": "install/check"
+          }
+        ]
+      },
+      {
+        "title": "Access Control",
+        "path": "acl/introduction"
+      },
+      {
+        "title": "Monitor/Data Monitor",
+        "path": "monitor/introduction"
+      },
+      {
+        "title": "Data Acquisition Configuration",
+        "path": "config/introduction",
+        "children": [
+          {
+            "title": "Southbound Devices",
+            "path": "config/southdevice"
+          },
+          {
+            "title": "Northbound Application",
+            "path": "config/nothapp"
+          },
+          {
+            "title": "Data Acquisition Plugins Mangement",
+            "path": "config/neuron_plugin"
+          }
+        ]
+      },
+      {
+        "title": "Data Streaming Configuration",
+        "path": "streaming-processing/introduction",
+        "children": [
+          {
+            "title": "Streaming Mangement",
+            "path": "streaming-processing/stream"
+          },
+          {
+            "title": "Rules Mangement",
+            "path": "streaming-processing/rules"
+          },
+          {
+            "title": "Data Streaming Plugins Mangement",
+            "path": "streaming-processing/ekuiper_plugin"
+          },
+          {
+            "title": "Template Mangement",
+            "path": "streaming-processing/ekuiper_template"
+          }
+        ]
+      },
+      {
+        "title": "Mangement",
+        "path": "monitor/introduction"
+      },
+      {
+        "title": "System Information",
+        "path": "system/introduction"
+      },
+      {
+        "title": "Known Limitations",
+        "path": "others/known_limitations"
+      },
+      {
+        "title": "Version Compatibility",
+        "path": "others/version_limitations"
+      },
+      {
+        "title": "Release History",
+        "path": "release_history/release_history"
+      }
+    ]
+  }
