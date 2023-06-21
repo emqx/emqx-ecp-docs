@@ -401,8 +401,8 @@
                   "path": "streaming-processing/sink/log"
                 },
                 {
-                  "title": "File Sink",
-                  "path": "Nop/sink/nop"
+                  "title": "Nop Sink",
+                  "path": "streaming-processing/sink/nop"
                 }
               ]
             },

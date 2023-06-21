@@ -2,18 +2,18 @@
 
 ## 编译插件
 
-在 eKuiper 项目主目录运行如下命令：
+在 ECP Edge 项目主目录运行如下命令：
 
 ```shell
 go build -trimpath --buildmode=plugin -o plugins/sinks/Tdengine@v1.0.0.so extensions/sinks/tdengine/tdengine.go
 ```
 ### 安装插件
 
-由于 tdengine 插件的运行依赖于 tdengine 客户端，为了便于用户使用，安装插件时将下载 tdengine 客户端。但是 tdengine 客户端版本与其服务器版本一一对应，互不兼容，所以用户必须告知所用 tdengine 服务器版本。
+由于 TDengine 插件的运行依赖于 TDengine 客户端，为了便于用户使用，安装插件时将下载 TDengine 客户端。但是 TDengine 客户端版本与其服务器版本一一对应，互不兼容，所以用户必须告知所用 TDengine 服务器版本。
 
 ## 规则 Actions 说明
 
-由于 tdengine 数据库要求表中必须有时间戳字段，所以用户必须告知数据表的时间戳字段名称（必填tsFieldName）。用户可以选择是否提供时间戳数据，若不提供（provideTs=false），时间戳字段的内容由 tdengine 数据库自动生成。
+由于 TDengine 数据库要求表中必须有时间戳字段，所以用户必须告知数据表的时间戳字段名称（必填tsFieldName）。用户可以选择是否提供时间戳数据，若不提供（provideTs=false），时间戳字段的内容由 TDengine 数据库自动生成。
 
 | 名称             | 类型       | 是否必填 | 释义                                                                                                    |
 |----------------|----------|------|-------------------------------------------------------------------------------------------------------|

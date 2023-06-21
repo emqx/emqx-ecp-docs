@@ -47,27 +47,27 @@ $(PLUGINS_CUSTOM):
 	@$(CURDIR)/build-plugins.sh $(PLUGIN_TYPE) $(PLUGIN_NAME)
 ```
 
-重新启动 eKuiper 服务器以激活插件。
+重新启动 ECP Edge 服务器以激活插件。
 
 ## 属性
 
-| 属性名称        | 会否可选 | 说明                 |
-|-------------|------|--------------------|
-| addr        | 是    | InfluxDB的地址        |
-| measurement | 是    | InfluxDb的测量（如表名）   |
-| org         | 否    | InfluxDB存储组织       |
-| bucket      | 否    | InfluxDB存储bucket   |
-| token       | 否    | InfluxDB访问Token    |
-| tagKey      | 是    | InfluxDB的标签键       |
-| tagValue    | 是    | InfluxDB的标签值       |
+| 属性名称    | 是否可选 | 说明                      |
+| ----------- | -------- | ------------------------- |
+| addr        | 是       | InfluxDB 的地址           |
+| measurement | 是       | InfluxDB 的测量（如表名） |
+| org         | 否       | InfluxDB 存储组织         |
+| bucket      | 否       | InfluxDB 存储bucket       |
+| token       | 否       | InfluxDB 访问Token        |
+| tagKey      | 是       | InfluxDB 的标签键         |
+| tagValue    | 是       | InfluxDB 的标签值         |
 
 其他通用的 sink 属性也支持，请参阅[公共属性](../overview.md#公共属性)。
 
 ## 示例用法
 
-下面是选择温度大于50度的样本规则，和一些配置文件仅供参考。
+下面是选择温度大于 50 度的样本规则，和一些配置文件仅供参考。
 
-### ####/tmp/influxRule.txt
+### /tmp/influxRule.txt
 ```json
 {
   "id": "influx",
@@ -89,7 +89,7 @@ $(PLUGINS_CUSTOM):
   ]
 }
 ```
-### ####/tmp/influxPlugin.txt
+### /tmp/influxPlugin.txt
 ```json
 {
   "file":"http://localhost:8080/influx2.zip"
@@ -108,5 +108,4 @@ require (
 )
 
 replace github.com/lf-edge/ekuiper => /root/goProject/ekuiper
-
 ```

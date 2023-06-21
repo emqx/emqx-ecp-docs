@@ -30,7 +30,7 @@ RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN make plugins_c
 CMD ["sleep","3600"]
 ```
-在Makefile中添加：
+在 Makefile 中添加：
 ```
 PLUGINS_CUSTOM := sinks/kafka
 
@@ -43,24 +43,24 @@ $(PLUGINS_CUSTOM):
 	@$(CURDIR)/build-plugins.sh $(PLUGIN_TYPE) $(PLUGIN_NAME)
 ```
 
-重新启动 eKuiper 服务器以激活插件。
+重新启动 ECP Edge 服务器以激活插件。
 
 ## 属性
 
-| 属性名称              | 是否可选 | 说明                             |
-|-------------------|------|--------------------------------|
-| brokers           | 否    | broker地址列表 ,用 "," 分割           |
-| topic             | 否    | kafka 主题                       |
-| saslAuthType      | 否    | sasl 认证类型 , 支持none,plain,scram |
-| saslUserName      | 是    | sasl 用户名                       |
-| saslPassword      | 是    | sasl 密码                        |
+| 属性名称     | 是否可选 | 说明                                    |
+| ------------ | -------- | --------------------------------------- |
+| brokers      | 否       | broke r地址列表 ,用 "," 分割            |
+| topic        | 否       | kafka 主题                              |
+| saslAuthType | 否       | sasl 认证类型 , 支持 none，plain，scram |
+| saslUserName | 是       | sasl 用户名                             |
+| saslPassword | 是       | sasl 密码                               |
 
 
-其他通用的 sink 属性也支持，请参阅[公共属性](../overview.md#公共属性)。
+其他通用的 sink 属性也支持，请参阅[公共属性](./sink.md#公共属性)。
 
 ## 示例用法
 
-下面是选择温度大于50度的样本规则，和一些配置文件仅供参考。
+下面是选择温度大于 50 度的样本规则，和一些配置文件仅供参考。
 
 ### /tmp/kafkaRule.txt
 ```json
@@ -90,7 +90,7 @@ $(PLUGINS_CUSTOM):
 
 ## 注意事项
 
-如果通过 docker compose 将 ekuiper 与 kafka 部署在同一容器网络中，可在 ekuiper 中通过 kafka 主机名配置 brokers 地址。
+如果通过 docker compose 将 ECP Edge 与 kafka 部署在同一容器网络中，可在 ECP Edge 中通过 kafka 主机名配置 brokers 地址。
 但是 kafka 需要特别注意 `` KAFKA_CFG_ADVERTISED_LISTENERS `` 需要配置为主机 IP 地址, 如下所示
 
 ```yaml
@@ -119,5 +119,4 @@ $(PLUGINS_CUSTOM):
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://122.9.166.75:9092
      depends_on:
       - zookeeper
-
 ```
