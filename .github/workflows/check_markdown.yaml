@@ -1,14 +1,6 @@
 name: Check Docs
 
-on:
-  pull_request:
-    paths:
-      - 'manual/EMQX-ECP/**'
-      - '.github/**'
-  push:
-    paths:
-      - 'manual/EMQX-ECP/**'
-      - '.github/**'
+on:[push, pull_request]
 
 jobs:
   markdown_check:
