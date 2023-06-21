@@ -1,0 +1,33 @@
+name: Check Docs
+
+on:
+  pull_request:
+    paths:
+      - 'manual/EMQX-ECP/**'
+      - '.github/**'
+  push:
+    paths:
+      - 'manual/EMQX-ECP/**'
+      - '.github/**'
+
+jobs:
+  markdown_check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out code
+      uses: actions/checkout@main
+  
+    - name: install markdownlint
+      run: sudo npm install -g markdownlint-cli
+
+    - name: check markdown
+      run: markdownlint -c .github/workflows/markdown_config.json ./manual/EMQX-ECP
+
+  directory_check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out code
+      uses: actions/checkout@main
+  
+    - name: check directory config
+      run: python3 .github/scripts/directory_check.py directory.json $(pwd)/manual/EMQX-ECP
