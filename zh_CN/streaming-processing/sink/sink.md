@@ -6,15 +6,15 @@
 
 用户可以直接使用标准 eKuiper 实例中的内置动作。内建动作的列表如下：
 
-- [Mqtt sink](./builtin/mqtt.md)：输出到外部 mqtt 服务。
-- [Neuron sink](./builtin/neuron.md)：输出到本地的 Neuron 实例。
-- [EdgeX sink](./builtin/edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
-- [Rest sink](./builtin/rest.md)：输出到外部 http 服务器。
-- [Redis sink](./builtin/redis.md): 写入 Redis 。
-- [File sink](./builtin/file.md)： 写入文件。
-- [Memory sink](./builtin/memory.md)：输出到 eKuiper 内存主题以形成规则管道。
-- [Log sink](./builtin/log.md)：写入日志，通常只用于调试。
-- [Nop sink](./builtin/nop.md)：不输出，用于性能测试。
+- [MQTT sink](./mqtt.md)：输出到外部 mqtt 服务。
+- [Neuron sink](./neuron.md)：输出到本地的 Neuron 实例。
+- [EdgeX sink](./edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
+- [Rest sink](./rest.md)：输出到外部 http 服务器。
+- [Redis sink](./redis.md): 写入 Redis 。
+- [File sink](./file.md)： 写入文件。
+- [Memory sink](./memory.md)：输出到 eKuiper 内存主题以形成规则管道。
+- [Log sink](./log.md)：写入日志，通常只用于调试。
+- [Nop sink](./nop.md)：不输出，用于性能测试。
 
 ## 预定义插件（【attention】需要确认）
 

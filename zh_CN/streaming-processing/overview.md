@@ -52,16 +52,28 @@ ECP Edge 数据流处理部分的架构如下：
 
 规则代表了一个流处理流程，定义了从将数据输入流的数据源、到各种处理逻辑，再到将数据输入到外部系统的动作。您可通过两种方法来定义规则的业务逻辑，可视化模式或文本模式，在
 
-- [Sink](./sink.md)：在 ECP Edge，Sink 用来向外部系统写入数据，分为内置动作和扩展动作两类。
-  - [Mqtt sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/mqtt.html)：输出到外部 mqtt 服务。
-  - [Neuron sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/neuron.html)：输出到本地的 Neuron 实例。
-  - [EdgeX sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/edgex.html)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
-  - [Rest sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/rest.html)：输出到外部 http 服务器。
-  - [Redis sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/redis.html): 写入 Redis 。
-  - [File sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/file.html)： 写入文件。
-  - [Memory sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/memory.html)：输出到 eKuiper 内存主题以形成规则管道。
-  - [Log sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/log.html)：写入日志，通常只用于调试。
-  - [Nop sink](https://ekuiper.org/docs/zh/latest/guide/sinks/builtin/nop.html)：不输出，用于性能测试。
+- [Sink](./sink/sink.md)：在 ECP Edge，Sink 用来向外部系统写入数据，分为内置动作和扩展动作两类。
+  
+  - 内置动作
+    - [MQTT sink](./sink/mqtt.md)：输出到外部 mqtt 服务。
+    - [Neuron sink](./sink/neuron.md)：输出到本地的 Neuron 实例。
+    - [EdgeX sink](./sink/edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
+    - [Rest sink](./sink/rest.md)：输出到外部 http 服务器。
+    - [Redis sink](./sink/redis.md): 写入 Redis 。
+    - [File sink](./sink/file.md)： 写入文件。
+    - [Memory sink](./sink/memory.md)：输出到 eKuiper 内存主题以形成规则管道。
+    - [Log sink](./sink/log.md)：写入日志，通常只用于调试。
+    - [Nop sink](./sink/nop.md)：不输出，用于性能测试。
+  
+  
+  - 扩展动作
+    - [SQL sink](./sink/sql.md)：写入 SQL 数据库。
+    - [InfluxDB sink](./sink/influx.md)： 写入 Influx DB `v1.x`。
+    - [InfluxDBV2 sink](./sink/influx2.md)： 写入 Influx DB `v2.x`。
+    - [Tdengine sink](./sink/tdengine.md)： 写入 Tdengine 。
+    - [Image sink](./sink/image.md)： 写入一个图像文件。仅用于处理二进制结果。
+    - [ZeroMQ sink](./sink/zmq.md)：输出到 Zero MQ 。
+    - [Kafka sink](./sink/kafka.md)：输出到 Kafka 。
 
 ### 拓展
 
