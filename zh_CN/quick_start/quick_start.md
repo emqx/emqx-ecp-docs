@@ -214,5 +214,3 @@ $ telnet <运行 Modbus 模拟器 PC 端的 IP> 502
 下面是一个数据例子和 MQTTX 中的输出。
 
 ![result](/Users/lena/Documents/GitHub/Lena Pan/ekuiper/docs/zh_CN/resources/result.png)
-
-## 
