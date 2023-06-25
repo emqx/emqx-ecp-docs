@@ -13,7 +13,7 @@
 
 5. 打开 **Config** -> **MQTT ENGINE/Setting** -> **Servers** -> **Setting**，点击 `Create new MQTT Server Setting...` 创建一个 `Name` 为 EMQX 的连接，`URL` 设置为 `tcp://localhost:1883`，点击 `Save Changes` 保存设置。
 
-## ECP Edge 设置
+## ECP Edge 侧配置
 
 1. 在 ECP Edge **北向应用管理** 中添加一个 Sparkplug B 应用。
 

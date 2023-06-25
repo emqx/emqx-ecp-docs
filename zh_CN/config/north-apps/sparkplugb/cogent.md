@@ -14,7 +14,7 @@
 ![cogent1](./assets/cogent1.jpg)
 ![cogent2](./assets/cogent2.jpg)
 
-## ECP Edge 设置
+## ECP Edge 侧配置
 
 1. 在 ECP Edge **北向应用管理** 中添加一个 Sparkplug B 应用。
 
