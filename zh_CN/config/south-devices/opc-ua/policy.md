@@ -36,10 +36,10 @@ OPC UA 可通过用户自签名证书登录到 OPC UA 服务器，Certificate �
 
 * Certficate 的 SAN 字段必须包含 `URI:urn:xxx.xxx.xxx`，`xxx` 为自定义部分；
 
-* Certificate 文件和 Key 文件必须使用 DER 格式编码；
+* Certificate 文件和 Key 文件必须使用 DER 格式编码。
 
 :::tip
-证书文件可以提前导入到目标服务器中并设置为信任，也可以由 ECP Edge 设置后自动提交再由服务端设置为信任。
+证书文件可以提前导入到目标服务器中并设置为信任，也可由 ECP Edge 设置后自动提交再由服务端设置为信任。
 :::
 
 ## 客户端证书/密钥转换
@@ -91,6 +91,8 @@ IP.1 = 127.0.0.1
 ```
 
 ## 文件附件 localhost.cnf
+
+以下为 OpenSSL 配置文件示例，其中定义了用于一些用于生成证书请求、证书签发、时间戳颁发者（TSA）、证书吊销列表（CRL）等操作的参数。
 
 ```sh
 #

@@ -1,8 +1,8 @@
-# UaExpert 使用方法
+# 配置 UaExpert
 
 ## 连接 OPC UA Server
 
-1. 到 `https://www.unified-automation.com/downloads.html` 注册下载 UaExpert，并进行安装。
+1. [注册下载 UaExpert](https://www.unified-automation.com/downloads.html)，并进行安装。
 2. 打开 UaExpert 软件，点击工具栏 `+` 按钮, 双击 **Custom Discovery** -> **< Double click to Add Server... >**, 在弹出的对话框中填写 OPC UA Server 的访问地址，点击 `OK` 后地址会被添加到列表末尾。
     <img src="./assets/uaexpert1.jpg" alt="uaexpert1" style="zoom:50%;" />
 3. 完全展开访问地址下的子节点，双击合适的连接策略，连接会被添加到 UaExpert 的 **Project** 视图中。

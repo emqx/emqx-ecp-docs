@@ -67,7 +67,7 @@
                   "path": "config/south-devices/opc-ua/policy"
                 },
                 {
-                  "title": "UaExpert 使用方法",
+                  "title": "配置 UaExpert",
                   "path": "config/south-devices/opc-ua/uaexpert"
                 },
                 {
@@ -79,7 +79,7 @@
                   "path": "config/south-devices/opc-ua/kepserverex"
                 },
                 {
-                  "title": "连接 Industrial Gateway OPC Server",
+                  "title": "连接 OPC Server",
                   "path": "config/south-devices/opc-ua/igs"
                 },
                 {

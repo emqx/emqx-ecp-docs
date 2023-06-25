@@ -2,15 +2,15 @@
 
 ## 匿名登录
 
-1. 双击系统托盘中的 Industrial Gateway OPC Server 图标，在主界面中打开 **项目** -> **属性编辑器** -> **OPC UA** 将 `允许匿名登录` 设置为 `是`;
+1. 双击系统托盘中的 Industrial Gateway OPC Server 图标，在主界面中打开 **项目** -> **属性编辑器** -> **OPC UA** 将 `允许匿名登录` 设置为 `是`。
 <img src="./assets/igs-1.jpg" alt="igs-1" style="zoom:50%;" />
 
 2. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **OPC UA 配置** -> **服务器端点**，双击端点条目，勾选所有安全策略。
 <img src="./assets/igs-2.jpg" alt="igs-2" style="zoom:50%;" />
 
-3. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **重新初始化**；
+3. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **重新初始化**。
 
-4. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，无需添加证书/密钥，启动设备连接；
+4. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，无需添加证书/密钥，启动设备连接。
 
 ## 证书/密钥 + 匿名登录
 
@@ -21,11 +21,11 @@
 3. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **OPC UA 配置** -> **受信任的客户端**，将 DER 格式的客户端证书导入列表；
 <img src="./assets/igs-3.jpg" alt="igs-3" style="zoom:50%;" />
 
-4. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **重新初始化**；
+4. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **重新初始化**。
 
 ## ECP Edge 设置
 
-1. 通过 UaExpert 软件查看 Industrial Gateway OPC Server 测点信息， 参考 [UaExpert 试用方法](./uaexpert.md)。
+1. 通过 UaExpert 软件查看 Industrial Gateway OPC Server 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 <img src="./assets/igs-4.jpg" alt="igs-4" style="zoom:50%;" />
 
 2. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，添加证书/密钥，启动设备连接；

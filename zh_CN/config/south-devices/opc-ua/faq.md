@@ -4,7 +4,7 @@
 
 * 通过 Telnet 工具测试 OPC UA 服务器端口是否可用，命令 `telnet target-ip target-port`，如果未能连接，需要检查 OPC UA 服务器是否监听了正确的网络，检查网络防火墙设置是否开放了相关端口。
 
-* 可以使用其他 OPC UA 测试软件，如：UaExpert 测试 OPC UA 服务器是否可以连接。
+* 可以使用其他 OPC UA 测试软件，如：UaExpert，测试 OPC UA 服务器是否可以连接。
 
 * PLC 设备开启 OPC UA Server 时需要打开“接受客户端证书”选项。
 
