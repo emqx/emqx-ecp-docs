@@ -23,7 +23,7 @@ ADS index group 和 index offset 是 TwinCAT ADS 系统服务中用于设备或�
 Index offset 是16位的，index offset 是32位的。
 Index group 用于指定正在访问的数据的类别或类型，而 index offset 指定该类别或类型中的特定数据元素。
 
-## 参数设置
+## 插件配置
 
 | 字段           | 说明                                 |
 | -------------- | ------------------------------------ |
@@ -36,7 +36,9 @@ Index group 用于指定正在访问的数据的类别或类型，而 index offs
 
 请注意，为了让 ECP Edge 能与 TwinCAT PLC 正常通信，需要在目标 TwinCAT 软件中添加和设置对应的 ADS 路由。
 
-## 支持的数据类型
+## 点位配置
+
+### 支持的数据类型
 
 * BOOL
 * INT8
@@ -51,7 +53,7 @@ Index group 用于指定正在访问的数据的类别或类型，而 index offs
 * DOUBLE
 * STRING
 
-## 地址格式
+### 地址格式
 
 对 ADS 插件来说，一个点位地址由 INDEX_GROUP 和 INDEX_OFFSET 两个部分组成，分别表示 index group 和 index offset 。
 

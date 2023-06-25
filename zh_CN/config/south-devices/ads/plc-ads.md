@@ -1,11 +1,10 @@
 # 使用 Beckhoff ADS 协议采集 PLC 数据
 
-本教程介绍使用 ECP Edge 通过 ADS 协议采集倍福 PLC 上不同地址区域的数据。
+本教程介绍使用 ECP Edge 通过 ADS 协议采集 Beckhoff PLC 上不同地址区域的数据。
 
 ## 环境介绍
 
-本教程使用了在同一个局域网下的 2 台机器，机器 1 为 Linux 系统，安装了 ECP Edge 软件；机器 2 为 Windows 系统，安装了倍福 TwinCAT 3 软件。
-您可以查阅[安装指南]以获取详细的 ECP Edge 安装说明。同时，您可以前往 [Beckhoff TwinCAT 网站]下载和安装 TwinCAT 。
+本教程使用了在同一个局域网下的 2 台机器，机器 1 为 Linux 系统，安装了 ECP Edge 软件；机器 2 为 Windows 系统，安装了倍福 TwinCAT 3 软件。您可以前往 [Beckhoff TwinCAT 网站]下载和安装 TwinCAT 。
 
 |          | 机器1             | 机器2               |
 | -------- | ----------------- | ------------------- |
@@ -15,12 +14,12 @@
 | 安装软件 | ECP Edge          | TwinCAT             |
 | 网络     | 连通              | 连通                |
 
-## TwinCAT 软件中的配置
+## 配置 TwinCAT
 
-让 ECP Edge 和倍福 PLC 建立通讯，需要添加路由、查找 AMS Net ID、AMS port、以及变量的 index group 和 index offset 。
+如希望在 ECP Edge 和 Beckhoff PLC 之间建立通讯，需要添加路由、查找 AMS Net ID、AMS port、以及变量的 index group 和 index offset 。
 以下部分介绍详细配置。
 
-### 在 TwinCAT 软件中添加路由
+### 在 TwinCAT 中添加路由
 
 打开 **TwinCAT Static Routes** 对话框。
 
@@ -44,7 +43,7 @@
   </figcaption>
 </figure>
 
-输入下图红框内容，其中 **AmsNetId**，为 ECP Edge 所在机器与倍福 PLC 相连的网卡的 IP 地址后加上 ".1.1" 。
+输入下图红框内容，其中 **AmsNetId**，为 ECP Edge 所在机器与 Beckhoff PLC 相连的网卡的 IP 地址后加上 ".1.1" 。
 
 <figure align="center">
   <img src="./assets/add-route-3.png"
@@ -118,7 +117,7 @@ TwinCAT PLC 默认端口号为 851 。
   </figcaption>
 </figure>
 
-#### 通过数据区页面查看 index offset
+#### 在数据区页面查看 index offset
 
 在 TwinCAT 中打开 PLC 的数据区 (data area) 页面可以查看变量的 index offset 。
 
@@ -212,7 +211,7 @@ TPY 文件中包含了 PLC 程序中所有变量的 index group 和 index offset
   </figcaption>
 </figure>
 
-对于点位地址，index offset 可在在 TwinCAT PLC 数据区页面查看。
+对于点位地址，index offset 可在 TwinCAT PLC 数据区页面查看。
 
 <figure align="center">
   <img src="./assets/plc-tag-2.png"
@@ -249,7 +248,7 @@ TPY 文件中包含了 PLC 程序中所有变量的 index group 和 index offset
   </figcaption>
 </figure>
 
-在 ECP Edge 仪表板中，点击**监控 -> 数据监控**查看变量值读取正确。
+在 ECP Edge 仪表板中，点击**数据监控**查看变量值读取正确。
 
 <figure align="center">
   <img src="./assets/monitor-2.png"
