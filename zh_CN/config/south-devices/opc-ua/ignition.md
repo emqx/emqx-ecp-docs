@@ -17,7 +17,7 @@
 2. 打开 Ignition 的管理界面 **Config** -> **OPC UA** -> **Security** -> **Server**，上传客户端证书并设置为信任；
 
 
-## ECP Edge 设置
+## ECP Edge 侧配置
 
 1. 通过 UaExpert 软件查看 Ignition 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 <img src="./assets/ignition-3.jpg" alt="ignition-3" style="zoom:50%;" />

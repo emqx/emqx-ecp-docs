@@ -23,7 +23,7 @@
 
 4. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **重新初始化**。
 
-## ECP Edge 设置
+## ECP Edge 侧配置
 
 1. 通过 UaExpert 软件查看 Industrial Gateway OPC Server 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 <img src="./assets/igs-4.jpg" alt="igs-4" style="zoom:50%;" />

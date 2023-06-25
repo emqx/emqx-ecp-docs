@@ -61,7 +61,7 @@ ECP Edge 作为 Client，主动向 DTU 发起连接请求，用户需要保证 E
 在配置 ECP Edge 南向驱动时需要作为 Server 端的 DTU 的 IP，如下图所示。
 ![dtu-ip-config](./assets/dtu-ip-config.png)
 
-### 配置 ECP Edge 南向驱动 Client
+### ECP Edge 侧配置
 
 在 ECP Edge，在南向驱动管理中建立插件为 modbus-tcp-client 的节点，并进行驱动配置，如下图所示。
 ![ecp-edge-client-config](./assets/ecpedge-client-config.png)
@@ -94,7 +94,7 @@ $ netstat -anp |grep <port>
 ```
 :::
 
-### 配置 ECP Edge 南向驱动 Server
+### ECP Edge 侧配置
 
 在 ECP Edge，在南向驱动管理中建立插件为 modbus-tcp-server 的节点，并进行驱动配置，如下图所示。
 ![ECP Edge-server-config](./assets/ecpedge-server-config.png)

@@ -167,7 +167,7 @@ TPY 文件中包含了 PLC 程序中所有变量的 index group 和 index offset
   </figcaption>
 </figure>
 
-## ECP Edge 中的配置
+## ECP Edge 侧配置
 
 ### 添加 ADS 南向节点
 

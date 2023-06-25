@@ -16,7 +16,7 @@
 
 5. 点击菜单 `在线` -> `PLC写入` -> `执行`。
 
-## ECP Edge 设置
+## ECP Edge 侧配置
 
 1. 在 ECP Edge 南向设备管理中添加一个 Mitsubishi 3E 设备。
 

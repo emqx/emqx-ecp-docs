@@ -50,7 +50,7 @@
 
 3. Prosys OPC UA Simulation Server 界面中切换到 **Certificates**，将列表中的客户端证书设置为信任。
 
-## ECP Edge 设置
+## ECP Edge 侧配置
 
 1. 通过 UaExpert 软件查看 Ignition 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 ![prosys-5](./assets/prosys-5.jpg)

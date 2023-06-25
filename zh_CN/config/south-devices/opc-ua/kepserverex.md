@@ -30,7 +30,7 @@
 
 4. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **重新初始化**；
 
-## ECP Edge 设置
+## ECP Edge 侧配置
 
 1. 通过 UaExpert 软件查看 KepServerEx 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 ![kepware-5](./assets/kepware-5.jpg)
