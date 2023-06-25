@@ -4,9 +4,7 @@
 
 ![change_password](./assets/change_password.png)
 
-若用户忘记密码，可通过执行指令重置密码(默认0000)。
+<!--若用户忘记密码，可通过执行指令重置密码(默认0000)。-->
 
-```shell
-./neuron --reset-password
-```
+<!--./neuron --reset-password-->
 

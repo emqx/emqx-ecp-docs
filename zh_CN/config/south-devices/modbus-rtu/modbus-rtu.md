@@ -63,8 +63,8 @@ ECP Edge 支持基于串口或以太网建立实现远端设备的数据采集�
 | ------------------------- | ---------------- | ---------- | ------------- | ------------ | ------- |
 | Coil（线圈）                | 000001 ~ 065536 | 读/写       | 1Bit          | 0x01,0x05,0x0f | BIT     |
 | Input（离散量输入）          | 100001 ~ 165536 | 读          | 1Bit         | 0x02          | BIT     |
-| Input Register（输入寄存器） | 300001 ~ 365536 | 读          | 16Bit,2Byte         | 0x04          | BIT, INT16, UINT16, INT32,<br> UINT32, INT64, UINT64, FLOAT, <br>DOUBLE, STRING |
-| Hold Register（保持寄存器）  | 400001 ~ 465536 | 读/写       | 16Bit,2Byte         | 0x03,0x06,0x10 | BIT, INT16, UINT16, INT32, <br>UINT32, INT64, UINT64, FLOAT, <br>DOUBLE, STRING |
+| Input Register（输入寄存器） | 300001 ~ 365536 | 读          | 16Bit,2Byte         | 0x04          | BIT, INT16, UINT16, INT32,<br /> UINT32, INT64, UINT64, FLOAT, <br />DOUBLE, STRING |
+| Hold Register（保持寄存器）  | 400001 ~ 465536 | 读/写       | 16Bit,2Byte         | 0x03,0x06,0x10 | BIT, INT16, UINT16, INT32, <br />UINT32, INT64, UINT64, FLOAT, <br />DOUBLE, STRING |
 
 ::: tip
 一些设备文件会使用功能码和寄存器地址来描述指令，因为寄存器地址编号是从 0 开始的，所以每个区域的寄存器地址范围为 0 ～ 65535。ECP Edge 采用 PLC 组态地址规范，因此 ECP Edge 配置的地址从 1 开始。
