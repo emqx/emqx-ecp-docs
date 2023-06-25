@@ -1,10 +1,7 @@
 # HTTP Push 源
 
 <span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
-
-::: danger
-【attention】这里的路径需要明确
-:::
+<!--【attention】这里的路径需要明确-->
 
 ECP Edge 默认支持 HTTP Push 源，它作为一个 HTTP 服务器，可以接收来自 HTTP 客户端的消息。所有的 HTTP 推送源共用单一的全局 HTTP 数据服务器。每个源可以有自己的 URL，这样就可以支持多个端点。该类型可以作为流、扫描表的数据源。
 
@@ -45,7 +42,7 @@ source:
   - **名称**：字段名称
   - **类型**：支持 bigint、float、string、datetime、boolean、array、struct、bytea
 - **流类型**：选择 httppush
-- **数据源**：指定URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
+- **数据源**：指定 URL 的路径部分，与 URL 属性拼接成最终 URL， 例如 /api/data。
 - **配置组**：可使用默认配置组，如希望自定义配置组，可点击添加配置组按钮，在弹出的对话框中进行如下设置，设置完成后，可点击**测试连接**进行测试：
   - **名称**：输入配置组名称。
   - **请求方法**：HTTP 请求方法，可以是 POST 或 PUT。

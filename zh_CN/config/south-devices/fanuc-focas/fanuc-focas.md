@@ -2,7 +2,7 @@
 
 **支持架构**: amd64, arm/v7
 
-## 设备设置
+## 插件配置
 
 | 字段    | 说明         |
 | ------- | ------------ |
@@ -10,7 +10,9 @@
 | port    | 设备端口号   |
 | timeout | 连接超时时间 |
 
-## 支持的数据类型
+## 点位配置
+
+### 支持的数据类型
 
 * uint8
 * int8
@@ -25,7 +27,7 @@
 * bit
 * string
 
-## CNC 数据
+### CNC 数据
 
 | tag 标识（地址） | 说明                                         | 数据类型     | 参数               |
 | --------------- | -------------------------------------------- | ------------ | ------------------ |
@@ -47,7 +49,7 @@
 | spmaxrpm        | maximum r.p.m ratio of serial spindle        | int32/uint32 | spindle number(.n) |
 | spgear          | gear ratio of the serial spindle             | int32/uint32 | spindle number(.n) |
 
-*CNC 地址示例*
+**CNC 地址示例**
 
 | 地址       | 说明                                  |
 | ---------- | ------------------------------------- |
@@ -75,11 +77,11 @@
 | X    | signal to machine -> PMC        | all  | 只读 |
 | Y    | signal to PMC -> machine        | all  | 读写 |
 
-*PMC 点位示例*
+**PMC 点位示例**
 
 | 地址 | 类型                                                         | 说明                                                     |
 | ---- | ------------------------------------------------------------ | -------------------------------------------------------- |
-| A0   | uint8 <br>int8<br>uint16<br>int16<br>uint32<br>int32<br>int64<br>uint64<br>float<br>double | PMC **message demand** 区域，地址0的数据                 |
+| A0   | uint8, int8, uint16,<br>int16, uint32, int32,<br>int64, uint64, float,<br>double | PMC **message demand** 区域，地址0的数据                 |
 | A0.1 | bit                                                          | PMC **message demand** 区域，地址0的的字节，第1个 bit 位 |
 | A0.0 | bit                                                          | PMC **message demand** 区域，地址0的字节，第0个 bit 位   |
 | A0.2 | string                                                       | PMC **message demand** 区域，地址0开始，长度为2的字符串  |

@@ -1,4 +1,4 @@
-# 日志操作
+# Log Sink
 
 该操作用于将输出消息打印到日志文件中，默认情况下，该日志文件位于 `$ ekuiper_install/log/stream.log` 中。
 

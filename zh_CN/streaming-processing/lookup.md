@@ -26,7 +26,7 @@
 
 ### 预警值动态更新
 
-动态预警值存储在 Redis 或者 Sqlite 等外部存储中。用户可通过应用程序对其进行更新也可通过 eKuiper 提供的 `Updatable Sink` 功能通过规则进行自动更新。本教程将使用规则，通过 Redis sink 对上文的 Redis 查询表进行动态更新。
+动态预警值存储在 Redis 或者 Sqlite 等外部存储中。用户可通过应用程序对其进行更新也可通过 ECP Edge 提供的 `Updatable Sink` 功能通过规则进行自动更新。本教程将使用规则，通过 Redis sink 对上文的 Redis 查询表进行动态更新。
 
 预警值规则与常规规则无异，用户可接入任意的数据源，做任意数据计算，只需要确保输出结果中包含更新指令字段 `action`，例如 `{"action":"upsert","id":1,"alarm":50}`。本教程中，我们使用 MQTT 输入预警值更新指令通过规则更新 Redis 数据。
 
@@ -34,7 +34,7 @@
    ```json
    {"sql":"CREATE STREAM alertStream() WITH (DATASOURCE=\"scene1/alert\", FORMAT=\"json\", TYPE=\"mqtt\")"}
    ```
-2. 创建预警值更新规则。其中，规则接入了上一步创建的指令流，规则 SQL 只是简单的获取所有指令，然后在 action 中使用支持动态更新的 redis sink。配置了 redis 的地址，存储数据类型； key 使用的字段名设置为 `id`，更新类型使用的字段名设置为 `action`。这样，只需要保证指令流中包含 `id` 和 `action` 字段就可以对 Redis 进行更新了。
+2. 创建预警值更新规则。其中，规则接入了上一步创建的指令流，规则 SQL 只是简单的获取所有指令，然后在 action 中使用支持动态更新的 redis sink。配置了 Redis 的地址，存储数据类型； key 使用的字段名设置为 `id`，更新类型使用的字段名设置为 `action`。这样，只需要保证指令流中包含 `id` 和 `action` 字段就可以对 Redis 进行更新了。
    ```json
    {
      "id": "ruleUpdateAlert",
@@ -101,7 +101,7 @@
 
 ### SQL 插件安装和配置
 
-本场景将使用 MySQL 作为外部表数据存储位置。eKuiper 提供了预编译的 SQL source 插件，可访问 MySQL 数据并将其作为查询表。因此，在开始教程之前，我们需要先安装 SQL source 插件。使用 eKuiper manager 管理控制台，可直接在插件管理中，点击创建插件，如下图选择 SQL source 插件进行安装。
+本场景将使用 MySQL 作为外部表数据存储位置。ECP Edge 提供了预编译的 SQL source 插件，可访问 MySQL 数据并将其作为查询表。因此，在开始教程之前，我们需要先安装 SQL source 插件。在 ECP Edge Web 界面，可直接在插件管理中，点击创建插件，如下图选择 SQL source 插件进行安装。
 
 <img src="./_assets/install_sql_source.png" alt="Install SQL source" style="zoom:50%;" />
 
@@ -120,7 +120,7 @@
 
 本场景中，我们有两个输入：
 
-- 采集数据流，与场景1相同，包含多种设备的实时采集数据。本教程中，采集的数据流通过 MQTT 协议进行实时发送。
+- 采集数据流，与场景 1 相同，包含多种设备的实时采集数据。本教程中，采集的数据流通过 MQTT 协议进行实时发送。
 - 设备信息表，每一类设备对应的名字，型号等元数据。本教程中，设备信息数据存储于 MySQL 中。
 
 针对这两种输入，我们分别创建流和查询表进行建模。

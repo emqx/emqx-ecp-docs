@@ -64,11 +64,7 @@ ECP Edge 和 eKuiper 之间的交互是双向的，需要两边同时提供支�
 * `tag_name` : 要写入的点位名字。
 * `value` : 要写入的数据值。
 
-:::warning
-
-【attention】这一页删掉了大量的内容，需要确认 https://neugates.io/docs/zh/latest/configuration/north-apps/ekuiper/overview.html
-
-:::
+<!--【attention】这一页删掉了大量的内容，需要确认 https://neugates.io/docs/zh/latest/configuration/north-apps/ekuiper/overview.html-->
 
 [eKuiper]: https://ekuiper.org
 [NNG pair0 协议]: https://nng.nanomsg.org/man/v1.3.2/nng_pair.7.html
@@ -92,4 +88,4 @@ ECP Edge 和 eKuiper 之间的交互是双向的，需要两边同时提供支�
 
 1. 检查 **data-stream-processing** 节点处于连接状态，并且订阅了南向节点。
 2. 通过仪表板的性能监控面板，检查 **data-stream-processing** 节点确实采集到了设备数据。
-3. 如果使用 ECP EdgeEX 仪表板，可以通过规则的统计面板，检查规则确实触发了。
+3. 如果使用 ECP Edge 仪表板，可以通过规则的统计面板，检查规则是否被触发。

@@ -27,9 +27,7 @@ ECP Edge WebSocket 插件作为客户端， 将从设备采集到的数据作以
 上报数据的格式由**上报数据格式**参数控制。有两种格式，即 *tags-format* 和 *values-format* 。
 这两种格式与 [MQTT 插件]的相同，请参阅 [MQTT API tags 格式]。
 
-::: warning
-【attention】是否还要保留 API 部分？
-:::
+<!--【attention】是否还要保留 API 部分？-->
 
 [WebSocket]: https://en.wikipedia.org/wiki/WebSocke://en.wikipedia.org/wiki/WebSocket
 [RFC 6455]: https://datatracker.ietf.org/doc/html/rfc6455

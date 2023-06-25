@@ -15,14 +15,13 @@
 
 每个 Sink （数据汇）对应的传输与存储模版，您可在**数据流处理** -> **配置** -> **资源** 的**传输与存储模版**页签查看已添加的配置，编辑相关操作，或删除配置组，也可点击右上角的**添加传输与存储模版**按钮进行添加。
 
+<!--连接-->
 
-## 连接
+<!--::: danger-->
 
-::: danger
+<!--这里的内容需要补充一下，不确定对应的那块内容-->
 
-这里的内容需要补充一下，不确定对应的那块内容
-
-:::
+<!--:::-->
 
 ## 模式
 
@@ -38,7 +37,7 @@
 
 开始动手操作之前，需要准备以下环境：
 
-- MQTT broker 用于数据传输。本教程使用位于 `tcp://broker.emqx.io:1883` 的 MQTT 服务器， `broker.emqx.io` 是一个由 [EMQ](https://www.emqx.cn/)提供的公有 MQTT 服务器。
+- MQTT broker 用于数据传输。本教程使用位于 `tcp://broker.emqx.io:1883` 的 MQTT 服务器， `broker.emqx.io` 是一个由 [EMQ](https://www.emqx.cn/) 提供的公有 MQTT 服务器。
 - MQTT 客户端用于观察结果，例如 [MQTTX](https://mqttx.app/)
 - 模式 .so 文件，ECP Edge 支持动态解析和静态解析两种方式。使用动态解析时，用户仅需要在注册模式时指定 proto 文件。在解析性能要求更高的条件下，用户可采用静态解析的方式。静态解析需要开发解析插件，其步骤可参考 [静态 Protobuf 页面](https://ekuiper.org/docs/zh/latest/guide/serialization/serialization.html#%E9%9D%99%E6%80%81-protobuf)
 

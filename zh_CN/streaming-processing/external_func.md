@@ -100,7 +100,7 @@ json 配置文件包括以下两个部分：
 syntax = "proto3";
 package ts;
 
-service TSRest { // proto service 名字与 eKuiper 外部服务名字无关
+service TSRest { // proto service 名字与 ECP Edge 外部服务名字无关
   rpc object_detection(ObjectDetectionRequest) returns(ObjectDetectionResponse) {}
 }
 
@@ -122,9 +122,9 @@ message ObjectDetectionResponse {
 
 Protobuf 采用 proto3 格式，详细格式请参考 [proto3-spec](https://developers.google.com/protocol-buffers/docs/reference/proto3-spec) 。
 
-### Http选项
+### HTTP 选项
 
-为了支持更细粒度的 REST 服务配置，例如配置 http 方法，URL，参数以及请求体，我们支持了基于 *google.api.http* 注解的 grpc 转码配置。在 proto 文件中，用户可通过给每个 rpc 方法添加注解的方式，配置该方法映射的 http 方法，URL 路径，URL 参数以及请求体。
+为了支持更细粒度的 REST 服务配置，例如配置 HTTP 方法，URL，参数以及请求体，我们支持了基于 *google.api.http* 注解的 grpc 转码配置。在 proto 文件中，用户可通过给每个 rpc 方法添加注解的方式，配置该方法映射的 http 方法，URL 路径，URL 参数以及请求体。
 
 以下例子是修改过的 tsrest.proto 文件的一部分，添加了 http 规则的注解。例子中，注解指定了 http 方法为 *post*，映射的 url 为 */v1/computation/object_detection* 以覆盖默认的 url */object_detection*。注解中的 body 设置为 * 表示方法的类型为 *ObjectDetectionRequest* 的输入参数将完全转换为请求消息体。
 
@@ -172,7 +172,7 @@ message MessageRequest {
 在这个例子中，*body* 没有指定，因此所有输入参数都映射成 URL 参数。在 SQL 中调用函数
 `SearchMessage({"author":"Author","title":"Message1"})` 将会映射成 `GET /v1/messages?author=Author&title=Message1`。
 
-更详细 protobuf http 映射的语法介绍，请参看 [转码映射](https://cloud.google.com/endpoints/docs/grpc/transcoding#adding_transcoding_mappings) 和 [httprule](https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api#httprule).
+更详细 protobuf http 映射的语法介绍，请参看 [转码映射](https://cloud.google.com/endpoints/docs/grpc/transcoding#adding_transcoding_mappings) 和 [httprule](https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api#httprule)。
 
 #### 用法
 
@@ -207,7 +207,7 @@ import "google/api/annotations.proto";
 
 由于 REST 和 msgpack-rpc 并非原生采用 protobuf 定义，因此其使用有一些限制。
 
-REST 服务目前默认为 **POST**，且传输格式为 json。用户可通过配置 proto 文件中的 [http 选项](#http选项) 来改变默认的 http 方法和 URL 等。REST 服务配置有如下限制：
+REST 服务目前默认为 **POST**，且传输格式为 json。用户可通过配置 proto 文件中的 [http 选项](#http-选项) 来改变默认的 http 方法和 URL 等。REST 服务配置有如下限制：
 
 - 如果未指定 http 选项，输入参数仅可以为 message 类型或者 *google.protobuf.StringValue* 类型。若输入参数为 *google.protobuf.StringValue*，则传入的参数必须为已编码的 json 字符串，例如 `"{\"name\":\"name1\",\"size\":1}"`。
 

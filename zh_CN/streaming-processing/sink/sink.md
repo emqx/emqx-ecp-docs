@@ -6,17 +6,17 @@
 
 用户可以直接使用标准 eKuiper 实例中的内置动作。内建动作的列表如下：
 
-- [MQTT sink](./mqtt.md)：输出到外部 mqtt 服务。
+- [MQTT sink](./mqtt.md)：输出到外部 MQTT 服务。
 - [Neuron sink](./neuron.md)：输出到本地的 Neuron 实例。
 - [EdgeX sink](./edgex.md)：输出到 EdgeX Foundry。此动作仅在启用 edgex 编译标签时存在。
 - [Rest sink](./rest.md)：输出到外部 http 服务器。
-- [Redis sink](./redis.md): 写入 Redis 。
-- [File sink](./file.md)： 写入文件。
-- [Memory sink](./memory.md)：输出到 eKuiper 内存主题以形成规则管道。
+- [Redis sink](./redis.md): 写入 Redis。
+- [文件 sink](./file.md)： 写入文件。
+- [内存 sink](./memory.md)：输出到 eKuiper 内存主题以形成规则管道。
 - [Log sink](./log.md)：写入日志，通常只用于调试。
 - [Nop sink](./nop.md)：不输出，用于性能测试。
 
-## 预定义插件（【attention】需要确认）
+## 预定义插件
 
 除上述内置插件外，我们还开发了一些官方的动作插件。这些插件可以在 eKuiper 的源代码中找到，用户需要手动构建它们。详细信息请查看每个动作的构建和使用方法。
 
@@ -131,7 +131,7 @@ Sink 缓存的配置有两个层次。`etc/kuiper.yaml` 中的全局配置，定
 - resendInterval：故障恢复后重新发送信息的时间间隔，防止信息风暴。
 - cleanCacheAtStop：是否在规则停止时清理所有缓存，以防止规则重新启动时对过期消息进行大量重发。如果不设置为true，一旦规则停止，内存缓存将被存储到磁盘中。否则，内存和磁盘规则会被清理掉。
 
-在以下规则的示例配置中，log sink 没有配置缓存相关选项，因此将会采用全局默认配置；而 mqtt sink 进行了自身缓存策略的配置。
+在以下规则的示例配置中，log sink 没有配置缓存相关选项，因此将会采用全局默认配置；而 MQTT sink 进行了自身缓存策略的配置。
 
 ```json
 {

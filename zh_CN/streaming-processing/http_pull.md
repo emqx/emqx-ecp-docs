@@ -47,7 +47,7 @@ ECP Edge 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取
 
   - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 ECP Edge 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 ECP Edge 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。
 
-  - **oAuth**： 配置 OAuth 验证流程，关于 OAuth 的详细介绍，见 [OAuth](#OAuth)
+  - **oAuth**： 配置 OAuth 验证流程，关于 OAuth 的详细介绍，见 [OAuth](#oauth)
 
     - access
       - url：获取访问码的网址，总是使用 POST 方法访问。

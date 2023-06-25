@@ -1,14 +1,12 @@
-# 连接 Yabe 模拟器示例
+# 连接 Yabe 示例
 
-本文将使用 BACnet/IP 插件连接 Yabe 模拟器，实现读写 BACnet 模拟设备的点位值。确保  BACnet/IP 插件和 Yabe 模拟器网络联通。
+本文将使用 BACnet/IP 插件连接 Yabe（Yet Another Bacnet Explorer） 模拟器，实现读写 BACnet 模拟设备的点位值。确保  BACnet/IP 插件和 Yabe 模拟器网络联通。
 
-## Yabe 模拟器安装
+## 安装 Yabe 模拟器
 
-Yabe（Yet Another Bacnet Explorer）是一款图形界面应用程序，可以用于浏览 BACnet 设备。目前支持 BACnet IPv4 & IPv6，BACnet MSTP，BACnet PTP，BACnet Ethernet，BACnet SecureConnect。支持 read，write，read multiple，write multiple，iam，whois， subscribeCOV，notify，WriteFile，ReadFile 等功能。同时还包括三个演示服务器应用，分别是一个通用服务器，一个壁挂式房间控制器模拟器和一个天气服务器。
+Yabe 是一款图形界面应用程序，可以用于浏览 BACnet 设备。目前支持 BACnet IPv4 & IPv6，BACnet MSTP，BACnet PTP，BACnet Ethernet，BACnet SecureConnect。支持 read，write，read multiple，write multiple，iam，whois， subscribeCOV，notify，WriteFile，ReadFile 等功能。同时还包括三个演示服务器应用，分别是一个通用服务器，一个壁挂式房间控制器模拟器和一个天气服务器。
 
 安装 Yabe 软件，安装包可以从 [Yabe](https://sourceforge.net/projects/yetanotherbacnetexplorer/) 页面下载。
-
-
 
 ## 在 Yabe 中使用 BACnet/IP
 
@@ -31,7 +29,7 @@ Yabe（Yet Another Bacnet Explorer）是一款图形界面应用程序，可以�
 
 ![yabe-demoserver-sub-show](./assets/yabe-demoserver-sub-show.png)
 
-## ECP Edge 配置节点连接 DemoServer
+## ECP Edge 侧配置
 
 * 在 **南向设备** 中 点击 `添加设备`，选择 `BACnet/IP` 插件来创建一个连接 Yabe DemoServer 的节点。
 * 创建好节点后，点击 `设备配置` 进入设备配置页面，根据实际情况配置节点信息，

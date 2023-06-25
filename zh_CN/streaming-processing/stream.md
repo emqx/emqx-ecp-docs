@@ -10,12 +10,13 @@
 
 | 名称                        | 描述                                       |
 | --------------------------- | ------------------------------------------ |
-| [File](./file.md)           | 从文件中读取数据                           |
+| [文件](./file.md)           | 从文件中读取数据                           |
+| [内存](./memory.md)         | 从 ECP Edge 内存主题读取数据以形成规则管道 |
 | [HTTP pull](./http_pull.md) | 从 HTTP 服务器中拉取数据                   |
 | [HTTP push](./http_push.md) | 通过 HTTP 推送数据到 ECP Edge              |
-| [Memory](./memory.md)       | 从 ECP Edge 内存主题读取数据以形成规则管道 |
 | [MQTT](./mqtt.md)           | 从 MQTT 主题读取数据                       |
 | [Neuron](./neuron.md)       | 从本地 Neuron 实例读取数据                 |
+| [Redis](./redis.md)         | 从 Redis 中查询数据                        |
 
 ## 语法定义
 

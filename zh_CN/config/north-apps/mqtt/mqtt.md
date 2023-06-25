@@ -42,8 +42,8 @@ ECP Edge 支持 MQTT 通讯协议。ECP Edge MQTT 插件允许用户快速构建
     <sub><b>Fig.2 - 在 Neuron 2.4.0 版本中指定上报主题</b></sub>
   </figcaption>
 </figure>
-上报数据的确切格式由**上报数据格式**参数控制。
-有 **tags-format** 和 **values-format** 两种格式。
+
+上报数据的确切格式由**上报数据格式**参数控制。有 **tags-format** 和 **values-format** 两种格式。
 
 ### 离线数据缓存
 
@@ -60,8 +60,7 @@ ECP Edge 支持 MQTT 通讯协议。ECP Edge MQTT 插件允许用户快速构建
 
 ### 数据安全
 
-SSL/TLS（安全套接字层/传输层安全）是一种安全协议，用于加密网络设备之间的通信通道。
-它能够在不安全的网络（例如互联网）上使通信变得安全。
+SSL/TLS（安全套接字层/传输层安全）是一种安全协议，用于加密网络设备之间的通信通道，提升网络通信安全性。
 MQTT over SSL/TLS 是一种通过 SSL/TLS 加密传输 MQTT 消息的安全方法，用于在客户端和 MQTT 服务器之间传输数据，以确保客户端和服务器之间传递的所有数据都是加密且安全的。
 
 ECP Edge MQTT 插件支持 MQTT over SSL。要启用 SSL 加密：
@@ -85,7 +84,7 @@ ECP Edge MQTT 插件支持 MQTT over SSL。要启用 SSL 加密：
 
 ## 使用 MQTTX 查看数据
 
-订阅完成后，用户可以使用 MQTT 客户端（推荐使用 MQTTX，可在[官网](https://www.emqx.com/zh/products/mqttx)中下载）连接到公共的 EMQX 代理来查看上报的数据，如下图所示。
+订阅完成后，用户可以使用 MQTT 客户端（推荐使用 MQTTX，可在[ MQTTX 官网](https://mqttx.app/zh)下载）连接到公共的 EMQX 代理来查看上报的数据，如下图所示。
 
 ![mqttx](./assets/mqttx.png)
 
@@ -98,14 +97,6 @@ ECP Edge MQTT 插件支持 MQTT over SSL。要启用 SSL 加密：
 默认的上传 Topic 的主题格式为 `/ecpedge/{node_name}/upload`，其中 {node_name} 为创建的北向应用的名称。用户也可自定义上报主题。
 :::
 
-:::warning
-
-【attention】这里的主题格式需要确认下
-
-API 部分整体删除，需要再次确认：https://neugates.io/docs/zh/latest/configuration/north-apps/mqtt/api.html
-
-:::
-
 ## 常见问题
 
 ### MQTT 节点无法连接 broker ，处于未连接状态
@@ -113,7 +104,7 @@ API 部分整体删除，需要再次确认：https://neugates.io/docs/zh/latest
 请确保创建 MQTT 节点时使用了正确的参数，比如 broker 地址，用户名，和密码。
 如果启用了 SSL 功能，请确保使用了正确的证书。还有检查 broker 是否正确配置。
 
-### MQTT 节点在连接状态与未连接状态来回切换
+### MQTT 节点连接状态不停切换
 
 这大概率是因为 broker 在踢除 MQTT 客户端。请检查配置的 [**客户端 ID**] 参数是否与其他客户端冲突， 或者 broker 的配置是否正确。
 

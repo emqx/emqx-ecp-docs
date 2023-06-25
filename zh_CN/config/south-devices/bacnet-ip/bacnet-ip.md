@@ -5,20 +5,21 @@ BACnet（Building Automation and Control Networks）是一种用于智能建筑�
 ECP Edge 支持 BACnet IP 协议，可以通过 UDP 协议与 BACnet 设备进行通讯。
 
 
-## 设备配置
+## 插件配置
 
 | 字段      | 说明                            |
 |--------- | ------------------------------ |
 | **host** | BACnet 设备的 IP                |
 | **port** | BACnet 设备的端口号，默认为 47808 |
 
-## 支持的数据类型
+## 点位配置
+
+### 支持的数据类型
 
 * FLOAT
 * BIT
 * UINT8
 
-## 地址格式用法
 
 ### 地址格式
 

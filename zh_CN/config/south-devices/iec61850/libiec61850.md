@@ -1,6 +1,6 @@
 # 连接 LibIEC61850 服务器
 
-## 设置 LibIEC61850 服务器
+## 配置 LibIEC61850 服务器
 
 到 https://github.com/mz-automation/libiec61850 下载源码，按照项目页面的提示编译源码，这里演示在 Ubuntu 系统下的编译安装。
 
@@ -12,14 +12,14 @@ $ cmake .. && make -j4
 $ cd sudo ./examples/server_example_control/server_example_control
 ```
 
-## 设置 IEDExplorer
+## 配置 IEDExplorer
 
-1. 到 https://sourceforge.net/projects/iedexplorer/ 下载 IEDExplorer。
+1. 下载 [IEDExplorer](https://sourceforge.net/projects/iedexplorer/)。
 
-2. 打开 IEDExplorer_0.79n.exe 设置好 `server_example_control` 服务器监听的 IP 地址和端口，启动连接。
+2. 打开 IEDExplorer_0.79n.exe，设置 `server_example_control` 服务器监听的 IP 地址和端口，启动连接。
 ![libiec61850_1](./assets/libiec61850_1.jpg)
 
-## 设置 ECP Edge
+## 配置 ECP Edge
 
 1. 在 ECP Edge 南向设备管理中添加一个 IEC61850 设备；
 
