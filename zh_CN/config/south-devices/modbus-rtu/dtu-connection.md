@@ -25,7 +25,7 @@ DTU 一般都支持串口心跳包，或者是使能网络心跳包，以及注�
 :::
 
 
-## 什么是 client/server 模式？
+## Client/Server 模式
 
 Client/Server 又称客户/伺服器模式，简称 C/S 模式，是一种网络通讯架构，用以将通讯建立连接的双方以客户端（Clent）与服务器（Server）的身份区分开来。
 
@@ -33,9 +33,9 @@ Client/Server 又称客户/伺服器模式，简称 C/S 模式，是一种网络
 
 Client 和 Server 建立连接的工作流程如下图所示。
 
-![client_server](./assets/client_server.png)
+<img src="./assets/client_server.png" alt="client_server" style="zoom:50%;" />
 
-## 如何连接作为 Client 的 ECP Edge？
+## 连接作为 Client 的 ECP Edge
 
 本节主要介绍 ECP Edge 作为 Client，DTU 作为 Server 时，ECP Edge 与 DTU 的相关配置。
 
@@ -63,14 +63,14 @@ ECP Edge 作为 Client，主动向 DTU 发起连接请求，用户需要保证 E
 
 ### 配置 ECP Edge 南向驱动 Client
 
-在南向驱动管理中建立插件为 modbus-tcp-client 的节点，并进行驱动配置，如下图所示。
+在 ECP Edge，在南向驱动管理中建立插件为 modbus-tcp-client 的节点，并进行驱动配置，如下图所示。
 ![ecp-edge-client-config](./assets/ecpedge-client-config.png)
 
 * 连接模式选择 client；
 * Host 填写 DTU 的 IP 地址；
 * Port 填写 DTU 配置的端口；
 
-## 如何连接作为 Server 的 ECP Edge？
+## 连接作为 Server 的 ECP Edge
 
 本节主要介绍 ECP Edge 作为 Server，DTU 作为 Client 时， ECP Edge 与 DTU 的相关配置。
 
@@ -96,7 +96,7 @@ $ netstat -anp |grep <port>
 
 ### 配置 ECP Edge 南向驱动 Server
 
-在南向驱动管理中建立插件为 modbus-tcp-server 的节点，并进行驱动配置，如下图所示。
+在 ECP Edge，在南向驱动管理中建立插件为 modbus-tcp-server 的节点，并进行驱动配置，如下图所示。
 ![ECP Edge-server-config](./assets/ecpedge-server-config.png)
 
 * 连接模式选择 server；

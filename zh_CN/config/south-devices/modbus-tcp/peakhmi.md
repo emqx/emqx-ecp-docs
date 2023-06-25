@@ -1,4 +1,4 @@
-# 连接 PeakHMI Slave Simulator
+# 连接 PeakHMI Slave 模拟器
 
 本节主要介绍 ECP Edge 作为 Client，PeakHMI Slave Simulator 作为 Server 时，ECP Edge 与 Modbus Slave 的相关配置。
 
@@ -22,7 +22,7 @@ Windows 中尽量关闭防火墙，否则可能会导致 ECP Edge 连接不上�
 
 打开 Web 浏览器，输入运行 ECP Edge 的网关地址和端口号，即可进入到管理控制台页面，默认端口号为 7000。访问格式，http://x.x.x.x:7000。x.x.x.x 代表安装 ECP Edge 的网关地址。
 
-页面打开后，进入到登录界面，用户可使用初始用户名与密码登录（初始用户名：admin，初始密码：0000），如下图所示。
+页面打开后，进入到登录界面，用户可使用初始用户名与密码登录（初始用户名：admin，初始密码：0000）。
 
 
 
@@ -49,4 +49,4 @@ Windows 中尽量关闭防火墙，否则可能会导致 ECP Edge 连接不上�
 ![south-setting](./assets/south-setting.png)
 
 - Host：填写安装 PeakHMI Slave Simulators 软件的 PC 端 IP 地址。
-- 点击 `提交`，完成设备配置，设备卡片自动进入 **运行中** 的工作状态；
+- 点击 `提交`，完成设备配置，设备卡片自动进入 **运行中** 的工作状态。
