@@ -1,17 +1,17 @@
 # Mitsubishi 3E
 
-Mitsubishi 3E 插件用于通过以太网访问三菱的 QnA 兼容 PLC，包括 Q 系列（MC）、iQ-F 系列（SLMP）和 iQ-L 系列。
+Mitsubishi 3E 插件用于通过以太网访问三菱的 QnA 兼容 PLC，包括 Q 系列（MC）、iQ-F 系列（SLMP）和 iQ-L 系列。Mitsubishi 3E 完全兼容 Mitsubishi SLMP 协议。
 
-Mitsubishi 3E 完全兼容 Mitsubishi SLMP 协议。
-
-## 参数
+## 插件配置
 
 |  参数      | 说明                       |
 | -------- | -------------------------- |
 | **PLC IP 地址** |  目标设备 IPv4 地址         |
 | **PLC 端口** | 目标设备端口号，默认为 2000 |
 
-## 数据类型
+## 点位配置
+
+### 数据类型
 
 * INT16
 * UINT16
@@ -22,19 +22,19 @@ Mitsubishi 3E 完全兼容 Mitsubishi SLMP 协议。
 * BIT
 * STRING
 
-## 地址格式
+### 地址格式
 
 > <span>AREA ADDRESS\[.BIT]\[.LEN\[H]\[L]]</span>
 
-### .BIT
+#### .BIT
 
 只可用于**非 bit 类型区域**，表示读取指定地址的指定二进制位，二进制位索引区间为[0, 15]。
 
-### .LEN\[H]\[L]
+#### .LEN\[H]\[L]
 
 当数据类型是 string 类型时，**.LEN** 表示的是字符串长度；可以选填 **H**和 **L** 表示两种字节顺序，默认的是 **H** 的字节顺序。
 
-### 区域地址
+#### 区域地址
 
 | 区域 |数据类型 | 属性  | 备注                           |
 | ---- | --------- | ---------- | -------------------------------- |
