@@ -53,7 +53,7 @@ jobs:
     - name: remove unused files
       run: |
         cd docs-files
-        python3 .github/scripts/remove_unused.py $(pwd)/manual/EMQX-ECP
+        python3 .github/scripts/remove_unused.py $(pwd)
 
     - name: move files
       run: |
