@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ## this script is to run a docker container to
-## 1. render the markdown files for vitepress
+## 1. render the markdown files for vuepress
 ## 2. serve the rendered HTML pages in a vitepress site
 ##
 ## It takes one argument as the listner port number the
@@ -16,9 +16,9 @@ docker rm ecp-doc-preview || true
 
 docker run -p ${PORT}:8080 -it --name ecp-doc-preview \
     --platform linux/amd64 \
-    -v "$THIS_DIR"/directory.json:/app/docs/.vitepress/config/directory.json \
+    -v "$THIS_DIR"/directory.json:/app/docs/.vuepress/config/directory.json \
     -v "$THIS_DIR"/zh_CN:/app/docs/zh/emqx-ecp/latest \
     -v "$THIS_DIR"/en_US:/app/docs/en/emqx-ecp/latest \
     -e DOCS_TYPE=emqx-ecp \
     -e VERSION=latest \
-ghcr.io/emqx/docs-emqx-com-next:latest
+ghcr.io/emqx/docs-emqx-com-frontend:latest 
