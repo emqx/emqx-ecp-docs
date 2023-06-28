@@ -1,4 +1,5 @@
-name: Deploy Docs
+name: Build Docs
+
 
 concurrency: 
   group: ${{ github.ref }}
@@ -6,13 +7,11 @@ concurrency:
 
 on:
   push:
-    tags:
-      - v*
     branches:
-      - master
+      - develop
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-20.04
     if: github.repository_owner == 'emqx'
     steps:
@@ -43,7 +42,7 @@ jobs:
     - name: set env
       run: |
          BRANCH=$(echo ${{ github.ref }} | sed -r  "s ^refs/heads/|^refs/tags/(.*) \1 g")
-         if [ "$BRANCH" = "master" ];then
+         if [ "$BRANCH" = "develop" ];then
          VERSION="latest"
          else
          VERSION=$BRANCH
@@ -55,20 +54,20 @@ jobs:
     - name: remove unused files
       run: |
         cd docs-files
-        python3 .github/scripts/remove_unused.py $(pwd)/manual/EMQX-ECP
+        python3 .github/scripts/remove_unused.py $(pwd)
 
     - name: move files
       run: |
         rm frontend/docs/en/README.md || true
         rm frontend/docs/zh/README.md || true
         rm frontend/docs/*.md || true
-        rm frontend/README.md
+        rm frontend/README.md || true
         mkdir -p frontend/docs/en/${DOCS_TYPE}/${VERSION}/
         mkdir -p frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
         mkdir -p frontend/docs/.vuepress/public/api/
-        cp -r docs-files/manual/EMQX-ECP/en_US/* frontend/docs/en/${DOCS_TYPE}/${VERSION}/
-        cp -r docs-files/manual/EMQX-ECP/zh_CN/* frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
-        cp docs-files/manual/EMQX-ECP/directory.json frontend/docs/.vuepress/config/directory.json
+        cp -r docs-files/en_US/* frontend/docs/en/${DOCS_TYPE}/${VERSION}/
+        cp -r docs-files/zh_CN/* frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
+        cp docs-files/directory.json frontend/docs/.vuepress/config/directory.json
 
     - name: generate version config
       run: |
@@ -81,32 +80,12 @@ jobs:
         cd frontend
         yarn && yarn build
 
-    - name: upload dist
+    - name: create zip
       run: |
-        pip3 install coscmd
-        coscmd config -a ${{ secrets.TENCENT_COS_ID }} -s ${{ secrets.TENCENT_COS_KEY }} -b docs-1302406139 -r ap-shanghai
-        coscmd delete -r -f en/${DOCS_TYPE}/${VERSION} || true
-        coscmd delete -r -f zh/${DOCS_TYPE}/${VERSION} || true
-        coscmd config -a ${{ secrets.TENCENT_COS_ID }} -s ${{ secrets.TENCENT_COS_KEY }} -b docs-1302406139 -e cos.accelerate.myqcloud.com
-        cd frontend/docs/.vuepress/dist/
-        zip -rq docs-dist-${DOCS_TYPE}-${VERSION}.zip ./
-        coscmd upload docs-dist-${DOCS_TYPE}-${VERSION}.zip docs-zip/
-        sleep 90
+        cd frontend/docs/.vuepress/
+        zip -rq ecp-docs-dist.zip dist
 
-    - name: flush cdn
-      run: |
-        pip3 install tccli
-        tccli configure set secretId ${{ secrets.TENCENT_COS_ID }}
-        tccli configure set secretKey ${{ secrets.TENCENT_COS_KEY }}
-        tccli configure set region ap-shanghai
-        tccli cdn PurgePathCache --cli-unfold-argument --Paths https://docs.emqx.com/zh/${DOCS_TYPE}/${VERSION}/ https://docs.emqx.com/en/${DOCS_TYPE}/${VERSION}/ --FlushType delete
-        tccli cdn PurgeUrlsCache --cli-unfold-argument --Urls https://docs.emqx.com/api/${DOCS_TYPE}_versions.json https://docs.emqx.com/sitemap_${DOCS_TYPE}_${VERSION}.xml
-
-    - name: update search index
-      uses: Swilder-M/docsearch-scraper-simple@v4
-      env:
-        APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-        API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+    - uses: actions/upload-artifact@v2
       with:
-        docs_type: ${{ env.DOCS_TYPE }}
-        docs_version: ${{ env.VERSION }}
+        name: ecp-docs-dist.zip
+        path: frontend/docs/.vuepress/ecp-docs-dist.zip

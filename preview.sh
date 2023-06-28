@@ -3,7 +3,7 @@ set -euo pipefail
 
 ## this script is to run a docker container to
 ## 1. render the markdown files for vuepress
-## 2. serve the rendered HTML pages in a vuepress site
+## 2. serve the rendered HTML pages in a vitepress site
 ##
 ## It takes one argument as the listner port number the
 ## port number which defaults to 8080
@@ -21,4 +21,4 @@ docker run -p ${PORT}:8080 -it --name ecp-doc-preview \
     -v "$THIS_DIR"/en_US:/app/docs/en/emqx-ecp/latest \
     -e DOCS_TYPE=emqx-ecp \
     -e VERSION=latest \
-ghcr.io/emqx/docs-emqx-com-frontend:latest
+ghcr.io/emqx/docs-emqx-com-frontend:latest 
