@@ -34,7 +34,7 @@ def check_md_content(md_file):
         ref_md_path = os.path.join(f'{"/".join(md_file.split("/")[:-1])}/', f'{url_path}.md')
 
         if not os.path.exists(ref_md_path):
-            print(f'In {md_file}：', end='')
+            print(f'In {md_file}: ', end='')
             print(f'{url[2]} not found or not in {directory_file}')
             success = False
 
@@ -46,7 +46,7 @@ def check_md_content(md_file):
         image_path = os.path.join(f'{"/".join(md_file.split("/")[:-1])}/', image[2])
 
         if not os.path.exists(image_path):
-            print(f'In {md_file}：', end='')
+            print(f'In {md_file}: ', end='')
             print(image[2], 'does not exist')
             success = False
 
@@ -62,7 +62,7 @@ def get_md_files(dir_config, path):
             if md_name.startswith(('http://', 'https://')):
                 continue
             elif md_name == './':
-                md_list.append(f'{docs_path}/{path}/README.md')
+                md_list.append(f'{docs_path}/{path}/index.md')
             else:
                 md_list.append(f'{docs_path}/{path}/{md_name}.md')
 
