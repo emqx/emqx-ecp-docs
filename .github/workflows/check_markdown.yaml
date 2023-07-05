@@ -3,11 +3,11 @@ name: Check Docs
 on:
   pull_request:
     paths:
-      - 'ECP/**'
+      - 'ecp/**'
       - '.github/**'
   push:
     paths:
-      - 'ECP/**'
+      - 'ecp/**'
       - '.github/**'
 
 jobs:
