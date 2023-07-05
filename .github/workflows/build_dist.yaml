@@ -1,0 +1,89 @@
+name: Build Docs Dist
+
+
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+    paths:
+      - 'ecp_edge/**'
+      - '.github/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    if: github.repository_owner == 'emqx'
+    steps:
+    - name: clone docs
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        path: docs-files
+
+    - name: clone frontend
+      uses: actions/checkout@v3
+      with:
+        repository: 'emqx/docs-emqx-com-frontend'
+        token: ${{ secrets.CI_GIT_TOKEN }}
+        path: frontend
+
+    - name: use node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.15
+
+    - name: use python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+        architecture: 'x64'
+
+    - name: set env
+      run: |
+         echo "DOCS_BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
+         echo "VERSION=latest" >> $GITHUB_ENV
+         echo "DOCS_TYPE=emqx-ecp" >> $GITHUB_ENV
+
+    - name: remove unused files
+      run: |
+        cd docs-files
+        python3 .github/scripts/remove_vuepress_unused.py $(pwd)/ecp_edge
+
+    - name: move files
+      run: |
+        rm frontend/docs/en/README.md || true
+        rm frontend/docs/zh/README.md || true
+        rm frontend/docs/*.md || true
+        rm frontend/README.md || true
+        mkdir -p frontend/docs/en/${DOCS_TYPE}/${VERSION}/
+        mkdir -p frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
+        mkdir -p frontend/docs/.vuepress/public/api/
+        cp -r docs-files/ecp_edge/en_US/* frontend/docs/en/${DOCS_TYPE}/${VERSION}/
+        cp -r docs-files/ecp_edge/zh_CN/* frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
+        cp docs-files/ecp_edge/directory.json frontend/docs/.vuepress/config/directory.json
+
+    - name: generate version config
+      run: |
+        cd docs-files
+        python3 .github/scripts/generate_version.py $(git tag | egrep "v[0-9](\.[0-9])*$" | xargs echo -n) > ../frontend/docs/.vuepress/public/api/${DOCS_TYPE}_versions.json
+        cat ../frontend/docs/.vuepress/public/api/${DOCS_TYPE}_versions.json
+
+    - name: build docs
+      run: |
+        cd frontend
+        yarn && yarn build
+
+    - name: create zip
+      run: |
+        cd frontend/docs/.vuepress/
+        zip -rq ecp-docs-dist.zip dist
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ecp-docs-dist.zip
+        path: frontend/docs/.vuepress/ecp-docs-dist.zip
