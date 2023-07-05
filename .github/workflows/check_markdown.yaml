@@ -1,8 +1,14 @@
 name: Check Docs
 
-
-on: [push, pull_request]
-
+on:
+  pull_request:
+    paths:
+      - 'ecp/**'
+      - '.github/**'
+  push:
+    paths:
+      - 'ecp/**'
+      - '.github/**'
 
 jobs:
   markdown_check:
@@ -15,8 +21,7 @@ jobs:
       run: sudo npm install -g markdownlint-cli
 
     - name: check markdown
-      run: markdownlint -c .github/workflows/markdown_config.json ./
-
+      run: markdownlint -c .github/workflows/markdown_config.json ./ecp
 
   directory_check:
     runs-on: ubuntu-latest
@@ -25,5 +30,4 @@ jobs:
       uses: actions/checkout@main
   
     - name: check directory config
-      run: python3 .github/scripts/directory_check.py directory.json $(pwd)
-
+      run: python3 .github/scripts/directory_check.py directory.json $(pwd)/ecp
