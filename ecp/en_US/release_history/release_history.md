@@ -1,6 +1,24 @@
 # Release History
 
 
+## v1.10.4
+Release Date: 2023-07-07
+
+### Enhancements
+
+- Integration of Neuron 2.5.0 UI
+- The Neuron (2.4 and above) managed by ECP has now exposed port 7081 to support TCP connectivity with eKuiper (versions 1.9 and above)
+
+### Fixes
+
+- Fixed the issue of abnormal edge service online status after modifying the authentication configuration
+- Fixed the issue that Neuron's northbound MQTT exhibits abnormalities after turning off SSL
+- Improved error prompts when creating or editing organizations, projects, or users
+- Deleted the invalid "Quota List Description" field in Edge Service Setting
+- Improved the LoadBalancer configuration example in Cluster Settings
+- Fixed an issue of false prompts appearing during the startup of the EMQX cluster
+
+
 ## v1.10.3
 Release Date: 2023-06-25
 
