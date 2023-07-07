@@ -36,7 +36,7 @@ You can refer to the table below for a comprehensive overview of role permission
 | Operation Audit               | Edit         | View (Organization Level) | View (Project level) | -    |
 | System Settings               | Edit         | -                         | -                    | -    |
 | License                       | Edit         | -                         | -                    | -    |
-| User Authorization            | Edit         | Edit (Organization Level) | Project-level Edit   | -    |
+| User Authorization            | Edit         | Edit (Organization Level) | Edit (Project level) | -    |
 | Cloud Cluster Management      | Edit         | Edit                      | Edit                 | View |
 | Edge Service Management       | Edit         | Edit                      | Edit                 | View |
 | Monitoring                    | View         | View                      | View                 | View |
