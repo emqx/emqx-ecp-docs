@@ -24,26 +24,26 @@ The role hierarchy is as follows:
 
 You can refer to the table below for a comprehensive overview of role permissions:
 
-<font size=2>
+<font size=1>
 
 **Permissions and Roles**
 
-| Permission\Role               | System Admin | Org Admin                 | Project Admin        | User                 |
-| ----------------------------- | ------------ | ------------------------- | -------------------- | -------------------- |
-| Organization Management       | Edit         | Edit (Organization Level) | View                 | -                    |
-| Project Management            | Edit         | Edit (Project Level)      | Edit (Project level) | View                 |
-| User Management               | Edit         | Edit (Organization Level) | Edit (Project level) | View                 |
-| Operation Audit               | Edit         | View (Organization Level) | View (Project level) | View (Project level) |
-| System Settings               | Edit         | -                         | -                    | -                    |
-| License                       | Edit         | -                         | -                    | -                    |
-| User Authorization            | Edit         | Edit (Organization Level) | Project-level Edit   | -                    |
-| Cloud Cluster Management      | Edit         | Edit                      | Edit                 | View                 |
-| Edge Service Management       | Edit         | Edit                      | Edit                 | View                 |
-| Monitoring                    | View         | View                      | View                 | View                 |
-| Alerting                      | Edit         | Edit                      | Edit                 | View                 |
-| Logging                       | View         | View                      | View                 | View                 |
-| Tag Management                | Edit         | Edit                      | Edit                 | View                 |
-| Edge Configuration Deployment | Edit         | Edit                      | Edit                 | View                 |
+| Permission\Role               | System Admin | Org Admin                 | Project Admin        | User |
+| ----------------------------- | ------------ | ------------------------- | -------------------- | ---- |
+| Organization Management       | Edit         | Edit (Organization Level) | View                 | -    |
+| Project Management            | Edit         | Edit (Project Level)      | Edit (Project level) | -    |
+| User Management               | Edit         | Edit (Organization Level) | Edit (Project level) | -    |
+| Operation Audit               | Edit         | View (Organization Level) | View (Project level) | -    |
+| System Settings               | Edit         | -                         | -                    | -    |
+| License                       | Edit         | -                         | -                    | -    |
+| User Authorization            | Edit         | Edit (Organization Level) | Edit (Project level) | -    |
+| Cloud Cluster Management      | Edit         | Edit                      | Edit                 | View |
+| Edge Service Management       | Edit         | Edit                      | Edit                 | View |
+| Monitoring                    | View         | View                      | View                 | View |
+| Alerting                      | Edit         | Edit                      | Edit                 | View |
+| Logging                       | View         | View                      | View                 | View |
+| Tag Management                | Edit         | Edit                      | Edit                 | View |
+| Edge Configuration Deployment | Edit         | Edit                      | Edit                 | View |
 
 </font> 
 
