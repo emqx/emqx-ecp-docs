@@ -57,13 +57,16 @@ $ kubectl get storageclasses
        --namespace emqx-operator-system \
        --create-namespace \
        --set installCRDs=true  \
-       --version 'v1.0.11'
+       --version '1.0.11-ecp.2'
    ```
 
 4. Run the command below to install EMQX Edge Operator.
 
    ```bash
-   $ kubectl apply -f ./edge-operator.yaml
+   $ helm install edge-operator emqx/edge-operator \
+      --version 0.0.5 \
+      --namespace edge-operator-system \
+      --create-namespace
    ```
 
 5. Run the command below to install PostgreSQL and please select the storage class that supports shared storage. 
