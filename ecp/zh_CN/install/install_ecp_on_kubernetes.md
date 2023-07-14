@@ -67,13 +67,16 @@ $ kubectl get storageclasses
        --namespace emqx-operator-system \
        --create-namespace \
        --set installCRDs=true  \
-       --version 'v1.0.11'
+       --version '1.0.11-ecp.2'
    ```
 
-4. 安装 EMQX Edge Operator，有关安装包的获取，见[获取安装包](#获取安装包)部分。
+4. 安装 EMQX Edge Operator。
 
    ```bash
-   $ kubectl apply -f ./edge-operator.yaml
+   $ helm install edge-operator emqx/edge-operator \
+      --version 0.0.5 \
+      --namespace edge-operator-system \
+      --create-namespace
    ```
 
 5. 安装 PostgreSQL ，请选择支持共享存储的存储类。
