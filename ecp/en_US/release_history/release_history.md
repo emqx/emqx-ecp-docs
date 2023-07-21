@@ -1,8 +1,26 @@
 # Release History
 
 
+## v1.10.5
+Release Date: 07/21/2023
+
+### Enhancements
+
+- Implemented read-only access for regular users in eKuiper v1.10 and Neuron v2.5
+
+### Fixes
+
+- Fixed an issue that prevented the reset of edge service offline alerts once triggered
+- Fixed an issue of inaccurate progress indication during the creation and maintenance of EMQX clusters.
+- Removed redundant fields from EMQX cluster resource settings
+- Fixed an issue within the ECP integrated EMQX Dashboard that prevented deletion of topics containing a "/" character in the EMQX built-in database
+- Fixed an issue that caused an incorrect display of project counts in the project list
+- Fixed an issue with the clearing logic when filtering logs by organizations and projects
+- Fixed a display issue within system-level monitoring settings
+
+
 ## v1.10.4
-Release Date: 2023-07-07
+Release Date: 07/07/2023
 
 ### Enhancements
 
@@ -20,7 +38,7 @@ Release Date: 2023-07-07
 
 
 ## v1.10.3
-Release Date: 2023-06-25
+Release Date: 06/25/2023
 
 ### Enhancements
 
@@ -37,7 +55,7 @@ Release Date: 2023-06-25
 
 
 ## v1.10.2
-Release Date: 2023-06-09
+Release Date: 06/09/2023
 
 ### Enhancements
 
@@ -53,7 +71,7 @@ Release Date: 2023-06-09
 
 
 ## v1.10.1
-Release Date: 2023-05-26
+Release Date: 05/26/2023
 
 ### Enhancements
 
@@ -69,7 +87,7 @@ Release Date: 2023-05-26
 
 
 ## v1.10.0
-Release Date: 2023-05-12
+Release Date: 05/12/2023
 
 ### Enhancements
 
@@ -85,7 +103,7 @@ Release Date: 2023-05-12
 
 
 ## v1.9.0
-Release Date: 2023-04-28
+Release Date: 04/28/2023
 
 ### Enhancements
 
@@ -106,7 +124,7 @@ Release Date: 2023-04-28
 
 
 ## v1.8.0
-Release Date: 2023-04-14
+Release Date: 04/14/2023
 
 ### Enhancements
 
@@ -132,7 +150,7 @@ Release Date: 2023-04-14
 
 
 ## v1.7.0
-Release Date: 2023-03-31
+Release Date: 03/31/2023
 
 ### Enhancements
 
@@ -146,7 +164,7 @@ Release Date: 2023-03-31
 
 
 ## v1.6.1
-Release Date: 2023-3-17
+Release Date: 3/17/2023
 
 ### Fixes
 
@@ -154,7 +172,7 @@ Release Date: 2023-3-17
 
 
 ## v1.6.0
-Release Date: 2023-3-10
+Release Date: 3/10/2023
 
 ### Enhancements
 
@@ -168,7 +186,7 @@ Release Date: 2023-3-10
 - Created a helm chart based on the kubesphere/stack environment
 
 ## v1.5.0
-Release Date: 2023-2-17
+Release Date: 02/17/2023
 
 ### Enhancements
 - Unified monitoring and alarm services now support webhook notifications
@@ -180,7 +198,7 @@ Release Date: 2023-2-17
 - Fixed an issue where cluster number statistics were incorrect when deleting an EMQX cluster failed
 
 ## v1.4.0
-Release Date: 2023-2-3
+Release Date: 02/03/2023
 
 ### Enhancements
 
@@ -196,7 +214,7 @@ Release Date: 2023-2-3
 - Fixed an issue where eKuiper's configuration distribution task could not start correctly
 
 ## v1.3.0
-Release Date: 2023-1-13
+Release Date: 01/13/2023
 
 ### Enhancements
 
@@ -208,7 +226,7 @@ Release Date: 2023-1-13
 - Improved UI/UE, refactored lists and menu panels
 
 ## v1.2.0
-Release Date: 2022-12-30
+Release Date: 12/30/2022
 
 ### Enhancements
 
@@ -221,7 +239,7 @@ Release Date: 2022-12-30
 - Fixed UI errors when installing Antares for the first time
 
 ## v1.1.0
-Release Date: 2022-12-16
+Release Date: 12/16/2022
 
 ### Enhancements
 
@@ -235,7 +253,7 @@ Release Date: 2022-12-16
 
 
 ## v1.0.0
-Release Date: 2022-11-18
+Release Date: 11/18/2022
 
 ### Enhancements
 
