@@ -2,11 +2,11 @@
 
 <span style="background:green;color:white;">流</span>        <span style="background:green;color:white">扫描表</span>
 
-ECP Edge 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取消息并输入 ECP Edge，该类型可以作为流、扫描表的数据源。
+NeuronEX 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取消息并输入 NeuronEX，该类型可以作为流、扫描表的数据源。
 
 ## 创建流
 
-登录 ECP Edge，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
+登录 NeuronEX，点击**数据流处理** -> **源管理**。在**流管理**页签，点击**创建流**。
 
 在弹出的**源管理** / **创建**页面，进入如下配置：
 
@@ -45,7 +45,7 @@ ECP Edge 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取
 
   - **HTTP 标头**： 需要与 HTTP 请求一起发送的 HTTP 请求标头。可通过文本模式或可视化模式进行配置。
 
-  - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 ECP Edge 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 ECP Edge 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。
+  - **响应类型**： 响应类型,可以是 `code` 或者 `body`，如果是 `code`，那么 NeuronEX 会检查 HTTP 响应码来判断响应状态。如果是 `body`，那么 NeuronEX 会检查 HTTP 响应正文，要求其为 JSON 格式，并且检查 code 字段的值。
 
   - **oAuth**： 配置 OAuth 验证流程，关于 OAuth 的详细介绍，见 [OAuth](#oauth)
 
@@ -68,7 +68,7 @@ ECP Edge 默认支持 HTTP Pull 源，该支持可从 HTTP 服务器代理提取
 
 ## 创建扫描表
 
-HTTP Pull 源支持查询表。登录 ECP Edge，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
+HTTP Pull 源支持查询表。登录 NeuronEX，点击**数据流处理** -> **源管理**。在**扫描表**页签，点击**创建扫描表**。
 
 - **表名称**：输入表名称
 - **是否为带结构的表**：勾选确认是否为带结构的表，如为带结构的表，则需进一步添加表字段

@@ -2,7 +2,7 @@
 
 [TwinCAT](https://www.beckhoff.com.cn/zh-cn/products/automation/twincat/) 是由 Beckhoff Automation 开发的一种控制技术。它是一种基于软件的控制系统，用于自动化和控制应用。TwinCAT 能够运行在多种平台上并支持多种编程语言。
 
-ECP Edge ADS 插件使用户可以通过 TCP/IP 连接到 Beckhoff TwinCAT PLC。
+NeuronEX ADS 插件使用户可以通过 TCP/IP 连接到 Beckhoff TwinCAT PLC。
 
 ## ADS 协议
 
@@ -29,12 +29,12 @@ Index group 用于指定正在访问的数据的类别或类型，而 index offs
 | -------------- | ------------------------------------ |
 | host           | 远程设备 IP 。                       |
 | port           | 远程设备 TCP 端口（默认 48898） 。   |
-| src-ams-net-id | 运行 ECP Edge 的设备的 AMS Net ID 。 |
-| src-ads-port   | 运行 ECP Edge 的设备的 AMS Port 。   |
+| src-ams-net-id | 运行 NeuronEX 的设备的 AMS Net ID 。 |
+| src-ads-port   | 运行 NeuronEX 的设备的 AMS Port 。   |
 | dst-ams-net-id | 目标 PLC 的 AMS Net ID 。            |
 | dst-ads-port   | 目标 PLC 的 AMS Port 。              |
 
-请注意，为了让 ECP Edge 能与 TwinCAT PLC 正常通信，需要在目标 TwinCAT 软件中添加和设置对应的 ADS 路由。
+请注意，为了让 NeuronEX 能与 TwinCAT PLC 正常通信，需要在目标 TwinCAT 软件中添加和设置对应的 ADS 路由。
 
 ## 点位配置
 

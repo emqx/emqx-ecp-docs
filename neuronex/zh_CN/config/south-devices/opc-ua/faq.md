@@ -8,11 +8,11 @@
 
 * PLC 设备开启 OPC UA Server 时需要打开“接受客户端证书”选项。
 
-* OPC Server 在不使用匿名登录的情况下需要将“受信任的客户端”列表中的 ECP Edge Client 设置为信任。
+* OPC Server 在不使用匿名登录的情况下需要将“受信任的客户端”列表中的 NeuronEX Client 设置为信任。
 
-* 检查 ECP Edge OPC UA 设备配置是否正确。
+* 检查 NeuronEX OPC UA 设备配置是否正确。
 
-* 向开发者提供 ECP Edge 设备日志帮助排查问题。
+* 向开发者提供 NeuronEX 设备日志帮助排查问题。
 
 ## 错误码——ERROR(3008)：插件 Tag 值失效
 

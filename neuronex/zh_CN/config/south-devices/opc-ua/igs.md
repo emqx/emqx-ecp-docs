@@ -10,7 +10,7 @@
 
 3. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **重新初始化**。
 
-4. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，无需添加证书/密钥，启动设备连接。
+4. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，无需添加证书/密钥，启动设备连接。
 
 ## 证书/密钥 + 匿名登录
 
@@ -23,12 +23,12 @@
 
 4. 右键点击系统托盘中的 Industrial Gateway OPC Server 图标，在菜单中选择 **重新初始化**。
 
-## ECP Edge 侧配置
+## NeuronEX 侧配置
 
 1. 通过 UaExpert 软件查看 Industrial Gateway OPC Server 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 <img src="./assets/igs-4.jpg" alt="igs-4" style="zoom:50%;" />
 
-2. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，添加证书/密钥，启动设备连接；
+2. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，添加证书/密钥，启动设备连接；
 
 3. 根据测点信息添加 `Groups` 和 `Tags`。
 

@@ -17,7 +17,7 @@ $ sudo rpm -ivh neuronex-2.4.0-linux-amd64.rpm
 ```
 
 ::: tip
-成功安装 rpm 包后，自启动 ECP Edge。
+成功安装 rpm 包后，自启动 NeuronEX。
 :::
 
 ## 状态

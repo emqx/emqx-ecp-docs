@@ -13,4 +13,4 @@
     ![uaexpert4](./assets/uaexpert4.jpg)
 6. 拖动 **Address Space** 视图中的子节点到 **Data Access View** 视图，可以看到该节点的数据类型。
     ![uaexpert5](./assets/uaexpert5.jpg)
-7. 根据 **Data Access View** 视图中的类型信息设置 ECP Edge OPC UA 插件的测点类型。
+7. 根据 **Data Access View** 视图中的类型信息设置 NeuronEX OPC UA 插件的测点类型。

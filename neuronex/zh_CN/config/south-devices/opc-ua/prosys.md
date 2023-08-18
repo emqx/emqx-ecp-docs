@@ -12,7 +12,7 @@
 
 3. 保存设置并重新启动 Prosys OPC UA Simulation Server。
 
-4. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，无需添加证书/密钥，启动设备连接。
+4. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，无需添加证书/密钥，启动设备连接。
 
 ## 证书/密钥 + 匿名登录
 
@@ -24,7 +24,7 @@
 
 4. 保存设置并重新启动 Prosys OPC UA Simulation Server。
 
-5. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，添加证书/密钥，启动设备连接。
+5. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，无需填写用户名/密码，添加证书/密钥，启动设备连接。
 
 6. Prosys OPC UA Simulation Server 界面中切换到 **Certificates**，将列表中的客户端证书设置为信任。
 ![prosys-3](./assets/prosys-3.jpg)
@@ -38,7 +38,7 @@
 
 3. 保存设置并重新启动 Prosys OPC UA Simulation Server。
 
-4. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，无需添加证书/密钥，启动设备连接。
+4. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，无需添加证书/密钥，启动设备连接。
 
 5. Prosys OPC UA Simulation Server 界面中切换到 **Certificates**，将列表中的客户端证书设置为信任。
 
@@ -46,11 +46,11 @@
 
 1. 用户名/密码设置同上。
 
-2. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，添加证书/密钥，启动设备连接。
+2. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，添加证书/密钥，启动设备连接。
 
 3. Prosys OPC UA Simulation Server 界面中切换到 **Certificates**，将列表中的客户端证书设置为信任。
 
-## ECP Edge 侧配置
+## NeuronEX 侧配置
 
 1. 通过 UaExpert 软件查看 Ignition 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 ![prosys-5](./assets/prosys-5.jpg)

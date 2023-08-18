@@ -17,7 +17,7 @@
 # bin/kuiper create rule influx -f /tmp/influxRule.txt
 ```
 
-重新启动 ECP Edge 以激活插件。
+重新启动 NeuronEX 以激活插件。
 
 ## 属性
 

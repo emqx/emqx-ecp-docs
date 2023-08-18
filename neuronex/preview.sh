@@ -14,7 +14,7 @@ THIS_DIR="$(cd "$(dirname "$(readlink "$0" || echo "$0")")"; pwd -P)"
 
 docker rm ecp-doc-preview || true
 
-docker run -p ${PORT}:8080 -it --name ecp-doc-preview \
+docker run -p ${PORT}:8080 -it --name neuronex-doc-preview \
     --platform linux/amd64 \
     -v "$THIS_DIR"/directory.json:/app/docs/.vitepress/config/directory.json \
     -v "$THIS_DIR"/zh_CN:/app/docs/zh/emqx-ecp/latest \

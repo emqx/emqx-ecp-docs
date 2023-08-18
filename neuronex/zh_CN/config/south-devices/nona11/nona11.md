@@ -4,9 +4,9 @@
 
 | 字段            | 说明                                                         |
 | --------------- | ------------------------------------------------------------ |
-| connection mode | 驱动程序连接到设备的方式，默认为 client，即把 ECP Edge 作为客户端使用 |
-| host            | 当 ECP Edge 作为客户端使用时，host 指远程设备的 IP。当 ECP Edge 作为服务端使用时，host 指 ECP Edge 在本地使用的 IP，默认可填写 0.0.0.0 |
-| port            | 当 ECP Edge 作为客户端使用时，post 指远程设备的 TCP 端口。当 ECP Edge 作为服务端使用时，host 指 ECP Edge 在本地使用的 TCP 端口。 |
+| connection mode | 驱动程序连接到设备的方式，默认为 client，即把 NeuronEX 作为客户端使用 |
+| host            | 当 NeuronEX 作为客户端使用时，host 指远程设备的 IP。当 NeuronEX 作为服务端使用时，host 指 NeuronEX 在本地使用的 IP，默认可填写 0.0.0.0 |
+| port            | 当 NeuronEX 作为客户端使用时，post 指远程设备的 TCP 端口。当 NeuronEX 作为服务端使用时，host 指 NeuronEX 在本地使用的 TCP 端口。 |
 | site            | 非 A11设备站点号。                                           |
 
 ## 点位配置

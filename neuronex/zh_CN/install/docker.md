@@ -4,7 +4,7 @@
 
 ## 获取镜像
 
-ECP Edge docker 镜像请从 [docker hub](https://hub.docker.com/r/emqx/neuron/tags) 网站下载。
+NeuronEX docker 镜像请从 [docker hub](https://hub.docker.com/r/emqx/neuron/tags) 网站下载。
 
 ```bash
 ## pull Neuron
