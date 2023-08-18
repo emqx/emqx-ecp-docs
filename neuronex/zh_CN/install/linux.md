@@ -17,7 +17,7 @@ $ cd neuronex-2.4.0-linux-amd64
 
 ## 启动
 
-执行如下指令启动 ECP Edge：
+执行如下指令启动 NeuronEX：
 
 ```bash
 $ ./neuron-helper.sh start

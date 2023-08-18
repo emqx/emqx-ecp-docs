@@ -2,7 +2,7 @@
 
 欧姆龙 FINS （Factory Interface Network Service）是一种用于工业自动化领域的通信协议，是欧姆龙公司开发的一种专有协议，此协议提供了一种高效、可靠的通信方式，用于在欧姆龙 PLC、传感器等设备之间进行数据交换。FINS 协议支持多种通信方式，包括串口、TCP、UDP等。
 
-ECP Edge 支持 FINS TCP 协议，可以通过 FINS TCP 协议与欧姆龙 PLC 进行通信，
+NeuronEX 支持 FINS TCP 协议，可以通过 FINS TCP 协议与欧姆龙 PLC 进行通信，
 
 ## 插件配置
 

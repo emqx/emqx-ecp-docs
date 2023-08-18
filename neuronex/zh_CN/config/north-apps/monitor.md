@@ -1,13 +1,13 @@
 # Monitor 插件
 
-ECP Edge 在启动时创建一个 Monitor 单例节点，用于监控运行的 ECP Edge 实例。您可以在仪表板的**北向应用**页签中看到 Monitor 节点。
+NeuronEX 在启动时创建一个 Monitor 单例节点，用于监控运行的 NeuronEX 实例。您可以在仪表板的**北向应用**页签中看到 Monitor 节点。
 
 <figure align="center">
   <img src="./_assets/monitor_node.png"
        style="border:thin solid #E0DCD9; width: 60%"
-       alt="ECP Edge monitor 节点">
+       alt="NeuronEX monitor 节点">
   <figcaption align = "center">
-    <sub><b>Fig.1 - ECP Edge Monitor 节点</b></sub>
+    <sub><b>Fig.1 - NeuronEX Monitor 节点</b></sub>
   </figcaption>
 </figure>
 
@@ -40,8 +40,8 @@ ECP Edge 在启动时创建一个 Monitor 单例节点，用于监控运行的 E
 
 ## 数据统计
 
-ECP Edge Monitor 插件兼容 [Prometheus](https://prometheus.io/) 的[数据统计 HTTP API] 。
-ECP Edge 仪板表的**关于**页面和**数据统计**页签使用这个 API 显示信息。
+NeuronEX Monitor 插件兼容 [Prometheus](https://prometheus.io/) 的[数据统计 HTTP API] 。
+NeuronEX 仪板表的**关于**页面和**数据统计**页签使用这个 API 显示信息。
 
 可以通过点击**系统信息 -> 关于**打开**关于**页面。
 <figure align="center">
@@ -77,13 +77,13 @@ ECP Edge 仪板表的**关于**页面和**数据统计**页签使用这个 API �
 
 
 ::: warning 注意
-数据统计 API 在 ECP Edge 进程的整个生命周期中都是启用的。
+数据统计 API 在 NeuronEX 进程的整个生命周期中都是启用的。
 启动或者停止 *monitor* 节点只会停止[心跳](#心跳消息)和[事件](#事件消息)上报功能。
 :::
 
 ## 心跳消息
 
-Monitor 插件可以向 MQTT 服务器发送心跳消息，用于检查 ECP Edge 进程的存活或者节点的状态。
+Monitor 插件可以向 MQTT 服务器发送心跳消息，用于检查 NeuronEX 进程的存活或者节点的状态。
 除了 MQTT 连接参数，心跳消息功能由**心跳主题**和**心跳间隔**两个参数控制。
 **心跳主题**参数指定心跳上报的 MQTT 主题，**心跳间隔**参数指定每条心跳消息之间间隔的秒数。
 
@@ -93,7 +93,7 @@ Monitor 插件可以向 MQTT 服务器发送心跳消息，用于检查 ECP Edge
 
 心跳消息具有以下字段：
 * `timestamp` : 消息生成时的 Unix 时间撮。
-* `version` : ECP Edge 的版本信息。
+* `version` : NeuronEX 的版本信息。
 * `states` : 节点状态信息的数组，类似 [节点状态 HTTP API] 响应的数据.
 
 以下是一个心跳消息样例。
@@ -118,7 +118,7 @@ Monitor 插件可以向 MQTT 服务器发送心跳消息，用于检查 ECP Edge
 
 ## 事件消息
 
-事件代表 ECP Edge 进程中的内部状态变化，比如节点的创建，删除或者配置。
+事件代表 NeuronEX 进程中的内部状态变化，比如节点的创建，删除或者配置。
 系统管理员或者运维工程师通常比较关注这些事件。
 
 Monitor 插件可以向 MQTT 服务器发送事件消息，使用的主题由**事件主题前缀**参数决定。

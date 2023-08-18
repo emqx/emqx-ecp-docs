@@ -1,8 +1,8 @@
 # 连接 Modbus Slave
 
-本节主要介绍 ECP Edge 作为 Client，Modbus Slave 作为 Server 时，ECP Edge  与 Modbus Slave 的相关配置。
+本节主要介绍 NeuronEX 作为 Client，Modbus Slave 作为 Server 时，NeuronEX  与 Modbus Slave 的相关配置。
 
-ECP Edge  作为 Client，主动向 Modbus Slave 发起连接请求，用户需要保证 ECP Edge  -> Modbus Slave 的网络连通性。
+NeuronEX  作为 Client，主动向 Modbus Slave 发起连接请求，用户需要保证 NeuronEX  -> Modbus Slave 的网络连通性。
 
 ## 安装 Modbus Slave 模拟器
 
@@ -28,7 +28,7 @@ Modbus Slave 支持以下方式读写设备数据：
 * 主界面中独立文档窗口就可以看到地址配置相关的数据信息显示。如果想要配置多个从机地址定义，点击 **File -> New** 新建文档窗口，重复上一步从机地址配置即可。在独立文档窗口双击表头为地址的表格项目可以对数据进行修改。
 * 如果需要同时模拟多个从设备，运行 Modbus Slave 多个实例，重复上述步骤即可。
 
-## ECP Edge 侧配置
+## NeuronEX 侧配置
 
 在南向驱动中，使用 Modbus RTU 插件新建一个名为 modbus-rtu-client 的节点，并进行驱动配置，如下图所示。
 

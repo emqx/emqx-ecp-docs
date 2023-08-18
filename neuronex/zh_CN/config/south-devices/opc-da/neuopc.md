@@ -16,12 +16,12 @@
 
 7. 点击 `Run` 按钮，UA 服务器启动后，所有列表中的测点都会被映射到 UA Server 的 NeuOPC 目录下，所有测点的 UA namespace 为2，此时 UA 的相关设置项目会变为不可设置状态；
 
-8. 通过鼠标双击 neuopc 测点列表的 `Name` 列可将对应的测点名称复制到剪贴板中，然后在 ECP Edge 的 Tag 表单中粘贴。
+8. 通过鼠标双击 neuopc 测点列表的 `Name` 列可将对应的测点名称复制到剪贴板中，然后在 NeuronEX 的 Tag 表单中粘贴。
 <img src="./assets/neuopc-connect1.png" style="zoom:40%;" />
 
-## ECP Edge OPC UA 设置
+## NeuronEX OPC UA 设置
 
-1. 在 ECP Edge 南向设备管理中添加一个 OPC UA 设备；
+1. 在 NeuronEX 南向设备管理中添加一个 OPC UA 设备；
 
 2. 在设备配置中修改 `端点 URL` 为 NeuOPC 的 UA Server 地址；
 

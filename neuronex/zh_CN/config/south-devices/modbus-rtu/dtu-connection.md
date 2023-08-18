@@ -1,6 +1,6 @@
 # DTU 连接示例
 
-本文将以使用 Modbus RTU 协议的设备通过有人云 DTU 透传模块连接到 ECP Edge 为例，介绍如何将串口数据转换为网络数据。连接示意图如下图所示。
+本文将以使用 Modbus RTU 协议的设备通过有人云 DTU 透传模块连接到 NeuronEX 为例，介绍如何将串口数据转换为网络数据。连接示意图如下图所示。
 
 ![ecp-edge-dtu](./assets/ecpedge-dtu.png)
 
@@ -17,11 +17,11 @@ DTU 支持数据的双向转换，支持将 RS232、RS485、RS422 等常见的�
 | 配置项                  | 说明                                                    |
 | -------------------- | ------------------------------------------------------- |
 | **工作方式** | 一般 DTU 都支持 TCP、UDP 以客户端或服务端方式进行连接。以及以 Modbus TCP 标准协议传输数据，或是 None（透传）数据|
-| **服务器地址** | DTU 作为客户端时，填写 ECP Edge Modbus 绑定的地址。 |
-| **本地/远程端口** | DTU 作为客户端时，填写 ECP Edge Modbus 绑定的端口，DTU 作为服务端时，为 DTU 的端口。 |
+| **服务器地址** | DTU 作为客户端时，填写 NeuronEX Modbus 绑定的地址。 |
+| **本地/远程端口** | DTU 作为客户端时，填写 NeuronEX Modbus 绑定的端口，DTU 作为服务端时，为 DTU 的端口。 |
 
 :::tip
-DTU 一般都支持串口心跳包，或者是使能网络心跳包，以及注册包，这些特性在标准 Modbus 协议中都无法使用，ECP Edge 目前还无法兼容处理这些特性，使用 ECP Edge 连接 DTU 时，注意关闭相关选项。
+DTU 一般都支持串口心跳包，或者是使能网络心跳包，以及注册包，这些特性在标准 Modbus 协议中都无法使用，NeuronEX 目前还无法兼容处理这些特性，使用 NeuronEX 连接 DTU 时，注意关闭相关选项。
 :::
 
 
@@ -35,15 +35,15 @@ Client 和 Server 建立连接的工作流程如下图所示。
 
 <img src="./assets/client_server.png" alt="client_server" style="zoom:50%;" />
 
-## 连接作为 Client 的 ECP Edge
+## 连接作为 Client 的 NeuronEX
 
-本节主要介绍 ECP Edge 作为 Client，DTU 作为 Server 时，ECP Edge 与 DTU 的相关配置。
+本节主要介绍 NeuronEX 作为 Client，DTU 作为 Server 时，NeuronEX 与 DTU 的相关配置。
 
-ECP Edge 作为 Client，主动向 DTU 发起连接请求，用户需要保证 ECP Edge -> DTU 的网络连通性。
+NeuronEX 作为 Client，主动向 DTU 发起连接请求，用户需要保证 NeuronEX -> DTU 的网络连通性。
 
 ### 配置 DTU Server
 
-首先，需要配置 DTU 与串口连接的参数，其次，需要配置 DTU 与 ECP Edge 建立连接的 Socket 参数，如下图所示。
+首先，需要配置 DTU 与串口连接的参数，其次，需要配置 DTU 与 NeuronEX 建立连接的 Socket 参数，如下图所示。
 ![tcp-server](./assets/tcp-server.png)
 
 * 工作方式，TCP Server，Modbus TCP；
@@ -51,37 +51,37 @@ ECP Edge 作为 Client，主动向 DTU 发起连接请求，用户需要保证 E
 * 下面参数作为可选项。
 
 :::tip
-当 DTU 的工作方式为 Modbus TCP 时，因为 DTU 将 Modbus RTU 串口协议转换为 Modbus TCP 协议，所以，应使用 ECP Edge 中的 Modbus TCP 驱动。
+当 DTU 的工作方式为 Modbus TCP 时，因为 DTU 将 Modbus RTU 串口协议转换为 Modbus TCP 协议，所以，应使用 NeuronEX 中的 Modbus TCP 驱动。
 
-当 DTU 的工作方式为透传模式时，此时应当使用 ECP Edge 中的 Modbus RTU 驱动。
+当 DTU 的工作方式为透传模式时，此时应当使用 NeuronEX 中的 Modbus RTU 驱动。
 :::
 
 ### 查看 DTU IP
 
-在配置 ECP Edge 南向驱动时需要作为 Server 端的 DTU 的 IP，如下图所示。
+在配置 NeuronEX 南向驱动时需要作为 Server 端的 DTU 的 IP，如下图所示。
 ![dtu-ip-config](./assets/dtu-ip-config.png)
 
-### ECP Edge 侧配置
+### NeuronEX 侧配置
 
-在 ECP Edge，在南向驱动管理中建立插件为 modbus-tcp-client 的节点，并进行驱动配置，如下图所示。
+在 NeuronEX，在南向驱动管理中建立插件为 modbus-tcp-client 的节点，并进行驱动配置，如下图所示。
 ![ecp-edge-client-config](./assets/ecpedge-client-config.png)
 
 * 连接模式选择 client；
 * Host 填写 DTU 的 IP 地址；
 * Port 填写 DTU 配置的端口；
 
-## 连接作为 Server 的 ECP Edge
+## 连接作为 Server 的 NeuronEX
 
-本节主要介绍 ECP Edge 作为 Server，DTU 作为 Client 时， ECP Edge 与 DTU 的相关配置。
+本节主要介绍 NeuronEX 作为 Server，DTU 作为 Client 时， NeuronEX 与 DTU 的相关配置。
 
-DTU 作为 Client，主动向 ECP Edge 发起连接请求，用户需要保证 DTU -> ECP Edge 的网络连通性。这种连接方式通常可用于以下场景中，在某些 DTU 使用 4G 上网时，因为 ECP Edge 无法主动连接到 DTU，所以，ECP Edge 只能选择 Server 模式，由 DTU 主动连接到 ECP Edge。
+DTU 作为 Client，主动向 NeuronEX 发起连接请求，用户需要保证 DTU -> NeuronEX 的网络连通性。这种连接方式通常可用于以下场景中，在某些 DTU 使用 4G 上网时，因为 NeuronEX 无法主动连接到 DTU，所以，NeuronEX 只能选择 Server 模式，由 DTU 主动连接到 NeuronEX。
 
 ### 配置 DTU Client
 
-首先，需要配置 DTU 与串口连接的参数，其次，需要配置 DTU 与 ECP Edge 建立连接的 Socket 参数，如下图所示。
+首先，需要配置 DTU 与串口连接的参数，其次，需要配置 DTU 与 NeuronEX 建立连接的 Socket 参数，如下图所示。
 ![tcp-client](./assets/tcp-client.png)
 
-* 远程服务器地址，填写作为 Server 端运行 ECP Edge 的 IP 地址；
+* 远程服务器地址，填写作为 Server 端运行 NeuronEX 的 IP 地址；
 * 本地端口，默认不填写；
 * 远程端口，由于 每个 TCP Server 端口都会在客户端指定的端口上监听传入的 TCP 流量，因此，需要用户自定一个未被占用的端口，用以客户端与服务端之间进行握手建立连接。
 
@@ -94,10 +94,10 @@ $ netstat -anp |grep <port>
 ```
 :::
 
-### ECP Edge 侧配置
+### NeuronEX 侧配置
 
-在 ECP Edge，在南向驱动管理中建立插件为 modbus-tcp-server 的节点，并进行驱动配置，如下图所示。
-![ECP Edge-server-config](./assets/ecpedge-server-config.png)
+在 NeuronEX，在南向驱动管理中建立插件为 modbus-tcp-server 的节点，并进行驱动配置，如下图所示。
+![NeuronEX-server-config](./assets/ecpedge-server-config.png)
 
 * 连接模式选择 server；
 * Host，填写 0.0.0.0；
@@ -105,4 +105,4 @@ $ netstat -anp |grep <port>
 
 ## 补充说明
 
-当 ECP Edge 与 DTU 不在同一局域网内时，可以将 ECP Edge 运行环境的局域网 IP 及端口映射到公网，并将 ECP Edge 作为 Server 端，DTU 作为 Client 端，配置方式同上文所述。
+当 NeuronEX 与 DTU 不在同一局域网内时，可以将 NeuronEX 运行环境的局域网 IP 及端口映射到公网，并将 NeuronEX 作为 Server 端，DTU 作为 Client 端，配置方式同上文所述。

@@ -26,7 +26,7 @@
 
 ### 预警值动态更新
 
-动态预警值存储在 Redis 或者 Sqlite 等外部存储中。用户可通过应用程序对其进行更新也可通过 ECP Edge 提供的 `Updatable Sink` 功能通过规则进行自动更新。本教程将使用规则，通过 Redis sink 对上文的 Redis 查询表进行动态更新。
+动态预警值存储在 Redis 或者 Sqlite 等外部存储中。用户可通过应用程序对其进行更新也可通过 NeuronEX 提供的 `Updatable Sink` 功能通过规则进行自动更新。本教程将使用规则，通过 Redis sink 对上文的 Redis 查询表进行动态更新。
 
 预警值规则与常规规则无异，用户可接入任意的数据源，做任意数据计算，只需要确保输出结果中包含更新指令字段 `action`，例如 `{"action":"upsert","id":1,"alarm":50}`。本教程中，我们使用 MQTT 输入预警值更新指令通过规则更新 Redis 数据。
 
@@ -101,7 +101,7 @@
 
 ### SQL 插件安装和配置
 
-本场景将使用 MySQL 作为外部表数据存储位置。ECP Edge 提供了预编译的 SQL source 插件，可访问 MySQL 数据并将其作为查询表。因此，在开始教程之前，我们需要先安装 SQL source 插件。在 ECP Edge Web 界面，可直接在插件管理中，点击创建插件，如下图选择 SQL source 插件进行安装。
+本场景将使用 MySQL 作为外部表数据存储位置。NeuronEX 提供了预编译的 SQL source 插件，可访问 MySQL 数据并将其作为查询表。因此，在开始教程之前，我们需要先安装 SQL source 插件。在 NeuronEX Web 界面，可直接在插件管理中，点击创建插件，如下图选择 SQL source 插件进行安装。
 
 <img src="./_assets/install_sql_source.png" alt="Install SQL source" style="zoom:50%;" />
 

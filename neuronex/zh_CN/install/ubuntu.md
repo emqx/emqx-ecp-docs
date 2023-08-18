@@ -16,14 +16,14 @@ $ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64
 $ sudo dpkg -i neuronex-2.4.0-linux-amd64.deb
 ```
 
-为避免 ubuntu 系统自动更新时替换 ECP Edge 包，还需要执行以下命令使 ECP Edge 软件包在 apt 升级中保留。
+为避免 ubuntu 系统自动更新时替换 NeuronEX 包，还需要执行以下命令使 NeuronEX 软件包在 apt 升级中保留。
 
 ```bash
 $ sudo apt-mark hold neuron
 ```
 
 ::: tip
-成功安装 deb 包后，自启动 ECP Edge。
+成功安装 deb 包后，自启动 NeuronEX。
 :::
 
 ## 状态

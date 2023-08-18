@@ -1,4 +1,4 @@
-# ECP Edge
+# NeuronEX
 
 <!--后续要统一替换 neuronex 为 ECP-edge -->
 

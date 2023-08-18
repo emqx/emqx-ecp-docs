@@ -2,9 +2,9 @@
 
 该目标用于将消息发送到 EdgeX 消息总线上。
 
-对于 ZeorMQ 消息总线，该 sink 会创建一个新的 EdgeX 消息总线（绑定到 ECP Edge 服务的运行地址），而非原来既有的消息总线（通常为 application 服务所暴露的地址和端口）。
+对于 ZeorMQ 消息总线，该 sink 会创建一个新的 EdgeX 消息总线（绑定到 NeuronEX 服务的运行地址），而非原来既有的消息总线（通常为 application 服务所暴露的地址和端口）。
 
-如果别的主机需要访问 ECP Edge 端口，需要在开始运行 ECP Edge 服务之前，把端口号映射到主机上。
+如果别的主机需要访问 NeuronEX 端口，需要在开始运行 NeuronEX 服务之前，把端口号映射到主机上。
 
 如希望使用 EdgeX Sink 连接器，点击 **数据流处理** -> **规则** -> **新建规则**，在 **动作** 区域，点击**添加**，**Sink** 选择 **edgex**。
 
@@ -30,9 +30,9 @@
   - 若要将消息发送为类似 device service 或者 core data service 的 event request 类型，则应设置为 `request`。
 - **内容类型**：发布消息的内容类型，默认为 `application/json` 。
 - **元数据字段名**：用于选出消息中所有的 EdgeX 元数据，类似 `meta(*) AS xxx`。
-- **设备名称**：指定设备名称，该名称将作为从 ECP Edge 中发出的 Event 结构体的设备名称。
-- **Profile 名称**：指定从 ECP Edge 中发出的 Event 结构体的 profile 名称。若在**元数据字段名**中设置了 Profile 名称，将会优先采用。
-- **源名称**：指定从 ECP Edge 中发出的 Event 结构体的源名称。若在**元数据字段名**中设置了源名称，将会优先采用。
+- **设备名称**：指定设备名称，该名称将作为从 NeuronEX 中发出的 Event 结构体的设备名称。
+- **Profile 名称**：指定从 NeuronEX 中发出的 Event 结构体的 profile 名称。若在**元数据字段名**中设置了 Profile 名称，将会优先采用。
+- **源名称**：指定从 NeuronEX 中发出的 Event 结构体的源名称。若在**元数据字段名**中设置了源名称，将会优先采用。
 - **选项**：如**消息总线类型**设为 **MQTT**，还可通过键值对的形式指定其他一些可选配置项，例如 `KeepAlive: "5000"`。请注意，所有可选配置项的值都必须为**字符类型**。
 - **是否忽略输出**：可选值 True、False，默认为 False，则忽略输出。
 - **将结果数据按条发送**：
@@ -210,7 +210,7 @@ EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模�
 ## 动态元数据
 
 ### 发布结果到  EdgeX 消息总线，而不保留原有的元数据
-在此情况下，原有的元数据 (例如 `Events` 结构体中的 `id, deviceName, profileName, sourceName, origin, tags`，以及`Reading` 结构体中的  `id, deviceName, profileName, origin, valueType` 不会被保留)。ECP Edge 在此情况下作为 EdgeX 的一个单独微服务，它有自己的 `device name`， `profile name` 和 `source name`。 提供了属性 `deviceName` 和 `profileName`， 这两个属性允许用户指定 eKuiper 的设备名称和 profile 名称。而 `sourceName` 默认为 `topic` 属性的值。如下所示，
+在此情况下，原有的元数据 (例如 `Events` 结构体中的 `id, deviceName, profileName, sourceName, origin, tags`，以及`Reading` 结构体中的  `id, deviceName, profileName, origin, valueType` 不会被保留)。NeuronEX 在此情况下作为 EdgeX 的一个单独微服务，它有自己的 `device name`， `profile name` 和 `source name`。 提供了属性 `deviceName` 和 `profileName`， 这两个属性允许用户指定 eKuiper 的设备名称和 profile 名称。而 `sourceName` 默认为 `topic` 属性的值。如下所示，
 
 1. 从 EdgeX 消息总线上的 `events` 主题上收到的消息，
 
@@ -256,11 +256,11 @@ EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模�
     ```
 请注意，
 - Event 结构体中的设备名称( `DeviceName`)变成了 `kuiper`，profile 名称( `ProfileName`)变成了 `kuiperProfile`
-- `Events and Readings` 结构体中的数据被更新为新的值。 字段 `Origin` 被 ECP Edge 更新为新的值 (这里为 `0`)
+- `Events and Readings` 结构体中的数据被更新为新的值。 字段 `Origin` 被 NeuronEX 更新为新的值 (这里为 `0`)
 
 ### 发布结果到  EdgeX 消息总线，并保留原有的元数据
 
-但是在某些场景中，你可能需要保留原来的元数据。比如保留发送到 ECP Edge 的设备名称，在本例中为 `demo`， 还有 reading 数组中的其它元数据。在此情况下，ECP Edge 更像是一个过滤器 - 将不关心的数据过滤掉，但是依然保留原有的数据。
+但是在某些场景中，你可能需要保留原来的元数据。比如保留发送到 NeuronEX 的设备名称，在本例中为 `demo`， 还有 reading 数组中的其它元数据。在此情况下，NeuronEX 更像是一个过滤器 - 将不关心的数据过滤掉，但是依然保留原有的数据。
 
 参考以下的例子，
 
@@ -314,12 +314,12 @@ EdgeX 动作可支持数据模板对结果格式进行变化，但是数据模�
 
 - 对于在原有消息中可以找到的 reading，元数据将继续保留。 比如 `humidity` 的元数据就是从 EdgeX 消息总线里接收到的`原值 - 或者说是旧值`。
 
-- 对于在原有消息中无法找到的 reading，元数据将不会被设置。如例子中的 `t1` 的元数据被设置为 ECP Edge 产生的缺省值。
+- 对于在原有消息中无法找到的 reading，元数据将不会被设置。如例子中的 `t1` 的元数据被设置为 NeuronEX 产生的缺省值。
 
-- 如果你的 SQL 包含了聚合函数，那保留原有的元数据就没有意义，但是 ECP Edge 还是会使用时间窗口中的某一条记录的元数据。例如，在下面的 SQL 里，
+- 如果你的 SQL 包含了聚合函数，那保留原有的元数据就没有意义，但是 NeuronEX 还是会使用时间窗口中的某一条记录的元数据。例如，在下面的 SQL 里，
 
   ```sql
   SELECT avg(temperature) AS temperature, meta(*) AS edgex_meta FROM ... GROUP BY TUMBLINGWINDOW(ss, 10)
   ```
 
-  这种情况下，在时间窗口中可能有几条数据，ECP Edge 会使用窗口中的第一条数据的元数据来填充 `temperature` 的元数据。
+  这种情况下，在时间窗口中可能有几条数据，NeuronEX 会使用窗口中的第一条数据的元数据来填充 `temperature` 的元数据。

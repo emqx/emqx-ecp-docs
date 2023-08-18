@@ -2,8 +2,8 @@
 
 LF Edge [eKuiper] 是 Golang 实现的轻量级物联网边缘分析、流式处理开源软件，可以运行在各类资源受限的边缘设备上。eKuiper 的主要目标是在边缘端提供一个流媒体软件框架。eKuiper 的规则引擎允许用户提供基于 SQL 或基于图形的规则，在几分钟内创建物联网边缘分析应用。
 
-ECP Edge eKuiper 插件使用户能够将收集到的数据发布到 eKuiper 以进一步处理。
-作为一款工业网关，ECP Edge 为众多使用不同协议的不同设备提供一站式访问，而 eKuiper 具有数据过滤、聚合、转换和路由的能力。
+NeuronEX eKuiper 插件使用户能够将收集到的数据发布到 eKuiper 以进一步处理。
+作为一款工业网关，NeuronEX 为众多使用不同协议的不同设备提供一站式访问，而 eKuiper 具有数据过滤、聚合、转换和路由的能力。
 将两个产品结合在一起，您将得到双重优势，这极大地降低了边缘计算解决方案的资源要求，并能发掘更多的用例。
 
 ## 参数
@@ -17,9 +17,9 @@ ECP Edge eKuiper 插件使用户能够将收集到的数据发布到 eKuiper 以
 
 ## 集成 eKuiper
 
-ECP Edge 和 eKuiper 之间的交互是双向的，需要两边同时提供支持：
-* ECP Edge 方面，提供 eKuiper 插件以支持向 eKuiper 发布数据并接收命令。
-* eKuiper 方面，提供一个 ECP Edge 源以支持从 ECP Edge 订阅数据，以及一个 ECP Edge 动作以支持通过 ECP Edge 控制设备。
+NeuronEX 和 eKuiper 之间的交互是双向的，需要两边同时提供支持：
+* NeuronEX 方面，提供 eKuiper 插件以支持向 eKuiper 发布数据并接收命令。
+* eKuiper 方面，提供一个 NeuronEX 源以支持从 NeuronEX 订阅数据，以及一个 NeuronEX 动作以支持通过 NeuronEX 控制设备。
 
 两端可以使用 TCP 传输层，并支持多对多的连接。
 
@@ -82,10 +82,10 @@ ECP Edge 和 eKuiper 之间的交互是双向的，需要两边同时提供支�
 
 ### *data-stream-processing* 北向节点处于未连接状态，但 eKuiper 运行正常。
 
-确保您创建了使用 eKuiper ECP Edge 源的规则，并且 eKuiper 会延迟连接直到规则被启动。
+确保您创建了使用 eKuiper NeuronEX 源的规则，并且 eKuiper 会延迟连接直到规则被启动。
 
-### 如何查看 eKuiper 是否成功从 ECP Edge 采集到数据？
+### 如何查看 eKuiper 是否成功从 NeuronEX 采集到数据？
 
 1. 检查 **data-stream-processing** 节点处于连接状态，并且订阅了南向节点。
 2. 通过仪表板的性能监控面板，检查 **data-stream-processing** 节点确实采集到了设备数据。
-3. 如果使用 ECP Edge 仪表板，可以通过规则的统计面板，检查规则是否被触发。
+3. 如果使用 NeuronEX 仪表板，可以通过规则的统计面板，检查规则是否被触发。

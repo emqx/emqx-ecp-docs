@@ -29,14 +29,14 @@ Yabe 是一款图形界面应用程序，可以用于浏览 BACnet 设备。目�
 
 ![yabe-demoserver-sub-show](./assets/yabe-demoserver-sub-show.png)
 
-## ECP Edge 侧配置
+## NeuronEX 侧配置
 
 * 在 **南向设备** 中 点击 `添加设备`，选择 `BACnet/IP` 插件来创建一个连接 Yabe DemoServer 的节点。
 * 创建好节点后，点击 `设备配置` 进入设备配置页面，根据实际情况配置节点信息，
 	* `设备 IP 地址`：设备的 IP 地址
 	* `设备端口`：设备的端口，默认为 47808
 * 在创建好的南向设备节点中，创建组，并在组下创建点位。
-* 进入 ECP Edge **监控页面** 选择对应设备与组，查看采集的数据点，如下图所示。
+* 进入 NeuronEX **监控页面** 选择对应设备与组，查看采集的数据点，如下图所示。
 
 ![yabe-demoserver-tags-show](./assets/yabe-demoserver-tags-show.png)
 

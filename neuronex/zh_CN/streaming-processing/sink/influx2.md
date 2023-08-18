@@ -47,7 +47,7 @@ $(PLUGINS_CUSTOM):
 	@$(CURDIR)/build-plugins.sh $(PLUGIN_TYPE) $(PLUGIN_NAME)
 ```
 
-重新启动 ECP Edge 服务器以激活插件。
+重新启动 NeuronEX 服务器以激活插件。
 
 ## 属性
 

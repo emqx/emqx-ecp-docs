@@ -13,9 +13,9 @@
 
 4. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **重新初始化**；
 
-5. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，无需添加证书/密钥，启动设备连接；
+5. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，无需添加证书/密钥，启动设备连接；
 
-6. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **OPC UA 配置** -> **受信任的客户端**，将 ECP EdgeClient 证书设置为信任。
+6. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **OPC UA 配置** -> **受信任的客户端**，将 NeuronEXClient 证书设置为信任。
 <img src="./assets/kepware-4.jpg" alt="kepware-4" style="zoom:50%;" />
 
 7. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **重新初始化**；
@@ -30,12 +30,12 @@
 
 4. 右键点击系统托盘中的 KEPServerEX 图标，在菜单中选择 **重新初始化**；
 
-## ECP Edge 侧配置
+## NeuronEX 侧配置
 
 1. 通过 UaExpert 软件查看 KepServerEx 测点信息， 参考 [配置 UaExpert](./uaexpert.md)。
 ![kepware-5](./assets/kepware-5.jpg)
 
-2. ECP Edge 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，添加证书/密钥，启动设备连接；
+2. NeuronEX 新增南向 OPC UA 设备，打开 **设备配置**，填写目标 Server 的 `端点 URL`，填写用户名/密码，添加证书/密钥，启动设备连接；
 
 3. 根据测点信息添加 `Groups` 和 `Tags`。
 

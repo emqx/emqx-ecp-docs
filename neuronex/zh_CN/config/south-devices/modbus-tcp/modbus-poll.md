@@ -1,9 +1,9 @@
 
 # Modbus Poll 连接示例
 
-本节主要介绍 ECP Edge 作为 Server，Modbus Poll 作为 Client 时， ECP Edge 与 Modbus Poll 的相关配置。
+本节主要介绍 NeuronEX 作为 Server，Modbus Poll 作为 Client 时， NeuronEX 与 Modbus Poll 的相关配置。
 
-Modbus Poll 作为 Client，主动向 ECP Edge 发起连接请求，用户需要保证 Modbus Poll -> ECP Edge 的网络连通性。这种连接方式通常可用于以下场景中，在某些设备使用 4G 上网时，因为 ECP Edge 无法主动连接到设备，所以，ECP Edge 只能选择 Server 模式，由设备主动连接到 ECP Edge。
+Modbus Poll 作为 Client，主动向 NeuronEX 发起连接请求，用户需要保证 Modbus Poll -> NeuronEX 的网络连通性。这种连接方式通常可用于以下场景中，在某些设备使用 4G 上网时，因为 NeuronEX 无法主动连接到设备，所以，NeuronEX 只能选择 Server 模式，由设备主动连接到 NeuronEX。
 
 ## 下载 Modbus Poll 模拟器
 
@@ -19,11 +19,11 @@ Modbus Poll 支持以下方式读写设备数据：
 
 安装 Modbus Poll 软件，安装包可从 [modbus tool 下载](https://www.modbustools.com/download.html) 页面，根据运行环境选择对应的安装包下载。软件提供30天的免费使用时长。免费时长阶段，连接10分钟会断开一次，断开之后需要重启软件。
 
-## 配置 ECP Edge 南向驱动 Server
+## 配置 NeuronEX 南向驱动 Server
 
 在南向驱动中，使用 Modbus Plus TCP 插件新建一个名为 modbus-tcp-server 的节点，并进行驱动配置，如下图所示。
 
-![ECP Edge-server-config](./assets/ecpedge-server-config.png)
+![NeuronEX-server-config](./assets/ecpedge-server-config.png)
 
 * 连接模式选择 server；
 * Host，填写 0.0.0.0；
@@ -33,7 +33,7 @@ Modbus Poll 支持以下方式读写设备数据：
 ### 配置 Modbus Poll Client
 
 * 安装完成后，运行 Modbus Poll。
-* 进入菜单 **Connection -> Connect**，根据实际情况选择连接方式（本示例为 Modbus TCP/IP），设置连接参数(ECP Edge 运行设备的 IP 地址和设置的 Port)，然后点击 **OK** 完成配置，如下图所示。
+* 进入菜单 **Connection -> Connect**，根据实际情况选择连接方式（本示例为 Modbus TCP/IP），设置连接参数(NeuronEX 运行设备的 IP 地址和设置的 Port)，然后点击 **OK** 完成配置，如下图所示。
 
 ![modbus-poll-connection-setup](./assets/modbus-poll-connection-setup.png)
 
