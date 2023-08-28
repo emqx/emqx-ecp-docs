@@ -12,7 +12,9 @@ Before using the log and observability feature, System Admins can do some system
 
 ### Enable Log Service
 
-As a system administrator, navigate to the **Administration** page. Select **System Settings** -> **General Setting** and expand the **Log Receiver** section. This is where you can choose to enable the log receiver and set the server URL, username, and password.
+ECP gathers log data by connecting to an external Elasticsearch log server, offering logging services. To activate this service, sign in as the system administrator. Then, navigate to the **Administration** page. Select **System Settings** -> **General Setting** and expand the **Log Receiver** section. 
+
+Within this section, you can set up the Elasticsearch address, as well as the username and password. Once the connection test succeeds, you can save the log receiver details and establish a connection to the external log data source.
 
 :::tip
 
