@@ -18,7 +18,7 @@ ECP 集成了多版本的 eKuiper UI，您可以在 ECP 平台配置多个 eKuip
 
 关于各界面配置项的功能说明，参考 [eKuiper 在线文档](https://ekuiper.org/docs/zh/latest/)。
 
-## 批量管理边缘服务实例（Kubernetes 部署）
+## 批量管理边缘服务实例
 
 批量控制是指对边缘服务进行批量启动、停止、重启、删除的操作。
 
