@@ -2,7 +2,7 @@
 
 基于 Kubernetes/Docker 部署的 ECP 平台，可在相同的 Kubernetes/Docker 网络里批量安装边缘服务，缩短边缘服务的安装与部署时间，提高部署效率和一致性。
 
-有关 Kubernetes 和 Docker 配置的详细说明，见[资源配置](../system_admin/resource_config.md)
+有关 Kubernetes 和 Docker 配置的详细说明，见[资源配置](../system_admin/resource_config.md)。
 
 ## 批量安装
 
