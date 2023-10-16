@@ -45,7 +45,8 @@ $ kubectl get storageclasses
    ```bash
    $ helm repo add influx https://helm.influxdata.com
    $ helm repo update
-   $ helm install telegraf-operator influx/telegraf-operator --create-namespace --version '1.3.10'
+   $ helm -n emqx-ecp install telegraf-operator influx/telegraf-operator --create-namespace --version '1.3.10'
+   $ kubectl -n emqx-ecp apply -f https://github.com/emqx/emqx-bc-iaas-hand/blob/develop/plugins/emqx_operator1_2_7/telegraf-operator-class.yaml
    ```
 
 3. Run the command below to install EMQX Operator.
@@ -57,7 +58,7 @@ $ kubectl get storageclasses
        --namespace emqx-operator-system \
        --create-namespace \
        --set installCRDs=true  \
-       --version '1.0.11-ecp.2'
+       --version '1.0.11-ecp.7'
    ```
 
 4. Run the command below to install EMQX Edge Operator.
