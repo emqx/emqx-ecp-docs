@@ -1,6 +1,8 @@
 # 批量安装边缘服务
 
-基于 Kubernetes 部署的 ECP 平台，可在相同的 Kubernetes 网络里批量安装边缘服务，缩短边缘服务的安装与部署时间，提高部署效率和一致性。
+基于 Kubernetes/Docker 部署的 ECP 平台，可在相同的 Kubernetes/Docker 网络里批量安装边缘服务，缩短边缘服务的安装与部署时间，提高部署效率和一致性。
+
+有关 Kubernetes 和 Docker 配置的详细说明，见[资源配置](../system_admin/resource_config.md)。
 
 ## 批量安装
 
@@ -9,6 +11,8 @@
 2. 点击**添加边缘服务**按钮，进入添加边缘服务页。
 
 3. **添加方式**选择**批量安装新服务**。
+
+3. **批量安装方式**选择 k8s 或 docker。
 
 4. **类型**可以选择 eKuiper、Neuron。
 

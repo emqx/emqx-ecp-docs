@@ -19,8 +19,7 @@
 
 对于基于 Kubernetes 和基于 Docker 部署的 ECP，在边缘服务管理上存在一定的功能差异，具体请参考 [Kubernetes 与 Docker 部署的功能差异](../install/introduction.md#kubernetes-与-docker-部署的功能差异)。
 
-
-![edge-list](./_assets/edge-list.png) 
+![Edge List](./_assets/edge-list.png)
 
 本章将主要介绍以下主题：
 
