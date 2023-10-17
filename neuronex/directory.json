@@ -3,11 +3,42 @@
     {
       "title": "产品概览",
       "path": "./",
-      "children": []
+      "children": [
+        {
+          "title": "架构",
+          "path": "intro/architecture"
+        },
+        {
+          "title": "数采模块列表",
+          "path": "intro/plugin-list"
+        },
+        {
+          "title": "许可证政策",
+          "path": "intro/license-policy"
+        }
+      ]
     },
     {
-      "title": "插件",
-      "path": "intro/plugin-list"
+      "title": "快速入门",
+      "path": "quick_start/quick_start"
+    },
+    {
+      "title": "安装",
+      "path": "install/introduction",
+      "children": [
+        {
+          "title": "使用 .tar.gz 包安装",
+          "path": "install/linux"
+        },
+        {
+          "title": "通过Docker部署",
+          "path": "install/docker"
+        },
+        {
+          "title": "申请和安装许可证",
+          "path": "install/license_setting"
+        }
+      ]
     },
     {
       "title": "数据采集配置",
@@ -18,10 +49,6 @@
           "path": "config/south-devices/south-devices",
           "collapsed": true,
           "children": [
-            {
-              "title": "File",
-              "path": "config/south-devices/file/file"
-            },
             {
               "title": "Modbus RTU",
               "path": "config/south-devices/modbus-rtu/modbus-rtu",
@@ -236,6 +263,10 @@
             {
               "title": "导入/导出点位配置",
               "path": "config/import-export"
+            },
+            {
+              "title": "基于模板配置",
+              "path": "config/templates/templates"
             }
           ]
         },
@@ -284,12 +315,16 @@
         {
           "title": "订阅南向数据",
           "path": "config/subscription"
+        },
+        {
+          "title": "管理插件模块",
+          "path": "config/ecp_edge_plugin"
+        },
+        {
+          "title": "数据监控",
+          "path": "monitor/introduction"
         }
       ]
-    },
-    {
-      "title": "数据监控",
-      "path": "monitor/introduction"
     },
     {
       "title": "数据流处理",
@@ -458,9 +493,25 @@
       ]
       },
       {
-        "title": "管理",
+        "title": "HTTP API",
+        "path": "api/api"
+      },
+      {
+        "title": "运维指南",
         "path": "management/introduction",
         "children": [
+          {
+            "title": "数据监控",
+            "path": "management/monitoring"
+          },
+          {
+            "title": "数据统计",
+            "path": "management/data-statistics"
+          },
+          {
+            "title": "配置管理",
+            "path": "management/conf-management"
+          },
           {
             "title": "日志",
             "path": "management/logs"
@@ -935,7 +986,7 @@
       ]
       },
       {
-        "title": "管理",
+        "title": "运维指南",
         "path": "management/introduction",
         "children": [
           {
@@ -947,6 +998,10 @@
             "path": "management/password"
           }
         ]
+      },
+      {
+        "title": "HTTP API",
+        "path": "http-api/http-api"
       },
       {
         "title": "发版历史",
