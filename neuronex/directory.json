@@ -31,7 +31,7 @@
           "path": "install/linux"
         },
         {
-          "title": "通过Docker部署",
+          "title": "通过 Docker 部署",
           "path": "install/docker"
         },
         {
