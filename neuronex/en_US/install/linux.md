@@ -1,25 +1,29 @@
-# 使用 .tar.gz 包安装
+# Using .tar.gz package
 
-## 下载
+## Download
 
-根据不同版本及架构下载安装包，例如：
+Download the installation package according to different versions and architectures, E.g:
 
-```bash
+<!-- ```bash
 $ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64.tar.gz
-```
+``` -->
 
-## 安装
-
-```bash
-$ tar -zxvf neuronex-2.4.0-linux-amd64.tar.gz
-$ cd neuronex-2.4.0-linux-amd64
-```
-
-## 启动
-
-执行如下指令启动 ECP Edge：
+## Install
 
 ```bash
-$ ./neuron-helper.sh start
+$ tar -zxvf neuronex-3.0.0-linux-amd64.tar.gz
+$ cd neuronex-3.0.0-linux-amd64
+```
+
+::: tip 
+GLIBC requires version 2.31 or above.
+:::
+
+## Run
+
+The following command can be executed to start NeuronEX:
+
+```bash
+$ ./bin/neuronex run
 ```
 
