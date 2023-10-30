@@ -4,22 +4,26 @@
 
 根据不同版本及架构下载安装包，例如：
 
-```bash
+<!-- ```bash
 $ wget https://www.emqx.com/en/downloads/neuron/2.4.0/neuronex-2.4.0-linux-amd64.tar.gz
-```
+``` -->
 
 ## 安装
 
 ```bash
-$ tar -zxvf neuronex-2.4.0-linux-amd64.tar.gz
-$ cd neuronex-2.4.0-linux-amd64
+$ tar -zxvf neuronex-3.0.0-linux-amd64.tar.gz
+$ cd neuronex-3.0.0-linux-amd64
 ```
+
+::: tip 
+GLIC 需要 2.31 以上版本。
+:::
 
 ## 启动
 
 执行如下指令启动 NeuronEX：
 
 ```bash
-$ ./neuron-helper.sh start
+$ ./bin/neuronex run
 ```
 
