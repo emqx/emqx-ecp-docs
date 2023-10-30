@@ -95,7 +95,6 @@ The `log` section defines the logging configuration of the NeuronEX server.
 - `level`: log level, options are `debug`, `info`, `warn`, `error` and `fatal`.
 - `file`: path to the log file.
 - `maxSize`: maximum size in megabytes of the log file before it gets rotated.
-- `maxAge`: the maximum number of days to retain old log files based on the timestamp encoded in their filename.
 - `maxBackups`:  the maximum number of old log files to retain.
 - `listenAddr`: log listener address for remote log collection.
 - `syslogForward`: log remote forwarding configuration.
@@ -135,8 +134,6 @@ log:
   file: log/neuronex.log
   # maximum size in megabytes of the log file before it gets rotated
   maxSize: 50000
-  #MaxAge is the maximum number of days to retain old log files based on the timestamp encoded in their filename
-  maxAge: 3
   # MaxBackups is the maximum number of old log files to retain
   maxBackups: 3
   listenAddr: "localhost:10514"

@@ -96,7 +96,6 @@ NeuronEX 提供 YAML 格式文件，用于配置与 NeuronEX 相关的个性化�
 - ` level`：日志级别，选项包括 debug,info,warn,error ,fatal。
 - ` file`：日志文件路径。
 - `maxSize`：日志文件轮换前的最大容量（以 MB 为单位）。
-- `maxAge`： 保留旧日志文件的最长天数。
 - `maxAge`： 根据文件名中编码的时间戳保留旧日志文件的最长天数。
 - `maxBackups`： 保留的旧日志文件的最大数量。
 - `listenAddr`：用于远程日志收集的日志监听器地址。
@@ -137,8 +136,6 @@ log:
   file: log/neuronex.log
   # maximum size in megabytes of the log file before it gets rotated
   maxSize: 50000
-  #MaxAge is the maximum number of days to retain old log files based on the timestamp encoded in their filename
-  maxAge: 3
   # MaxBackups is the maximum number of old log files to retain
   maxBackups: 3
   listenAddr: "localhost:10514"
