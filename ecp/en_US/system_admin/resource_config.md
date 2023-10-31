@@ -154,15 +154,15 @@ This is to configure the edge service image list, define quota, and configure au
 
 ### Configure Edge Service Image List
 
-System admins can configure the image list for supported edge services, including Neuron and eKuiper.
+System admins can configure the image list for supported edge services, just including NeuronEX.
 
-#### Manage eKuiper/Neuron Images
+#### Manage NeuronEX Images
 
 System admins can add, edit or delete edge service image versions. If you have internet connectivity, you can use public image addresses. Additionally, you can also specify a private image registry service. On how to configure a Telegraf image, see [General Settings - Telegraf Image](./general_config.md#telegraf-image).
 
 1. Log in to ECP as a system admin and navigate to **System Settings** -> **Resource Settings**.
-2. Expand the **Edge Service Setting** -> **Edge Service Image List**.
-3. Click **Edit** under **eKuiper** or **Neuron** to enter the editing page.
+2. Expand the **Basic Config** -> **Edge Service Image List**.
+3. Click **Edit** under **NeuronEX** to enter the editing page.
 4. To add a new image version, click the "+" icon and provide the image version. You can choose to set it as the default version. To delete an image version, simply click the delete icon.
 5. Click **Save** to complete the configuration.
 
@@ -170,40 +170,24 @@ System admins can add, edit or delete edge service image versions. If you have i
 
 
 
-### Configure Edge Service Quota
+### Configure Edge Service In Docker Mode
 
-For edge services created using ECP, you have the option to customize the quota according to your specific business requirements. However, you are recommended to keep the default settings as they are verified by EMQ technical team. Modify them only if necessary.
+For edge services created using ECP, you have the option to customize the docker node connect configuration. However, you are recommended to keep the default settings as they are verified by EMQ technical team. Modify them only if necessary.
 
 1. Log in to ECP as a system admin and navigate to **System Settings** -> **Resource Settings**.
-2. Expand the **Edge Service Setting** -> **Edge Quota List**.
-3. Click **Edit** to enter the editing page, where you can modify the quotations.
+2. Expand the **Docker Mode** -> **Docker Configuration**.
+3. Click **Edit** to enter the editing page, where you can modify the settings.
 
 <img src="./_assets/quick-workspace-edge-quota.png" style="zoom: 50%;" align="middle">
 
 
+**Edge Service Default Setting**
 
-Below is the specification for an eKuiper service with 1 CPU core, 1 GiB of memory, and 100 MiB of disc space:
+1. Log in to ECP as a system admin and navigate to **System Settings** -> **Resource Settings**.
+2. Expand the **Docker Mode** -> **Edge Service Setting**.
+3. Click **Edit** to enter the editing page, where you can modify the settings.
 
-
-|Item|Specification/Unit|Description|
-| :----------| :---------|:-------------------------|
-| eKuiper Quota List     | 1C1Gi0.1Gi         | The final specification name displayed when installing eKuiper |
-| ekuiper-cpu-limit      | 1000m              | The upper limit of CPU usage for the edge service, set to 1 core. |
-| ekuiper-memory-limit   | 1024Mi             | The upper limit of memory usage for the edge service, set to 1024Mi (1Gi). |
-| ekuiper-cpu-request    | 1000m              | The lower limit of CPU usage for the edge service, set to 1 core. |
-| ekuiper-memory-request | 1024Mi             | The lower limit of memory usage for the edge service, set to 1024Mi (1Gi). |
-| eKuiper Storage Size   | 100Mi              | Occupied disk space size                                     |
-
-Below is the specification for a Neuron service with 1 CPU core, 1 GiB of memory, and 100 MiB of disc space:
-
-| Item                  | Specification/Unit | Description                                                  |
-| :----------| :---------|:-------------------------|
-|Neuron Quota List|1C1Gi0.1Gi|The final specification name displayed when installing Neuron|
-|Neuron-cpu-limit|1000m|The upper limit of CPU usage for the edge service, set to 1 core.|
-|Neuron-memory-limit|1024Mi|The upper limit of memory usage for the edge service, set to 1024Mi (1Gi).|
-|Neuron-cpu-request|1000m|The lower limit of CPU usage for the edge service, set to 1 core.|
-|Neuron-memory-request|1024Mi|The lower limit of memory usage for the edge service, set to 1024Mi (1Gi).|
-|Neuron Storage Size|100mi|Occupied disk space size|
+3. <img src="./_assets/docker-default-value.png" style="zoom: 50%;" align="middle">
 
 
 ### Configure Authentication
