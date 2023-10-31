@@ -10,21 +10,21 @@ For the initial deployment of edge services, you can utilize ECP's batch install
 
 2. Click the **Add Edge Service** button to enter the **Add Edge Service** page.
 
-3. Choose **Install new Services in batches** for **Add Type**.
+3. Choose **Install new Services in batches** for **Add Type**, chose **docker** type for **Batch Installation Type**.
 
-4. For **Category**, you can choose **eKuiper** or **Neuron**.
+4. For **Category**, now only **NeuronEX**.
 
 5. **Connection Type** is set to **Direct** by default and cannot be changed.
 
 6. In the **Name Cluster** field, give a name prefix for the edge service, the system will automatically generate a unique service name based on the name prefix; it should be 1 - 20 characters, and also support "-" and blank spaces. 
 
-7. In the **Installation Quantity** field, enter the number of edge services you want to install, at most 200 services can be installed in batch. 
+7. In the **Choose Nodes** field, you can chose one or many docker node to install. 
 
-8. You can view the default specification for the service.
+8. You can view the default specification for the service, set up the **Ports Mapping**、**Volumes Mapping**、**Environment Variables** and startup command.
 
-9. Then in the **eKuiperImage** or **NeuronImage** field, choose the image version to install. 
+9. Then in the **NeuronEXImage** field, choose the image version to install. 
 
-   **Note**: If Neuron is to be installed, please also specify whether authentication is enabled by clicking the **Authentication Enabled** checkbox. For details about authentication in Neuron, see [Authenticate Edge Services](./e2c.md).
+   **Note**: If NeuronEX is to be installed, please also specify whether authentication is enabled by clicking the **Authentication Enabled** checkbox. For details about authentication in NeuronEX, see [Authenticate Edge Services](./e2c.md).
 
 10. Add tags to facilitate future management. For details, see [Tags](./batch_tag.md).
 
