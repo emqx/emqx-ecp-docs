@@ -281,6 +281,10 @@
                     "path": "edge_service/edge_agent_management"
                 },
                 {
+                    "title": "ECP Edge Node",
+                    "path": "edge_service/docker_node"
+                },
+                {
                     "title": "Add Existing Edge Services",
                     "path": "edge_service/batch_import"
                 },
