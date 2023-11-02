@@ -48,6 +48,12 @@ System admins can create users directly or invite them via email to join the ECP
 
 <img src="./_assets/manager-setting-auth.png" alt="用户邀请方式" style="zoom:50%;" />
 
+## SYSLOG Push
+
+You can use this function to push ECP logs and audit information to a specified Syslog server to connect to a third-party log system.
+
+<img src="./_assets/syslog_push.png" alt="访问域名" style="zoom:50%;" />
+
 ## Telegraf Image
 
 Telegraf is for the log collection of EMQX clusters. 
