@@ -1,37 +1,43 @@
-# 申请和安装许可证
+# License Policy
 
-当然，您也可以直接 [联系我们](https://www.emqx.com/zh/contact?product=neuron)获取正式的 License。
+NeuronEX comes with a trial license that provides 30 points (30 connections and 30 data tags) of free usage. This allows you to run commercial modules without installing an EMQ license. After exceeding the free usage limit, you must install a valid official EMQ license to use all of NeuronEX's features.
 
-## 第一步，查看硬件标志
+## Install  License
 
-点击右上角 **系统信息->关于** 查看硬件标志并将其拷贝。
+Licenses can be installed multiple times. When you reinstall a license, the old license will be deleted. There are three ways to install a license:
 
-## 第二步，申请许可证
+- **Apply for a license on the website**
 
-进入[官方网站](https://www.emqx.com/zh/apply-licenses/neuron)填写相关信息申请许可证，许可证将发送到您的邮箱。
+  You can directly [contact us](https://www.emqx.com/zh/contact?product=neuron) to apply for a license that does not require hardware binding. After applying for a license, you can enter NeuronEX, click **Administration** > **License**, click **Re-upload**, and then you can see the detailed information of the license on this page after the upload is successful.
 
-## 第三步，安装许可证
+  ![upload-license](_assets/upload-license.png)
 
-点击右上角 **系统信息->License**，上传邮箱中接受到的许可证文件（.lic 文件）并提交。
+- **Activate a license**
 
-:::tip
-申请有效的 License 时需要填写硬件标志。
+  This method is suitable for users who want to install NeuronEX in gateway hardware and quickly register licenses for a large number of boxes. You need to manually activate NeuronEX through a registration activation code to achieve license distribution and hardware binding.
 
-在未上传 License 或者 License 过期时，商业版的可插拔模块是无法使用的。
+  - Users first place an order on the EMQ website to purchase a batch of NeuronEX licenses and obtain an order number. You can also contact us.
 
-用户可以在页面点击`申请`申请试用许可证，或点击`联系我们`联系我们的销售代表购买商业许可证。
-:::
+  - Users go to the [NeuronEX License Information Query]( https://site.mqttce.com/zh/neuronex-license-info) page, enter the order number, the email address associated with the order number, and the verification code to query the information of the current purchased license order. Save the activation code.
 
-## 第四步，查看许可证详细信息
+    ![license-order](_assets/license-order.png)
 
-在 License 成功上传后，页面将展示 License 信息。
+  - Enter NeuronEX, click **Administration** > **License**, enter the activation code you just saved, click **Re-activate**, NeuronEX will obtain the license from the official website and automatically import it. After the activation is successful, re-enter the [NeuronEX License Information Query]( https://site.mqttce.com/zh/neuronex-license-info) page, you will find that the remaining licenses have been reduced. If the hardware device loses the license, you can re-activate the license to the hardware device through the registration activation code. The license is one-to-one corresponding to the hardware identifier of NeuronEX. The same device will only reduce 1 license for multiple activations.
 
-许可证页面详细信息包括以下方面：
+    ![register-license](_assets/register-license.png)
 
-| 内容          | 描述                                                         |
-| :------------ | :----------------------------------------------------------- |
-| 生效日期      | ECP Edge 申请 License 生效的时间                             |
-| 失效日期      | ECP Edge 可使用的截止日期，如果 License 过期，系统将无法正常工作，您必须重新获取新的有效的 License，重新上传 License |
-| 节点数限制    | ECP Edge 可创建节点总数的最大值，一个节点指的是一个南向设备或者是一个北向应用 |
-| Tag 数目限制  | ECP Edge 可创建的所有点位总和的最大值                        |
-| 可用的 Plugin | ECP Edge 已授权的插件。每个商业插件模块都可以在 EMQ 许可证中独立授权 |
+- **Floating license**
+
+  This method is suitable for NeuronEX that is managed or hosted by ECP. After NeuronEX is managed by ECP, NeuronEX can be assigned tags in the ECP page while it is online. ECP will automatically issue the corresponding floating license to NeuronEX. The function of NeuronEX will be limited by the points assigned. Please allocate points reasonably.
+
+## View License
+
+You can view the detailed information of a license, regardless of how it was installed, on the license page.
+
+| 内容               | 描述                                                         |
+| :----------------- | :----------------------------------------------------------- |
+| Issued At          | The date when the NeuronEX license becomes effective.        |
+| Expire At          | The deadline by which NeuronEX can be used. If the license expires, the system will not function properly. You must obtain a new valid license and re-upload the license. |
+| Tags Usage         | The maximum value of the sum of all tags that can be created in NeuronEX, as well as the number of tags that are in use. |
+| Enables    Plugins | The plugins that are authorized for NeuronEX. Each commercial plugin module can be independently authorized in the EMQ license. |
+
