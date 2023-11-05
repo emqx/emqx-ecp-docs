@@ -1,6 +1,15 @@
 # 自定义 JWT
 
-在 Neuron 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为一小时，可以自己生成 JWT，自定义过期时间。
+在 NeuronEX 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为一小时，可以自己生成 JWT，自定义过期时间。
+
+当用户请求 RESTful apis 时，请在 http 请求头中按以下格式输入 **Token**：
+
+```go
+Authorization: Bearer
+							XXXXXXXXXXXXXXX
+```
+
+If the token is correct,NeuronEX will respond the result; otherwise, it will return http `401`code.
 
 ## 什么是 JWT？
 
@@ -39,7 +48,7 @@ payload
 
 ## 生成公私钥
 
-签发 JWT 前需要生成一对公私钥，并把生成的公钥 public.pem 放在 Neuron 安装目录下的子目录 **certs** 中。Neuron 自动加载 **certs** 中的文件，根据公钥解码。
+签发 JWT 前需要生成一对公私钥，并把生成的公钥 public.pem 放在 NeuronEX 安装目录下的子目录 **etc** 中。NeuronEX 自动加载 **certs** 中的文件，根据公钥解码。
 
 :::tip
 Docker 以及 deb/rpm 安装包的默认安装路径为 `/opt/neuron`。
