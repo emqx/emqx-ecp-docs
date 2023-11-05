@@ -26,4 +26,5 @@ GLIC 需要 2.31 以上版本。
 ```bash
 $ ./bin/neuronex run
 ```
+更多启动参数请参考 [配置管理](../management/conf-management.md)。
 
