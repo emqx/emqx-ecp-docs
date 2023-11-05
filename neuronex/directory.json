@@ -9,7 +9,7 @@
           "path": "intro/architecture"
         },
         {
-          "title": "数采模块列表",
+          "title": "数采插件列表",
           "path": "intro/plugin-list"
         },
         {
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "title": "数据采集配置",
+      "title": "数据采集",
       "path": "config/introduction",
       "children": [
         {
