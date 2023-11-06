@@ -14,7 +14,7 @@ After finishing creating the edge service instances or adding existing edge serv
 
 ## NeuronEX Statistics
 
-- Edge Services:  The number of NeuronEX instances managed in the system.
+- Edge Services: The number of NeuronEX instances managed in the system.
 - North: Northbound statistical information
   - North Apps: The total number of northbound nodes in all NeuronEX instances.
   - Running Nodes: The total number of northbound nodes currently running in all NeuronEX instances.
