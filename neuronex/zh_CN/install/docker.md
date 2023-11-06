@@ -13,7 +13,7 @@ $ docker pull emqx/neuronex:3.0.0
 
 ```bash
 ## run NeuronEX
-$ docker run -d --name neuronex -p 8085:8085  emqx/neuronex:3.0.0
+$ docker run -d --name neuronex -p 8085:8085 --log-opt max-size=10m emqx/neuronex:3.0.0
 ```
 
 * tcp 8085：端口映射，用于访问 web 和 http api 端口。
