@@ -50,6 +50,22 @@ NeuronEX 支持通过`命令行`、`环境变量`、`配置文件`的方式，�
 ./bin/neuronex stop
 ```
 
+### `install` 命令
+
+`install` 命令用于在 /etc/systemd/system path 中注册 NeuronEX 服务配置文件。
+
+```sh
+./bin/neuronex install
+```
+
+### `uninstall` 命令
+
+`uninstall` 命令用于在 /etc/systemd/system path 中取消注册 NeuronEX 服务配置文件。
+
+```sh
+./bin/neuronex uninstall
+```
+
 ## 环境变量
 
 NeuronEX 支持在启动过程中读取环境变量来配置启动参数，目前支持的环境变量如下:

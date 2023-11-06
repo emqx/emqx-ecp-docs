@@ -49,6 +49,24 @@ The `stop` command is used to stop running NeuronEX. This command will kill the 
 ./bin/neuronex stop
 ```
 
+### `install` command
+
+The ` install` command is used to register the NeuronEX service configuration file in /etc/systemd/system path.
+
+```sh
+./bin/neuronex install
+```
+
+### `uninstall` command
+
+The ` uninstall` command is used to unregister the NeuronEX service configuration file in the /etc/systemd/system path.
+
+```sh
+./bin/neuronex uninstall
+```
+
+## 环境变量
+
 ## Environment Variables
 
 NeuronEX supports reading environment variables during the startup process to configure startup parameters. The currently supported environment variables are as follows:
