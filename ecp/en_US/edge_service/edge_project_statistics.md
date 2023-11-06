@@ -8,32 +8,27 @@ After finishing creating the edge service instances or adding existing edge serv
 
 ## Basic Statistics
 
-- Edge Services: The number of all or filtered edge services.
-- Members: The number of members in the project.
+- Edge Services: The number of all edge services, online edge services and offline edge services.
+- Drive Status: The number of total nodes, running nodes and error nodes in the project.
+- Tags: The number of tags which have been allocated to edge services and which have been used in edge services.
 
-## Neuron Statistics
+## NeuronEX Statistics
 
-- Neuron Services:  The number of Neuron instances managed in the system.
+- Edge Services:  The number of NeuronEX instances managed in the system.
 - North: Northbound statistical information
-  - North Apps: The total number of northbound nodes in all Neuron instances.
-  - Running Nodes: The total number of northbound nodes currently running in all Neuron instances.
-  - Node Disconnected: The total number of disconnected or offline northbound nodes in all Neuron instances.
+  - North Apps: The total number of northbound nodes in all NeuronEX instances.
+  - Running Nodes: The total number of northbound nodes currently running in all NeuronEX instances.
+  - Node Connected: The total number of connected northbound nodes in all NeuronEX instances.
+  - Abnormal Nodes: The total number of abnormal northbound nodes in all NeuronEX instances.
 - South: Southbound statistical information
-  - South Devices: The total number of southbound nodes in all Neuron instances.
-  - Running Nodes: The total number of southbound nodes currently running in all Neuron instances.
-  - Node Disconnected: The total number of disconnected or offline southbound nodes in all Neuron instances.
-- Abnormal Node Display: Neuron instances in abnormal state. Click **More** to view all abnormal instances.
-
-## eKuiper Statistics
-
-The eKuiper statistics card provides insights into:
-
-- eKuiper Services: Total number of eKuiper instances managed in ECP.
-- Rules: Total number of rules across all eKuiper instances.
-- Total Records Input: The total input data in all running eKuiper instances.
-- Total Records Output: The total output data in all running eKuiper instances.
-- Input Per Second: The average amount of data flowing into all running eKuiper instances per second.
-- Output Per Second: The average amount of data flowing out of all running eKuiper instances per second.
-- Error nodes: eKuiper instances in abnormal state. Click **More** to view the full list. 
+  - South Devices: The total number of southbound nodes in all NeuronEX instances.
+  - Running Nodes: The total number of southbound nodes currently running in all NeuronEX instances.
+  - Node Connected: The total number of connected southbound nodes in all NeuronEX instances.
+  - Abnormal Nodes: The total number of abnormal southbound nodes in all NeuronEX instances.
+- Data flow information
+  - Total Records Input: The total input data in all NeuronEX instances.
+  - Total Records Output: The total output data in all NeuronEX instances.
+  - Input Per Second: The average amount of input data per second in all NeuronEX instances.
+  - Output Per Second: The average amount of output data per second in all NeuronEX instances.
 
 Underneath these two cards, you'll find the edge service list. This provides details about each instance, including category, name, endpoint, version, connection type, status, tags, and agent name. Moreover, you can perform O&M actions per instance.
