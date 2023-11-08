@@ -28,7 +28,7 @@ To verify the authentication configuration, try [Add Existing Edge Services](./b
 
 **RSA** (**Rivest–Shamir–Adleman**) is a public-key cryptosystem that is widely used for secure data transmission. It uses a key pair consisting of a public key for encryption and a private key for decryption. 
 
-- Public Key: For encryption, it is shared openly and usually stored by the data provider, such as Neuron.
+- Public Key: For encryption, it is shared openly and usually stored by the data provider, such as NeuronEX.
 - Private Key: For decryption, it must be kept secret and is stored on ECP.
 
 The authentication flow is as follows:
