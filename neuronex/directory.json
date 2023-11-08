@@ -3,6 +3,7 @@
     {
       "title": "产品概览",
       "path": "./",
+      "collapsed": true,
       "children": [
         {
           "title": "架构",
@@ -25,6 +26,7 @@
     {
       "title": "安装",
       "path": "install/introduction",
+      "collapsed": true,
       "children": [
         {
           "title": "使用 .tar.gz 包安装",
@@ -43,6 +45,7 @@
     {
       "title": "数据采集",
       "path": "config/introduction",
+      "collapsed": true,
       "children": [
         {
           "title": "创建南向驱动",
@@ -52,6 +55,7 @@
             {
               "title": "Modbus RTU",
               "path": "config/south-devices/modbus-rtu/modbus-rtu",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接 DTU",
@@ -70,6 +74,7 @@
             {
               "title": "Modbus TCP",
               "path": "config/south-devices/modbus-tcp/modbus-tcp",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接 PeakHMI Slave 模拟器",
@@ -88,6 +93,7 @@
             {
               "title": "OPC UA",
               "path": "config/south-devices/opc-ua/overview",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接策略",
@@ -125,11 +131,13 @@
             },
             {
               "title": "EtherNet/IP(CIP)",
-              "path": "config/south-devices/ethernet-ip/ethernet-ip"
+              "path": "config/south-devices/ethernet-ip/ethernet-ip",
+              "collapsed": true
             },
             {
               "title": "Mitsubishi 3E",
               "path": "config/south-devices/mitsubishi-3e/overview",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接 FX5U",
@@ -147,11 +155,13 @@
             },
             {
               "title": "Mitsubishi 1E",
-              "path": "config/south-devices/mitsubishi-1e/mitsubishi-1e"
+              "path": "config/south-devices/mitsubishi-1e/mitsubishi-1e",
+              "collapsed": true
             },
             {
               "title": "Siemens S7 ISO TCP",
               "path": "config/south-devices/siemens-s7/s7",
+              "collapsed": true,
               "children": [
                 {
                   "title": "Siemens S7-1200/1500 设置",
@@ -169,15 +179,18 @@
             },
             {
               "title": "Siemens S5 FetchWrite",
-              "path": "config/south-devices/siemens-fetchwrite/fetchwrite"
+              "path": "config/south-devices/siemens-fetchwrite/fetchwrite",
+              "collapsed": true
             },
             {
               "title": "Omron FINS TCP",
-              "path": "config/south-devices/omron-fins/omron-fins"
+              "path": "config/south-devices/omron-fins/omron-fins",
+              "collapsed": true
             },
             {
               "title": "Beckhoff ADS",
               "path": "config/south-devices/ads/ads",
+              "collapsed": true,
               "children": [
                 {
                   "title": "使用 Beckhoff ADS 协议采集 PLC 数据",
@@ -188,6 +201,7 @@
             {
               "title": "IEC60870-5-104",
               "path": "config/south-devices/iec-104/iec-104",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接 IEC60870-5-104 Server",
@@ -202,6 +216,7 @@
             {
               "title": "IEC61850",
               "path": "config/south-devices/iec61850/overview",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接 LibIEC61850 服务器",
@@ -216,6 +231,7 @@
             {
               "title": "DL/T645-2007",
               "path": "config/south-devices/dlt645-2007/dlt645-2007",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接正泰单相导轨表",
@@ -226,6 +242,7 @@
             {
               "title": "BACnet/IP",
               "path": "config/south-devices/bacnet-ip/bacnet-ip",
+              "collapsed": true,
               "children": [
                 {
                   "title": "连接 Yabe 示例",
@@ -305,10 +322,6 @@
             {
               "title": "WebSocket 客户端",
               "path": "config/north-apps/websocket"
-            },
-            {
-              "title": "Monitor 插件",
-              "path": "config/north-apps/monitor"
             }
           ]
         },
@@ -329,6 +342,7 @@
     {
       "title": "数据流处理",
       "path": "streaming-processing/overview",
+      "collapsed": true,
       "children": [
         {
           "title": "数据源",
@@ -494,16 +508,32 @@
       },
       {
         "title": "HTTP API",
-        "path": "api/api"
+        "path": "api/api",
+        "collapsed": true,
+        "children": [
+          {
+            "title": "JWT身份验证",
+            "path": "api/jwt"
+          },
+          {
+            "title": "数据采集功能数据类型描述",
+            "path": "api/data-type"
+          },
+          {
+            "title": "数据采集功能错误代码描述",
+            "path": "api/error-code"
+          },
+          {
+            "title": "API文档",
+            "path": "api/neuronex-swagger"
+          }
+        ]
       },
       {
         "title": "运维指南",
         "path": "management/introduction",
+        "collapsed": true,
         "children": [
-          {
-            "title": "数据监控",
-            "path": "management/monitoring"
-          },
           {
             "title": "数据统计",
             "path": "management/data-statistics"
@@ -513,7 +543,7 @@
             "path": "management/conf-management"
           },
           {
-            "title": "日志",
+            "title": "日志管理",
             "path": "management/logs"
           },
           {

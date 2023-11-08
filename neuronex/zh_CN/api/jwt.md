@@ -1,21 +1,21 @@
 # 自定义 JWT
 
-在 NeuronEX 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为一小时，可以自己生成 JWT，自定义过期时间。
+在 NeuronEX 中调用 API 时，需先调用登录接口生成 JWT，再调用其他接口进行 JWT 验证。默认生成的 JWT 过期时间为一小时，可以自行生成 JWT，自定义过期时间。
 
-当用户请求 RESTful apis 时，请在 http 请求头中按以下格式输入 **Token**：
+当用户请求 RESTful API 时，请在 http 请求头中按以下格式输入 **Token**：
 
 ```go
 Authorization: Bearer
 							XXXXXXXXXXXXXXX
 ```
 
-If the token is correct,NeuronEX will respond the result; otherwise, it will return http `401`code.
+如果**Token**正确，NeuronEX 将响应结果； 否则，它将返回`401`代码。
 
 ## 什么是 JWT？
 
 JWT 是一种用于安全传输信息的开放标准（RFC 7519）。JWT 结构包含三个部分，分别是头部（Header）、载荷（Payload）和签名（Signature）。
 
-Neuron 先根据 **iss** 字段查找 neuron 安装目录下的子目录 **certs** 是否包含该名称对应的 .pem 或 .pub 文件，再根据里面的字段进行校验。Neuron 中所需要的 JWT 结构如下：
+NeuronEX 先根据 **iss** 字段查找 NeuronEX 安装目录下的子目录 **etc** 是否包含该名称对应的 .pem 或 .pub 文件，再根据里面的字段进行校验。NeuronEX 中所需要的 JWT 结构如下：
 
 ```json
 header
