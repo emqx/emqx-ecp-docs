@@ -40,7 +40,7 @@ CSV 文件的列名解释如下：
 | 列名 | 解释 |
 | :------| :---------------|
 |category|边缘产品类型|
-|name|边缘服务名称[]|
+|name|边缘服务名称|
 |nodeType|直连/代理|
 |endpoint|边缘服务地址|
 |scheme|http/https/MQTT|
