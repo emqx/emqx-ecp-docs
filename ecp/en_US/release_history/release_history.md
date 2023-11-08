@@ -1,6 +1,28 @@
 # Release History
 
 
+## v1.11.0
+Release Date: 09/15/2023
+
+### Enhancements
+
+- Bulk deployment, upgrade, and deletion of edge services based on Docker deployment
+
+  - Global configuration for edge service
+
+  - Edge node management
+
+  - Related audit logs
+
+- Support for configuring display items in the edge service list with checkboxes
+
+### Fixes
+
+- Fixed an issue where edge services could not be deleted after being removed from Kubernetes (K8S).
+
+- Fixed various bugs related to Docker certificate configuration.
+
+
 ## v1.10.5
 Release Date: 07/21/2023
 
