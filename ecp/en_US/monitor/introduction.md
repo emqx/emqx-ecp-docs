@@ -85,10 +85,6 @@ This chapter covers the following topics:
 
   You can track the system performance of EMQX clusters via the EMQX Dashboard. 
 
-- [Monitor Edge Services](./monitor_edge.md)
-
-- ECP provides the feature to view the edge services status on a project level or at the instance level. 
-
 - [Alarms](./alarm_rules)
 
   The ECP Unified Alert Platform is a tool for monitoring and managing cloud-edge products. It collects and analyzes data to identify and alert users of system or application issues for prompt resolution. 
