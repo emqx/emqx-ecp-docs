@@ -10,7 +10,7 @@ For the initial deployment of edge services, you can utilize ECP's batch install
 
 2. Click the **Add Edge Service** button to enter the **Add Edge Service** page.
 
-3. Choose **Install new Services in batches** for **Add Type**, chose **docker** type for **Batch Installation Type**.
+3. Choose **Install new Services in batches** for **Add Type**, choose **docker** type for **Batch Installation Type**.
 
 4. For **Category**, now only **NeuronEX**.
 
