@@ -15,7 +15,7 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 
 ## 获取安装包
 
-欢迎访问 EMQ 官网获取 ECP 和 EMQX Edge Operator 的安装包。
+欢迎访问 EMQ 官网获取 ECP 的安装包。
 
 1. 进入[联系我们](https://www.emqx.com/zh/contact?product=emqx-ecp)页面。
 2. 输入必要的联系信息，如姓名、公司、工作邮箱，国家和地区，以及您的联系方式。
@@ -133,7 +133,7 @@ Please input your name:         # 请为您的账户设置一个显示名称，�
 
 ## 登陆 ECP
 
-现在您已经成功部署 ECP，ECP 的默认访问地址为 http://{kubernetes-node-ip}:31900 。请使用超级管理员账户登录 ECP 系统，开始初始化系统设置。
+现在您已经成功部署 ECP，ECP 的默认访问地址为 `http://{您的机器IP}:31900` 。请使用超级管理员账户登录 ECP 系统，开始初始化系统设置。
 
 ![login](./_assets/login.png)
 

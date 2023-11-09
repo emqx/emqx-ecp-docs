@@ -2,13 +2,13 @@
 
 ECP 为 EMQX 集群管理提供了丰富的管理运维服务，您可以在 ECP 上集中管理运维所有 EMQX 集群。 
 
-:::tip
-对于基于 Kubernetes 和基于 Docker 部署的 ECP，在集群管理上存在一定的功能差异，具体请参考 [Kubernetes 与 Docker 部署的功能差异](../install/introduction.md#kubernetes-与-docker-部署的功能差异)。
+:::tip 提示
+对于 ECP 托管和纳管的 EMQX 集群，在集群管理上存在一定的功能差异，具体请参考 [托管与纳管EMQX集群的功能差异](./introduction.md#托管与纳管emqx集群的功能差异)。
 :::
 
 <img src="./_assets/cluster-ops.png" style="zoom:40%;" align="middle">
 
-## 水平扩展（Kubernetes 部署）
+## 水平扩展（托管 - Kubernetes 部署）
 
 水平扩展，指增加或减少集群的节点数量，每个 EMQX 集群最多支持 7 个节点。
 
@@ -20,7 +20,7 @@ ECP 为 EMQX 集群管理提供了丰富的管理运维服务，您可以在 ECP
 
    <img src="./_assets/cluster-horizontal.png" alt="horizontal" style="zoom:40%;" /> 
 
-## 垂直扩展（Kubernetes 部署）
+## 垂直扩展（托管 - Kubernetes 部署）
 
 垂直扩展，是对节点的规格进行扩缩容，可选择的规格范围是[资源配额](../system_admin/resource_config.md#集群资源配额)中设置的从最小规格到最大规格。
 
@@ -29,7 +29,7 @@ ECP 为 EMQX 集群管理提供了丰富的管理运维服务，您可以在 ECP
 
 <img src="./_assets/cluster-vertical.png" alt="vertical" style="zoom:50%;" /> 
 
-## 修改网络访问方式（Kubernetes 部署）
+## 修改网络访问方式（托管 - Kubernetes 部署）
 
 网络管理员可通过**修改网络类型**管理和配置 EMQX 可访问的地址。ECP 提供了三种网络访问方式：
 
@@ -84,7 +84,7 @@ LoadBalancer 一般为公有云环境使用。如希望通过 LoadBalancer 访�
 :::
 
 
-## 修改连接数（Kubernetes 部署）
+## 修改连接数（托管 - Kubernetes 部署）
 
 您可根据业务需求动态修改集群的连接数。
 
@@ -99,7 +99,7 @@ LoadBalancer 一般为公有云环境使用。如希望通过 LoadBalancer 访�
 :::
 
 
-## 升级（Kubernetes 部署）
+## 升级（托管 - Kubernetes 部署）
 
 ECP 提供了 EMQX 集群的升级服务，支持不宕机升级 EMQX 集群。
 

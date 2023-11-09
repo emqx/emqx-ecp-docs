@@ -97,7 +97,7 @@
                     "path": "edge_service/batch_upgrade"
                 },
                 {
-                    "title": "边缘配置批量下发",
+                    "title": "边缘服务配置批量下发",
                     "path": "edge_service/batch_distribution"
                 },
                 {
