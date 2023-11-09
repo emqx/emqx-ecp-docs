@@ -1,12 +1,10 @@
 # 简介
 
-本章主要介绍云端 ECP 和边缘端边缘代理（ECP Edge Agent）软件的安装部署流程。
+本章主要介绍 ECP 软件的安装部署流程。
 
 1. 其中云端软件主要介绍 ECP [基于 Kubernetes 部署](install_ecp_on_kubernetes)和[基于 Docker 的部署](install_ecp_on_linux)两种形式，但两种部署方式存在一定的功能差异，请参考 [Kubernetes 部署与 Docker 部署的功能差异](#kubernetes-部署与-docker-部署的功能差异)。
 
-2. 边端软件主要介绍 [边缘代理（ECP Edge Agent）](install_edge_agent) 的安装部署。
-
-3. 最后[配置许可证](license_setting)，正式开始 ECP 云边一体化平台的使用。
+2. 然后[配置许可证](license_setting)，正式开始 ECP 平台的使用。
 
 
 ## Kubernetes 与 Docker 部署的功能差异

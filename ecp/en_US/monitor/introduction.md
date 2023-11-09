@@ -1,4 +1,4 @@
-# Logs and Observability
+# Operation Management
 
 ECP platform's logs and observability feature offers a comprehensive solution for managing and monitoring both cloud-based EMQX clusters and edge devices. 
 
