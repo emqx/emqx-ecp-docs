@@ -187,8 +187,6 @@ For edge services created using ECP, you have the option to customize the docker
 2. Expand the **Docker Mode** -> **Edge Service Setting**.
 3. Click **Edit** to enter the editing page, where you can modify the settings.
 
-3. <img src="./_assets/docker-default-value.png" style="zoom: 50%;" align="middle">
-
 
 ### Configure Authentication
 
