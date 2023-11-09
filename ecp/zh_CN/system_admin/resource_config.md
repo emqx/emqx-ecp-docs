@@ -57,7 +57,7 @@ ECP 在**Docker部署模式**环境下提供了自定义连接信息功能，同
 
 ![docker-config-connection](./_assets/docker-config-connection.png)
 
-#### Docker部署默认配置
+### Docker部署默认配置
 
 可以通过边缘服务配置修改边缘服务的默认配置值
 

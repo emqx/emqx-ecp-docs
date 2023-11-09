@@ -51,7 +51,7 @@ ECP provides the ability to customize connection information in the Docker deplo
 
 ![docker-config-connection](./_assets/docker-config-connection.png)
 
-#### Docker Install Default Values
+### Docker Install Default Values
 
 You can modify the default configuration values of the edge service through the edge service configuration
 
