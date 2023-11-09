@@ -13,17 +13,13 @@
             "path": "install/introduction",
             "children": [
                 {
-                    "title": "基于 Kubernetes 部署 ECP",
-                    "path": "install/install_ecp_on_kubernetes"
-                },
-                {
                     "title": "基于 Docker 部署 ECP",
                     "path": "install/install_ecp_on_linux"
                 },
                 {
-                    "title": "部署边缘代理",
-                    "path": "install/install_edge_agent"
-                },
+                    "title": "基于 Kubernetes 部署 ECP",
+                    "path": "install/install_ecp_on_kubernetes"
+                },           
                 {
                     "title": "配置许可证",
                     "path": "install/license_setting"
@@ -31,52 +27,40 @@
             ]
         },
         {
-            "title": "访问控制",
-            "path": "acl/introduction",
+            "title": "基础模块功能",
+            "path": "system_admin/basical_module",
             "children": [
                 {
-                    "title": "认证",
-                    "path": "acl/ecp_login"
+                    "title": "访问控制",
+                    "path": "acl/introduction",
+                    "children": [
+                        {
+                            "title": "认证",
+                            "path": "acl/ecp_login"
+                        },
+                        {
+                            "title": "授权",
+                            "path": "acl/authorize"
+                        },
+                        {
+                            "title": "用户管理",
+                            "path": "system_admin/user_management"
+                        }
+                    ]
                 },
                 {
-                    "title": "授权",
-                    "path": "acl/authorize"
-                },
-                {
-                    "title": "用户管理",
-                    "path": "system_admin/user_management"
-                }
-            ]
-        },
-        {
-            "title": "组织与项目",
-            "path": "system_admin/introduction",
-            "children": [
-                {
-                    "title": "组织管理",
-                    "path": "system_admin/org_management"
-                },
-                {
-                    "title": "项目管理",
-                    "path": "system_admin/project_management"
-                }
-            ]
-        },
-        {
-            "title": "云端集群管理",
-            "path": "cluster/introduction",
-            "children": [
-                {
-                    "title": "添加集群和启停服务",
-                    "path": "cluster/add_manage"
-                },
-                {
-                    "title": "查看 EMQX 集群详情",
-                    "path": "cluster/cluster_details"
-                },
-                {
-                    "title": "EMQX 集群管理运维",
-                    "path": "cluster/ops"
+                    "title": "组织与项目",
+                    "path": "system_admin/introduction",
+                    "children": [
+                        {
+                            "title": "组织管理",
+                            "path": "system_admin/org_management"
+                        },
+                        {
+                            "title": "项目管理",
+                            "path": "system_admin/project_management"
+                        }
+                    ]
                 }
             ]
         },
@@ -85,12 +69,8 @@
             "path": "edge_service/introduction",
             "children": [
                 {
-                    "title": "批量安装边缘服务",
-                    "path": "edge_service/batch_intall"
-                },
-                {
-                    "title": "ECP 边缘代理",
-                    "path": "edge_service/edge_agent_management"
+                    "title": "Docker方式批量安装边缘服务",
+                    "path": "edge_service/batch_install"
                 },
                 {
                     "title": "ECP 边缘节点",
@@ -127,7 +107,25 @@
             ]
         },
         {
-            "title": "日志与可观测性",
+            "title": "云端集群管理",
+            "path": "cluster/introduction",
+            "children": [
+                {
+                    "title": "添加集群和启停服务",
+                    "path": "cluster/add_manage"
+                },
+                {
+                    "title": "查看 EMQX 集群详情",
+                    "path": "cluster/cluster_details"
+                },
+                {
+                    "title": "EMQX 集群管理运维",
+                    "path": "cluster/ops"
+                }
+            ]
+        },
+        {
+            "title": "统一运维服务",
             "path": "monitor/introduction",
             "children": [
                 {
@@ -149,12 +147,12 @@
                 {
                     "title": "告警规则列表",
                     "path": "monitor/rules"
+                },
+                {
+                    "title": "操作审计",
+                    "path": "system_admin/operation_audit"
                 }
             ]
-        },
-        {
-            "title": "操作审计",
-            "path": "system_admin/operation_audit"
         },
         {
             "title": "系统设置",
@@ -201,16 +199,12 @@
             "path": "install/introduction",
             "children": [
                 {
-                    "title": "Deploy with Kubernetes",
-                    "path": "install/install_ecp_on_kubernetes"
-                },
-                {
                     "title": "Deploy with Docker",
                     "path": "install/install_ecp_on_linux"
                 },
                 {
-                    "title": "Install ECP Edge Agent",
-                    "path": "install/install_edge_agent"
+                    "title": "Deploy with Kubernetes",
+                    "path": "install/install_ecp_on_kubernetes"
                 },
                 {
                     "title": "Configure License",
@@ -247,24 +241,6 @@
                 {
                     "title": "Manage Projects",
                     "path": "system_admin/project_management"
-                }
-            ]
-        },
-        {
-            "title": "Manage EMQX Clusters",
-            "path": "cluster/introduction",
-            "children": [
-                {
-                    "title": "Add EMQX Clusters",
-                    "path": "cluster/add_manage"
-                },
-                {
-                    "title": "View EMQX Cluster Details",
-                    "path": "cluster/cluster_details"
-                },
-                {
-                    "title": "Manage EMQX Clusters",
-                    "path": "cluster/ops"
                 }
             ]
         },
@@ -315,7 +291,25 @@
             ]
         },
         {
-            "title": "Logs and Observability",
+            "title": "Manage EMQX Clusters",
+            "path": "cluster/introduction",
+            "children": [
+                {
+                    "title": "Add EMQX Clusters",
+                    "path": "cluster/add_manage"
+                },
+                {
+                    "title": "View EMQX Cluster Details",
+                    "path": "cluster/cluster_details"
+                },
+                {
+                    "title": "Manage EMQX Clusters",
+                    "path": "cluster/ops"
+                }
+            ]
+        },
+        {
+            "title": "Operation Management",
             "path": "monitor/introduction",
             "children": [
                 {
@@ -337,12 +331,12 @@
                 {
                     "title": "Alarm List",
                     "path": "monitor/rules"
+                },
+                {
+                    "title": "Audit",
+                    "path": "system_admin/operation_audit"
                 }
             ]
-        },
-        {
-            "title": "Audit",
-            "path": "system_admin/operation_audit"
         },
         {
             "title": "System Settings",

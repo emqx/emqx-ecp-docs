@@ -2,7 +2,7 @@
 
 In the edge computing environment, various software runs on edge devices, each requiring configurations tailored to specific applications and business requirements. 
 
-With ECP, you can simultaneously transmit identical or similar configurations to multiple edge device software (such as Neuron and eKuiper). This approach helps administrators apply rapid, consistent, and reliable configuration strategies, minimizing configuration errors and redundant tasks, thereby boosting the stability and reliability of the edge computing environment.
+With ECP, you can simultaneously transmit identical or similar configurations to multiple edge device software. This approach helps administrators apply rapid, consistent, and reliable configuration strategies, minimizing configuration errors and redundant tasks, thereby boosting the stability and reliability of the edge computing environment.
 
 :::tip
 ECP will set some restrictions for system protection purposes. For specific usage restrictions, please refer to [System Usage Restrictions](../others/known_limitations.md) and [Version Compatibility](../others/version_limitations).
@@ -22,6 +22,11 @@ To create a template:
 
 
 
+## Choose Function
+
+Select either  `Data Acquisition` or  `Data Processing` to deliver the configuration to other NeuronEX.
+
+![function](./_assets/edge-list-distribution-function.png)
 
 ## Edit Template
 
@@ -42,7 +47,7 @@ Original:
 Parameterized:
 
 ```
-"mqtt": "{\"stream1\":{\"insecureSkipVerify\":false,\"protocolVersion\":\"3.1.1\",\"qos\":1,\"server\":\" ${tcp_addr} "}}"
+"mqtt": "{\"stream1\":{\"insecureSkipVerify\":false,\"protocolVersion\":\"3.1.1\",\"qos\":1,\"server\":\" ${tcp_addr} \"}}"
 ```
 
 After the edit, click **Next** to select the target edge services.
@@ -52,10 +57,6 @@ After the edit, click **Next** to select the target edge services.
 You can filter by name, EndPoint, Version, or [tags](./batch_tag.md), then click to check the target instances. 
 
 <img src="./_assets/edge-list-distribution-edit.png" alt="template" style="zoom:50%;" />
-
-:::tip
-Selected instances should have the same product type as specified in the template.
-:::
 
 ## Edit Parameters
 

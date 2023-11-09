@@ -1,4 +1,4 @@
-# Logs and Observability
+# Operation Management
 
 ECP platform's logs and observability feature offers a comprehensive solution for managing and monitoring both cloud-based EMQX clusters and edge devices. 
 
@@ -6,32 +6,59 @@ By integrating with [Prometheus](https://prometheus.io/docs/introduction/overvie
 
 Departing from traditional methods, ECP strives for a seamless experience across cloud and edge environments, facilitating the management and monitoring of various components, including EMQX clusters, edge services, and network connections, with a single toolkit, leading to notable enhancements in the performance, reliability, and scalability of both cloud and edge computing.
 
+## External Log Service Setup
+
+ECP gathers log data by connecting to an external Elasticsearch log server, offering logging services. For edge services, the logs are collected into Elasticsearch server from Telegraf which is configured on ECP side.
+
+Before enabling log service, please install Elasticsearch and Telegraf, then follow the instructions to set input plugin and output plugin to Telegraf configuration file.
+
+1. Configure input plugin to make Telegraf the receiver of syslogs sending from edge services. Only UDP is supported for now, and the UDP port can be configured as needed.
+
+```
+[[inputs.syslog]]
+  server = "udp://:10514"
+```
+2. Configure output plugin to send syslogs to Elasticsearch.
+   - `urls`  `username`  `password` refer to Elasticsearch HTTP server address, username and password for basic auth.
+   - `index_name` refers to the index name in Elasticsearch, which should always be <code v-pre>{{appname}}</code>.
+   -  `health_check_interval` for Elasticsearch can be configured as needed.
+
+```
+[[outputs.elasticsearch]]
+  urls = [ "http://elasticsearch-server:9200" ]
+  username = "elastic"
+  password = "elastic"
+  index_name = "{{appname}}"
+  health_check_interval = "10s"
+```
+
 ## System Level Configurations
 
 Before using the log and observability feature, System Admins can do some system-level settings. 
 
 ### Enable Log Service
 
-ECP gathers log data by connecting to an external Elasticsearch log server, offering logging services. To activate this service, sign in as the system administrator. Then, navigate to the **Administration** page. Select **System Settings** -> **General Setting** and expand the **Log Receiver** section. 
+To activate this service, sign in as the system administrator. Then, navigate to the **Administration** page. Select **System Settings** -> **General Setting** and expand the **Log Receiver** section. 
 
-Within this section, you can set up the Elasticsearch address, as well as the username and password. Once the connection test succeeds, you can save the log receiver details and establish a connection to the external log data source.
+Within this section, you can set up the Elasticsearch and Telegraf information. Once each connection test succeeds , you can save the log receiver details and establish a connection to the external log data source.
 
-:::tip
+- **Telegraf Address**: Refers to the server item in input plugin section of the Telegraf configuration file, which is like: `<telegarf-server-host>:<port>`.
+- **Telegraf Protocol**: Only UDP is supported for now.
+- **Log Level**: Refers to the lowest severity level of the logs which are collected from edge services.
+- **ES URL**: Refers to Elasticsearch service address.
+- **ES Username**: Refers to Elasticsearch user name.
+- **ES Password**: Refers to Elasticsearch user password.
 
-Once the log receiver has been set, it cannot be modified.
-
-:::
-
-<img src="./_assets/log-receiver.png" alt="image-20230515115439358" style="zoom:50%;" />
+<img src="./_assets/log-receiver.png" alt="log-receiver-config" style="zoom:80%;" />
 
 ### Monitor
 
-The monitoring service within ECP permits individualized configuration of pull intervals and timeout rules for EMQX, Neuron, and eKuiper.
+The monitoring service within ECP permits individualized configuration of pull intervals and timeout rules for EMQX and NeuronEX.
 
 - **Pull Interval**: Refers to the frequency (in seconds), at which the monitoring system collects metric data.
 - **Pull Timeout**: Specifies the duration (in seconds), after which the monitoring system will declare a data pull unsuccessful if no response is received.
 
-![image-20230515120703601](./_assets/manager-setting-monitor.png)
+<img src="./_assets/manager-setting-monitor.png" alt="monitor-config" style="zoom:80%;" />
 
 ### Alarm
 
