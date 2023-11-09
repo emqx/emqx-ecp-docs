@@ -93,6 +93,10 @@
                     "path": "edge_service/edge_agent_management"
                 },
                 {
+                    "title": "ECP 边缘节点",
+                    "path": "edge_service/docker_node"
+                },
+                {
                     "title": "导入现有边缘服务",
                     "path": "edge_service/batch_import"
                 },
@@ -207,6 +211,10 @@
                 {
                     "title": "Install ECP Edge Agent",
                     "path": "install/install_edge_agent"
+                },
+                {
+                    "title": "ECP Edge Node",
+                    "path": "edge_service/docker_node"
                 },
                 {
                     "title": "Configure License",
