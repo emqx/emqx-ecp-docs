@@ -44,7 +44,7 @@ ECP 支持通过 [Docker](batch_install) 和 Kubernetes的方式，直接由 ECP
 
 本章将主要介绍以下主题：
 
-- [Docker方式批量安装边缘服务](batch_intall)
+- [Docker方式批量安装边缘服务](batch_install)
 - [ECP 边缘节点](docker_node)
 - [导入现有边缘服务](batch_import)
 - [项目级监控统计](edge_project_statistics)
