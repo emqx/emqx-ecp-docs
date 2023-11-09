@@ -42,6 +42,24 @@ Then update the `kubeconfig` file
 Once connected to Kubernetes and with active running clusters, it is recommended to avoid modifying the settings. Modifying the settings can result in the disruption of all active clusters.
 :::
 
+## Docker Configuration
+ECP provides the ability to customize connection information in the Docker deployment mode environment, as well as the default configuration.
+
+1. Log in to ECP as the system administrator. On the System management page, click **System Settings** -> **Resource Settings**.
+2. Click on the **Docker Configuration** section.
+3. Click **Edit** to enter the edit page where you can adjust the Settings.
+
+![docker-config-connection](./_assets/docker-config-connection.png)
+
+#### Docker Install Default Values
+
+You can modify the default configuration values of the edge service through the edge service configuration
+
+1. Log in to ECP as the system administrator, click **System Settings** on the system management page -> **Resource Settings**.
+2. Click to expand the **Edge Service Setting** -> **Edge Service Setting(docker)** section.
+3. Click **Edit** to enter the edit page, you can adjust the Settings here.
+
+![NeuronEX-Images](./_assets/quick-workspace-edge-default.png)
 
 ## Configure Image Server
 
