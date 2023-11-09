@@ -10,7 +10,7 @@ ECP 的统一日志功能具有以下优势：
 
 3. **提供数据可视化和分析**：通过统一日志功能，管理员可以在一个平台上快速获取各个产品的实时日志，以数据可视化和分析的形式呈现。
 
-ECP 日志服务默认不开启，启用步骤，见[启用日志服务](../monitor/introduction.md#启用日志服务)。启用后，您可在**工作台**界面查看项目级的日志信息，点击左侧**日志**菜单即可进入日志服务列表，您可在此查看 EMQX、eKuiper、Neuron 和 ECP 的日志。
+ECP 日志服务默认不开启，启用步骤，见[启用日志服务](../monitor/introduction.md#启用日志服务)。启用后，您可在**工作台**界面查看项目级的日志信息，点击左侧**日志**菜单即可进入日志服务列表，您可在此查看 EMQX、NeuronEX 和 ECP 的日志。
 
 ![log-list-filter-cn](./_assets/log-list.png)
 
@@ -29,8 +29,8 @@ ECP、EMQX 集群、Neuron 和 eKuiper 支持的日志级别如下：
 |:-------|:-----------------------------|
 |ECP|debug, info, warning, error, alert, emergency|
 |EMQX|debug, info, notice, warning, error, critical, alert, emergency|
-|Neuron|debug, info, notice, warning, error|
-|eKuiper|debug, info, warning, error|
+|NeuronEX|debug, info, notice, warning, error|
+
 
 
 ## 查看项目级日志
@@ -48,8 +48,7 @@ ECP、EMQX 集群、Neuron 和 eKuiper 支持的日志级别如下：
 
 :::tip
 
-- 当针对所有产品类型进行日志筛选时，ECP 将返回最近 100 条日志。
-- Neuron、eKuiper 边缘产品依赖 Kubesphere 平台。
+当针对所有产品类型进行日志筛选时，ECP 将返回最近 100 条日志。
 
 :::
 

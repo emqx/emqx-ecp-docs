@@ -4,8 +4,6 @@ This chapter mainly introduces how to deploy ECP with [Kubernetes](install_ecp_o
 
 After the installation, please configure [the ECP license](license_setting) and start your journey with this cloud-edge collaboration platform. 
 
-Besides the deployment of ECP, this chapter also introduces how to install [ECP Edge Agent](install_edge_agent) to connect existing edge services.
-
 
 ## Kubernetes vs. Docker Deployments
 
