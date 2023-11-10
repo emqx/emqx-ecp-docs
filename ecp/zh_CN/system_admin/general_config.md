@@ -5,7 +5,7 @@
 本页面将主要介绍邮件、访问域名、用户邀请方式、Telegraf 镜像和系统语言等的设置方式。
 
 - 关于单点登录，可以阅读[ECP 登录认证 - 配置单点登录](../acl/ecp_login.md#对接第三方认证)。
-- 关于日志、告警、监控等的设置，可以阅读[日志与可观测性](../monitor/introduction.md)。
+- 关于日志、告警、监控等的设置，可以阅读[统一运维服务](../monitor/introduction.md)。
 
 ## 邮件配置
 
@@ -37,12 +37,6 @@ ECP 支持通过外部邮件服务器发送系统邮件，用于实现添加用�
 
 通过邮件邀请用户之前，ECP 系统管理员需要首先将用户邀请方式设为邮件邀请。
 
-## SYSLOG 推送
-
-可以通过该功能将 ECP 的日志跟审计信息推送到指定的 Syslog 服务器， 用于对接第三方的日志系统。
-
-<img src="./_assets/syslog_push.png" alt="访问域名" style="zoom:50%;" />
-
 
 ### 设置用户邀请方式
 
@@ -62,11 +56,17 @@ ECP 支持通过外部邮件服务器发送系统邮件，用于实现添加用�
 
    <img src="./_assets/manager-setting-auth.png" alt="用户邀请方式" style="zoom:50%;" />
 
-## Telegraf 镜像
 
-Telegraf 服务用于 EMQX 集群的日志采集。
+## SYSLOG 推送
 
-<img src="./_assets/manager-setting-Telegraf.png" alt="Telegraf 镜像" style="zoom:50%;" />
+可以通过该功能将 ECP 的日志跟审计信息推送到指定的 Syslog 服务器， 用于对接第三方的日志系统。
+
+<img src="./_assets/syslog_push.png" alt="访问域名" style="zoom:50%;" />
+
+
+## Floating License 配置
+
+可以通过该功能将  NeuronEX 的离线活跃时间进行配置。NeuronEX 的离线活跃时间指脱离 ECP 管理后，可以正常运行的时间。如设置为 14 天，则在脱离 ECP 管理后，NeuronEX 会在 14 天内正常运行，超过 14 天后，NeuronEX 运行功能会受限。
 
 ## 系统语言
 

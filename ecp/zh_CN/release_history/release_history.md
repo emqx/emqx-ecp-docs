@@ -1,5 +1,35 @@
 # 发版历史
 
+## v2.0.0
+发布日期: 2023-11-8
+
+### 增强
+
+- 支持通过floating license管理边缘服务NeuronEX
+
+- 新的ECP集成NeuronEX Dashboard方式，NeuronEX UI变更不再需要ECP做二次适配
+
+- 新的ECP集成边缘服务NeuronEX 日志的架构及实现
+
+- 对边缘服务NeuronEX的接入纳管管理
+
+- 支持对边缘服务NeuronEX的批量配置下发
+
+- 支持对边缘服务NeuronEX的监控及告警
+
+- 支持对边缘服务NeuronEX的接入认证
+
+- 支持通过docker远程部署、升级、删除NeuronEX实例
+
+- ECP 边缘服务页面、全局配置页面修改调整
+
+- ECP操作审计信息推送到外部日志服务器
+
+
+:::tip 注意
+ECP V2 与 V1版本不兼容
+:::
+
 ## v1.11.0
 发布日期: 2023-09-15
 
