@@ -48,6 +48,24 @@ certutil -f -encode "certificate file" "output file"
 Kubernetes 的连接已建立、并有实际集群运行后，请尽量避免修改连接配置，否则当前运行的所有集群都会停止服务。
 :::
 
+## Docker 连接配置
+ECP 在**Docker部署模式**环境下提供了自定义连接信息功能，同时也提供了默认的配置。
+
+以系统管理员的身份登录 ECP，在系统管理页面，点击系统设置 -> 资源配置。
+点击展开Docker部署模式部分，点击展开Docker连接配置。
+点击编辑，进入编辑页面，您可在此调整设置。
+
+![docker-config-connection](./_assets/docker-config-connection.png)
+
+### Docker部署默认配置
+
+可以通过边缘服务配置修改边缘服务的默认配置值
+
+1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置**。
+2. 点击展开**边缘服务配置(docker)**部分。
+3. 点击**编辑**，进入编辑页面，您可在此调整设置。
+
+![NeuronEX-Images](./_assets/quick-workspace-edge-default.png)
 
 ## 配置镜像服务信息
 
