@@ -108,7 +108,8 @@ $ kubectl get storageclasses
 Execute the command below to create a superuser. You will need this superuser account and password to log into ECP later, so please ensure they are stored securely.
 
 ```bash
-$ ./emqx_ecp_ctl create-user
+$ kubectl -n emqx-ecp exec $(kubectl -n emqx-ecp get pod -l 'app=emqx-ecp-main' -o jsonpath='{.items[0].metadata.name}') \
+    -c emqx-ecp-main -it -- create-init-admin.sh
 Please input username:          # should be emails
 Please input password:          
 Please input password again:    
