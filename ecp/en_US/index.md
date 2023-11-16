@@ -13,7 +13,7 @@ EMQX ECP is a data platform for IIoT. It is designed to meet the requirements of
 
 - **Eliminating Data Silos**
 
-    Unified Namespace (UNS) is employed to unify the vast amount of factory data, enabling interoperability between OT and IT systems, connecting them from the edge to the cloud and effectively eliminating data silos.
+    [Unified Namespace (UNS)](https://www.emqx.com/en/blog/unified-namespace-next-generation-data-fabric-for-iiot) is employed to unify the vast amount of factory data, enabling interoperability between OT and IT systems, connecting them from the edge to the cloud and effectively eliminating data silos.
 
 - **Industrial Artificial Intelligence**
 
