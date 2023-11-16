@@ -13,7 +13,7 @@ EMQX ECP一款面向工业4.0的工业互联数据平台，旨在满足工业场
 
 - **消除数据孤岛**
 
-    将工厂海量数据统一接入，利用统一命名空间架构（UNS） 实现系统的互操作性，连接从边缘到云的 OT 和 IT 系统，消除数据孤岛。
+    将工厂海量数据统一接入，利用[统一命名空间架构（UNS）](https://www.emqx.com/zh/blog/unified-namespace-next-generation-data-fabric-for-iiot)实现系统的互操作性，连接从边缘到云的 OT 和 IT 系统，消除数据孤岛。
 
 - **工业人工智能**
 
