@@ -30,6 +30,10 @@ Then update the `kubeconfig` file
 2. Change `client-certificate` to `client-certificate-data`, and enter the base64-encoded string of the `*/client.crt` certificate file.
 3. Change `client-key` to `client-key-data`, and enter the base64-encoded string of the `*/client.key` certificate file.
 
+:::warning
+To ensure high availability, replace the server address in the kubeconfig file with the Loadbalancer or vip address.
+:::
+
 ### Upload `kuberconfig` to ECP
 
 1. Log in to ECP as a system admin and navigate to **System Settings** -> **Resource Settings**.

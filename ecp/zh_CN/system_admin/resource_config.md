@@ -105,6 +105,10 @@ certutil -f -encode "certificate file" "output file"
 2. 将 `client-certificate` 改为 `client-certificate-data`，并且将 `*/client.crt` 证书文件经 base64 编码后的字符串填入该位置。
 3. 将 `client-key` 改为 `client-key-data`，并且将 `*/client.key` 证书文件 base64 编码后的字符串填入该位置。
 
+:::warning
+如需高可用， kubeconfig 文件中的 server 地址需用 Loadbalancer 或者 vip 地址替换。
+:::
+
 #### 上传 `kubeconfig` 文件至 ECP
 
 1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置**。
