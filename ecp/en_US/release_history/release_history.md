@@ -1,5 +1,61 @@
 # Release History
 
+## v2.0.0
+Release Date: 11/8/2023
+
+### Enhancement
+
+- Support managing NeuronEX through floating license
+
+- ECP integrated new NeuronEX Dashboard
+
+- Architecture and implementation of the new ECP integrated edge service NeuronEX
+
+- Access and management of edge service NeuronEX
+
+- Support batch configuration delivery for edge service NeuronEX
+
+- Supports monitoring and alarming of edge service NeuronEX
+
+- Support access authentication for edge service NeuronEX
+
+- Support remote deployment, upgrade, and deletion of NeuronEX instances through docker
+
+- Modification and adjustment of ECP global configuration page
+
+- ECP operation audit information is pushed to the external log server
+
+:::tip note
+ECP V2 is not compatible with V1 version
+:::
+
+
+## v1.12.0
+Release Date: 12/11/2023
+
+### Enhancement
+
+- Supports pushing logs and operation audits to external syslog
+
+- Supports management of eKuiper with JWT authentication enabled
+
+- Edge services installed based on docker support forced deletion.
+
+- Support downloading Neuron logs from Neuron UI
+
+- Trial License cancel the limit of no more than 3 tags
+
+### Fixes
+
+Fixed the issue of incorrect operation audit information for starting/restarting/stopping docker edge services in batches
+
+Fixed the issue where the cluster name contains multiple consecutive spaces, which may cause the cluster to fail to be deleted.
+
+Fixed the issue of duplicate IP addresses when setting up edge nodes
+
+Fix the log file of Neuron installed by docker that cannot be successfully downloaded
+
+Fixed the problem of missing organization and project names in the audit log information of operations such as template distribution.
 
 ## v1.11.0
 Release Date: 09/15/2023
