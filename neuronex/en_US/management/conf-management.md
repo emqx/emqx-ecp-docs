@@ -59,6 +59,3 @@ log:
     remoteAddr: ""
     tag: "neuron_ex_all"
 
-official:
-  url: https://license-test.mqttce.com
-```

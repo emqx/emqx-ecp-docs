@@ -70,7 +70,7 @@ ECP also provides the capability to manage existing EMQX clusters. To add an exi
 
    ```bash
    # Download EMQX Agent
-   sudo curl -L -f --output /usr/local/bin/emqxee-agent https://staging.ecp.mqttce.com/dl/emqx/agents/emqxee-agent-linux-amd64
+   sudo curl -L -f --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
    
    # Update EMQX Agent permission
    sudo chmod +x /usr/local/bin/emqxee-agent
@@ -79,7 +79,7 @@ ECP also provides the capability to manage existing EMQX clusters. To add an exi
    sudo /usr/local/bin/emqxee-agent start
    
    # Register on ECP
-   sudo /usr/local/bin/emqxee-agent register --url https://staging.ecp.mqttce.com/api --registration-token bf2779e5176446cd8e18fde81d826497
+   sudo /usr/local/bin/emqxee-agent register --url https://[emqxee-agent] --registration-token bf2779e5176446cd8e18fde81d826497
    ```
 
 9. Upon returning to the **ECP Workbench - Cluster** page, you will find that the newly added existing cluster is now in the **Running** status.![](./_assets/cluster-existing.png) 
