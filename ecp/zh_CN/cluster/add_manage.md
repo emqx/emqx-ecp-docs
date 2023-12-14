@@ -76,15 +76,14 @@ ECP 推荐通过 ECP 一键部署 EMQX 集群，以便体验更加丰富的集�
    $ kubectl -n emqx-69f4249c exec -it emqx-69f4249c-emqx-ee-0 -c emqx -- sh
    
    # 下载 EMQX Agent
-   $ sudo curl -L -f --output /usr/local/bin/emqxee-agent https://staging.ecp.mqttce.com/dl/emqx/agents/emqxee-agent
-   -linux-amd64
+   $ sudo curl -L -f --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
    ```
 
 8. 按顺序执行注册引导页中的命令；
 
    ```bash
    # 下载 EMQX Agent 
-   sudo curl -L -f --output /usr/local/bin/emqxee-agent https://staging.ecp.mqttce.com/dl/emqx/agents/emqxee-agent-linux-amd64
+   sudo curl -L -f --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
    
    # 修改 Agent 权限
    sudo chmod +x /usr/local/bin/emqxee-agent
@@ -93,7 +92,7 @@ ECP 推荐通过 ECP 一键部署 EMQX 集群，以便体验更加丰富的集�
    sudo /usr/local/bin/emqxee-agent start
    
    # 注册到 ECP
-   sudo /usr/local/bin/emqxee-agent register --url https://staging.ecp.mqttce.com/api --registration-token bf2779e5176446cd8e18fde81d826497
+   sudo /usr/local/bin/emqxee-agent register --url https://[emqxee-agent] --registration-token bf2779e5176446cd8e18fde81d826497
    ```
 
 8. 回到 ECP **云端集群**页，查看集群列表，可以看到被纳管的 EMQX 集群已被注册到 ECP 中，状态显示为**运行中**；
