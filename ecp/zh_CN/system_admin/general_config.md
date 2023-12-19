@@ -28,6 +28,10 @@ ECP 支持通过外部邮件服务器发送系统邮件，用于实现添加用�
 
 配置可在外网或内网环境访问 ECP 的地址。ECP 在发送系统邮件、消息时，消息内容也会引用该链接地址。ECP 支持 HTTP 和 HTTPS 两种协议。
 
+1. 该配置项是必填项， 域名或 IP 地址皆可；
+2. 边缘服务 NeuronEX 推送状态信息时会使用该地址；
+
+
 <img src="./_assets/manager-setting-DNS.png" alt="访问域名" style="zoom:50%;" />
 
 
@@ -61,7 +65,15 @@ ECP 支持通过外部邮件服务器发送系统邮件，用于实现添加用�
 
 可以通过该功能将 ECP 的日志跟审计信息推送到指定的 Syslog 服务器， 用于对接第三方的日志系统。
 
-<img src="./_assets/syslog_push.png" alt="访问域名" style="zoom:50%;" />
+<img src="./_assets/syslog_push.png" alt="SYSLOG 推送" style="zoom:50%;" />
+
+## 监控
+
+可以通过监控配置页来设置 EMQX 的监控规则、NeuronEX 的监控规则、NeuronEX 的探活间隔设置、监控指标收集等配置项。
+
+其中监控指标收集需要指定一个 Prometheus 服务的地址，跟访问用户名、密码， 和一个 PushGateway 的服务地址。
+
+<img src="./_assets/monitoring_conf.png" alt="监控" style="zoom:50%;" />
 
 
 ## Floating License 配置
