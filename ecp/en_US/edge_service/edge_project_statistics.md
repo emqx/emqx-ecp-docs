@@ -34,4 +34,4 @@ After finishing creating the edge service instances or adding existing edge serv
 
 ## Driver and Rule Lists
 
-Underneath these two cards, you'll find the driver and rule lists for edge services, like list for not running drivers, list for abnormal drivers, list for not running rules. These lists provide name and type for each driver or rule, and details about instance it runs on, including edge service name, status, endpoint and version. Moreover, you can perform O&M actions per instance by clicking **Details** button from Action column.
+Underneath these two cards, you'll find the driver and rule lists for edge services, like list for not running drivers, list for abnormal drivers, list for not running rules. These lists provide name and type for each driver or rule, and details about instance it runs on, including edge service name, status, endpoint and version. You can filter edge services in the list by nam. Moreover, you can perform O&M actions per instance by clicking **Details** button from Action column.
