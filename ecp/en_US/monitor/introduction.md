@@ -64,14 +64,13 @@ The monitoring service within ECP permits individualized configuration of pull i
 
 ECP allows users to personalize the alarm template using the provided parameters. Here are the fields that can be incorporated into the alarm:
 
-- **Name** (Mandatory): Specifies the alarm's name.
-- **Content** (Mandatory): Details the content of the alarm.
-- **Alert time** (Mandatory): Specifies when the alarm was triggered.
-- **Status**: Displays the alarm's status as either cleared or uncleared.
-- **Level**: Identifies the alarm's severity as either critical or general.
-- **Link**: Offers a link to the list of alarms.
-- **Address**: Specifies the service address.
-- **System time**: Provides the current system time.
+- ${name} (Mandatory): Specifies the alarm's name.
+- ${contents} (Mandatory): Details the content of the alarm.
+- ${alerttime} (Mandatory): Specifies when the alarm was triggered.
+- ${level}: Identifies the alarm's severity as either critical or general.
+- ${link}: Offers a link to the list of alarms.
+- ${address}: Specifies the service address.
+- ${systemtime}: Provides the current system time.
 
 ## Chapter Overview
 
