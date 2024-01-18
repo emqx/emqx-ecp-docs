@@ -1,5 +1,39 @@
 # Release History
 
+## v2.1.1
+Release Date: 01/18/2024
+
+### Fixes
+- Fixed creation issue when the number of edge services reaches the license quota.
+- Fixed Telegraf configuration issue.
+- Fixed issue of missing warning setting check button.
+- Fixed problem with duplicate check message when resetting password.
+- Corrected batch upgrade page sizes.
+- Fixed settings problem for Docker users.
+
+
+## v2.1.0
+Release Date: 12/29/2023
+
+### Enhancements
+
+- Installation package and installation process have been re-optimized and adjusted to reduce the complexity of installing and deploying ECP.
+- Redesigned and implemented the detection mechanism between ECP and edge service NeuronEX.
+- The architecture and implementation of ECP integrated edge service NeuronEX monitoring and alarming.
+- Redesigned alarm judgement logic to support user-defined alarm rules.
+- Optimize the alarm push function and support pushing alarm information by label.
+- Optimized Docker hosting deployment of edge services.
+- Added edge service forced deletion function.
+- Improved the process of incorporating and unmanaging edge services.
+- Optimized the default settings of configuration items for newly installed ECP.
+- Other Dashboard adjustments and usability optimizations.
+
+### Fixes
+
+- Some error messages were not accurate for actions on edge services.
+- Edge node name in edge service list remained unchanged after editing.
+
+
 ## v2.0.0
 Release Date: 11/8/2023
 
