@@ -1,5 +1,16 @@
 # Release History
 
+## v2.1.1
+Release Date: 01/18/2024
+
+- Fixed creation issue when the number of edge services reaches the license quota.
+- Fixed telegraf configuration issue.
+- Fixed issue of missing warning setting check button.
+- Fixed problem with duplicate check message when resetting password.
+- Corrected batch upgrade page sizes.
+- Fixed settings problem for Docker users.
+
+
 ## v2.1.0
 Release Date: 12/29/2023
 
