@@ -3,6 +3,7 @@
 ## v2.1.1
 Release Date: 01/18/2024
 
+### Fixes
 - Fixed creation issue when the number of edge services reaches the license quota.
 - Fixed telegraf configuration issue.
 - Fixed issue of missing warning setting check button.
