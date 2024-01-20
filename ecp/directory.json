@@ -253,10 +253,6 @@
                     "path": "edge_service/batch_intall"
                 },
                 {
-                    "title": "ECP Edge Agent",
-                    "path": "edge_service/edge_agent_management"
-                },
-                {
                     "title": "ECP Edge Node",
                     "path": "edge_service/docker_node"
                 },

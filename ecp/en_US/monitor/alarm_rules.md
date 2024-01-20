@@ -1,81 +1,118 @@
 # Alarms
 
-ECP provides an integrated monitoring and alert system that sends notifications about anomalies or malfunctions through email and WebHook. This system allows for the customization of notification scope and silence duration settings. Currently, ECP does not support customizing alarm rules.
+ECP provides an integrated monitoring and alert system that sends notifications about exceptions or malfunctions through email and WebHook. This system allows for the customization of notification scope and silence duration settings.
 
-Log in to ECP as either the admins or general user, you can check the number of unresolved alarms on the alarm icon in the top menu. Click on the icon or **Alarm** on the left navigation menu, you will be directed to the **Alarm** page, where you can view the details such as alarm name, message, associated node, alarm level, and time of alarm generation. 
-
-## Enable Project-Level Alarm
-
-You can also enable/disable the project-level alarms on the **Alarm** page by clicking the **Alarm Status** switch button. 
+Log in to ECP as either the admin or general user, you can check the number of unresolved alarms from the alarm icon in the top menu. Clicking on the icon or **Alarm** on the left navigation menu, you will be directed to the **Alarm** page, where you can view the details such as alarm type, message, associated node, alarm level, and time of alarm generation time. 
 
 ## Active and History Alarms
 
 To streamline alarm management, ECP has provided 2 tabs on the **Alarm** page: **Active Alarms** and **History Alarms**:
 
-- Active Alarms: Displays ongoing, unaddressed alarms, including details like alarm name, message, associated node, level, and time of occurrence.
-- History Alarms: Contails alarms that have been addressed, or alarms that have persisted for over 24 hours will also be transferred to this tab.
+- Active Alarms: Displays ongoing, unresolved alarms, including details like alarm type, message, associated node, level, and time of occurrence.
+- History Alarms: Displays alarms that have been resolved.
 
-<img src="./_assets/alert-list-pro-notice.png" alt="pro-notice" style="zoom:50%;" />
+![now](./_assets/alarms-now.png)
 
-You can also use the filtering feature of ECP to filter alarms by name, message, node, level, or generating time.
+You can also use the filtering feature of ECP to filter alarms by type, message, node, level, or time.
 
-## Set Alarm Rules
+## Basic Alarm Settings
 
-Log in as system admins, organization admins, or project admins, navigate to **Workspace** -> **Alarm**, and click the **Rule Setting** button. 
+Log in as system admins, organization admins, or project admins, navigate to **Workspace** -> **Alarm**, and enter into the **Alarm rules and settings** tab. 
 
-### Set Email Notification
+![alert_config](./_assets/alert-config.png)
 
-1. Click the **Email Notification** toggle switch to enable/disable email notifications. 
+### Alarm Status
 
-<img src="./_assets/alert-setting-email-alarm.png" style="zoom: 50%;" align="middle">
+You can enable/disable the project-level alarms by clicking the **Alarm Status** switch button. 
 
-2. In case email notification is enabled, you can continue to set the recipients' addresses, at most 10 recipients can be added here. After the input, click **Confirm** to finish the recipient setting. Then when an alarm is triggered, a notification email will be automatically sent to the specified recipients' addresses.
+### Notification Scope
 
-   <img src="./_assets/alert-setting-email-alarm2.png" style="zoom: 50%;" align="middle">
+Alarms are categorized into two levels: `Critical` and `Normal`. `Critical` is for alarms that require immediate attention, while `Normal` is for those that have limited impact on the production environment. 
 
-### Set WebHook Notification
+When "Notify Critical Alarms Only" is checked, notifications will be sent for only critical alarms. Otherwise, notifications will be sent for all alarms.
 
-1. Click the **WebHook** toggle switch to enable/disable WebHook notifications. 
+'Notification' refers to sending alarms to the emails and Webhook configured in the 'Alarm Notification' card. All alarm events will still be displayed in the Active/History Alarms no matter which notification scope is chosen.
 
-2. In case WebHook notification is enabled, you can continue to set the WebHook address in the **URL** field. After the input, you can click the **Test** button to test the connectivity.
+### Silence
 
-3. Set the verification information in the **HTTP Headers** field. 
+You can configure the notification silence duration and the objects for which the silence duration applies.
+
+If the silence duration applies to "Single alarm level", then ECP won't repeatedly send notifications for the same alarm within the silence duration period. Notifications will resume once the silence duration expires.
+
+If the silence duration applies to "Edge service instance level", then any alarms generated on the same edge service within the silence duration period won't trigger repeated notifications. Notifications will resume once the silence duration expires.
+
+Notification silence settings only affect alarms notification through emails and Webhooks. All alarm events will still be displayed in the Active/History Alarms.
+
+## Alarm Rules Settings
+
+Log in as system admins, organization admins, or project admins, you can also set for alarm rules on **Alarm rules and settings** tab.
+
+![alert_rules](./_assets/alert-rules.png)
+
+ECP currently supports alarm rules triggered by edge services and those triggered by ECP itself. Rules triggered by edge services include NeuronEX driver exceptions, NeuronEX rule exceptions, and NeuronEX restarted event. ECP-triggered rules include NeuronEX offline event, email sending failures, and Webhook sending failures. For more details on these rules, please refer to the [Operations Management - Alarm Rules List](../monitor/rules.md).
+
+You can set both the triggering conditions and rescovery conditions for each rule. The only exception is **NeuronEX restart** alarm rule, which you cannot set for either. You can set smaller triggering values if you want alarms to be more sensitive. Or you can set larger triggering values if you prefer to limit the frequency of alarms. Currently, the upper limit for triggering and recovery values is 10.
+
+You can also set severity level for each rule as 'Critical' or 'Normal'. If the notification scope is set to "Notify Critical Alarms Only", alarms with level of 'Normal' will only be displayed in the Active/History Alarms tabs and won't be sent through emails or Webhooks.
+
+## Alarm Notification Settings
+
+Log in as system admins, organization admins, or project admins, you can also set for alarm notification on **Alarm rules and settings** tab.
+
+![alarm-notification-config](./_assets/alarm-notification-config.png)
+
+ECP supports configuring one or more alarm notifications. Different alarm notifications are associated with different edge services by service tags. When alarms are triggered on these associated edge services, notifications will be sent to the corresponding email and Webhooks.
+
+<img src="./_assets/alert-notification.png" style="zoom: 50%;" align="middle">
+
+### Alarmed Edge Services
+
+If "All" is selected, any alarms triggered on edge services within the project will be sent to the emails and Webhooks set in this configuration. Alternatively, one or more service tags can be chosen, and only alarms from edge services associated with these selected tags will be notified.
+
+Please note: If the alarm is triggered on project level, such as email sending failure or Webhook sending failure alarms, notifications will be sent to emails and Webhooks in all notification configurations.
+
+### Email Notification
+
+1. Click the **Email Notification** toggle switch to enable notification by email. 
+
+2. Enter recipients' addresses according to the email format and press Enter to confirm. At most 10 recipients can be added here.
+
+3. When an alarm is triggered, a notification email will be automatically sent to the specified recipients' addresses.
+
+   ![alert_email_notification](./_assets/alert-notification-email.png)
+
+### Webhook Notification
+
+1. Click the **Webhook** toggle switch to enable notification by Webhook.
+2. Set the Webhook address in the **URL** field, and click the **Test** button to test the connectivity.
+3. Set the verification information in the **HTTP Headers** fields.
+4. Click the JSON template preview to view the built-in JSON template. To customize the JSON template settings, refer to [Operation Management - System Level Configurations - Alarm](./introduction.md#system-level-configurations)
+5. When an alarm is triggered, a notification will be automatically sent to the specified Webhook address.
 
 <img src="./_assets/alert-setting-webhook-notice.png" alt="webhook-notice" style="zoom:50%;" />
 
-4. Click the JSON template preview to view the built-in JSON template. To customize the JSON template settings, see [System Level Configuration - Alarm](./introduction.md/#alarm). 
+## Alarms Move
 
-5. Click **Confirm** to finish the settings. Then when an alarm is triggered, a notification will be automatically sent to the specified addresses.
+When a triggered alarm meets its recovery conditions, the system automatically moves it from the Active Alarms to the History Alarms.
 
-   <img src="./_assets/alert-setting-webhook-notice2.png" alt="webhook-notice" style="zoom:50%;" />
+You can also check one or more alarms from the Active Alarms, then click the **Alarms Move** button to move them to the History Alarms.
 
-### Set Notification Scope and Resend Waiting Period
-
-You can continue to set the notification scope and resend the waiting period:
-
-- **Notification Scope**: ECP alarms can be critical alarms and general alarms, you can click to check the **Notify Critical Alarms Only** option, and then ECP will only send notifications for critical alarms.  
-- **Resend Waiting Period**: ECP will only resend the notification for the same alarm after the waiting period. 
-
-<img src="./_assets/alarm-others.png" alt="alarm-others" style="zoom:50%;" />
-
-## Alarms Clearance
-
-When an active alarm is addressed, ECP will send a recovery notification and move the alarm to the **History Alarms** page. 
-
-Alarms that have been active for over 24 hours will be automatically transferred to the **History Alarms** page. 
+![alarm-move](./_assets/alarm-move.png)
 
 ## Alarm Storm
 
-An alarm storm refers to a situation where a substantial amount of alarms is generated within a brief period, typically due to unforeseen issues or malfunctions impacting the host machine, Kubernetes platform, or applications. 
+If several alarms occur on the same edge service instance within a short time, they will be silenced to reduce repetitive alarm notifications. You can balance the effectiveness and redundancy of alarms by configuring different silence duration periods, applying them to specific targets, and adjusting severity levels for alarm rules, based on your needs.
 
-These alarms can be repetitive or even disruptive, potentially affecting the overall system stability. In the event of an alarm storm, ECP promptly sends a dedicated notification email and conducts an assessment of the existing alarm rules and thresholds.
+In cases where a substantial amount of alarms are generated within a short timeframe, typically due to unforeseen issues or malfunctions impacting the host machine, Kubernetes platform, or applications, this is considered an alarm storm.
 
-Please refer to the table below, which outlines the strategies that ECP will employ to effectively address various types of alarms storms.
+These alarms can be repetitive or even disruptive, potentially affecting the overall system stability. In the event of an alarm storm, ECP promptly sends a dedicated notification email. However, it is also important for you to assess whether the threshold settings for alarm rules are correct and reasonable.
 
-| Issue                                                        | Strategy                                                     |
+Please refer to the table below, which addresses the conditions triggering alarm storm, and the strategies ECP applies in case of an alarm storm.
+
+| Condition                                                    | Strategy                                                     |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Recurring alarms from the same instance                      | Implement a silence duration strategy to control the alarm storm |
-| Distinct alarms from the same instance                       | Implement a silence duration strategy to control the alarm storm |
-| A simultaneous occurrence of a large number of distinct alarms from different instances | 1. If 30 alarms are issued within a minute, it is considered an alert storm<br/>2. Upon occurrence of an alert storm, the project-level alarm switch is automatically deactivated, while sending an alarm storm notification email<br/>3. Alarm list, email notifications, and WebHooks are concurrently deactivated <!--告警列表是？--> |
-| Damage to underlying resources                               | The same as above                                            |
-| Clearing of Alert Storm Alarms                               | A scheduled clearance strategy: Alarms that have persisted for over 24 hours are automatically removed from the current alarm list and moved to the historical alarm list |
+| 50 or more alarms are triggered within one minute in a single project | 1. Upon occurrence of an alert storm, the project suspends receiving alarm events.<br/>2. Active Alarms tab suspends receiving ongoing updates.<br/>3. The email and Webhooks notifications cease to be sent. |
+
+After an alarm storm occurs, it will be prominently highlighted on the 'Alarms' page. Once you have resolved the system issues causing the alarms, clicking the 'Clear Alarm' button to restore the normal functionality of alarms for the current project.
+
+![alarm-storm](./_assets/alarm-storm.png)

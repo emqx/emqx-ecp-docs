@@ -24,6 +24,9 @@ To set mail server:
 
 Set up the ECP address for both external and internal accesses. This address is also cited in system emails and messages, allowing recipients to directly click on the links for quick access. ECP supports both HTTP and HTTPS protocols.
 
+1. This parameter is mandatory. The domain name or IP address can be used.
+2. Edge service NeuronEX will use this address when pushing status information;
+
 To set the root URL:
 
 1. Log in to ECP as a system admin and navigate to **System Settings** -> **General Settings**.
@@ -53,6 +56,14 @@ System admins can create users directly or invite them via email to join the ECP
 You can use this function to push ECP logs and audit information to a specified Syslog server to connect to a third-party log system.
 
 <img src="./_assets/syslog_push.png" alt="访问域名" style="zoom:50%;" />
+
+## Monitor
+
+On the Monitoring configuration page, you can set EMQX monitoring rules, NeuronEX monitoring rules, NeuronEX detection interval Settings, and monitoring counter collection.
+
+The monitoring indicator collection needs to specify an address for the Prometheus service, an access username and password, and a PushGateway service address.
+
+<img src="./_assets/monitoring_conf.png" alt="Monitor" style="zoom:50%;" />
 
 ## Telegraf Image
 
