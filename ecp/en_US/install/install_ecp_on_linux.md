@@ -15,110 +15,60 @@ EMQX ECP supports the following versions of operating systems:
 
 ## Get Installation Package
 
-If you're interested in obtaining the installation packages for ECP and EMQX Edge Operator, please visit EMQ's website and follow the steps below:
+You can download the installation package from the [ECP product download](https://www.emqx.com/en/try?product=emqx-ecp) page on the EMQ website. Select the system as `docker` to download the ECP installation package.
 
-1. Navigate to the [Contact Us](https://www.emqx.com/en/contact?product=emqx-ecp) page on the EMQ website.
-2. Fill out the form with your relevant contact details, including your name,  company name, email address, country or region, and your phone number. 
-3. In the text field, specify your interest in the ECP and EMQX Edge Operator installation packages. Be clear about your use case and requirements to ensure that you're provided with the most suitable resources.
-4. After you've filled in all the necessary details, click **Submit**.
+![login](./_assets/docker_install_download.png)
 
-## Install Dependencies
+## ECP Installation
 
-`htpasswd` must be installed before installing ECP:
+Upload the downloaded installation package `emqx-ecp-docker-compose-installer-2.1.1.tar.gz` to the server, unzip it, and enter the unzipped directory. Then, execute the following steps to complete the ECP installation.
 
-If you are using the Ubuntu system, run the following command:
-
+### Dependency Check
+execute the following command to check the dependent components and docker version.
+```shell
+./emqx_ecp_ctl precheck
 ```
-$ apt install apache2-utils
+If the following content is output, the check is passed:
+
+![precheck](./_assets/precheck.png)
+
+### Configure Environment
+Execute the following command to configure the ECP installation environment.
+```shell
+./emqx_ecp_ctl configure
+```
+Press Enter to skip all, which means that the default ECP version is used, the image is obtained from the public docker image repository, and the persistent data storage path is `[current script path]/datavolumes/`.
+
+![configure](./_assets/configure.png)
+
+### Start ECP Service
+Execute the following command to start the ECP service.
+```shell
+./emqx_ecp_ctl start
+```
+:::tip Note
+When starting the ECP service for the first time, you need to pull the software image from the public image repository, which may take some time. You can also [contact us](https://www.emqx.com/en/contact?product=emqx-ecp) to get the offline installation package.
+:::
+
+### Check Service Status
+```shell
+./emqx_ecp_ctl status
 ```
 
-If you are using the CentOS system, run the following command:
+![status](./_assets/status.png)
 
+### Stop ECP Service
+```shell
+./emqx_ecp_ctl stop
 ```
-$ yum install httpd-tools
+
+### More Commands
+You can use the `help` command to view more commands.
+```shell   
+./emqx_ecp_ctl help
 ```
 
-## Install ECP
-
-1. The installation package you receive will generally be named `emqx-ecp-install-<x.y.z>.tar.gz`, where `<x.y.z>` denotes version information.  Execute the following command to extract the installation, and switch to this directory after extraction.
-
-   ```bash
-   $ tar -xzvf emqx-ecp-install-<x.y.z>.tar.gz # decompress
-   $ cd ecp-install
-   ```
-
-2. Run the command below to verify the Docker version and dependencies. 
-
-   ```bash
-   $ ./emqx_ecp_ctl precheck
-   Docker is found. Version 20.10.12... passed
-   Docker-Compose is found. Version 1.27.1 ... passed
-   htpasswd is found... passed
-   All checks passed.
-   ```
-
-3. Run the command to finish the configuration before the installation. 
-
-   ```bash
-   $ sudo ./emqx_ecp_ctl configure
-   Generating docker-compose .env file
-   Please input EMQX ECP image tag (default: 1.6.1):    # Specify the version to install
-   Please input EMQX ECP docker registry URL (online or offline) [o/f]:  # Select online/offline install
-   WARNING! Using --password via the CLI is insecure. Use --password-stdin.
-   WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
-   Configure a credential helper to remove this warning. See
-   https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-   
-   Login Succeeded
-   Please input EMQX ECP data volume path (default: /home/ecp/ecp-install/datavolumes/):    # input the path for data persistence
-   Generating docker-compose env file ...
-   Generating Prometheus web auth configuration ...
-   Generating ECP config files ...
-   Generating uiproxy/nginx.conf ...
-   Generating prometheus/web.yml ...
-   Generating main/emqx-bc.pub ...
-   Generating main/emqx-bc ...
-   Generating main/emqx-bc.lic ...
-   Generating main/main.yaml ...
-   Generating agents/emqxee-agent ...
-   Loading ECP Agents ...
-   Checking docker network emqx-ecp-network for ECP services
-   4b989e94a93b54e69e6e10a9788035ff7a60d8cf9ef27daec6e24e112b482dcf
-   All configurations are done.
-   ```
-
-4. After the configuration, use the command below to start ECP. 
-
-   ```bash
-   $ sudo ./emqx_ecp_ctl start
-   Creating emqx-ecp-prometheus-config   ... done
-   Creating emqx-ecp-alertmanager-config ... done
-   Creating emqx-ecp-ui                  ... done
-   Creating emqx-ecp-mqtt                ... done
-   Creating emqx-ecp-postgresql          ... done
-   Creating emqx-ecp-alertmanager        ... done
-   Creating emqx-ecp-redis               ... done
-   Creating emqx-ecp-prometheus          ... done
-   Creating emqx-ecp-main                ... done
-   ```
-
-5. After the installation, use the `status` command to verify the operating status. 
-
-   ```bash
-   $ sudo ./emqx_ecp_ctl status
-               Name                          Command               State                                                  Ports
-   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-   emqx-ecp-alertmanager          /bin/alertmanager --config ...   Up      0.0.0.0:39093->9093/tcp,:::39093->9093/tcp
-   emqx-ecp-alertmanager-config   /emqx-antares-prometheus-c ...   Up      9091/tcp
-   emqx-ecp-main                  /bc/emqx-bc-service              Up      8082/tcp
-   emqx-ecp-mqtt                  /usr/bin/docker-entrypoint ...   Up      11883/tcp, 0.0.0.0:38083->18083/tcp,:::38083->18083/tcp, 0.0.0.0:31883->1883/tcp,:::31883->1883/tcp,
-                                                                           4369/tcp, 4370/tcp, 5369/tcp, 6369/tcp, 6370/tcp, 8081/tcp, 8083/tcp, 8084/tcp, 8883/tcp
-   emqx-ecp-postgresql            docker-entrypoint.sh postgres    Up      0.0.0.0:15432->5432/tcp,:::15432->5432/tcp
-   emqx-ecp-prometheus            /bin/prometheus --config.f ...   Up      0.0.0.0:39090->9090/tcp,:::39090->9090/tcp
-   emqx-ecp-prometheus-config     /emqx-antares-prometheus-c ...   Up      9091/tcp
-   emqx-ecp-redis                 /opt/bitnami/scripts/redis ...   Up      0.0.0.0:16379->6379/tcp,:::16379->6379/tcp
-   emqx-ecp-ui                    /docker-entrypoint.sh ngin ...   Up      80/tcp, 0.0.0.0:8082->8080/tcp,:::8082->8080/tcp
-   ```
+![cli_help](./_assets/cli_help.png)
 
 ## Create a Superuser
 

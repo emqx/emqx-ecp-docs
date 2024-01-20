@@ -1,16 +1,16 @@
 # Configure License
 
-After completing the installation and deployment, it is necessary to configure the ECP license to utilize the full functionality of the ECP cloud-edge platform.
+After completing the installation and deployment, the ECP installation package comes with a trial license, which can be used directly.
 
-## ECP License
+## ECP Floating License Introduction
 
 ECP utilizes a floating license mechanism that enables multiple EMQX clusters to share a centralized license and connection pool, and multiple NeuronEX instances to share a tag pool. This approach allows for efficient resource allocation across various stages (such as development, testing, and production) by eliminating the need for separate licenses and connection counts for each EMQX cluster. 
 
 ## Apply for License
 
-ECP provides both trial and commercial licenses. To request a trial license, please contact us using the sales email address, and we will promptly send it to you.
+The trial license that comes with the EMQX ECP installation package has limits on the number of data tags and edge services. If you need a larger 15-day trial license, please click [link](https://www.emqx.com/en/apply-licenses/emqx-ecp) Download and try it out, we will send the trial license you applied for directly to your email.
 
-For commercial licenses, please contact EMQX sales for detailed information and assistance. They will provide you with the necessary details regarding commercial licensing options, pricing, and any additional information you may require.
+If you want to use EMQX ECP software for long-term trial or commercial use, you can communicate and purchase through the official website [Contact Us](https://www.emqx.com/en/contact?product=emqx-ecp).
 
 1. Navigate to the [Contact Us](https://www.emqx.com/en/contact?product=emqx-ecp) page on the EMQ website.
 2. Fill out the form with your relevant contact details, including your name,  company name, email address, country or region, and your phone number. 

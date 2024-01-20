@@ -7,101 +7,67 @@ This section introduces how to deploy ECP with Kubernetes.
 - Kubernetes: 1.22.0 or above
 - [Helm](https://helm.sh/): 3 or above
 
-## Get Installation Package
+## Get Helm Chart
 
-If you're interested in obtaining the installation packages for ECP and EMQX Edge Operator, please visit EMQ's website and follow the steps below:
+You can obtain the Helm chart for ECP by running the command below:
 
-1. Navigate to the [Contact Us](https://www.emqx.com/en/contact?product=emqx-ecp) page on the EMQ website.
-2. Fill out the form with your relevant contact details, including your name,  company name, email address, country or region, and your phone number. 
-3. In the text field, specify your interest in the ECP and EMQX Edge Operator installation packages. Be clear about your use case and requirements to ensure that you're provided with the most suitable resources.
-4. After you've filled in all the necessary details, click **Submit**.
-
-## Select a Storage Class
-
-For the purpose of persisting ECP operational data, it's necessary to select an appropriate persistent volume storage class. **ECP highly recommends selecting a persistent volume located on shared storage to ensure ECP's availability even during a single node failure within the Kubernetes cluster**. <!--need to confirm-->
-
-You can use the command below to identify the available storage classes in Kubernetes:
-
-```bash
-$ kubectl get storageclasses
+```shell
+helm repo add emqx https://repos.emqx.io/charts
+helm repo update
+helm pull emqx/kube-ecp-stack --untar
 ```
 
-## Install Dependencies
+## Install or Upgrade ECP with Helm Chart
 
-1. Run the command below to Install cert-manager. <!--这里需要需要解释下每个依赖项是做啥的-->
-
-   ```bash
-   $ helm repo add jetstack https://charts.jetstack.io
-   $ helm repo update
-   $ helm install cert-manager jetstack/cert-manager \
-       --set installCRDs=true \
-       --namespace cert-manager \
-       --create-namespace \
-       --version 'v1.11.0'
+- If you can access the Internet, run the command below:
+   ```shell
+   cd kube-ecp-stack
+   helm upgrade --install kube-ecp-stack . --namespace emqx-ecp --create-namespace
+   ```
+- If you cannot access the Internet, you need to store the images in a private image repository first, and then run the following script command:
+   
+   - Create a secret for pulling images from your repository
+   ```shell
+   kubectl create ns ${YOUR_NAMESPACE}
+   kubectl create -n ${YOUR_NAMESPACE} secret docker-registry ${YOUR_SECRET_NAME} --docker-username=${YOUR_USERNAME} --docker-password=${YOUR_PASSWORD} --docker-server=${$YOUR_REGISTRY}
+   ```
+   - Modify the secret name in the `values.yaml` file
+   ```shell
+   global:
+      image:
+         registry: "${YOUR_REGISTRY}"
+         repository: "${YOUR_REPOSITORY}"
+         pullSecrets: &global-image-pullSecrets
+            - name: "${YOUR_SECRET_NAME}
+   ```
+   - Run the command below
+   ```shell
+   cd kube-ecp-stack
+   chmod +x priv_deploy.sh
+   kubectl apply -f crds
+   helm template ${YOUR_RELEASE_NAME} . --namespace ${YOUR_NAMESPACE} | ./priv_deploy.sh
    ```
 
-2. Run the command below to install telegraf-operator.
+## Delete ECP
 
-   ```bash
-   $ helm repo add influx https://helm.influxdata.com
-   $ helm repo update
-   $ helm -n emqx-ecp install telegraf-operator influx/telegraf-operator --create-namespace --version '1.3.10'
-   $ kubectl -n emqx-ecp apply -f https://github.com/emqx/emqx-bc-iaas-hand/blob/develop/plugins/emqx_operator1_2_7/telegraf-operator-class.yaml
+- If you installed ECP with the `helm upgrade --install` command, run the command below to delete ECP:
+
+   ```shell
+   helm delete ${YOUR_RELEASE_NAME} --namespace ${YOUR_NAMESPACE}
+   ```
+- If you installed ECP with a private image repository and the script command, run the command below to delete ECP:
+
+   ```shell
+   cd kube-ecp-stack
+   helm template ${YOUR_RELEASE_NAME} . --namespace ${YOUR_NAMESPACE} | kubectl delete -f -
+   ```
+- Delete the persistent volume claim (PVC) of ECP. 
+
+   **Deleting the PVC will clear all data in ECP, so please proceed with caution.**
+   ```shell
+   kubectl delete pvc -l "app.kubernetes.io/instance=${YOUR_RELEASE_NAME}" -n ${YOUR_NAMESPACE}
    ```
 
-3. Run the command below to install EMQX Operator.
-
-   ```bash
-   $ helm repo add emqx https://repos.emqx.io/charts
-   $ helm repo update
-   $ helm install emqx-operator emqx/emqx-operator \
-       --namespace emqx-operator-system \
-       --create-namespace \
-       --set installCRDs=true  \
-       --version '1.0.11-ecp.7'
-   ```
-
-4. Run the command below to install EMQX Edge Operator.
-
-   ```bash
-   $ helm install edge-operator emqx/edge-operator \
-      --version 0.0.5 \
-      --namespace edge-operator-system \
-      --create-namespace
-   ```
-
-5. Run the command below to install PostgreSQL and please select the storage class that supports shared storage. 
-
-   ```bash
-   $ helm repo add bitnami https://charts.bitnami.com/bitnami
-   $ helm repo update
-   $ helm -n emqx-ecp install emqx-ecp-postgresql bitnami/postgresql \
-       --create-namespace \
-       --version '12.1.14' \
-       -f emqx-ecp-chart/postgres.yaml \
-       --set global.storageClass=<StorageClassName>
-   ```
-
-## Install ECP
-
-1. The installation package you receive will generally be named `emqx-ecp-install-<x.y.z>.tar.gz`, where `<x.y.z>` denotes version information.  Execute the following command to extract the installation, and the extracted contents will be in the `./emqx-ecp-chart` folder.
-
-   ```bash
-   $ tar -xzvf emqx-ecp-chart-<x.y.z>.tar.gz # decompress
-   ```
-
-2. Run the command below to install EMQX ECP and please select the storage class that supports shared storage. 
-
-   ```bash
-   $ helm -n emqx-ecp install emqx-ecp --set storage.storageClassName=<StorageClassName> emqx-ecp-chart
-   ```
-
-3. Wait till ECP is ready. 
-
-   ```bash
-   $ kubectl -n emqx-ecp wait --for=condition=Ready pods -l 'app=emqx-ecp-main'
-   pod/emqx-ecp-main-76dcb6b5c4-2f7wp condition met
-   ```
 
 ## Create a Superuser
 
@@ -118,7 +84,8 @@ Please input your name:         # Set a display name for your account, for examp
 
 ## Log in to ECP 
 
-You have now successfully deployed ECP with Docker. Open your web browser and enter `http://localhost:8082/` (replace `localhost` with your IP address if necessary) into the address bar to access the ECP platform. 
+Now that you have successfully deployed ECP, the default access address of ECP is `http://{kubernetes-node-ip}:31900`. Log in to ECP with your superuser account to start the system initialization.
+
 
 <img src="./_assets/ECP-login.png" alt="Log in" style="zoom:50%;" />
 

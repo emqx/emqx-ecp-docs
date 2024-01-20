@@ -11,108 +11,66 @@
 | Kubernetes               | 1.22.0 或以上 |
 | [Helm](https://helm.sh/) | 3 或以上      |
 
-## 获取安装包
 
-欢迎访问 EMQ 官网获取 ECP 和 EMQX Edge Operator 的安装包。
+## 获取 Helm chart
+通过Helm chart安装 EMQX ECP，您可以通过以下命令获取 EMQX ECP的 Helm chart：
 
-1. 进入[联系我们](https://www.emqx.com/zh/contact?product=emqx-ecp)页面。
-2. 输入必要的联系信息，如姓名、公司、工作邮箱，国家和地区，以及您的联系方式。
-3. 您可在下方的文本框中填写您的应用场景及需求，以便我们为您提供更好的服务。
-4. 填写好以上信息后，点击**立即提交**，我们的销售将会尽快与您联系。
-
-## 选择存储类
-
-出于持久化 ECP 运行数据的目的，推荐为 ECP 选择合适的持久化卷存储类。
-
-您可通过如下命令查询 Kubernetes 中可用的存储类类型：
-
+```shell
+helm repo add emqx https://repos.emqx.io/charts
+helm repo update
+helm pull emqx/kube-ecp-stack --untar
 ```
-$ kubectl get storageclasses
-```
+## 通过 Helm chart 安装、升级EMQX ECP
 
-:::tip
-
-推荐选择共享存储上的持久化卷，保证 ECP 运行的稳定性。
-
-:::
-
-## 安装依赖组件
-
-1. 安装cert-manager
-
-   ```bash
-   $ helm repo add jetstack https://charts.jetstack.io
-   $ helm repo update
-   $ helm install cert-manager jetstack/cert-manager \
-       --set installCRDs=true \
-       --namespace cert-manager \
-       --create-namespace \
-       --version 'v1.11.0'
+- 如果可以访问 Internet，请运行以下命令：
+   ```shell
+   cd kube-ecp-stack
+   helm upgrade --install kube-ecp-stack . --namespace emqx-ecp --create-namespace
+   ```
+- 如果无法访问 Internet，需要将镜像先存储到私有镜像库，然后运行以下脚本命令：
+   
+   - 为从您的仓库拉取镜像创建密钥
+   ```shell
+   kubectl create ns ${YOUR_NAMESPACE}
+   kubectl create -n ${YOUR_NAMESPACE} secret docker-registry ${YOUR_SECRET_NAME} --docker-username=${YOUR_USERNAME} --docker-password=${YOUR_PASSWORD} --docker-server=${$YOUR_REGISTRY}
+   ```
+   - 修改values.yaml文件中的密钥名称
+   ```shell
+   global:
+      image:
+         registry: "${YOUR_REGISTRY}"
+         repository: "${YOUR_REPOSITORY}"
+         pullSecrets: &global-image-pullSecrets
+            - name: "${YOUR_SECRET_NAME}
+   ```
+   - 运行以下命令
+   ```shell
+   cd kube-ecp-stack
+   chmod +x priv_deploy.sh
+   kubectl apply -f crds
+   helm template ${YOUR_RELEASE_NAME} . --namespace ${YOUR_NAMESPACE} | ./priv_deploy.sh
    ```
 
-2. 安装telegraf-operator
+## 删除 EMQX ECP
 
-   ```bash
-   $ helm repo add influx https://helm.influxdata.com
-   $ helm repo update
-   $ helm -n emqx-ecp install telegraf-operator influx/telegraf-operator --create-namespace --version '1.3.10'
-   $ kubectl -n emqx-ecp apply -f https://github.com/emqx/emqx-bc-iaas-hand/blob/develop/plugins/emqx_operator1_2_7/telegraf-operator-class.yaml
+- 如果您通过 `helm upgrade --install` 命令安装了 ECP，请运行以下命令删除 ECP：
+
+   ```shell
+   helm delete ${YOUR_RELEASE_NAME} --namespace ${YOUR_NAMESPACE}
+   ```
+- 如果您通过私有镜像库及运行脚本安装了 ECP，请运行以下命令删除 ECP：
+
+   ```shell
+   cd kube-ecp-stack
+   helm template ${YOUR_RELEASE_NAME} . --namespace ${YOUR_NAMESPACE} | kubectl delete -f -
+   ```
+- 删除存储卷
+
+   删除存储卷，会清除 ECP 中的所有数据，请谨慎操作。
+   ```shell
+   kubectl delete pvc -l "app.kubernetes.io/instance=${YOUR_RELEASE_NAME}" -n ${YOUR_NAMESPACE}
    ```
 
-3. 安装 EMQX Operator。
-
-   ```bash
-   $ helm repo add emqx https://repos.emqx.io/charts
-   $ helm repo update
-   $ helm install emqx-operator emqx/emqx-operator \
-       --namespace emqx-operator-system \
-       --create-namespace \
-       --set installCRDs=true  \
-       --version '1.0.11-ecp.7'
-   ```
-
-4. 安装 EMQX Edge Operator。
-
-   ```bash
-   $ helm install edge-operator emqx/edge-operator \
-      --version 0.0.5 \
-      --namespace edge-operator-system \
-      --create-namespace
-   ```
-
-5. 安装 PostgreSQL ，请选择支持共享存储的存储类。
-
-   ```bash
-   $ helm repo add bitnami https://charts.bitnami.com/bitnami
-   $ helm repo update
-   $ helm -n emqx-ecp install emqx-ecp-postgresql bitnami/postgresql \
-       --create-namespace \
-       --version '12.1.14' \
-       -f emqx-ecp-chart/postgres.yaml \
-       --set global.storageClass=<StorageClassName>
-   ```
-
-## 安装 EMQX ECP
-
-1. ECP 安装包的命名规则一般为 `emqx-ecp-chart-<x.y.z>.tar.gz`，其中 `<x.y.z>`表示版本号信息。
-   运行以下命令提取 ECP 安装包中的内容到本地目录，提取后的内容将位于 `./emqx-ecp-chart` 目录。
-
-   ```bash
-   $ tar -xzvf emqx-ecp-chart-<x.y.z>.tar.gz # 解压缩
-   ```
-
-2. 运行以下命令安装 EMQX ECP，请选择支持共享存储的存储类类型。
-
-   ```bash
-   $ helm -n emqx-ecp install emqx-ecp --set storage.storageClassName=<StorageClassName> emqx-ecp-chart
-   ```
-
-3. 等待 ECP 部署完成。
-
-   ```bash
-   $ kubectl -n emqx-ecp wait --for=condition=Ready pods -l 'app=emqx-ecp-main'
-   pod/emqx-ecp-main-76dcb6b5c4-2f7wp condition met
-   ```
 
 ## 创建超级管理员
 
@@ -134,3 +92,25 @@ Please input your name:         # 请为您的账户设置一个显示名称，�
 ![login](./_assets/login.png)
 
 通过超级用户帐户登录后，您可开始[创建用户](../system_admin/user_management.md)，配置[访问控制规则](../acl/introduction.md)，并开始设置[组织和项目](../system_admin/introduction.md)。
+
+## 如何快速推送镜像到您的私有仓库
+- 获取 Helm chart
+   ```shell
+   helm repo add emqx https://repos.emqx.io/charts
+   helm repo update
+   helm pull emqx/kube-ecp-stack --untar
+   ```
+- 修改values.yaml文件中的镜像仓库地址
+   ```shell
+   global:
+     image:
+       registry: "${YOUR_REGISTRY}"
+       repository: "${YOUR_REPOSITORY}"
+   ```
+- 运行以下`retag.sh`命令
+   ```shell
+   cd kube-ecp-stack
+   chmod +x retag.sh
+   echo "${YOUR_PASSWORD}" | docker login ${YOUR_REGISTRY} -u ${YOUR_USERNAME} --password-stdin
+   ./retag.sh
+   ```
