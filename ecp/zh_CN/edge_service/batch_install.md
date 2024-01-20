@@ -36,7 +36,7 @@
 
 1. 如果 Docker API 开启了 TLS 认证，则边缘节点部署 Docker后，作为服务端需要配置 Docker API 的 CA 证书、服务端证书和服务端私钥，ECP 作为客户端需要配置 Docker API 的 CA 证书、客户端证书和客户端私钥，具体配置方法请参考[Docker TLS 认证](https://docs.docker.com/engine/security/https/)。
 
-    1）可通过下载[该链接](https://github.com/emqx/emqx-ecp-docs/tree/main/resource/docker-tls)的证书文件及脚本进行配置，
+    1）可通过下载[该链接](https://github.com/emqx/emqx-ecp-docs/tree/main/ecp/resource/docker-tls)的证书文件及脚本进行配置，
     :::tip 注意
         该证书仅供测试使用，生产环境请使用自签名证书。
     :::
