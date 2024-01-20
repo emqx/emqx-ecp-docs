@@ -36,7 +36,7 @@ After the installation is complete, you need to open the remote access port of t
 
 1. If the Docker API enables TLS authentication, the edge node deployed as the server needs to configure the CA certificate, server certificate and server private key of the Docker API. ECP as the client needs to configure the CA certificate, client certificate and client private key of the Docker API. For specific configuration methods, please refer to [Docker TLS authentication](https://docs.docker.com/engine/security/https/).
 
-    1) You can download the certificate file and script from [this link](https://github.com/emqx/emqx-ecp-docs/tree/main/resource/docker-tls)
+    1) You can download the certificate file and script from [this link](https://github.com/emqx/emqx-ecp-docs/tree/main/ecp/resource/docker-tls)
       :::tip Note
       This certificate is for testing only.
       Please use a self-signed certificate in a production environment.
