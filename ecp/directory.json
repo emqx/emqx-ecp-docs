@@ -249,7 +249,7 @@
             "path": "edge_service/introduction",
             "children": [
                 {
-                    "title": "Install Edge Services in Bulk",
+                    "title": "Edge Services Batch Installation Docker Mode",
                     "path": "edge_service/batch_intall"
                 },
                 {
