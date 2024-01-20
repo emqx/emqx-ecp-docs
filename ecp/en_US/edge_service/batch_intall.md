@@ -1,55 +1,109 @@
-# Install Edge Services in Bulk
+# Edge Services Batch Installation Docker Mode
 
-Batch installation is especially advantageous when ECP and edged services are within the same Kubernetes environments. With batch installation, you can effectively minimize deployment effort and reduce installation time.
+Based on the ECP platform deployed by Docker, if the hardware of the edge service supports the deployment of Docker containers, edge services can be installed in batches on the ECP platform, shortening the installation and deployment time of edge services, and improving deployment efficiency and consistency.
 
-For the initial deployment of edge services, you can utilize ECP's batch installation feature to streamline the process of installing Neuron and eKuiper in batch.
+## Prerequisites
 
-## Installation
+Before batch installation of edge services, you need to complete the following preparations:
+- [Configure Docker environment](#configuration-docker-environment)
+<!-- - Add [edge service image](../system_admin/resource_config.md#edge service image list) -->
+- Add [edge node](./docker_node.md), the edge service will be installed on the edge node
 
-1. Log in as system admin, organization admin, or project admin. Navigate to **Workspace - Edge Service** page. 
+### Configuration Docker Environment
 
-2. Click the **Add Edge Service** button to enter the **Add Edge Service** page.
+edge service is deployed by Docker, so you need to install Docker on the edge node. 
 
-3. Choose **Install new Services in batches** for **Add Type**, choose **docker** type for **Batch Installation Type**.
-
-4. For **Category**, now only **NeuronEX**.
-
-5. **Connection Type** is set to **Direct** by default and cannot be changed.
-
-6. In the **Name Cluster** field, give a name prefix for the edge service, the system will automatically generate a unique service name based on the name prefix; it should be 1 - 20 characters, and also support "-" and blank spaces. 
-
-7. In the **Choose Nodes** field, you can chose one or many docker node to install. 
-
-8. You can view the default specification for the service, set up the **Ports Mapping**、**Volumes Mapping**、**Environment Variables** and startup command.
-
-9. Then in the **NeuronEXImage** field, choose the image version to install. 
-
-   **Note**: If NeuronEX is to be installed, please also specify whether authentication is enabled by clicking the **Authentication Enabled** checkbox. For details about authentication in NeuronEX, see [Authenticate Edge Services](./e2c.md).
-
-10. Add tags to facilitate future management. For details, see [Tags](./batch_tag.md).
+After the installation is complete, you need to open the remote access port of the Docker API. The ECP platform manages the life cycle of the edge service through the Docker API, and supports two modes of Docker API to enable TLS authentication and not enable TLS authentication.
 
 
-11. With the information you've provided, the system will create a summary page showing resource needs and your selected configurations. After reviewing these, click **Confirm** to complete the setup. 
+#### Do not enable TLS authentication
 
+1. Find the docker service configuration file, the default is: `/usr/lib/systemd/system/docker.service`, you can see the location of the file through the `systemctl status docker` command.
+    ![docker_service](./_assets/docker_service.png)
+2. Modify the ExecStart parameter and add parameters as shown below:
+    ```shell
+      ExecStart=/usr/bin/dockerd  -H fd:// --containerd=/run/containerd/containerd.sock  -H=0.0.0.0:2376
+   ```
+   ![execstart_no_tls](./_assets/execstart_no_tls.png)
+3. Restart the docker service
+    ```shell
+    systemctl daemon-reload && systemctl restart docker
+    ```
+4. Configure Docker connection configuration without TLS authentication method on ECP
+   ![docker_mode1](./_assets/docker_mode1.png)
 
-![](./_assets/edge-service-addbatch.png)
+#### Enable TLS authentication
 
-## Monitor Installation Process
+1. If the Docker API enables TLS authentication, the edge node deployed as the server needs to configure the CA certificate, server certificate and server private key of the Docker API. ECP as the client needs to configure the CA certificate, client certificate and client private key of the Docker API. For specific configuration methods, please refer to [Docker TLS authentication](https://docs.docker.com/engine/security/https/).
 
-A dialog box will subsequently appear, showcasing the installation progress. Here you can observe:
+    1) You can download the certificate file and script from [this link](https://github.com/emqx/emqx-ecp-docs/tree/main/resource/docker-tls)
+      :::tip Note
+      This certificate is for testing only.
+      Please use a self-signed certificate in a production environment.
+      :::
+   2) Modify the IP address in extfile.cnf to the IP address exposed by the edge node that deploys the Docker Engine service externally. This IP address is also the IP address that needs to be entered in ECP when adding [edge nodes](./docker_node.md).
+      ![extfile](./_assets/extfile.png)
+   3) Execute the gen-docker-cert.sh script to generate the server certificate: server-cert.pem, the default password: `1111`;
+      ![gen-docker-cert](./_assets/gen-docker-cert.png)
+   4) Copy the generated `server-cert.pem` certificate file and `ca.pem`, `server-key.pem` files to the specified directory of the edge node, such as: `/root/docker-tls/ca.pem`, `/root/docker-tls/server-cert.pem`, `/root/docker-tls/server-key.pem` directory.
 
-- The total count of services installed, those successfully created, ones that failed, and those currently in process.
-- For any failed instances, the Reason column will provide information on the cause of failure.
+2. Find the docker service configuration file, the default is: `/usr/lib/systemd/system/docker.service`, you can see the location of the file through the `systemctl status docker` command.
+    ![docker_service](./_assets/docker_service.png)
 
-<img src="./_assets/edge-service-addbatch-results.png" alt="" style="zoom:50%;" />
+3. Modify the ExecStart parameter and add parameters as shown below:
+    ```shell
+      ExecStart=/usr/bin/dockerd  -H fd:// --containerd=/run/containerd/containerd.sock  --tlsverify --tlscacert=/root/docker-tls/ca.pem --tlscert=/root/docker-tls/server-cert.pem --tlskey=/root/docker-tls/server-key.pem -H=0.0.0.0:2376
+   ```
+   ![exectart_tls](./_assets/exectart_tls.png)
+4. Restart the docker service
+    ```shell
+    systemctl daemon-reload && systemctl restart docker
+    ```
+5. Configure Docker connection configuration with TLS authentication method on ECP
+    upload the certificate file  `ca.pem`, `cert.pem`, `key.pem` to ECP.
+   ![docker_mode2](./_assets/docker_mode2.png)
 
+## Batch Install Edge Services
 
+1. Log in as system admin, organization admin, or project admin. Navigate to Workspace - Edge Service page.
 
-Click **Return** to close this page and return Workspace - Edge Service page. The newly created edge services are now displayed in the **Edge Service** section. 
+2. Click the Add Edge Service button to enter the Add Edge Service page.
 
-System/Organization/Project admins can review these operations in the [System Administration - Audit](../system_admin/operation_audit). 
+3. Choose Install new Services in batches for Add Type, choose docker type for Batch Installation Type.
+
+4. For Category, now only NeuronEX.
+
+5. Connection Type is set to Direct by default and cannot be changed.
+
+6. Enter the name prefix of the edge service, and the system will automatically generate a unique service name based on the name prefix; 1-20 characters, and supports "-" and spaces.
+
+7. Select one or more **edge nodes**, and ECP will deploy an edge service instance of the selected **type** on each edge node.
+
+8. Set the configuration parameters of the edge service. If not modified, the parameters in the global configuration will be used by default.
+
+9. Select the image where the edge service needs to be installed.
+
+10. [Optional] Install the NeuronEX instance and choose whether to enable authentication. For detailed information, please view [Edge Service Authentication](./e2c.md).
+
+11. [Optional] You can choose to add labels to edge service instances to facilitate subsequent maintenance.
+
+12. ECP will automatically generate an information overview of this installation on the right side of the page based on the above settings. You can confirm it here. If the information is confirmed, you can click the **Confirm** button to install batch edge services.
+
+![批量安装边缘服务](./_assets/install-neuronex-by-docker.png)
+
+## Check the installation progress
+
+After clicking Confirm, the batch installation results dialog box will pop up, you can view it here:
+
+- Statistics on total number of installations, number of successful installations, number of failed installations and ongoing installations;
+- For installation failures, you can view the reason for the installation failure in the **Cause** column;
+
+![Batch installation-execution results](./_assets/edge-service-addbatch-results.png)
+
+Click **Back** to return to the **Edge Services** page, and the newly installed edge service will appear in the Edge Services section of the page.
+
+In addition, ECP will record all the information of this batch installation, and the system/organization/project administrator can view it in [Operation Audit](../system_admin/operation_audit).
 
 :::tip
-
-For usage restrictions on batch installations, please refer to [Known Limitations](../others/known_limitations) and [Version Compatibility](../others/version_limitations).
+For usage restrictions on batch installation, please refer to [System Usage Limitations](../others/known_limitations) and [Version Compatibility Limitations](../others/version_limitations).
 :::

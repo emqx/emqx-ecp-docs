@@ -51,13 +51,33 @@ ECP 在 Docker 部署模式环境下提供了自定义连接信息功能，同�
 2. 点击展开**Docker部署模式**部分，点击展开**Docker连接配置**。
 3. 点击**编辑**，进入编辑页面，您可在此调整设置。
 
-:::tip 
+:::tip 注意
 
 在通过 ECP [Docker方式批量安装边缘服务](../edge_service/batch_install.md)时，请先配置正确的`Docker连接配置`。
 
 :::
-
 <img src="./_assets/docker-info-config.png" style="zoom:80%;" align="middle">
+
+#### 不开启 TLS 认证
+当边缘服务的 Docker Engine 未开启 TLS 认证时，仅需要填入 Docker API 端口号即可。
+
+:::tip 注意
+
+该 Docker API 端口号全局唯一，需要所有边缘节点的 Docker Engine 都使用同一个端口号。
+
+:::
+
+#### 开启 TLS 认证
+当边缘服务的 Docker Engine 开启 TLS 认证时，除了需要填入 Docker API 端口号，还需要填入 TLS 认证的相关信息。
+
+将[TLS 客户端证书](../edge_service/batch_install.md#开启-tls-认证)填入 ECP配置项， 从上到下依次填入 `ca.pem`证书文件、`cert.pem`客户端证书、`key.pem`客户端私钥。
+
+:::tip 注意
+   该证书仅供测试使用，生产环境请使用自签名证书。
+:::
+
+![ecp_docker_tls](./_assets/ecp_docker_tls.jpg)
+
 
 ### 边缘服务配置
 
