@@ -7,6 +7,18 @@
 - 关于单点登录，可以阅读[ECP 登录认证 - 配置单点登录](../acl/ecp_login.md#对接第三方认证)。
 - 关于日志、告警、监控等的设置，可以阅读[统一运维服务](../monitor/introduction.md)。
 
+## 访问域名
+
+配置可在外网或内网环境访问 ECP 的地址。边缘服务 NeuronEX 向 ECP 推送状态信息时会使用该地址,此外，ECP 在发送系统邮件、消息时，消息内容也会引用该链接地址。ECP 支持 HTTP 和 HTTPS 两种协议。
+
+:::tip 注意
+该配置项是必填项， 域名或 IP 地址皆可；例如， `http://192.168.1.100:8082`。
+:::
+
+
+<img src="./_assets/manager-setting-DNS.png" alt="访问域名" style="zoom:50%;" />
+
+
 ## 邮件配置
 
 ECP 支持通过外部邮件服务器发送系统邮件，用于实现添加用户后的邮件认证、重置密码、忘记密码和邮件告警等功能。当前我们支持QQ、网易163、Gmail、和自定义邮件服务器配置。
@@ -22,17 +34,6 @@ ECP 支持通过外部邮件服务器发送系统邮件，用于实现添加用�
    
 
    <img src="./_assets/manager-setting-mail2.png" alt="邮件" style="zoom:50%;" />
-
-
-## 访问域名
-
-配置可在外网或内网环境访问 ECP 的地址。ECP 在发送系统邮件、消息时，消息内容也会引用该链接地址。ECP 支持 HTTP 和 HTTPS 两种协议。
-
-1. 该配置项是必填项， 域名或 IP 地址皆可；
-2. 边缘服务 NeuronEX 推送状态信息时会使用该地址；
-
-
-<img src="./_assets/manager-setting-DNS.png" alt="访问域名" style="zoom:50%;" />
 
 
 ## 用户邀请方式管理

@@ -1,7 +1,8 @@
 # 配置许可证
 
-安装部署完成后，EMQX ECP 安装包自带试用 License，可直接使用 ECP 产品。
+安装部署完成后，EMQX ECP 安装包自带试用 License，可直接使用 ECP 产品。下图为 ECP 自带的试用 License 信息。
 
+![default-license](./_assets/default-license.png)
 
 ## ECP 浮动许可证机制
 
