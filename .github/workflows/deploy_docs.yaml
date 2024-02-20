@@ -93,7 +93,7 @@ jobs:
         LANGS=(zh en)
         for lang in "${LANGS[@]}"; do
           redoc-cli bundle redoc/swagger-${lang}.json -t redoc/template-emqx-ecp.hbs \
-            --output docs/.vitepress/dist/${lang}/${VERSION}/admin/api-docs.html \
+            --output docs/.vitepress/dist/${lang}/emqx-ecp/${VERSION}/api/api-docs.html \
             --options.theme.colors.primary.main=#5e4eff \
             --options.theme.typography.headings.fontFamily='Roboto, sans-serif' \
             --options.hide-hostname --templateOptions.title "EMQX ECP ${VERSION} API Documentation" \
