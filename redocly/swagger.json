@@ -1,15 +1,14 @@
 {
-    "openapi": "3.1.0",
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "swagger": "2.0",
     "info": {
       "title": "ECP API",
       "description": "",
       "version": "1.0.0"
     },
-    "tags": [
-      {
-        "name": "ECP API"
-      }
-    ],
     "paths": {
       "/api/account/activate": {
         "get": {
