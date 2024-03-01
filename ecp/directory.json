@@ -151,6 +151,10 @@
                 {
                     "title": "操作审计",
                     "path": "system_admin/operation_audit"
+                },
+                {
+                    "title": "API 文档",
+                    "path": "https://docs.emqx.com/zh/emqx-ecp/latest/api/api-docs.html"
                 }
             ]
         },
@@ -331,6 +335,10 @@
                 {
                     "title": "Audit",
                     "path": "system_admin/operation_audit"
+                },
+                {
+                    "title": "API Documentation",
+                    "path": "https://docs.emqx.com/en/emqx-ecp/latest/api/api-docs.html"
                 }
             ]
         },
