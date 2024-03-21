@@ -67,6 +67,9 @@ jobs:
         mkdir -p frontend/docs/en/${DOCS_TYPE}/${VERSION}/
         mkdir -p frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
         mkdir -p frontend/docs/public/api/
+        mkdir -p frontend/redoc/
+        cp docs-files/redocly/swagger.json frontend/redoc/swagger-en.json
+        cp docs-files/redocly/swagger.json frontend/redoc/swagger-zh.json
         cp -r docs-files/ecp/en_US/* frontend/docs/en/${DOCS_TYPE}/${VERSION}/
         cp -r docs-files/ecp/zh_CN/* frontend/docs/zh/${DOCS_TYPE}/${VERSION}/
         cp docs-files/ecp/directory.json frontend/docs/.vitepress/config/directory.json
@@ -82,6 +85,22 @@ jobs:
         cd frontend
         pnpm install
         pnpm build
+
+    - name: build redoc
+      run: |
+        cd frontend
+        yarn global add redoc-cli
+        LANGS=(zh en)
+        for lang in "${LANGS[@]}"; do
+          redoc-cli bundle redoc/swagger-${lang}.json -t redoc/template-emqx-ecp.hbs \
+            --output docs/.vitepress/dist/${lang}/emqx-ecp/${VERSION}/api/api-docs.html \
+            --options.theme.colors.primary.main=#5e4eff \
+            --options.theme.typography.headings.fontFamily='Roboto, sans-serif' \
+            --options.hide-hostname --templateOptions.title "EMQX ECP ${VERSION} API Documentation" \
+            --templateOptions.description "EMQX ECP ${VERSION} API Documentation" \
+            --templateOptions.version "${VERSION}" \
+            $(if [ "${lang}" == "zh" ]; then echo "--templateOptions.langZH \"zh\""; fi)
+        done
 
     - name: set aws credentials
       uses: aws-actions/configure-aws-credentials@v4
