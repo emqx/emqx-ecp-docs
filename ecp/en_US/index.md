@@ -99,4 +99,10 @@ EMQX ECP is a data platform for IIoT. It is designed to meet the requirements of
 6. **Project**: The project feature of ECP empowers users to fine-tune resource management within their organizations. System admins, organization admins, project admins, and regular users. Authority design and implementation are based on the RBAC model. 
 7. **Roles**: ECP provides four roles: system administrator, organization administrator, project administrator and ordinary user. It designs and implements a permission system based on the RBAC model.
 8. **Task**: A Task refers to a specific function or operation performed by the ECP. These tasks can run automatically in the background without user intervention. 
+9. **Hosted**: Hosted refers to the edge service NeuronEX or EMQX cluster created and deployed by ECP, which is called a hosted NeuronEX service or a hosted EMQX cluster.
 
+10. **Managed**: Managed refers to the edge service NeuronEX or EMQX cluster created and deployed by the user, and added to ECP for management, which is called managed NeuronEX service or managed EMQX cluster.
+
+11. **Direct Connection mode**: Direct Connection mode means that the ECP platform can directly access edge services or EMQX clusters, that is, ECP, edge services and EMQX clusters are in the same network or VPC.
+
+12. **Proxy mode**: Proxy mode means that the ECP platform cannot directly access and establish connection with edge services or EMQX clusters, that is, edge services or EMQX clusters do not have independent IPs. At this time, the edge node or EMQX cluster needs to actively initiate a connection to the ECP through a proxy service and establish connection. Then the ECP can communicate normally with the edge service or EMQX cluster.

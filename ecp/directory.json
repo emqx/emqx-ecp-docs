@@ -103,6 +103,10 @@
                 {
                     "title": "边缘服务管理运维",
                     "path": "edge_service/edge_ops"
+                },
+                {
+                    "title": "云边通道",
+                    "path": "edge_service/edge_cloud_tunnel"
                 }
             ]
         },
@@ -249,7 +253,7 @@
             ]
         },
         {
-            "title": "Manage Edge Services",
+            "title": "Edge Services Management",
             "path": "edge_service/introduction",
             "children": [
                 {
@@ -287,6 +291,10 @@
                 {
                     "title": "Edge Service Management & Operations",
                     "path": "edge_service/edge_ops"
+                },
+                {
+                    "title": "Edge Cloud Tunnel",
+                    "path": "edge_service/edge_cloud_tunnel"
                 }
             ]
         },

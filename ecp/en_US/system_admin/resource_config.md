@@ -202,3 +202,9 @@ In **Authentication Configuration**, system admins can obtain the automatically 
 
 
 <img src="./_assets/manager-setting-rsa.png" alt="rsa" style="zoom:50%;" />
+
+## Telegraf Image
+
+Telegraf is for the log collection of EMQX clusters. 
+
+<img src="./_assets/manager-setting-Telegraf.png" alt="Telegraf 镜像" style="zoom:50%;" />

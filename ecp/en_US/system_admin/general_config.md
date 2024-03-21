@@ -4,6 +4,24 @@ In **General Settings**, system admins can configure the email server, root URL 
 
 In addition to the ability to configure settings like the email server, access URL, user invitation methods, Telegraf image, and language preferences, ECP also supports configuring logs, monitoring, and alarms at the system level. For more instructions,  see [Logs and Observability](../monitor/introduction.md#system-level-configurations).
 
+## Configure Root Address
+
+Set up the ECP root address for both external and internal accesses. This address is also cited in system emails and messages, allowing recipients to directly click on the links for quick access. ECP supports both HTTP and HTTPS protocols.
+
+1. This parameter is mandatory. The domain name or IP address can be used.
+2. Edge service NeuronEX will use this address when pushing status information;
+
+To set the root URL:
+
+1. Log in to ECP as a system admin and navigate to **System Settings** -> **General Settings**.
+2. Click **Edit** to enter the editing page.
+3. Select the protocol and input the root URL.
+4. Before confirming the setting, click **Test** to test the connection.
+5. Click **Save** the confirm the settings. 
+
+<img src="./_assets/manager-setting-DNS.png" alt="访问域名" style="zoom:50%;" />
+
+
 ## Configure Emails
 
 ECP uses an external mail server to send system emails, including email verification, password reset, and email alerts. ECP currently supports Gmail and other customized mail servers.<!--这里我拿掉了QQ 和 163-->
@@ -18,24 +36,6 @@ To set mail server:
 2. To add your internal mail server: Select **Other** as the **Email Domain** and provide the **Host**, **Port**, **Email**, and **Password** accordingly. 
 
 <img src="./_assets/manager-setting-mail2.png" alt="邮件" style="zoom:50%;" />
-
-
-## Configure Root URL
-
-Set up the ECP address for both external and internal accesses. This address is also cited in system emails and messages, allowing recipients to directly click on the links for quick access. ECP supports both HTTP and HTTPS protocols.
-
-1. This parameter is mandatory. The domain name or IP address can be used.
-2. Edge service NeuronEX will use this address when pushing status information;
-
-To set the root URL:
-
-1. Log in to ECP as a system admin and navigate to **System Settings** -> **General Settings**.
-2. Click **Edit** to enter the editing page.
-3. Select the protocol and input the root URL.
-4. Before confirming the setting, click **Test** to test the connection.
-5. Click **Save** the confirm the settings. 
-
-<img src="./_assets/manager-setting-DNS.png" alt="访问域名" style="zoom:50%;" />
 
 
 ## Manage User Invite Method
@@ -57,7 +57,7 @@ You can use this function to push ECP logs and audit information to a specified 
 
 <img src="./_assets/syslog_push.png" alt="访问域名" style="zoom:50%;" />
 
-## Monitor
+## Monitoring
 
 On the Monitoring configuration page, you can set EMQX monitoring rules, NeuronEX monitoring rules, NeuronEX detection interval Settings, and monitoring counter collection.
 
@@ -65,11 +65,10 @@ The monitoring indicator collection needs to specify an address for the Promethe
 
 <img src="./_assets/monitoring_conf.png" alt="Monitor" style="zoom:50%;" />
 
-## Telegraf Image
+## Floating License Configuration
 
-Telegraf is for the log collection of EMQX clusters. 
+The offline active time of NeuronEX can be configured through this function. The offline active time of NeuronEX refers to the time it can run normally after being separated from ECP management. If set to 14 days, NeuronEX will run normally within 14 days after leaving ECP management. After 14 days, NeuronEX's operating functions will be limited.
 
-<img src="./_assets/manager-setting-Telegraf.png" alt="Telegraf 镜像" style="zoom:50%;" />
 
 ## Language
 
