@@ -1,5 +1,58 @@
 # Release History
 
+## v2.2.0
+Release Date: 03/27/2024
+
+### Enhancements
+
+- All in one install package include create-init-admin.sh
+- Advance automatic decompression dashboard package
+- Support custom alarm to receive user defined alarms via webhook
+- New implementation for template management and template deliver to NeuronEX
+- NeuronEX start & stop function which deploy by docker
+- NeuronEX restart function by docker
+- neuron persistent direction check， ensure the `/opt/neuronex/data` is exist.
+- add the audit of start/stop/restart docker container service
+- docker compose and docker-compose compatible
+- init configuration when first login ECP
+- New implementation for managing NeuronEX via agent
+- merge telegraf syslog server port and pushGateway server port into ECP 8082 port
+- merge ecp root address , telegraf address, pushGateway address
+- Support adding EMQX V5 into management and dashboard view
+- If first login ecp, will alert user to confirm the root address
+- Add default value of docker API port
+- Optimize user invite error message
+- refactor custom setting
+- refactor template setting page
+- add polling for batch deliver result
+- add batch buttons auth for NeuornEX installed by docker
+- change edge config manage label position in leftSider
+- set container path is disabled in NeuronEX docker config
+- set default value for NeuronEX config
+- add proxyManage page for managed NeuronEX
+- feat delete history alarm
+- recode english
+
+### Bug Fixes
+
+- Fix creation issue when number of edge services have reached license quota
+- an issue with telegraf configuration
+- fix docker compose version persistence directory rights error which may lead to prometheus repeated restart
+- fix metrics statistics issue when prometheus not configured with authentication
+- Fixed Elasticsearch configuration nil panic
+- fix NeuronEX dynamic license sync issue when ECP reboots frequently
+- add warnning setting check button
+- fix check bug in setting root url
+- fix show check message twice when reset password
+- fix batch upgrade page sizes
+- fix header change bug
+- fix setting when user is docker
+- change email and root loaction
+- fix root lable
+- fix idpSloUrl and idpSsoUrl regx and remove idpSsoUrl check when idpSsoUrl is empty
+- set edge desc maxlength is 500 in create and edit edge
+
+
 ## v2.1.1
 Release Date: 01/18/2024
 
