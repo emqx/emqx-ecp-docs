@@ -1,6 +1,6 @@
 # Release History
 
-## v2.1.1
+## v2.2.0
 Release Date: 03/27/2024
 
 ### Enhancements
