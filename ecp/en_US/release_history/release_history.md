@@ -6,42 +6,40 @@ Release Date: 03/27/2024
 
 ### Enhancements
 
-- Advance automatic decompression dashboard package
-- Support custom alarm to receive user defined alarms via webhook
-- New implementation for template management and template deliver to NeuronEX
-- NeuronEX start & stop function which are deployed by docker
-- NeuronEX restart function by docker
-- neuron persistent direction check， ensure the `/opt/neuronex/data` is exist
-- add the audit of start/stop/restart docker container service
-- The emqx_ecp_ctl command is internally compatible with docker compose and docker-compose
-- Auto init configuration when first login ECP
-- New implementation for managing NeuronEX via mqtt broker to proxy
-- Merge telegraf syslog server port and pushGateway server port into ECP 8082 port
-- Merge ecp root address , telegraf address, pushGateway address
-- Support adding EMQX V5 into management and dashboard view
-- If first login ecp, will alert user to confirm the root address
-- Add default value of docker API port and docker persistent direction mapping
-- Optimize user invite error message
-- refactor custom setting
-- refactor template setting page
-- add polling for batch deliver result
+- Advance automatic decompression dashboard package.
+- Added support for custom alarms to receive user-defined alarms via webhook.
+- Implemented a new system for template management and template delivery to NeuronEX.
+- NeuronEX start stop and restart functions by Docker.
+- Implemented check for Neuron persistence directory to ensure /opt/neuronex/data exists.
+- Added audit logs for start/stop/restart of Docker container services.
+- Updated the emqx_ecp_ctl command for compatibility with both docker compose and docker-compose.
+- Automatic initialization of configuration upon first login to ECP.
+- Implemented new method for managing NeuronEX via MQTT broker to proxy.
+- Merged telegraf syslog server port and pushGateway server port into ECP's 8082 port.
+- Combined ECP root address, telegraf address, and pushGateway address.
+- Added support for managing EMQX V5 in the management and dashboard views.
+- User prompted to confirm root address on first login to ECP.
+- Added default values for Docker API port and Docker persistence direction mapping.
+- Optimized user invite error messages.
+- Refactored custom setting and template setting pages.
+- Added polling for batch deliver result.
 
 ### Bug Fixes
 
-- Fix creation issue when the number of edge services have reached license quota
-- Fix an issue with telegraf configuration
-- fix docker compose version persistence directory rights error which may lead to prometheus repeated restart
-- fix metrics statistics issue when prometheus not configured with authentication
-- Fixed Elasticsearch configuration nil panic
-- fix NeuronEX dynamic license sync issue when ECP reboots frequently
-- add warnning setting check button
-- fix show check message twice when reset password
-- fix batch upgrade page sizes
-- fix header change bug
-- Change email and root address loaction
-- fix root lable
-- fix idpSloUrl and idpSsoUrl regx and remove idpSsoUrl check when idpSsoUrl is empty
-- set edge desc maxlength is 500 in create and edit edge
+- Fixed creation issue when the number of edge services reached the license quota.
+- Fixed a configuration issue with telegraf.
+- Fixed Prometheus restarts issue caused by Docker compose version persistence directory rights error.
+- Fixed metrics statistics issue when Prometheus not configured with authentication.
+- Fixed Elasticsearch configuration nil panic.
+- Fixed NeuronEX dynamic license sync issue after frequent ECP reboots.
+- Added warning setting check button.
+- Fixed duplicate check messages when resetting password.
+- Updated batch upgrade page sizes.
+- Fixed header change bug.
+- Reconfigured email and root address location.
+- Fixed root label issue.
+- Fixed idpSloUrl and idpSsoUrl regex, removed idpSsoUrl check when empty.
+- Set edge description maxlength to 500 characters in create and edit edge operations.
 
 
 ## v2.1.1
