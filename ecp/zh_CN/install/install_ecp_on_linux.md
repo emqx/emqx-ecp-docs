@@ -13,6 +13,11 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 | Docker-Compose | 1.27.1 或以上  |
 | Docker         | 20.10.0 或以上 |
 
+| 端口               | 协议           |
+| :----------------- | :------------ |
+|  8082             | TCP+UDP       |
+
+
 ## 获取安装包
 
 通过访问 EMQ 官网[ECP 产品下载](https://www.emqx.com/zh/try?product=emqx-ecp)页面，选择系统为`docker`，可直接下载 ECP 的安装包。
