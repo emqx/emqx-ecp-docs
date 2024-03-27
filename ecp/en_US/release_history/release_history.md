@@ -1,6 +1,27 @@
 # Release History
 
 ## v2.1.1
+Release Date: 03/27/2024
+
+### Enhancements
+- Southbound driver, rule configuration template management and configuration distribution
+- Portable plugin management and plugin distribution
+- Support edge service proxy connection 
+- Third-party alarm display and alarm push
+- Onboarding management EMQX V5
+- "Hosted - docker connection" mode supports NeuronEX start and stop operations
+- Support deletion of historical alarms
+- Improve operation audit function
+- Merge component ports and optimize ECP initialization configuration items after installation
+
+
+### Fixes
+- The project name is missing in the alarm storm information
+- The log receiver is not configured, causing the installation of NeuronEX to fail.
+- Prometheus does not use username and password, and edge monitoring always prompts that the configuration item is not set.
+- After the license expires, batch deletion will report an error
+
+## v2.1.1
 Release Date: 01/18/2024
 
 ### Fixes
