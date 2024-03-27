@@ -1,5 +1,47 @@
 # Release History
 
+## v2.2.0
+
+Release Date: 03/27/2024
+
+### Enhancements
+
+- Advance automatic decompression dashboard package.
+- Added support for custom alarms to receive user-defined alarms via webhook.
+- Implemented a new system for template management and template delivery to NeuronEX.
+- NeuronEX start stop and restart functions by Docker.
+- Implemented check for Neuron persistence directory to ensure /opt/neuronex/data exists.
+- Added audit logs for start/stop/restart of Docker container services.
+- Updated the emqx_ecp_ctl command for compatibility with both docker compose and docker-compose.
+- Automatic initialization of configuration upon first login to ECP.
+- Implemented new method for managing NeuronEX via MQTT broker to proxy.
+- Merged telegraf syslog server port and pushGateway server port into ECP's 8082 port.
+- Combined ECP root address, telegraf address, and pushGateway address.
+- Added support for managing EMQX V5 in the management and dashboard views.
+- User prompted to confirm root address on first login to ECP.
+- Added default values for Docker API port and Docker persistence direction mapping.
+- Optimized user invite error messages.
+- Refactored custom setting and template setting pages.
+- Added polling for batch deliver result.
+
+### Bug Fixes
+
+- Fixed creation issue when the number of edge services reached the license quota.
+- Fixed a configuration issue with telegraf.
+- Fixed Prometheus restarts issue caused by Docker compose version persistence directory rights error.
+- Fixed metrics statistics issue when Prometheus not configured with authentication.
+- Fixed Elasticsearch configuration nil panic.
+- Fixed NeuronEX dynamic license sync issue after frequent ECP reboots.
+- Added warning setting check button.
+- Fixed duplicate check messages when resetting password.
+- Updated batch upgrade page sizes.
+- Fixed header change bug.
+- Reconfigured email and root address location.
+- Fixed root label issue.
+- Fixed idpSloUrl and idpSsoUrl regex, removed idpSsoUrl check when empty.
+- Set edge description maxlength to 500 characters in create and edit edge operations.
+
+
 ## v2.1.1
 Release Date: 01/18/2024
 
