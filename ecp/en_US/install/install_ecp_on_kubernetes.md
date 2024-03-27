@@ -7,6 +7,10 @@ This section introduces how to deploy ECP with Kubernetes.
 - Kubernetes: 1.22.0 or above
 - [Helm](https://helm.sh/): 3 or above
 
+| Port               | Protocal          |
+| :----------------- | :------------ |
+|  31900             | TCP+UDP       |
+
 ## Get Helm Chart
 
 You can obtain the Helm chart for ECP by running the command below:

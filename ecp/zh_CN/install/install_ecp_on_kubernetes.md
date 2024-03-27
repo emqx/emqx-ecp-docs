@@ -11,6 +11,9 @@
 | Kubernetes               | 1.22.0 或以上 |
 | [Helm](https://helm.sh/) | 3 或以上      |
 
+| 端口               | 协议           |
+| :----------------- | :------------ |
+|  31900             | TCP+UDP       |
 
 ## 获取 Helm chart
 通过Helm chart安装 EMQX ECP，您可以通过以下命令获取 EMQX ECP的 Helm chart：

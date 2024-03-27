@@ -13,6 +13,10 @@ EMQX ECP supports the following versions of operating systems:
 | Docker-Compose | 1.27.1 or above  |
 | Docker         | 20.10.0 or above |
 
+| Port               | Protocal      |
+| :----------------- | :------------ |
+|  8082              | TCP+UDP       |
+
 ## Get Installation Package
 
 You can download the installation package from the [ECP product download](https://www.emqx.com/en/try?product=emqx-ecp) page on the EMQ website. Select the system as `docker` to download the ECP installation package.
