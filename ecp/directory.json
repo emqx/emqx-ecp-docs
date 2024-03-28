@@ -81,6 +81,10 @@
                     "path": "edge_service/batch_import"
                 },
                 {
+                    "title": "代理方式管理边缘服务",
+                    "path": "edge_service/edge_agent_management"
+                },
+                {
                     "title": "项目级监控统计",
                     "path": "edge_service/edge_project_statistics"
                 },
