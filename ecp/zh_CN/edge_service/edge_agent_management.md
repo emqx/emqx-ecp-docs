@@ -4,11 +4,11 @@
 
 ## 配置代理服务 
 
-代理模式下，ECP 与 NeuronEX 之间使用 MQTT 协议进行通信，在 ECP 端和 NeuronEX 端都需要先配置 MQTT 并开启代理服务。NeuronEX 端的代理功能配置请参考[NeuronEX 代理功能配置](https://docs.emqx.com/zh/neuronex/latest/admin/sys-configuration.html#%E4%BB%A3%E7%90%86%E5%8A%9F%E8%83%BD%E9%85%8D%E7%BD%AE)。ECP 端安装时已自带 MQTT 服务器，可以使用该服务器，也可以自行安装。
+代理模式下，ECP 与 NeuronEX 之间使用 MQTT 协议进行通信，在 ECP 端和 NeuronEX 端都需要先配置 MQTT 并开启代理服务。NeuronEX 端的代理功能配置请参考[NeuronEX 代理功能配置](https://docs.emqx.com/zh/neuronex/latest/admin/sys-configuration.html#%E4%BB%A3%E7%90%86%E5%8A%9F%E8%83%BD%E9%85%8D%E7%BD%AE)。ECP 端安装时已自带 MQTT 服务器，可以使用该服务器，也可以自行安装。如果使用自行安装的 MQTT 服务器，需要按以下方式手动配置 MQTT 相关配置项。
 
 ### 基于 Docker 部署的 ECP
 
-进入安装文件所在目录后，修改 main.yaml 配置文件中的 mqtt 相关配置项，并重启 ECP。
+进入安装文件所在目录后，修改 configs/main/main.yaml 配置文件中的 mqtt 相关配置项，并重启 ECP。
 
 ```
 mqtt:
@@ -38,7 +38,7 @@ mqtt:
 
 ### 基于 Kubernetes 部署的 ECP
 
-如果使用 ECP 自带的 MQTT 服务器，不需要手动配置。如果使用自行安装的 MQTT 服务器，需要修改 configmap 中 mqtt 相关配置项。配置项具体内容与上文基于 Docker 方式部署的相同。
+修改 configmap 中 mqtt 相关配置项。配置项具体内容与上文基于 Docker 方式部署的相同。
 
 ```
 kubectl -n emqx-ecp edit configmap kube-ecp-stack-main-conf
