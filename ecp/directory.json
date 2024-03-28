@@ -101,8 +101,8 @@
                     "path": "edge_service/batch_upgrade"
                 },
                 {
-                    "title": "边缘服务配置批量下发",
-                    "path": "edge_service/batch_distribution"
+                    "title": "边缘配置管理和下发",
+                    "path": "edge_service/edge_resource_management"
                 },
                 {
                     "title": "边缘服务管理运维",
