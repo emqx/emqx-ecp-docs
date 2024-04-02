@@ -46,10 +46,23 @@ Press Enter to skip all, which means that the default ECP version is used, the i
 ![configure](./_assets/configure.png)
 
 ### Start ECP Service
-Execute the following command to start the ECP service.
-```shell
-./emqx_ecp_ctl start
-```
+- If necessary, modify the configuration file `emqx_ecp.conf`.
+    - If the `ElasticSearch` service already exists, the following configuration may be modified：
+    ```shell
+    # telegraf config
+    TELEGRAF_EXTERNAL_PORT=10514
+    EL_URL="https://elasticsearch:9200"
+    EL_USERNAME="elastic"
+    EL_PASSWORD="elastic"
+    ```
+:::tip Note
+If ElasticSearch connection information is incorrectly configured, the logging function is unavailable, but other functions are not affected.
+:::
+
+- Execute the following command to start the ECP service.
+    ```shell
+    ./emqx_ecp_ctl start
+    ```
 :::tip Note
 When starting the ECP service for the first time, you need to pull the software image from the public image repository, which may take some time. You can also [contact us](https://www.emqx.com/en/contact?product=emqx-ecp) to get the offline installation package.
 :::
