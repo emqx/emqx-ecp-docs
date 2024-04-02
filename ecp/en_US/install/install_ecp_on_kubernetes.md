@@ -23,6 +23,48 @@ helm pull emqx/kube-ecp-stack --untar
 
 ## Install or Upgrade ECP with Helm Chart
 
+- If necessary, this can be done by modifying `values.yaml`
+   - For example, specify the use of a specific `StorageClass`, the default is `standard`:
+
+   ```shell
+   global:
+      image:
+         registry: ""
+         repository: ""
+         pullPolicy: IfNotPresent
+         ##
+         ## Optionally specify an array of imagePullSecrets.
+         ##
+         # pullSecrets: &global-image-pullSecrets
+         #   - name: "ecp-registry"
+         pullSecrets: &global-image-pullSecrets []
+      storage:
+         className: &global-storage-className "standard"
+         accessModes: &global-storage-accessModes
+         - ReadWriteOnce
+    ```
+
+   - For example, the current environment has the `ElasticSearch` service, which can modify the connection information by doing the following:
+   
+   ```shell
+   telegraf:
+   replicas: 1
+   image:
+      repository: "docker.io/library/telegraf"
+      tag: "1.27"
+   imagePullSecrets: *global-image-pullSecrets
+   service:
+      type: NodePort
+      port: 10514
+      targetPort: 10514
+      nodePort: 31514
+   outputs:
+      elasticsearch:
+         url: "https://elasticsearch:9200"
+         username: "elastic"
+         password: "elastic"
+   ```
+
 - If you can access the Internet, run the command below:
    ```shell
    cd kube-ecp-stack
