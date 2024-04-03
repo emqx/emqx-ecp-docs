@@ -11,6 +11,9 @@
 | Kubernetes               | 1.22.0 或以上 |
 | [Helm](https://helm.sh/) | 3 或以上      |
 
+| 端口               | 协议           |
+| :----------------- | :------------ |
+|  31900             | TCP+UDP       |
 
 ## 获取 Helm chart
 通过Helm chart安装 EMQX ECP，您可以通过以下命令获取 EMQX ECP的 Helm chart：
@@ -21,6 +24,48 @@ helm repo update
 helm pull emqx/kube-ecp-stack --untar
 ```
 ## 通过 Helm chart 安装、升级EMQX ECP
+
+- 如有必要， 可通过修改 `values.yaml` 来实现:
+   - 比如指定使用特定的 `StorageClass`， 默认为 `standard`:
+
+   ```shell
+   global:
+      image:
+         registry: ""
+         repository: ""
+         pullPolicy: IfNotPresent
+         ##
+         ## Optionally specify an array of imagePullSecrets.
+         ##
+         # pullSecrets: &global-image-pullSecrets
+         #   - name: "ecp-registry"
+         pullSecrets: &global-image-pullSecrets []
+      storage:
+         className: &global-storage-className "standard"
+         accessModes: &global-storage-accessModes
+         - ReadWriteOnce
+    ```
+
+   - 比如当前环境有 `ElasticSearch` 服务， 可通过以下内容来修改连接信息:
+
+   ```shell
+   telegraf:
+   replicas: 1
+   image:
+      repository: "docker.io/library/telegraf"
+      tag: "1.27"
+   imagePullSecrets: *global-image-pullSecrets
+   service:
+      type: NodePort
+      port: 10514
+      targetPort: 10514
+      nodePort: 31514
+   outputs:
+      elasticsearch:
+         url: "https://elasticsearch:9200"
+         username: "elastic"
+         password: "elastic"
+   ```
 
 - 如果可以访问 Internet，请运行以下命令：
    ```shell

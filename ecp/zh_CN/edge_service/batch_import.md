@@ -26,6 +26,10 @@ ECP 支持直连模式导入一个边缘服务，[直连模式](#直连模式)�
 
  
 
+### 代理模式
+
+如果 ECP 无法通过 IP 地址直接访问边缘服务，需要通过代理模式添加边缘服务。具体操作步骤请参考[代理方式管理边缘服务](edge_agent_management)。
+
 ## 批量导入现有服务
 
 ECP 支持通过 CSV 文件批量导入已有的边缘服务：
@@ -34,6 +38,7 @@ ECP 支持通过 CSV 文件批量导入已有的边缘服务：
 2. 点击**添加边缘服务**按钮，进入添加边缘服务页面。
 3. **添加方式**选择**批量导入现有服务**。
 4. 导入准备好的 CSV 文件，文件大小不应超过 100 MB。
+5. 批量导入仅支持直连模式。
 
 <img src="./_assets/edge-batch-import.png" style="zoom:40%;" align="middle">
 
@@ -44,11 +49,10 @@ CSV 文件的列名解释如下：
 | 列名 | 解释 |
 | :------| :---------------|
 |category|边缘产品类型|
-|name|边缘服务名称[]|
-|nodeType|直连/代理|
+|name|边缘服务名称|
+|nodeType|直连|
 |endpoint|边缘服务地址|
-|scheme|http/https/MQTT|
-|agentID|边缘代理 ID，非必填|
+|scheme|http/https|
 |tagName|标签名称，非必填|
 
 

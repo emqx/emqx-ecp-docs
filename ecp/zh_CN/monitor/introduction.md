@@ -2,25 +2,17 @@
 
 ECP 平台为用户提供了管理和监控众多边缘服务及 EMQX 集群的的统一运维服务能力。通过收集和分析来自边缘服务和 EMQX 集群的监控数据，ECP 能够提供更全面、精细化的管理和监控体验。
 
-ECP还集成了[Prometheus](https://prometheus.io/docs/introduction/overview/)，用于收集和分析应用程序和服务的度量指标。这种方式实现了实时的数据采集和分析，从而实现更精确的资源管理和性能调优，以及故障预测。
+ECP 还集成了[Prometheus](https://prometheus.io/docs/introduction/overview/)，用于收集和分析应用程序和服务的度量指标。这种方式实现了实时的数据采集和分析，从而实现更精确的资源管理和性能调优，以及故障预测。
 
 ## 日志服务依赖组件配置
 
 ECP 通过配置外部 Elasticsearch 日志服务器获得日志数据，提供日志服务。其中，为了在 ECP 端集中展示边缘服务的日志，边缘服务通过 ECP 指定的 Telegraf 将日志统一接入 Elasticsearch。
 
-启用日志功能之前，您需要安装 Elasticsearch 和 Telegraf。安装完成后，请按以下步骤，在 Telegraf 的配置文件 telegraf.conf 中分别指定输入插件和输出插件的具体信息，以收集边缘服务的日志数据：
+系统安装时已包含 Telegraf，您需要自行安装 Elasticsearch。 安装完成后，请按以下步骤，在 Telegraf 的配置文件 telegraf.conf 中指定 Elasticsearch 输出插件的具体信息。其中：
 
-1. 配置输入插件，将 Telegraf 配置为 syslog 接收方，收集从边缘服务上传的 syslog 日志。目前仅支持 UDP 协议，端口可指定为所需的 UDP 端口。
-
-```
-[[inputs.syslog]]
-  server = "udp://:10514"
-```
-
-2. 配置输出插件，将 syslog 日志输出到 Elasticsearch。其中：
-   - `urls`  `username`  `password` 分别为 Elasticsearch HTTP 服务器的 URL 地址、基本认证使用的用户名及密码，您可以根据实际情况设置。
-   - `index_name` 为日志在 Elasticsearch 中对应的索引名称，固定为 <code v-pre>{{appname}}</code>，请勿更改。
-   -  您也可以按需指定 `health_check_interval` 的周期，以对 Elasticsearch 做健康检查。
+- `urls`  `username`  `password` 分别为 Elasticsearch HTTP 服务器的 URL 地址、基本认证使用的用户名及密码，您可以根据实际情况设置。
+- `index_name` 为日志在 Elasticsearch 中对应的索引名称，固定为 <code v-pre>{{appname}}</code>，请勿更改。
+- 您也可以按需指定 `health_check_interval` 的周期，以对 Elasticsearch 做健康检查。
 
 ```
 [[outputs.elasticsearch]]
@@ -29,21 +21,20 @@ ECP 通过配置外部 Elasticsearch 日志服务器获得日志数据，提供�
   password = "elastic"
   index_name = "{{appname}}"
   health_check_interval = "10s"
+  insecure_skip_verify = true
 ```
 
 ## 系统级别设置
 
-正式启用 ECP 的日志功能之前，系统管理员可以进行一系列的系统级别设置：
+正式启用 ECP 的日志和监控功能之前，系统管理员需要进行相应的系统级别设置：
 
 
 ### 启用日志服务
 
-如希望启用日志服务，在**系统管理**页面，点击**系统设置** -> **通用配置** -> **日志接收器**。
+如希望启用日志服务，在**系统管理**页面，点击**系统设置** -> **通用配置** -> **日志接收器**，并在类型中选择“开启”
 
-您可在此对 Telegraf 和 Elasticsearch 进行设置，并分别通过链接测试后，保存日志接收器信息，接通外部日志数据源。
+您可在此对 Elasticsearch 进行设置，通过链接测试后，保存日志接收器信息，接通外部日志数据源。
 
-- **Telegraf 服务地址**：对应 Telegraf 配置中输入插件的 server 项，格式为：`<telegarf-server-host>:<port>`。
-- **Telegraf 协议**：目前仅支持 UDP。
 - **日志级别**：表示从边缘服务收集严重程度不低于该级别的日志。
 - **ES 链接**：Elasticsearch 服务器地址。
 - **ES 用户名**：Elasticsearch 用户名。
@@ -55,11 +46,17 @@ ECP 通过配置外部 Elasticsearch 日志服务器获得日志数据，提供�
 
 ### 监控
 
-ECP 的监控服务，可以分别设置 EMQX、 NeuronEX 的拉取时间间隔和拉取超时时间规则。
+ECP 的监控服务配置中，可以分别设置 EMQX、 NeuronEX 的拉取时间间隔和拉取超时时间规则。
 
-- **拉取时间间隔**：表示监控系统每隔 N 秒拉取一次监控指标数据。
+- **EMQX 拉取时间间隔**：表示监控系统每隔 N 秒拉取一次 EMQX 监控指标数据。
 
-- **拉取超时时间**：表示如监控系统在 N 秒后未获得响应，则认为拉取失败。
+- **EMQX 拉取超时时间**：表示如 EMQX 监控系统在 N 秒后未获得响应，则认为拉取失败。
+
+- **NeuronEX 推送时间间隔**：表示 NeuronEX 每隔 N 秒向 ECP 推送一次边缘服务监控指标数据。
+
+- **NeuronEX 探活间隔**：表示 NeuronEX 每隔 N 秒向 ECP 发送一次心跳包，以保持与 ECP 的连通性。
+
+- **Pushgateway 服务地址**：NeuronEX 通过 Pushgateway 将监控数据推送到 Prometheus，由 ECP 进行收集分析。系统提供自动安装并配置 Pushgateway 服务地址的选项，您也可以自行安装，并对配置项进行修改。
 
   
 

@@ -51,5 +51,5 @@ ECP 支持通过 [Docker](batch_install) 和 Kubernetes的方式，直接由 ECP
 - [边缘服务认证](e2c)
 - [标签及分组](batch_tag)
 - [升级边缘服务](batch_upgrade)
-- [边缘配置批量下发](batch_distribution)
+- [边缘配置管理和下发](edge_resource_management)
 - [边缘服务管理运维](edge_ops)
