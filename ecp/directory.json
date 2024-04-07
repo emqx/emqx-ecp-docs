@@ -81,7 +81,7 @@
                     "path": "edge_service/batch_import"
                 },
                 {
-                    "title": "代理方式管理边缘服务",
+                    "title": "代理纳管边缘服务",
                     "path": "edge_service/edge_agent_management"
                 },
                 {
