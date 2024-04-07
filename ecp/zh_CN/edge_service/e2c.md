@@ -4,10 +4,6 @@
 - 对于由 ECP 批量安装的 NeuronEX 实例，可在安装时选择是否开启认证，具体请参考[托管部署的 NeuronEX 的认证授权](#托管部署的-neuronex-的认证授权)；
 - 对于由 ECP 纳管的 NeuronEX，需要将 ECP 证书放置到 NeuronEX 配置文件中，具体请参考[纳管 NeuronEX 的认证授权](#纳管-neuronex-的认证授权)。
 
-:::tip 说明
-  ECP 纳管 NeuronEX的情况，NeuronEX 本身支持关闭鉴权的部署方式，具体请参考[NeuronEX 配置管理](https://docs.emqx.com/zh/neuronex/latest/admin/conf-management.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)，如果 NeuronEX未开启认证，ECP 可直接对 NeuronEX 进行管理。
-:::
-
 ## 托管部署的 NeuronEX 的认证授权
 
 当用户通过 ECP 批量安装 NeuronEX 时，可在安装时指定是否开启认证服务，开启认证后，ECP 会把 RSA 公钥文件安装到 NeuornEX 指定的文件夹下。
@@ -20,9 +16,18 @@
 
 1. 以系统/项目/组织管理员的身份登录 ECP。
 2. 下载公钥文件：在**系统管理**页面，点击**系统设置** -> **资源配置**，在**资源配置**页面，点击展开**纳管边缘服务认证配置**部分，点击**公钥导出**。关于公钥文件的说明请参考[纳管边缘服务认证配置](../system_admin/resource_config.md#纳管边缘服务认证配置)。
-3. 登录到 NeuronEX 所在的容器或虚机，把 ECP 中下载的公钥文件上传到 NeuronEX 安装目录下的 `etc` 目录中。
+3. 登录到 NeuronEX 所在的容器或虚机，把 ECP 中下载的公钥文件 `my-ecp.pub` 上传到 NeuronEX 安装目录下的 `etc` 目录中。以 Docker 安装的 NeuronEX 容器 `neuronex-test` 为例，在 NeuronEX 部署的机器上执行以下命令：
+
+  ```bash
+  $ docker cp my-ecp.pub neuronex-test:/opt/neuronex/etc/my-ecp.pub
+  ```
+
 
 完成认证授权配置后，您可通过添加一个已开启认证的 NeuronEX 实例来验证配置是否成功。如认证配置被正确添加，该实例将能被正常纳管。
+
+:::tip
+  ECP 纳管 NeuronEX 的情况，NeuronEX 本身支持关闭鉴权的部署方式，具体请参考[ NeuronEX 配置管理](https://docs.emqx.com/zh/neuronex/latest/admin/conf-management.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)，如果 NeuronEX未开启认证，ECP 可直接对 NeuronEX 进行管理。
+:::
 
 ## RSA 签名认证简介
 

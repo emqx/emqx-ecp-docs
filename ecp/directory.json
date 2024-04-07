@@ -273,6 +273,10 @@
                     "path": "edge_service/batch_import"
                 },
                 {
+                    "title": "Managed Edge Services by Agent",
+                    "path": "edge_service/edge_agent_management"
+                },
+                {
                     "title": "Project Level Overview",
                     "path": "edge_service/edge_project_statistics"
                 },

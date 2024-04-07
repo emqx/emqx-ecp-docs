@@ -2,9 +2,9 @@
 
 ## Edge Service
 
-Edge computing is a distributed computing paradigm that brings computation and data storage closer to the sources of data, like IoT devices or local edge servers. This approach minimizes latency, reduces bandwidth usage, and enhances data privacy by processing data locally rather than transmitting it to a central data center or cloud.
+Edge service NeuronEX can realize data collection, data preprocessing, edge computing and other capabilities. In many industrial scenarios, a large number of edge services need to be deployed to achieve data interconnection, global optimization and agile production.
 
-ECP excels in efficiently managing various aspects of edge services as part of its primary functions. These include seamless deployment, streamlined management, flexible configuration, streamlined batch operations, and optimization for popular edge software such as Neuron, eKuiper, and NanoMQ.
+Edge service management is one of the core functions of the ECP platform. ECP supports the batch creation and management of hundreds of edge service instances in Kubernetes, docker and other environments, completes real-time data collection and edge computing tasks, and supports edge service configuration management and batch configuration distribution, and accelerate the rapid deployment and implementation of IIOT projects.
 
 ## Access Edge Services Workspace
 
