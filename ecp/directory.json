@@ -69,15 +69,7 @@
             "path": "edge_service/introduction",
             "children": [
                 {
-                    "title": "Docker方式批量安装边缘服务",
-                    "path": "edge_service/batch_install"
-                },
-                {
-                    "title": "ECP 边缘节点",
-                    "path": "edge_service/docker_node"
-                },
-                {
-                    "title": "导入现有边缘服务",
+                    "title": "纳管边缘服务",
                     "path": "edge_service/batch_import"
                 },
                 {
@@ -85,7 +77,23 @@
                     "path": "edge_service/edge_agent_management"
                 },
                 {
-                    "title": "项目级监控统计",
+                    "title": "Docker方式托管边缘服务",
+                    "path": "edge_service/batch_install"
+                },
+                {
+                    "title": "升级边缘服务",
+                    "path": "edge_service/batch_upgrade"
+                },
+                {
+                    "title": "边缘服务管理运维",
+                    "path": "edge_service/edge_ops"
+                },
+                {
+                    "title": "边缘服务配置管理和下发",
+                    "path": "edge_service/edge_resource_management"
+                },
+                {
+                    "title": "边缘服务监控统计",
                     "path": "edge_service/edge_project_statistics"
                 },
                 {
@@ -95,18 +103,6 @@
                 {
                     "title": "标签分组",
                     "path": "edge_service/batch_tag"
-                },
-                {
-                    "title": "升级边缘服务",
-                    "path": "edge_service/batch_upgrade"
-                },
-                {
-                    "title": "边缘配置管理和下发",
-                    "path": "edge_service/edge_resource_management"
-                },
-                {
-                    "title": "边缘服务管理运维",
-                    "path": "edge_service/edge_ops"
                 },
                 {
                     "title": "云边通道",
@@ -261,23 +257,31 @@
             "path": "edge_service/introduction",
             "children": [
                 {
-                    "title": "Edge Services Batch Installation Docker Mode",
-                    "path": "edge_service/batch_intall"
-                },
-                {
-                    "title": "ECP Edge Node",
-                    "path": "edge_service/docker_node"
-                },
-                {
-                    "title": "Add Existing Edge Services",
+                    "title": "Manage Edge Services",
                     "path": "edge_service/batch_import"
                 },
                 {
-                    "title": "Managed Edge Services by Agent",
+                    "title": "Manage Edge Services by Agent",
                     "path": "edge_service/edge_agent_management"
                 },
                 {
-                    "title": "Project Level Overview",
+                    "title": "Host Edge Services By Docker",
+                    "path": "edge_service/batch_intall"
+                },
+                {
+                    "title": "Upgrade Edge Services",
+                    "path": "edge_service/batch_upgrade"
+                },
+                {
+                    "title": "Edge Service Operations",
+                    "path": "edge_service/edge_ops"
+                },
+                {
+                    "title": "Edge Service Config Management and Delivery",
+                    "path": "edge_service/edge_resource_management"
+                },
+                {
+                    "title": "Edge Service Monitoring",
                     "path": "edge_service/edge_project_statistics"
                 },
                 {
@@ -285,20 +289,8 @@
                     "path": "edge_service/e2c"
                 },
                 {
-                    "title": "Tags and Grouping",
+                    "title": "Tags",
                     "path": "edge_service/batch_tag"
-                },
-                {
-                    "title": "Upgrade Edge Services",
-                    "path": "edge_service/batch_upgrade"
-                },
-                {
-                    "title": "Edge Config Management and Delivery",
-                    "path": "edge_service/edge_resource_management"
-                },
-                {
-                    "title": "Edge Service Management & Operations",
-                    "path": "edge_service/edge_ops"
                 },
                 {
                     "title": "Edge Cloud Tunnel",

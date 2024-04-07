@@ -1,10 +1,12 @@
-# Add Existing Edge Services
+# Managed Edge Services
 
-ECP provides the capability to manage existing edge services. However, these services must first be added to ECP. You can add [an externally created edge service](#add-an-existing-edge-service), or [import them from csv in bulk](#add-existing-edge-services-in-bulk).
+ECP supports [Add an existing edge service](#add-an-existing-edge-service), or [Batch Import Existing Edge Services](#batch-import-existing-edge-services) via CSV files.
 
-## Add an Existing Edge Service
+## Add an existing service
 
-ECP supports to add a NeuronEX instance in [direct connection mode](#direct-connection-mode).
+ECP manages edge services and supports `Managed - Direct Connection` mode and `Managed - Agent` mode. To add an edge service under [Direct Connection Mode](#direct-connection-mode), the ECP and edge service need to be in the same network or VPC.
+
+![edge-service-mode](_assets/edge-service-mode.png)
 
 ### Direct Connection Mode
 
@@ -22,23 +24,12 @@ Direct connection mode generally refers to the scenario where the cluster and al
 
 <img src="./_assets/edge-service-add.png" style="zoom:60%;" align="middle"> 
 
-### Proxy Mode
+### Agent Mode
 
-If the edge side and ECP are on separate networks and cannot establish a direct connection, it is necessary to install ECP Agent to establish a proxy connection. 
+If the ECP cannot directly access the edge service through the IP address, the edge service needs to be added through agent mode. For specific operation steps, please refer to [Manage edge services by Agent](./edge_agent_management.md).
 
-#### Operation Steps
 
-1. Log in as system admin, organization admin, or project admin. 
-2. Click the **Add Edge Service** button to enter the **Add Edge Service** page.
-3. Choose **Add existing service** for the **Add Type**.
-4. For **Category**, you can choose **eKuiper**, **Neuron**, **NanoMQ**, or **Customize**.
-5. Choose **Proxy** for the **Connection Type**;
-6. Give a name to the edge service; it should be 1 - 200 characters and also support "-" and blank spaces. 
-7. Enter the access address of the edge service. HTTP and HTTPS protocols are supported;
-8. Add tags to facilitate future management.
-9. Click the **Confirm** button to finish the creation. The newly-added edge service is now displayed in the **Edge Service** section. 
-
-## Add Existing Edge Services in Bulk
+## Batch Import Existing Edge Services
 
 ECP supports batch importing of existing edge services in CSV file format. 
 
@@ -55,13 +46,13 @@ The following table provides an overview of the column names of the .csv file an
 
 | Column    | Explanation                       |
 | --------- | --------------------------------- |
-| category  | Edge product type                 |
+| category  | Edge service type                 |
 | name      | Edge service name                 |
-| nodeType  | Direct/Proxy                      |
+| nodeType  | Direct                           |
 | endpoint  | Edge service address              |
-| scheme    | http/https/MQTT                   |
-| agentID   | Edge agent ID, optional           |
+| scheme    | http/https                   |
 | tagName   | Tag name, optional                |
-| serviceID | Edge service ID, optional         |
-| username  | Authentication username, optional |
-| password  | Authentication password, optional |
+
+:::tip
+Batch importing existing edge services only supports the `Direct Connection Mode`.
+:::

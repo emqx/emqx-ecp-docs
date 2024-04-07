@@ -1,14 +1,14 @@
-# 批量安装边缘服务
+# Docker方式托管部署边缘服务
 
-基于 Docker 部署的 ECP 平台，如果边缘服务的硬件支持部署Docker 容器，可在 ECP 平台上批量安装边缘服务，缩短边缘服务的安装与部署时间，提高部署效率和一致性。
+基于 Docker 方式部署的 ECP 平台，如果边缘服务的硬件支持部署 Docker 容器，可在 ECP 平台上批量安装边缘服务，缩短边缘服务的安装与部署时间，提高部署效率和一致性。
 
 ## 前置条件
 
 边缘服务的批量安装之前，需要完成以下准备工作：
 - [配置 Docker 环境](#配置-docker-环境)
-- ECP 上配置[Docker连接配置](../system_admin/resource_config.md#docker连接配置)
+- ECP 上配置 [Docker 连接配置](../system_admin/resource_config.md#docker连接配置)
 - 添加[边缘服务镜像](../system_admin/resource_config.md#边缘服务镜像列表)
-- 添加[边缘节点](./docker_node.md)，边缘服务将安装在边缘节点上
+- 在[边缘节点管理](#边缘节点管理)页面添加边缘节点，后续边缘服务将安装在边缘节点上
 
 ### 配置 Docker 环境
 边缘服务 NeuronEX 部署机器上需要安装 Docker 环境，具体安装步骤请参考[Docker 安装](https://docs.docker.com/engine/install/)。
@@ -60,7 +60,34 @@
     ```
 5. ECP 上配置[Docker连接配置，开启 TLS 认证方式](../system_admin/resource_config.md#开启-tls-认证)
 
-## 批量安装
+### 边缘节点管理
+通过边缘节点管理，可以新增、编辑、查看和删除边缘节点。
+
+#### 边缘节点注册
+Docker 节点只有注册后才可以通过 ECP 在指定的 Docker 节点上部署边缘服务；
+
+1. 选择 **组织** -> **项目**;
+2. 点击 **边缘管理** ， 选择 **边缘节点管理** ， 点击**新增边缘节点**;
+3. 填写边缘节点的名称、IP 地址、描述;
+
+![docker_node_registry](./_assets/docker_node_registry.png)
+
+
+#### 边缘节点列表管理
+1. 选择 **组织** -> **项目**;
+2. 点击 **边缘管理** ， 选择 **边缘节点管理**; 
+3. 在列表中选择要管理的节点， 可以 **编辑**、**删除**、**查看**, 查看按钮表示该节点上的边缘服务列表；
+
+![docker_node_list](./_assets/docker_node_list.png)
+
+
+#### 边缘节点上的边缘服务列表
+在边缘节点列表上点击某边缘节点最右侧的 **查看** 按钮后， 可以看到该节点上的边缘服务列表；
+可以在列表中看到这些边缘服务的状态等信息。
+
+![docker_node_service_list](./_assets/docker_node_edge_service_list.png)
+
+## 批量安装边缘服务
 
 1. 以系统/组织/项目管理员的身份登录，在**工作台**页面，点击左侧导航栏的**边缘服务**。
 
@@ -104,3 +131,5 @@
 :::tip
 批量安装的使用限制请参考[系统使用限制](../others/known_limitations)和[版本兼容性限制](../others/version_limitations)。
 :::
+
+

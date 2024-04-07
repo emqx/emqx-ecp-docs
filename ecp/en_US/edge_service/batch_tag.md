@@ -1,4 +1,4 @@
-# Tags and Grouping
+# Tags
 
 ECP provides a tagging feature to classify, organize, and filter edge services. It allows you to group edge services for efficient management, facilitating operations such as managing edge services and batch deployment of edge configurations.
 
