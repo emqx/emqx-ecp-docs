@@ -33,7 +33,7 @@ Below are topics that will be covered in this chapter:
 - [Authenticate Edge Services](./e2c)
 - [Tags and Grouping](./batch_tag)
 - [Upgrade Edge Services](./batch_upgrade)
-- [Batch Configurations Distribution](./batch_distribution)
+- [Edge Config Management and Delivery](./edge_resource_management)
 - [Edge Service Management & Operations](./edge_ops)
 
 <!--Overall, I think we should state the difference between K8s and docker deployment-->
