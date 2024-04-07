@@ -1,4 +1,4 @@
-# Edge Config Management and Delivery
+# Edge Service Config Management and Delivery
 
 In the edge computing environment, various softwares run on edge devices, each requiring custom configurations to meet specific business requirements.
 

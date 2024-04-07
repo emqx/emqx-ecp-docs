@@ -2,7 +2,7 @@
 
 ECP supports adding clusters by creating (recommended) or adding existing EMQX clusters. It is recommended to add clusters by creating with ECP, which offers more extensive functionality and allows for license and connection quota sharing. 
 
-There are functional differences between creating and managing clusters on the ECP platform, as shown in the table below.
+There are functional differences between creating (**Hosted Clusters**) and managing clusters (**Managed Clusters**) on the ECP platform, as shown in the table below.
 
 |Function|Hosted Clusters|Managed Clusters|
 |:--------:|:----:|:----:|
@@ -35,25 +35,29 @@ The newly-created clusters will be listed in the **Cluster List** panel with the
 
 ## Add an Existing Cluster
 
-ECP also provides the capability to manage existing EMQX clusters. To add an existing cluster, you can operate as follows: 
+ECP also provides the capability to manage existing EMQX clusters. ECP supports the management of EMQX v4 (version 4.4.6 and above) and EMQX v5 (version 5.6.0 and above).
+
+### EMQX V4 Managed Cluster
 
 1. Log in to the ECP platform as a system admin, organization admin, or project admin. In **Workspace - Cluster** page, click **Add Cluster**.
 
-2. Click to select **Existing Cluster** under **New Cluster**.
+2. Click to select **Existing Cluster** under **Cluster Type**.
 
-3. Provide a name for the cluster in the **Cluster Name** field. The name should be between 1-200 characters long and can include "\_" and blank spaces.
+3. Select **v4** under **Cluster Version**.
 
-4. Click **Confirm** to finish the adding process. The newly-created clusters will be listed in the **Cluster List** panel with the status **Created**.   
+4. Provide a name for the cluster in the **Cluster Name** field. The name should be between 1-200 characters long and can include "\_" and blank spaces.
 
-5. Click **Register Node** and a cluster registration guide page will pop up. 
+5. Click **Confirm** to finish the adding process. The newly-created clusters will be listed in the **Cluster List** panel with the status **Created**.   
+
+6. Click **Register Node** and a cluster registration guide page will pop up. 
 
    <img src="./_assets/cluster-existing-init.png" alt="cluster-running" style="zoom:50%;" />
 
-6. Select the CPU architecture in the **CPU Architecture** field, amd64, arm, and arm64 are supported. Follow the steps on this page to finish adding the existing cluster.
+7. Select the CPU architecture in the **CPU Architecture** field, amd64, arm, and arm64 are supported. Follow the steps on this page to finish adding the existing cluster.
 
    <img src="./_assets/cluster-existing-reg.png" style="zoom: 50%;" align="middle"> 
 
-7. Log in to the virtual machine or container environment hosting the EMQX cluster, such as the container named `emqx-69f4249c-emax-ee-0` in the namespace `emqx-69f4249c`.
+8. Log in to the virtual machine or container environment hosting the EMQX cluster, such as the container named `emqx-69f4249c-emax-ee-0` in the namespace `emqx-69f4249c`.
 
    ```bash
    # Check the Pod name
@@ -83,6 +87,26 @@ ECP also provides the capability to manage existing EMQX clusters. To add an exi
    ```
 
 9. Upon returning to the **ECP Workbench - Cluster** page, you will find that the newly added existing cluster is now in the **Running** status.![](./_assets/cluster-existing.png) 
+
+### EMQX V5 Managed Cluster
+
+1. Log in to the ECP platform as a system admin, organization admin, or project admin. In **Workspace - Cluster** page, click **Add Cluster**.
+
+2. Click to select **Existing Cluster** under **Cluster Type**.
+
+3. Select **v5** under **Cluster Version**.
+
+4. Provide a name for the cluster in the **Cluster Name** field. The name should be between 1-200 characters long and can include "\_" and blank spaces.
+
+5. Fill in the **Cluster Address** (i.e. EMQX dashboard access address) and dashboard login username and password.
+
+6. Click **Confirm** to finish the adding process. The newly-created clusters will be listed in the **Cluster List** panel with the status **Created**.   
+
+![cluster-v5](./_assets/cluster-v5.png)  
+
+7. Click the **Details** button in the operation column to enter the cluster details, and then click the **Enter Dashboard** button. You will directly view the EMQX v5 dashboard in a new window.
+
+![cluster-v5-dashboard](./_assets/cluster-v5-dashboard.png)  
 
 
 ## Cluster Status

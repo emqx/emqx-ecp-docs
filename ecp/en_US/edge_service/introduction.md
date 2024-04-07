@@ -2,9 +2,44 @@
 
 ## Edge Service
 
-Edge computing is a distributed computing paradigm that brings computation and data storage closer to the sources of data, like IoT devices or local edge servers. This approach minimizes latency, reduces bandwidth usage, and enhances data privacy by processing data locally rather than transmitting it to a central data center or cloud.
+Edge service NeuronEX can realize data collection, data preprocessing, edge computing and other capabilities. In many industrial scenarios, a large number of edge services need to be deployed to achieve data interconnection, global optimization and agile production.
 
-ECP excels in efficiently managing various aspects of edge services as part of its primary functions. These include seamless deployment, streamlined management, flexible configuration, streamlined batch operations, and optimization for popular edge software such as Neuron, eKuiper, and NanoMQ.
+ECP supports the batch creation and management of hundreds of edge service instances in Kubernetes, docker and other environments, and supports edge service configuration management and batch configuration distribution, and accelerate the rapid deployment and implementation of IIOT projects.
+
+ECP supports the management of edge services through managed and hosted:
+- **Managed**: Managed refers to the edge service created and deployed by users.
+- **Hosted**: Hosted refers to the edge service created and deployed by the ECP platform. The hosted edge service supports deployment, start, stop, and upgrade by ECP.
+
+Managed mode, ECP supports two methods: [Managed - Direct Connection](./batch_import.md) and [ Managed - Agent](./edge_agent_management.md). Users can choose the appropriate management method according to the actual scenario.
+
+Hosting mode, ECP supports [Host Edge Services By Docker](./batch_intall.md) method.
+
+There are functional differences between managed and hosted edge services, as follows:
+
+|Function Category| Function Name | Hosted Edge Service | Managed Edge Service |
+| :--------------| :-------| :----| :----|
+|Edge Services Management|Edge Services NeuronEX Management|✅|✅|
+||Edge Service Monitoring|✅|✅|
+||Edge service alarm|✅|✅|
+||Edge service log management|✅|✅|
+||Edge service configuration delivery|✅|✅|
+||Tags|✅|✅|
+||Edge service installation|✅|❌|
+||Edge service upgrade|✅|❌|
+||Edge service start and stop control|✅|❌|
+
+Please refer to the following chapters for the specific content of this chapter:
+
+- [Managed Edge Services](batch_import)
+- [Managed Edge Services By Agent](edge_agent_management)
+- [Host Edge Services By Docker](batch_intall)
+- [Upgrade Edge Services](batch_upgrade)
+- [Edge Service Operations](edge_ops)
+- [Edge Service Config Management and Delivery](edge_resource_management)
+- [Edge Service Monitoring](edge_project_statistics)
+- [Authenticate Edge Services](e2c)
+- [Tags](batch_tag)
+- [Edge Cloud Tunnel](edge_cloud_tunnel)
 
 ## Access Edge Services Workspace
 
@@ -24,16 +59,3 @@ There are some functional differences between ECP deployments based on Kubernete
 ![edge-list](./_assets/edge-list.png) 
 
 
-
-Below are topics that will be covered in this chapter:
-
-- [Project Level Overview](./edge_project_statistics.md)
-- [Install Edge Service in Bulk](./batch_intall)
-- [Add Existing Edge Services](./batch_import)
-- [Authenticate Edge Services](./e2c)
-- [Tags and Grouping](./batch_tag)
-- [Upgrade Edge Services](./batch_upgrade)
-- [Edge Config Management and Delivery](./edge_resource_management)
-- [Edge Service Management & Operations](./edge_ops)
-
-<!--Overall, I think we should state the difference between K8s and docker deployment-->

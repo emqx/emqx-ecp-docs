@@ -1,4 +1,4 @@
-# Edge Service Management & Operations
+# Edge Service Operations
 
 ECP integrates the user interfaces of NeuronEX edge services, allowing for remote connectivity, configuration, monitoring, and management of individual edge services. Additionally, for deployments on Kubernetes, ECP provides a batch management feature for managing multiple hosted edge service instances collectively, further enhancing the efficiency and convenience of edge service management.
 

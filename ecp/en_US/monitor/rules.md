@@ -1,4 +1,4 @@
-## Alarm List
+# Alarm List
 
 See below for a list of alarms in ECP. 
 

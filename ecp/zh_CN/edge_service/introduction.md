@@ -3,7 +3,29 @@
 ## 边缘服务
 边缘服务 NeuronEX 可以实现对工业设备的数据采集接入、数据预处理、边缘计算等能力，在许多工业场景下，需要部署大量的边缘服务，实现数据的互联互通、全局优化以及敏捷生产。
 
-边缘服务管理是 ECP 平台核心功能之一，ECP 支持在Kubernetes、docker等环境下批量创建并管理数百个边缘服务实例，完成实时数采、边缘计算任务，支持边缘服务配置管理及批量配置下发，加快 IIOT 项目的快速部署实施及项目落地。
+边缘服务管理是 ECP 平台核心功能之一，ECP 支持在 Kubernetes、Docker 等环境下批量创建并管理数百个边缘服务实例，完成实时数采、边缘计算任务，支持边缘服务配置管理及批量配置下发，加快 IIOT 项目的快速部署实施及项目落地。
+
+ECP 支持通过纳管与托管的方式管理边缘服务，其中：
+- **纳管**：纳管是指由用户自行创建部署的边缘服务 NeuronEX 。
+- **托管**：托管是指由 ECP 平台创建部署的边缘服务 NeuronEX ，托管服务支持由 ECP 部署、启停以及升级。
+
+纳管模式，ECP支持[直连纳管](./batch_import.md)与[代理纳管](./edge_agent_management.md)两种方式，用户可以根据实际场景选择合适的纳管方式。
+托管模式，ECP支持[Docker方式托管边缘服务](./batch_install.md)方式。
+
+关于托管与纳管的具体差异，请参考[托管与纳管边缘服务的功能差异](#托管与纳管边缘服务的功能差异)。
+
+具体内容本章请查阅以下各章节：
+
+- [纳管边缘服务](batch_import)
+- [代理纳管边缘服务](edge_agent_management)
+- [Docker方式托管边缘服务](batch_install)
+- [升级边缘服务](batch_upgrade)
+- [边缘服务管理运维](edge_ops)
+- [边缘服务配置管理和下发](edge_resource_management)
+- [边缘服务监控统计](edge_project_statistics)
+- [边缘服务认证](e2c)
+- [标签及分组](batch_tag)
+- [云边通道](edge_cloud_tunnel)
 
 
 ## 访问边缘服务页面
@@ -25,7 +47,7 @@
 
 **纳管边缘服务**：纳管边缘服务是指由用户创建部署的边缘服务 NeuronEX，并在 ECP 平台添加纳入管理，称之为纳管边缘服务。
 
-ECP 支持通过 [Docker](batch_install) 和 Kubernetes的方式，直接由 ECP 来部署边缘服务。托管与纳管的边缘服务在功能上存在差异，具体如下：
+ECP 支持通过 [Docker](batch_install) 和 Kubernetes（开发中）的方式，直接由 ECP 来部署边缘服务。托管与纳管的边缘服务在功能上存在差异，具体如下：
 
 |功能类别| 功能名称 | 托管边缘服务 | 纳管边缘服务 |
 | :--------------| :-------| :----| :----|
@@ -42,14 +64,7 @@ ECP 支持通过 [Docker](batch_install) 和 Kubernetes的方式，直接由 ECP
 
 
 
-本章将主要介绍以下主题：
 
-- [Docker方式批量安装边缘服务](batch_install)
-- [ECP 边缘节点](docker_node)
-- [导入现有边缘服务](batch_import)
-- [项目级监控统计](edge_project_statistics)
-- [边缘服务认证](e2c)
-- [标签及分组](batch_tag)
-- [升级边缘服务](batch_upgrade)
-- [边缘配置管理和下发](edge_resource_management)
-- [边缘服务管理运维](edge_ops)
+
+
+

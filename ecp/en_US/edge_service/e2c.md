@@ -14,14 +14,19 @@ If authentication is enabled at the managed NeuronEX side, you can configure as 
 
   1. Log in to ECP as system admin, organization admin, or project admin. 
   2. Download the public key file: On the **Administration** page, navigate to **System Settings** -> **Resource Settings**. Click to expand the **Managed EdgeService Authentication Configuration**, and download the key file.
- 2. Then Log in to the container or virtual machine where NeuronEX is located, and upload the downloaded public key file to the `etc` directory in the NeuronEX installation directory. 
+  3. Then Log in to the container or virtual machine where NeuronEX is located, and upload the downloaded public key file to the `etc` directory in the NeuronEX installation directory. 
 
- <!--::: tip-->
- <!--关于 Neuron 认证的详情说明请参考 Neuron 帮助文档，[生成公私钥](https://neugates.io/docs/zh/latest/http-api/jwt.html#%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%92%A5) 感觉不需要这块信息-->
+  Taking the NeuronEX container `neuronex-test` installed by Docker as an example, execute the following command on the machine where NeuronEX is deployed:
+
+   ```bash
+   $ docker cp my-ecp.pub neuronex-test:/opt/neuronex/etc/my-ecp.pub
+   ```
+
+
 
 ## Test the Authentication Setting
 
-To verify the authentication configuration, try [adding an existing NeuronEX service](./batch_import.md#add-an-existing-edge-service). If the authentication is correctly set up, the Neuron service should be added successfully. You can then click on the service to view its details.
+To verify the authentication configuration, try [adding an existing NeuronEX service](./batch_import.md#add-an-existing-edge-service). If the authentication is correctly set up, the NeuronEX service should be added successfully. You can then click on the service to view its details.
 
 
 ## RSA Signature Authentication

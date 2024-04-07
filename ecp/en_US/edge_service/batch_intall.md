@@ -1,13 +1,14 @@
-# Edge Services Batch Installation Docker Mode
+# Host Edge Services By Docker
 
 Based on the ECP platform deployed by Docker, if the hardware of the edge service supports the deployment of Docker containers, edge services can be installed in batches on the ECP platform, shortening the installation and deployment time of edge services, and improving deployment efficiency and consistency.
 
 ## Prerequisites
 
 Before batch installation of edge services, you need to complete the following preparations:
-- [Configure Docker environment](#configuration-docker-environment)
-<!-- - Add [edge service image](../system_admin/resource_config.md#edge service image list) -->
-- Add [edge node](./docker_node.md), the edge service will be installed on the edge node
+- [Configure Docker Environment](#configuration-docker-environment)
+- Configure [Docker Configuration](../system_admin/resource_config.md#docker-configuration) on ECP
+- Add [Edge Service Image List](../system_admin/resource_config.md#edge-service-image-list)
+- Add [edge node](#edge-node-management), the edge service will be installed on the edge node
 
 ### Configuration Docker Environment
 
@@ -16,7 +17,7 @@ edge service is deployed by Docker, so you need to install Docker on the edge no
 After the installation is complete, you need to open the remote access port of the Docker API. The ECP platform manages the life cycle of the edge service through the Docker API, and supports two modes of Docker API to enable TLS authentication and not enable TLS authentication.
 
 
-#### Do not enable TLS authentication
+#### Not enable TLS authentication
 
 1. Find the docker service configuration file, the default is: `/usr/lib/systemd/system/docker.service`, you can see the location of the file through the `systemctl status docker` command.
     ![docker_service](./_assets/docker_service.png)
@@ -41,7 +42,7 @@ After the installation is complete, you need to open the remote access port of t
       This certificate is for testing only.
       Please use a self-signed certificate in a production environment.
       :::
-   2) Modify the IP address in extfile.cnf to the IP address exposed by the edge node that deploys the Docker Engine service externally. This IP address is also the IP address that needs to be entered in ECP when adding [edge nodes](./docker_node.md).
+   2) Modify the IP address in extfile.cnf to the IP address exposed by the edge node that deploys the Docker Engine service externally. This IP address is also the IP address that needs to be entered in ECP when adding [edge nodes](#edge-node-management).
       ![extfile](./_assets/extfile.png)
    3) Execute the gen-docker-cert.sh script to generate the server certificate: server-cert.pem, the default password: `1111`;
       ![gen-docker-cert](./_assets/gen-docker-cert.png)
@@ -62,6 +63,35 @@ After the installation is complete, you need to open the remote access port of t
 5. Configure Docker connection configuration with TLS authentication method on ECP
     upload the certificate file  `ca.pem`, `cert.pem`, `key.pem` to ECP.
    ![docker_mode2](./_assets/docker_mode2.png)
+
+### Edge Node Management
+Through edge node management, you can add, edit, view and delete edge nodes.
+
+#### Edge Node Registration
+Only after the Docker node is registered can the edge service be deployed on the specified Docker node through ECP.
+
+1. Select **Organization**; **Project**;
+2. Click **Edge Management**, select **Edge Node Management**, and click **Create Edge Node**;
+3. Enter the name, IP address, and description of the edge node.
+
+![docker_node_registry](./_assets/docker_node_registry.png)
+
+
+#### Edge Node List Management
+1. Select **Organization**; **Project**;
+2. Click **Edge Management**, select **Edge Node Management**;
+3. Select the node to be managed in the list, you can **edit**, **delete**, **view**, the view button indicates the list of edge services on the node;
+
+![docker_node_list](./_assets/docker_node_list.png)
+
+
+#### List of edge services on the edge node
+After clicking the **View** button on the right of an edge node in the edge node list, you can see the edge service list on the node.
+You can see information such as the status of these edge services in the list.
+
+![docker_node_service_list](./_assets/docker_node_edge_service_list.png)
+ 
+
 
 ## Batch Install Edge Services
 

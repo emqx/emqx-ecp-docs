@@ -59,7 +59,7 @@ ECP 推荐通过 ECP 一键部署 EMQX 集群，以便体验更加丰富的集�
 
 
 
-6. 在注册引导页，选择 CPU 架构，当前支持 AMD64、ARM、ARM64 三种架构；按照注册引导页的提示完成注册。
+7. 在注册引导页，选择 CPU 架构，当前支持 AMD64、ARM、ARM64 三种架构；按照注册引导页的提示完成注册。
 
    
 
@@ -67,7 +67,7 @@ ECP 推荐通过 ECP 一键部署 EMQX 集群，以便体验更加丰富的集�
 
 
 
-7. 登录到 EMQX 集群安装的虚机或容器环境，例：登录到命名空间 `emqx-69f4249c` 中名称为 `emqx-69f4249c-emqx-ee-0` 的容器中；
+8. 登录到 EMQX 集群安装的虚机或容器环境，例：登录到命名空间 `emqx-69f4249c` 中名称为 `emqx-69f4249c-emqx-ee-0` 的容器中；
 
    ```bash
    # 查看 Pod 名称
@@ -83,7 +83,7 @@ ECP 推荐通过 ECP 一键部署 EMQX 集群，以便体验更加丰富的集�
    $ sudo curl -L -f --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
    ```
 
-8. 按顺序执行注册引导页中的命令；
+9. 按顺序执行注册引导页中的命令；
 
    ```bash
    # 下载 EMQX Agent 
@@ -99,7 +99,7 @@ ECP 推荐通过 ECP 一键部署 EMQX 集群，以便体验更加丰富的集�
    sudo /usr/local/bin/emqxee-agent register --url https://[emqxee-agent] --registration-token bf2779e5176446cd8e18fde81d826497
    ```
 
-8. 回到 ECP **云端集群**页，查看集群列表，可以看到被纳管的 EMQX 集群已被注册到 ECP 中，状态显示为**运行中**；
+10. 回到 ECP **云端集群**页，查看集群列表，可以看到被纳管的 EMQX 集群已被注册到 ECP 中，状态显示为**运行中**；
 
    
 

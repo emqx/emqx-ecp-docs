@@ -86,3 +86,15 @@ This chapter covers the following topics:
 - [Alarms](./alarm_rules)
 
   The ECP Unified Alert Platform is a tool for monitoring and managing cloud-edge products. It collects and analyzes data to identify and alert users of system or application issues for prompt resolution. 
+
+- [Alarm List](./rules.md)
+
+  A list of alarms in ECP.
+
+- [Audit](../system_admin/operation_audit.md)
+
+  ECP's Operation Audit ensures extensive monitoring of crucial user activities in the platform. 
+
+- [API Documentation](https://docs.emqx.com/en/emqx-ecp/latest/api/api-docs.html)
+
+  This is ECP's API documentation.

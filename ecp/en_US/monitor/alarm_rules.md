@@ -15,6 +15,15 @@ To streamline alarm management, ECP has provided 2 tabs on the **Alarm** page: *
 
 You can also use the filtering feature of ECP to filter alarms by type, message, node, level, or time.
 
+### Historical Alarm Delete
+
+ECP supports cleaning of historical alarms. In the **History Alarms** tab, click the **History Alarm Delete** button to choose to delete historical alarm records by time or number.
+
+- **Delete by time**: All historical alarm records whose occurrence time exceeds the specified time range will be deleted.
+- **Delete by number of items**: Delete the specified number of historical alarm records based on the alarm occurrence time, starting from the earliest. The maximum deletion limit for a single deletion operation is 50,000.
+
+![delete](./_assets/alarm-delete.png)
+
 ## Basic Alarm Settings
 
 Log in as system admins, organization admins, or project admins, navigate to **Workspace** -> **Alarm**, and enter into the **Alarm rules and settings** tab. 
@@ -116,3 +125,39 @@ Please refer to the table below, which addresses the conditions triggering alarm
 After an alarm storm occurs, it will be prominently highlighted on the 'Alarms' page. Once you have resolved the system issues causing the alarms, clicking the 'Clear Alarm' button to restore the normal functionality of alarms for the current project.
 
 ![alarm-storm](./_assets/alarm-storm.png)
+
+
+## Custom Alarm
+
+If your edge service wants to push other alarm information to the ECP during business processing, it can be achieved by integrating a custom alarm API. Log in to ECP as a system/organization/project administrator. In the **Alarm Rules & Notifications** tab of the **Alarm** page, you can view and copy the API information of the custom alarm, including the request URL and request  specified secret. If you need to reset the secret, please regenerate it through the "Refresh" button.
+
+  ![custom-alarm](./_assets/custom-alarm.png)
+
+### Example
+
+**POST** {custom alarm URL}
+
+- Request Header
+
+```
+X-ECP-Alarm-Token: {Custom Alarm Secret}
+Content-Type: application/json
+```
+
+- Request Content
+
+   - The `message` field must be specified, the type is a string, indicating the specific content of the alarm, which will be displayed in the **Active Alarms/History Alarms** list on the page.
+   - The `timestamp` field must be specified, the type is a string, indicating the timestamp of the alarm occurrence (in seconds). Alarm messages older than 10 minutes will not be received.
+   - The value of the `severity` field must be 0 or 1. 0 indicates that the alarm level is **Normal**, 1 indicates that the alarm level is **Critical**. The `severity` field value will affect the notification scope of the alarm. Please refer to the "**Basic Alarm Settings > Notification Scope**" section above.
+   - The `tag` field is an optional field, the type is string, indicating the tag name. If the `tag` field is specified, the push settings corresponding to the tag name will be used for alarm notification. Please refer to the "**Alarm Notification Settings**" section above. If the `tag` field is not specified or the specified tag name does not exist, the alarm will only be displayed in the **Active Alarms/History Alarms** list on the page and will not be pushed by email or Webhook.
+   - The `uuid` field is an optional field, type is string, and represents the unique identifier of the alarm. If multiple custom alarms use the same `uuid`, these alarms will be regarded as the same alarm and are subject to the control of silence duration. Please refer to the "**Basic Alarm Settings > Silence**" section above. If the `uuid` field is not specified, ECP will randomly generate a unique identifier for each custom alarm.
+
+```json
+{
+    "message": "message details for custom alarm",
+    "timestamp": "1711433603",
+    "severity": 1,
+    "tag": "customTag",
+    "uuid": "of9MHKAj",
+}
+```
