@@ -289,8 +289,8 @@
                     "path": "edge_service/batch_upgrade"
                 },
                 {
-                    "title": "Batch Configuration Distribution",
-                    "path": "edge_service/batch_distribution"
+                    "title": "Edge Config Management and Delivery",
+                    "path": "edge_service/edge_resource_management"
                 },
                 {
                     "title": "Edge Service Management & Operations",
