@@ -11,7 +11,8 @@ ECP supports the management of edge services through managed and hosted:
 - **Hosted**: Hosted refers to the edge service created and deployed by the ECP platform. The hosted edge service supports deployment, start, stop, and upgrade by ECP.
 
 Managed mode, ECP supports two methods: [Managed - Direct Connection](./batch_import.md) and [ Managed - Agent](./edge_agent_management.md). Users can choose the appropriate management method according to the actual scenario.
-Hosting mode, ECP supports [Docker mode hosting edge services](./batch_install.md) method.
+
+Hosting mode, ECP supports [Host Edge Services By Docker](./batch_intall.md) method.
 
 There are functional differences between managed and hosted edge services, as follows:
 

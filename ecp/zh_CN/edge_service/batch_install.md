@@ -41,7 +41,7 @@
         该证书仅供测试使用，生产环境请使用自签名证书。
     :::
 
-    2）修改 extfile.cnf 中 IP 地址为这台部署 Docker Engine 服务的边缘节点对外暴露的 IP 地址。该 IP 地址也是在 ECP 中添加[边缘节点](./docker_node.md)时需要输入的 IP。
+    2）修改 extfile.cnf 中 IP 地址为这台部署 Docker Engine 服务的边缘节点对外暴露的 IP 地址。该 IP 地址也是在 ECP 中添加[边缘节点](#边缘节点管理)时需要输入的 IP。
         ![extfile](./_assets/extfile.png)
     3）执行 gen-docker-cert.sh 脚本， 生成服务端证书: server-cert.pem， 默认密码： `1111`;
         ![gen-docker-cert](./_assets/gen-docker-cert.png)

@@ -15,7 +15,7 @@ To streamline alarm management, ECP has provided 2 tabs on the **Alarm** page: *
 
 You can also use the filtering feature of ECP to filter alarms by type, message, node, level, or time.
 
-###  Historical Alarm Delete
+### Historical Alarm Delete
 
 ECP supports cleaning of historical alarms. In the **History Alarms** tab, click the **History Alarm Delete** button to choose to delete historical alarm records by time or number.
 

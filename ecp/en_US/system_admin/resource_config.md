@@ -1,6 +1,6 @@
 # Resource Settings
 
-Resource settings is the configuration of the resource layer based on the ECP deployed by Docker or Kubernetes, which mainly includes [Basic Config](#basic-config), [Docker Deployment Mode Configuration](#docker-deployment-mode-configuration), [Kubernetes Deployment Mode Configuration]( #kubernetes-deployment-mode-configuration) three categories.
+Resource settings is the configuration of the resource layer based on the ECP deployed by Docker or Kubernetes, which mainly includes [Basic Config](#basic-config), [Docker Deployment Mode Configuration](#docker-deployment-mode-configuration), Kubernetes Deployment Mode Configuration three categories.
 
 ## Basic Config
 

@@ -42,7 +42,7 @@ After the installation is complete, you need to open the remote access port of t
       This certificate is for testing only.
       Please use a self-signed certificate in a production environment.
       :::
-   2) Modify the IP address in extfile.cnf to the IP address exposed by the edge node that deploys the Docker Engine service externally. This IP address is also the IP address that needs to be entered in ECP when adding [edge nodes](./docker_node.md).
+   2) Modify the IP address in extfile.cnf to the IP address exposed by the edge node that deploys the Docker Engine service externally. This IP address is also the IP address that needs to be entered in ECP when adding [edge nodes](#edge-node-management).
       ![extfile](./_assets/extfile.png)
    3) Execute the gen-docker-cert.sh script to generate the server certificate: server-cert.pem, the default password: `1111`;
       ![gen-docker-cert](./_assets/gen-docker-cert.png)
