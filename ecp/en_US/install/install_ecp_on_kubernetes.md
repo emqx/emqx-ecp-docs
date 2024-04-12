@@ -5,7 +5,9 @@ This section introduces how to deploy ECP with Kubernetes.
 ## Prerequisites
 
 - Kubernetes: 1.22.0 or above
+- kubectl: 1.22.0 or above
 - [Helm](https://helm.sh/): 3 or above
+- [yq](https://github.com/mikefarah/yq/)
 
 | Port               | Protocal          |
 | :----------------- | :------------ |
