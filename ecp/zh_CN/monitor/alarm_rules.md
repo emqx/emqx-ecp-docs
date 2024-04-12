@@ -156,6 +156,6 @@ Content-Type: application/json
     "timestamp": "1711433603",
     "severity": 1,
     "tag": "customTag",
-    "uuid": "of9MHKAj",
+    "uuid": "of9MHKAj"
 }
 ```
