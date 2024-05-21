@@ -1,5 +1,26 @@
 # Release History
 
+## v2.2.1
+Release Date: 05/20/2024
+
+### Enhancements
+- WebSocket support for cloud-edge tunnel in NeuronEX agent mode
+- Optimization of NeuronEX function management through agent
+- Integration of EMQX v4.4.24 Dashboard
+- Support for restart functionality in managed EMQX V4 clusters
+- Managed EMQX V4 clusters can modify connection, with LB external IP remaining unchanged
+- Managed EMQX V4 clusters may be deployed to specific nodes using labels and taints
+- Default activation of alarm function when creating project in ECP
+- Optimization of configuration for monitoring metrics in global settings
+
+### Fixes
+- Incomplete display of k8s connection configuration
+- Loss of telegraf address information when reopening the log receiver after closing it
+- Inability to use NeuronEX log monitoring function in docker compose deployed ECP
+- ECP failing to correctly receive monitoring data reported by NeuronEX to Prometheus
+- Rule debugging with WebSocket connection via cloud-edge tunnel to NeuronEX not including token parameter in the URL
+
+
 ## v2.2.0
 Release Date: 03/27/2024
 
