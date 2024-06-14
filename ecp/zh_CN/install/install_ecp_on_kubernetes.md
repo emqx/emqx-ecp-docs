@@ -131,6 +131,10 @@ Please input password:          # 请设置您的账户密码
 Please input password again:    # 请重复您的账户密码
 Please input your name:         # 请为您的账户设置一个显示名称，比如 ECPAdmin
 ```
+> **注意**：
+>
+> 如果版本大于等于 2.3.0， 也可以通过 Web 首页注册超级管理员。
+
 
 ## 登陆 ECP
 
