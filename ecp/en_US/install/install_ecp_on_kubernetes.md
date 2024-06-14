@@ -130,6 +130,10 @@ Please input password again:
 Please input your name:         # Set a display name for your account, for example, ECPAdmin
 ```
 
+> **Notice**：
+>
+> If the version is greater than or equal to 2.3.0, it is also possible to register a superuser via the web home page.
+
 ## Log in to ECP 
 
 Now that you have successfully deployed ECP, the default access address of ECP is `http://{kubernetes-node-ip}:31900`. Log in to ECP with your superuser account to start the system initialization.

@@ -99,6 +99,10 @@ Please input password again:
 Please input your name:         # Set a display name for your account, for example, ECPAdmin
 ```
 
+> **Notice**：
+>
+> If the version is greater than or equal to 2.3.0, it is also possible to register a superuser via the web home page.
+
 ## Log in to ECP 
 
 You have now successfully deployed ECP with Docker. Open your web browser and enter `http://localhost:8082/` (replace `localhost` with your IP address if necessary) into the address bar to access the ECP platform. 
