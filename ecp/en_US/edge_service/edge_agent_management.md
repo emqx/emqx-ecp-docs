@@ -37,33 +37,18 @@ You can view all NeuronEX agents registered to ECP in this window. Agents that h
 
 The default agent server of ECP uses the TCP protocol for data transmission. If you want to use a more secure transmission method, you can configure it appropriately and enable SSL/TLS. The following will take the example of ECP deployed with Docker using the built-in NanoMQ to explain the configuration steps in detail. You can also refer to the [NanoMQ Docker Deployment Document](https://nanomq.io/docs/en/latest/installation/docker.html) for a more complete introduction.
 
-1. Prepare the SSL certificate files used by NanoMQ, including the CA file (cacert.pem), the certificate file used by NanoMQ (cert.pem), and the certificate key file used by NanoMQ (key.pem), and save them to the configs/nanomq subdirectory of the installation file directory.
+1. Prepare the server-side SSL certificate files used by NanoMQ, including the CA file (cacert.pem), the server certificate file (cert.pem), and the server certificate key file (key.pem), and save them to the configs/nanomq subdirectory of the installation file directory.
 
-2. Prepare the SSL certificate files used by ECP, including the CA file (cacert.pem), the certificate file used by ECP (client-cert.pem), and the certificate key file used by NanoMQ (client-key.pem), and save them to the configs/main subdirectory of the installation file directory.
+2. Prepare the client-side SSL certificate files used by ECP and NeuronEX, including the CA file (cacert.pem), the client certificate file (client-cert.pem), and the client certificate key file (client-key.pem), and save them to the configs/main subdirectory of the installation file directory.
 
-3. Enter the installation file directory, modify configs/nanomq/nanomq.conf, add an SSL listener, and mainly configure the port and certificate location:
+3. Enter the directory where the installation file is located and modify the mqtt part in the docker-compose.yaml file. The specific content that needs to be modified is as follows:
 
-   - Use port 8883 in `bind`.
-   - `keyfile`, `certfile`, `cacertfile` are the paths where the NanoMQ SSL certificate files are mounted to the container.
+   - Mount the certificate file to the NanoMQ container in `volumes`. Please make sure the path in the container should be under directory `/etc/certs`.
+   - Configure SSL/TLS related environment variables in `environment`
+       - NANOMQ_TLS_ENABLE is set to true to enable TLS.
+       - If NANOMQ_TLS_VERIFY_PEER is set to false, it means NanoMQ does not verify the client certificate. If it is set to true, it means that the client certificate needs to be verified. Please set it according to actual needs.
+       - NANOMQ_TLS_FAIL_IF_NO_PEER_CERT If set to false, NanoMQ allows the client to not send a certificate or to send an empty certificate. If set to true, it means that the client will be refused to connect without a certificate. Please set it according to actual needs.
 
-   ```
-   listeners.ssl {
-       bind = "0.0.0.0:8883"
-       keyfile = "/etc/certs/server.key"
-       certfile = "/etc/certs/server.pem"
-       cacertfile = "/etc/certs/cacert.pem"
-   }
-   ```
-
-4. Enter the directory where the installation file is located and modify the mqtt part in the docker-compose.yaml file. The specific content that needs to be modified is as follows:
-
-    - Confirm to use the full version of NanoMQ image in `image`, such as 0.21.2-full.
-    - Added mapping of SSL port 8883 in `ports`. In the example, it is mapped to port 38883 (port 38883 is used for external access such as NeuronEX, and ECP still uses the network port 8883 in the container)
-    - Mount the certificate file to the NanoMQ container in `volumes`. Please make sure it is consistent with the path in the container specified in nanomq.conf in the previous step.
-    - Configure SSL/TLS related environment variables in `environment`
-        - NANOMQ_TLS_ENABLE is set to true to enable TLS.
-        - If NANOMQ_TLS_VERIFY_PEER is set to false, it means NanoMQ does not verify the client certificate. If it is set to true, it means that the client certificate needs to be verified. Please set it according to actual needs.
-        - NANOMQ_TLS_FAIL_IF_NO_PEER_CERT If set to false, NanoMQ allows the client to not send a certificate or to send an empty certificate. If set to true, it means that the client will be refused to connect without a certificate. Please set it according to actual needs.
 
 
 ```
