@@ -14,20 +14,22 @@ The process for NeuronEX agent management to access ECP (without turning on SSL/
 4. [Agent managed edge service](#agent-managed-edge-service)
 
 ### Configure the MQTT proxy service on the ECP side
+
 After the ECP installation is completed, the MQTT proxy service has been started by default and no additional configuration is required. The default port of the MQTT proxy service is 31883, and the IP is the server where the ECP is located.
 
 ### NeuronEX agent function configuration
-On the NeuronEX side, click **Administrator** -> **System Configuration**. 
+
+On the NeuronEX side, click **Administrator** -> **System Configuration**.
+
 - Select to Enable Agent.
-- the ECP Service Address is configured as `[IP of the server where the ECP is located]:31883`, and the username and password are `admin` and `public` by default. 
+- the ECP Service Address is configured as `[IP of the server where the ECP is located]:31883`, and the username and password are `admin` and `public` by default.
 - Description will be a brief description of the NeuronEX and displayed in the ECP agent management page.
 
 For the configuration of the agent management function on the NeuronEX side, please refer to [NeuronEX Agent Configuration](https://docs.emqx.com/en/neuronex/latest/admin/sys-configuration.html#agent-configuration).
 
 ### Edge proxy management
-Log in to ECP as the system/organization/project administrator, click **Workspace** -> **Edge Management** to enter the edge service page, click the **Agent Management** button on the right side of the page to open **Edge Agent Management** window.
 
-![agent-manage-btn](./_assets/edge-agent-manage-btn.png)
+Log in to ECP as the system/organization/project administrator, click **Workspace** -> **Agent Management** to enter the edge service page.
 
 You can view all NeuronEX agents registered to ECP in this window. Agents that have not yet been managed by ECP are displayed as "unmanaged", and the actual online status is also displayed. You can manage or delete this NeuronEX agents.
 
@@ -43,13 +45,13 @@ The default agent server of ECP uses the TCP protocol for data transmission. If 
 
 3. Enter the directory where the installation file is located and modify the mqtt part in the docker-compose.yaml file. The specific content that needs to be modified is as follows:
 
-   - Mount the certificate file to the NanoMQ container in `volumes`. Please make sure the path in the container should be under directory `/etc/certs`.
+   - Confirm to use the full version of NanoMQ image in `image`, such as 0.21.2-full.
+   - Added mapping of SSL port 8883 in `ports`. In the example, it is mapped to port 38883 (port 38883 is used for external access such as NeuronEX, and ECP still uses the network port 8883 in the container)
+   - Mount the certificate file to the NanoMQ container in `volumes`. Please make sure it is consistent with the path in the container specified in nanomq.conf in the previous step.
    - Configure SSL/TLS related environment variables in `environment`
-       - NANOMQ_TLS_ENABLE is set to true to enable TLS.
-       - If NANOMQ_TLS_VERIFY_PEER is set to false, it means NanoMQ does not verify the client certificate. If it is set to true, it means that the client certificate needs to be verified. Please set it according to actual needs.
-       - NANOMQ_TLS_FAIL_IF_NO_PEER_CERT If set to false, NanoMQ allows the client to not send a certificate or to send an empty certificate. If set to true, it means that the client will be refused to connect without a certificate. Please set it according to actual needs.
-
-
+     - NANOMQ_TLS_ENABLE is set to true to enable TLS.
+     - If NANOMQ_TLS_VERIFY_PEER is set to false, it means NanoMQ does not verify the client certificate. If it is set to true, it means that the client certificate needs to be verified. Please set it according to actual needs.
+     - NANOMQ_TLS_FAIL_IF_NO_PEER_CERT If set to false, NanoMQ allows the client to not send a certificate or to send an empty certificate. If set to true, it means that the client will be refused to connect without a certificate. Please set it according to actual needs.
 
 ```
   mqtt:
@@ -76,7 +78,7 @@ The default agent server of ECP uses the TCP protocol for data transmission. If 
 ```
 
 5. Modify the main section in the docker-compose.yaml file. The specific content that needs to be changed is as follows:
-    - Mount the certificate file in `volumes` to the ECP main container. In the example, the certificate files are mounted to the `/bc/certs` directory of the container.
+   - Mount the certificate file in `volumes` to the ECP main container. In the example, the certificate files are mounted to the `/bc/certs` directory of the container.
 
 ```
   main:
@@ -104,10 +106,10 @@ The default agent server of ECP uses the TCP protocol for data transmission. If 
 ```
 
 6. Modify the mqtt section in the ECP configuration file configs/main/main.yaml:
-    - `useSSL` is set to true to enable TLS.
-    - The port in `addr` is set to 8883.
-    - `verifyCertificate` indicates whether to verify the NanoMQ side certificate. Please set it according to actual needs.
-    - `cacertFile`, `cacertFile`, `cacertFile` are respectively the path in the container to which the ECP certificate file is mounted. Please ensure that it is consistent with the path in the container specified in docker-compose.yaml in the previous step.
+   - `useSSL` is set to true to enable TLS.
+   - The port in `addr` is set to 8883.
+   - `verifyCertificate` indicates whether to verify the NanoMQ side certificate. Please set it according to actual needs.
+   - `cacertFile`, `cacertFile`, `cacertFile` are respectively the path in the container to which the ECP certificate file is mounted. Please ensure that it is consistent with the path in the container specified in docker-compose.yaml in the previous step.
 
 ```
 mqtt:
