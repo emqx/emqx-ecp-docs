@@ -37,16 +37,16 @@ After the installation is complete, you need to open the remote access port of t
 
 1. If the Docker API enables TLS authentication, the edge node deployed as the server needs to configure the CA certificate, server certificate and server private key of the Docker API. ECP as the client needs to configure the CA certificate, client certificate and client private key of the Docker API. For specific configuration methods, please refer to [Docker TLS authentication](https://docs.docker.com/engine/security/https/).
 
-   1. You can download the certificate file and script from [this link](https://github.com/emqx/emqx-ecp-docs/tree/main/ecp/resource/docker-tls)
-      :::tip Note
-      This certificate is for testing only.
-      Please use a self-signed certificate in a production environment.
-      :::
-   2. Modify the IP address in extfile.cnf to the IP address exposed by the edge node that deploys the Docker Engine service externally. This IP address is also the IP address that needs to be entered in ECP when adding [edge nodes](#edge-node-management).
-      ![extfile](./_assets/extfile.png)
-   3. Execute the gen-docker-cert.sh script to generate the server certificate: server-cert.pem, the default password: `1111`;
-      ![gen-docker-cert](./_assets/gen-docker-cert.png)
-   4. Copy the generated `server-cert.pem` certificate file and `ca.pem`, `server-key.pem` files to the specified directory of the edge node, such as: `/root/docker-tls/ca.pem`, `/root/docker-tls/server-cert.pem`, `/root/docker-tls/server-key.pem` directory.
+   1). You can download the certificate file and script from [this link](https://github.com/emqx/emqx-ecp-docs/tree/main/ecp/resource/docker-tls)
+   :::tip Note
+   This certificate is for testing only.
+   Please use a self-signed certificate in a production environment.
+   :::
+   2). Modify the IP address in extfile.cnf to the IP address exposed by the edge node that deploys the Docker Engine service externally. This IP address is also the IP address that needs to be entered in ECP when adding [edge nodes](#edge-node-management).
+   ![extfile](./_assets/extfile.png)
+   3). Execute the gen-docker-cert.sh script to generate the server certificate: server-cert.pem, the default password: `1111`;
+   ![gen-docker-cert](./_assets/gen-docker-cert.png)
+   4). Copy the generated `server-cert.pem` certificate file and `ca.pem`, `server-key.pem` files to the specified directory of the edge node, such as: `/root/docker-tls/ca.pem`, `/root/docker-tls/server-cert.pem`, `/root/docker-tls/server-key.pem` directory.
 
 2. Find the docker service configuration file, the default is: `/usr/lib/systemd/system/docker.service`, you can see the location of the file through the `systemctl status docker` command.
    ![docker_service](./_assets/docker_service.png)
