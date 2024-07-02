@@ -6,26 +6,33 @@ ECP 提供了基于 Docker 快速部署的方式，帮助用户快速搭建 ECP 
 
 请参考[基于 Docker 部署 ECP](../install/install_ecp_on_linux) 章节，准备部署资源，并安装 ECP。
 
-
 ## 初始化环境配置
 
 ECP 安装完成以后，登录进 ECP 的 Dashboard 页面，还要经过以下步骤的初始化环境配置，才能正常使用。
 
-|     步骤     | 说明                                                  |
-| :----------| :-------------------------------------------------------|
-|[配置访问地址](../system_admin/general_config.md#访问域名)| 配置访问域名，边缘服务需要通过该地址推送状态信息。|
-|[配置邮箱](../system_admin/general_config.md#邮件配置)| 可选，配置告警邮件推送的邮件服务器。|
-|[配置许可证](../install/license_setting.md#配置许可证)| ECP 安装后自带试用 License，您也可以申请并上传新的许可证。|
+| 步骤                                                       | 说明                                                       |
+| :--------------------------------------------------------- | :--------------------------------------------------------- |
+| [配置访问地址](../system_admin/general_config.md#访问域名) | 配置访问域名，边缘服务需要通过该地址推送状态信息。         |
+| [配置邮箱](../system_admin/general_config.md#邮件配置)     | 可选，配置告警邮件推送的邮件服务器。                       |
+| [配置许可证](../install/license_setting.md#配置许可证)     | ECP 安装后自带试用 License，您也可以申请并上传新的许可证。 |
 
+超级管理员也可在首次登录后，通过新手指引进行配置。
 
+:::tip 注意
+[纳管](../index.md#核心概念)是指对现有边缘服务 NeuronEX 进行管理，纳管后，ECP 将对 NeuronEX 进行监控、告警、日志、配置下发等管理和运维操作。纳管边缘服务 NeuronEX 需要先部署 NeuronEX，详情请参考[NeuronEX 快速开始](https://docs.emqx.com/zh/neuronex/latest/quick-start/quick-start.html)。
+
+[托管](../index.md#核心概念)是指由 ECP 平台创建部署的边缘服务 NeuronEX ，支持由 ECP 部署、启停以及升级。
+:::
+
+![user-guide](./_assets/user-guide.png)
 
 ## 通过 ECP 管理边缘服务
+
 初始化 ECP 的运行环境之后，本教程将通过创建/管理边缘服务，带您体验 ECP 的各项功能。
 
 ### 创建组织/项目
 
 ECP 通过组织/项目管理功能实现了企业级多租户管理。管理边缘服务 NeuronEX 以及 EMQX 集群 都需要建立在具体项目上，所以我们首先需要创建组织和项目。
-
 
 1. 以系统管理员的身份登录 ECP，切换到**系统管理**界面。
 2. 点击左侧菜单栏的**组织管理**。
@@ -43,36 +50,31 @@ ECP 通过组织/项目管理功能实现了企业级多租户管理。管理边
 
 完成组织和项目的创建后，即可开始通过 ECP 创建和管理云端 EMQX 集群和边缘服务。
 
-
 ### 纳管边缘服务
 
 可在 ECP 各个组织项目中纳管多个边缘服务 NeuronEX。切换到**工作台**界面，并切换到刚刚创建的组织 **EMQ** 和项目 **ECP** 中；点击左侧的**边缘管理**进入边缘管理页面。
 
 在边缘管理页，点击**添加边缘服务**，在弹出的对话框中进行如下设置
 
-
 - 添加方式选择**添加一个现有服务**
 - 类型选择 **NeuronEX**
 - 连接方式选择**直连**
 - 名称填写 **NeuronEX-1**
-- 边缘服务地址填写 **[NeuronEX的IP]:PORT**
+- 边缘服务地址填写 **[NeuronEX 的 IP]:PORT**
 - 点击**确认**进行纳管 NeuronEX。
 
 :::tip 注意
-   [纳管](../index.md#核心概念)是指对现有边缘服务 NeuronEX 进行管理，纳管后，ECP 将对 NeuronEX 进行监控、告警、日志、配置下发等管理和运维操作。纳管边缘服务 NeuronEX 需要先部署 NeuronEX，详情请参考[NeuronEX 快速开始](https://docs.emqx.com/zh/neuronex/latest/quick-start/quick-start.html)。
+[纳管](../index.md#核心概念)是指对现有边缘服务 NeuronEX 进行管理，纳管后，ECP 将对 NeuronEX 进行监控、告警、日志、配置下发等管理和运维操作。纳管边缘服务 NeuronEX 需要先部署 NeuronEX，详情请参考[NeuronEX 快速开始](https://docs.emqx.com/zh/neuronex/latest/quick-start/quick-start.html)。
 :::
 
 :::tip 注意
-   纳管现有边缘服务 NeuronEX 时，如果 NeuronEX 开启了认证，需要进行认证配置。详情请参考[纳管 NeuronEX 的认证授权](../edge_service/e2c.md#纳管-neuronex-的认证授权)。
+纳管现有边缘服务 NeuronEX 时，如果 NeuronEX 开启了认证，需要进行认证配置。详情请参考[纳管 NeuronEX 的认证授权](../edge_service/e2c.md#纳管-neuronex-的认证授权)。
 :::
 ![console](./_assets/quick-workspace-edge-install.png)
 
-
 完成边缘服务的纳管后，您即可开始通过 ECP 管理和运维边缘服务，包括配置点位数，监控告警、日志等运维服务，使用标签系统进行业务分组，使用配置批量下发配置多个边缘服务实例。 边缘服务的详细功能请参考[边缘服务管理](../edge_service/introduction)。
 
-
-
-<!-- 
+<!--
 
 ### 配置 Kubernetes 连接
 
@@ -99,7 +101,7 @@ ECP 通过组织/项目管理功能实现了企业级多租户管理。管理边
 
    ```
    kubectl get sc
-   
+
    NAME                    PROVISIONER                      RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION        AGE
    alicloud-disk-ssd       diskplugin.csi.alibabacloud.com  Delete         Immediate             true                        170d
    alicloud-disk-topology  diskplugin.csi.alibabacloud.com  Delete         WaitForFirstConsumer  true                        170d
@@ -108,7 +110,7 @@ ECP 通过组织/项目管理功能实现了企业级多租户管理。管理边
 
 3. 返回 ECP，选择一个存储类（**系统管理** -> **系统设置** -> **资源配置** -> **云端集群配置** -> **集群资源配额**）。注意：存储类的名称要和 Kubernetes 存储类列表的名称一致，设置存储大小和是否默认存储类；
 
-   
+
 
    <img src="./_assets/manager-setting-stroageclass.png" style="zoom:140%;" align="middle">
 
@@ -146,8 +148,6 @@ ECP 通过组织/项目管理功能实现了企业级多租户管理。管理边
 
 <img src="./_assets/quick-workspace-edge-quota.png" style="zoom:80%;" align="middle">
  -->
-
-
 
 <!-- ### 创建并管理 EMQX 集群
 切换到**工作台**界面，并切换到刚刚创建的组织 **EMQ** 和项目 **ECP** 中；ECP 将默认进入云端集群页面。
