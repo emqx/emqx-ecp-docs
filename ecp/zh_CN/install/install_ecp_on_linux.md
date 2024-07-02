@@ -53,23 +53,25 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 ### 启动服务
 
 - 如有必要， 可以修改配置文件 `emqx_ecp.conf`。 - 如已有 `ElasticSearch` 服务， 可能修改如下配置：
-  `shell
 
+  ```shell
   # telegraf config
-
   TELEGRAF_EXTERNAL_PORT=10514
   EL_URL="https://elasticsearch:9200"
   EL_USERNAME="elastic"
   EL_PASSWORD="elastic"
-  `
+  ```
+
   :::tip 注意
   若没有正确配置 ElasticSearch 连接信息， 日志功能将不可用， 但不影响其它功能。
   :::
 
 - 执行以下命令，启动 ECP 服务。
-  `shell
-./emqx_ecp_ctl start
-`
+
+  ```shell
+  ./emqx_ecp_ctl start
+  ```
+
   :::tip 注意
   在初次启动 ECP 服务时，需要从 ECP 镜像拉取软件镜像，可能需要等待一段时间。您也可以[联系我们](https://www.emqx.com/zh/contact?product=emqx-ecp)，获取离线安装包。
   :::
