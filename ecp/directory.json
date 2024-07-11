@@ -326,7 +326,7 @@
                 },
                 {
                     "title": "Monitor EMQX Clusters",
-                    "path": "https://docs.emqx.com/en/enterprise/v4.4/getting-started/dashboard-ee.html#monitor"
+                    "path": "monitor/monitor_cluster"
                 },
                 {
                     "title": "Monitor Edge Services",
