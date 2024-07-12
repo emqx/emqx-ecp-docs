@@ -3,7 +3,8 @@
 ECP 为 EMQX 集群管理提供了丰富的管理运维服务，您可以在 ECP 上集中管理运维纳管的 EMQX 集群。 
 
 :::tip 提示
-对于不同版本的 EMQX 集群，在集群管理上存在一定的功能差异，具体请参考 [不同版本EMQX纳管集群的功能差异](./introduction.md#不同版本 EMQX 纳管集群的功能差异)。 
+对于不同版本的 EMQX 集群，在集群管理上存在一定的功能差异，具体请参考 [不同版本EMQX纳管集群的功能差异](./introduction.md#不同版本-emqx-纳管集群的功能差异)。 
+
 :::
 
 <img src="./_assets/cluster-ops.png" style="zoom:40%;" align="middle">
@@ -33,7 +34,7 @@ ECP 为 EMQX 集群管理提供了丰富的管理运维服务，您可以在 ECP
 2. 在目标集群，点击更多图标并选择**转移**；在弹出的对话框中，选择待转移的目标项目。
 3. 点击**确认**，即刻完成集群转移。此时，该集群将出现在目标项目的集群列表中；
 
-<img src="_assets/cluster-transfer.png" style="zoom: 50%;" align="middle">
+<img src="./_assets/cluster-transfer.png" style="zoom: 50%;" align="middle">
 
 
 
@@ -45,7 +46,7 @@ ECP 为 EMQX 集群管理提供了丰富的管理运维服务，您可以在 ECP
 
 然后，在已注册的目标集群中，点击更多图标并选择**日志**，随即将进入集群日志页。您可在此查看集群名称、类别、创建时间、日志级别及日志内容，并可通过筛选功能快速定位某条日志。有关日志功能的详细解释，请参考[统一日志](../log/introduction.md)。
 
-![log](_assets/cluster-log.png)
+![log](./_assets/cluster-log.png)
 
 ## 集群删除
 
