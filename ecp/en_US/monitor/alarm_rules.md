@@ -24,11 +24,11 @@ ECP supports cleaning of historical alarms. In the **History Alarms** tab, click
 
 ![delete](./_assets/alarm-delete.png)
 
-## Basic Alarm Settings
+## Alarm Settings
 
-Log in as system admins, organization admins, or project admins, navigate to **Workspace** -> **Alarm**, and enter into the **Alarm rules and settings** tab. 
+Log in as system admins, organization admins, or project admins, navigate to **Workspace** -> **Maintenance** -> **Alarm**, and enter into the **Alarm Setting** tab. 
 
-![alert_config](./_assets/alert-config.png)
+<img src="./_assets/alert-config.png" style="zoom: 50%;" align="middle">
 
 ### Alarm Status
 
@@ -48,17 +48,56 @@ You can configure the notification silence duration and the objects for which th
 
 If the silence duration applies to "Single alarm level", then ECP won't repeatedly send notifications for the same alarm within the silence duration period. Notifications will resume once the silence duration expires.
 
-If the silence duration applies to "Edge service instance level", then any alarms generated on the same edge service within the silence duration period won't trigger repeated notifications. Notifications will resume once the silence duration expires.
+If the silence duration applies to "Edge/Cluster service instance level", then any alarms generated on the same edge service or cluster within the silence duration period won't trigger repeated notifications. Notifications will resume once the silence duration expires.
 
 Notification silence settings only affect alarms notification through emails and Webhooks. All alarm events will still be displayed in the Active/History Alarms.
 
+### Custom Alarm
+
+If your edge service wants to push other alarm information to the ECP during business processing, it can be achieved by integrating a custom alarm API. Log in to ECP as a system/organization/project administrator.
+
+In the **Alarm Setting** page, enable **Custom Alarm Status**, then you can view and copy the API information of the custom alarm, including the request URL and request  specified secret. If you need to reset the secret, please regenerate it through the "Refresh" button.
+
+  <img src="./_assets/custom-alarm.png" style="zoom: 50%;" align="middle">
+
+#### Example
+
+**POST** {custom alarm URL}
+
+- Request Header
+
+```
+X-ECP-Alarm-Token: {Custom Alarm Secret}
+Content-Type: application/json
+```
+
+- Request Content
+
+   - The `message` field must be specified, the type is a string, indicating the specific content of the alarm, which will be displayed in the **Active Alarms/History Alarms** list on the page.
+   - The `timestamp` field must be specified, the type is a string, indicating the timestamp of the alarm occurrence (in seconds). Alarm messages older than 10 minutes will not be received.
+   - The value of the `severity` field must be 0 or 1. 0 indicates that the alarm level is **Normal**, 1 indicates that the alarm level is **Critical**. The `severity` field value will affect the notification scope of the alarm. Please refer to the "**Basic Alarm Settings > Notification Scope**" section above.
+   - The `tag` field is an optional field, the type is string, indicating the tag name. If the `tag` field is specified, the push settings corresponding to the tag name will be used for alarm notification. Please refer to the "**Alarm Notification Settings**" section above. If the `tag` field is not specified or the specified tag name does not exist, the alarm will only be displayed in the **Active Alarms/History Alarms** list on the page and will not be pushed by email or Webhook.
+   - The `uuid` field is an optional field, type is string, and represents the unique identifier of the alarm. If multiple custom alarms use the same `uuid`, these alarms will be regarded as the same alarm and are subject to the control of silence duration. Please refer to the "**Basic Alarm Settings > Silence**" section above. If the `uuid` field is not specified, ECP will randomly generate a unique identifier for each custom alarm.
+
+```json
+{
+    "message": "message details for custom alarm",
+    "timestamp": "1711433603",
+    "severity": 1,
+    "tag": "customTag",
+    "uuid": "of9MHKAj"
+}
+```
+
+
+
 ## Alarm Rules Settings
 
-Log in as system admins, organization admins, or project admins, you can also set for alarm rules on **Alarm rules and settings** tab.
+Log in as system admins, organization admins, or project admins, you can also set for alarm rules on **Alarm Rule Setting** tab.
 
 ![alert_rules](./_assets/alert-rules.png)
 
-ECP currently supports alarm rules triggered by edge services and those triggered by ECP itself. Rules triggered by edge services include NeuronEX driver exceptions, NeuronEX rule exceptions, and NeuronEX restarted event. ECP-triggered rules include NeuronEX offline event, email sending failures, and Webhook sending failures. For more details on these rules, please refer to the [Operations Management - Alarm Rules List](../monitor/rules.md).
+ECP currently supports alarm rules triggered by ECP itself, by edge services and by EMQX clusters. ECP-triggered rules include email sending failures and Webhook sending failures. Rules triggered by edge services include NeuronEX driver exceptions, NeuronEX rule exceptions, NeuronEX offline event, and NeuronEX restarted event. Rules triggered by clusters include EMQX rule exceptions and EMQX connector exceptions. For more details on these rules, please refer to the [Operations Management - Alarm Rules List](../monitor/rules.md).
 
 You can set both the triggering conditions and rescovery conditions for each rule. The only exception is **NeuronEX restart** alarm rule, which you cannot set for either. You can set smaller triggering values if you want alarms to be more sensitive. Or you can set larger triggering values if you prefer to limit the frequency of alarms. Currently, the upper limit for triggering and recovery values is 10.
 
@@ -66,11 +105,11 @@ You can also set severity level for each rule as 'Critical' or 'Normal'. If the 
 
 ## Alarm Notification Settings
 
-Log in as system admins, organization admins, or project admins, you can also set for alarm notification on **Alarm rules and settings** tab.
+Log in as system admins, organization admins, or project admins, you can also set for alarm notification on **Alarm Notifications** tab.
 
 ![alarm-notification-config](./_assets/alarm-notification-config.png)
 
-ECP supports configuring one or more alarm notifications. Different alarm notifications are associated with different edge services by service tags. When alarms are triggered on these associated edge services, notifications will be sent to the corresponding email and Webhooks.
+ECP supports configuring one or more alarm notifications. Different alarm notifications are associated with different edge services by service tags, or associated to cluster if **Push EMQX Alarm** is enabled. When alarms are triggered on these associated edge services or clusters, notifications will be sent to the corresponding email and Webhooks.
 
 <img src="./_assets/alert-notification.png" style="zoom: 50%;" align="middle">
 
@@ -79,6 +118,10 @@ ECP supports configuring one or more alarm notifications. Different alarm notifi
 If "All" is selected, any alarms triggered on edge services within the project will be sent to the emails and Webhooks set in this configuration. Alternatively, one or more service tags can be chosen, and only alarms from edge services associated with these selected tags will be notified.
 
 Please note: If the alarm is triggered on project level, such as email sending failure or Webhook sending failure alarms, notifications will be sent to emails and Webhooks in all notification configurations.
+
+### Push EMQX Alarm
+
+If "Push EMQX Alarm" is enabled, any alarm generated on clusters within the project will be sent to the email or Webhook.
 
 ### Email Notification
 
@@ -125,39 +168,3 @@ Please refer to the table below, which addresses the conditions triggering alarm
 After an alarm storm occurs, it will be prominently highlighted on the 'Alarms' page. Once you have resolved the system issues causing the alarms, clicking the 'Clear Alarm' button to restore the normal functionality of alarms for the current project.
 
 ![alarm-storm](./_assets/alarm-storm.png)
-
-
-## Custom Alarm
-
-If your edge service wants to push other alarm information to the ECP during business processing, it can be achieved by integrating a custom alarm API. Log in to ECP as a system/organization/project administrator. In the **Alarm Rules & Notifications** tab of the **Alarm** page, you can view and copy the API information of the custom alarm, including the request URL and request  specified secret. If you need to reset the secret, please regenerate it through the "Refresh" button.
-
-  ![custom-alarm](./_assets/custom-alarm.png)
-
-### Example
-
-**POST** {custom alarm URL}
-
-- Request Header
-
-```
-X-ECP-Alarm-Token: {Custom Alarm Secret}
-Content-Type: application/json
-```
-
-- Request Content
-
-   - The `message` field must be specified, the type is a string, indicating the specific content of the alarm, which will be displayed in the **Active Alarms/History Alarms** list on the page.
-   - The `timestamp` field must be specified, the type is a string, indicating the timestamp of the alarm occurrence (in seconds). Alarm messages older than 10 minutes will not be received.
-   - The value of the `severity` field must be 0 or 1. 0 indicates that the alarm level is **Normal**, 1 indicates that the alarm level is **Critical**. The `severity` field value will affect the notification scope of the alarm. Please refer to the "**Basic Alarm Settings > Notification Scope**" section above.
-   - The `tag` field is an optional field, the type is string, indicating the tag name. If the `tag` field is specified, the push settings corresponding to the tag name will be used for alarm notification. Please refer to the "**Alarm Notification Settings**" section above. If the `tag` field is not specified or the specified tag name does not exist, the alarm will only be displayed in the **Active Alarms/History Alarms** list on the page and will not be pushed by email or Webhook.
-   - The `uuid` field is an optional field, type is string, and represents the unique identifier of the alarm. If multiple custom alarms use the same `uuid`, these alarms will be regarded as the same alarm and are subject to the control of silence duration. Please refer to the "**Basic Alarm Settings > Silence**" section above. If the `uuid` field is not specified, ECP will randomly generate a unique identifier for each custom alarm.
-
-```json
-{
-    "message": "message details for custom alarm",
-    "timestamp": "1711433603",
-    "severity": 1,
-    "tag": "customTag",
-    "uuid": "of9MHKAj"
-}
-```
