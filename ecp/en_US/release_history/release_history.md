@@ -1,5 +1,25 @@
 # Release History
 
+## v2.3.0
+Release Date: 07/12/2024
+
+### Enhancements
+- Re-adjust the overall layout of ECP
+- Added a boot page after logging into ECP for the first time
+- Added the ability to set up an administrator account through the UI
+- Supports NeuronEX RBAC function, and the ECP role permissions are connected to the NeuronEX role permissions
+- Supports NeuronEX managed Kubernetes deployment
+- Supports EMQX V5 management, and support for assigning licenses to multiple managed EMQX V5 clusters
+- Added EMQX V5 monitoring and alarm functions
+- Optimized custom alarms and alarm rule functions
+- Reconstructed tasks and audit functions
+
+### Fixes
+- Docker installation and deployment of neuronex, if the port is repeated, give a correct prompt
+- After triggering a custom alarm, the alarm display interface 500 error
+- The alarm link address in the alarm information email and webhook push is incorrect
+
+
 ## v2.2.1
 Release Date: 05/20/2024
 
