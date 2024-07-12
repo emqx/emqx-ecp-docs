@@ -79,6 +79,10 @@
                 {
                     "title": "Docker方式托管边缘服务",
                     "path": "edge_service/batch_install"
+                }, 
+                {
+                    "title": "Kubernetes方式托管边缘服务",
+                    "path": "edge_service/batch_install_k8s"
                 },
                 {
                     "title": "升级边缘服务",
@@ -267,6 +271,10 @@
                 {
                     "title": "Host Edge Services By Docker",
                     "path": "edge_service/batch_intall"
+                },
+                {
+                    "title": "Host Edge Services By Kubernetes",
+                    "path": "edge_service/batch_install_k8s"
                 },
                 {
                     "title": "Upgrade Edge Services",
