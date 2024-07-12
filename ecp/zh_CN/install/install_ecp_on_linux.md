@@ -1,6 +1,6 @@
 # 基于 Docker 的部署
 
-在本文中，我们将指导您如何在  Docker 中完成 ECP 及其所需组件的安装部署。
+在本文中，我们将指导您如何在 Docker 中完成 ECP 及其所需组件的安装部署。
 
 ## 安装条件
 
@@ -13,10 +13,9 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 | Docker-Compose | 1.27.1 或以上  |
 | Docker         | 20.10.0 或以上 |
 
-| 端口               | 协议           |
-| :----------------- | :------------ |
-|  8082             | TCP+UDP       |
-
+| 端口 | 协议    |
+| :--- | :------ |
+| 8082 | TCP+UDP |
 
 ## 获取安装包
 
@@ -25,48 +24,60 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 ![login](./_assets/docker_install_download.png)
 
 ## 安装 ECP
+
 将下载的安装包`emqx-ecp-docker-compose-installer-2.1.1.tar.gz`上传到服务器上，解压缩后，进入解压缩后的目录，执行以下步骤完成 ECP 的安装。
 
 ### 依赖检查
+
 执行以下命令检查依赖组件及 docker 版本。
+
 ```shell
 ./emqx_ecp_ctl precheck
 ```
+
 输出如下内容表示检查通过：
 
 ![precheck](./_assets/precheck.png)
 
 ### 配置环境
+
 执行以下命令，配置 ECP 安装环境。
+
 ```shell
 ./emqx_ecp_ctl configure
 ```
-全部回车跳过表示，使用默认的ECP版本，通过公共docker镜像仓库获取镜像，持久化数据保存路径为`[当前脚本路径]/datavolumes/`。
+
+全部回车跳过表示，使用默认的 ECP 版本，通过公共 docker 镜像仓库获取镜像，持久化数据保存路径为`[当前脚本路径]/datavolumes/`。
 ![configure](./_assets/configure.png)
 
 ### 启动服务
-- 如有必要， 可以修改配置文件 `emqx_ecp.conf`。
-    - 如已有 `ElasticSearch` 服务， 可能修改如下配置：
-    ```shell
-    # telegraf config
-    TELEGRAF_EXTERNAL_PORT=10514
-    EL_URL="https://elasticsearch:9200"
-    EL_USERNAME="elastic"
-    EL_PASSWORD="elastic"
-    ```
-:::tip 注意
-若没有正确配置 ElasticSearch 连接信息， 日志功能将不可用， 但不影响其它功能。
-:::
+
+- 如有必要， 可以修改配置文件 `emqx_ecp.conf`。 - 如已有 `ElasticSearch` 服务， 可能修改如下配置：
+
+  ```shell
+  # telegraf config
+  TELEGRAF_EXTERNAL_PORT=10514
+  EL_URL="https://elasticsearch:9200"
+  EL_USERNAME="elastic"
+  EL_PASSWORD="elastic"
+  ```
+
+  :::tip 注意
+  若没有正确配置 ElasticSearch 连接信息， 日志功能将不可用， 但不影响其它功能。
+  :::
 
 - 执行以下命令，启动 ECP 服务。
-    ```shell
-    ./emqx_ecp_ctl start
-    ```
-:::tip 注意
-在初次启动 ECP 服务时，需要从 ECP 镜像拉取软件镜像，可能需要等待一段时间。您也可以[联系我们](https://www.emqx.com/zh/contact?product=emqx-ecp)，获取离线安装包。
-:::
+
+  ```shell
+  ./emqx_ecp_ctl start
+  ```
+
+  :::tip 注意
+  在初次启动 ECP 服务时，需要从 ECP 镜像拉取软件镜像，可能需要等待一段时间。您也可以[联系我们](https://www.emqx.com/zh/contact?product=emqx-ecp)，获取离线安装包。
+  :::
 
 ### 检查服务状态
+
 ```shell
 ./emqx_ecp_ctl status
 ```
@@ -74,12 +85,15 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 ![status](./_assets/status.png)
 
 ### 停止 ECP 服务
+
 ```shell
 ./emqx_ecp_ctl stop
 ```
 
 ### 更多命令介绍
+
 通过以下命令查看更多命令介绍。
+
 ```shell
 ./emqx_ecp_ctl help
 ```
@@ -97,6 +111,12 @@ Please input password:          # 请设置您的账户密码
 Please input password again:    # 请重复您的账户密码
 Please input your name:         # 请为您的账户设置一个显示名称，比如 ECPAdmin
 ```
+
+> **注意**：
+>
+> 如果版本大于等于 2.3.0， 也可以通过 Web 首页注册超级管理员。
+
+![super-admin](./_assets/super-admin.png)
 
 ## 登陆 ECP
 

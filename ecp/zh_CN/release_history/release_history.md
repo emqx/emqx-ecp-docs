@@ -1,5 +1,29 @@
 # 发版历史
 
+
+## v2.2.1
+发布日期: 2024-05-20
+
+### 增强
+- NeuronEX 代理模式下云边通道websocket支持
+- 代理纳管NeuronEX功能优化
+- EMQX v4.4.24 Dashboard 集成
+- 托管 EMQX V4 集群支持重启功能
+- 托管 EMQX V4 集群修改连接数， LB 外网 IP 不变
+- 托管 EMQX V4 集群可能通过 label and taint 来指定部署到具体的节点
+- ECP创建项目时，告警功能默认开启
+- 优化全局配置项中，监控指标部分的配置
+
+### 修复
+- k8s连接配置显示不全
+- 关闭日志接收器后再打开， telegraf 地址信息丢失
+- docker compose部署的ecp，无法使用neuronex日志监控功能
+- ecp未正确接收到neuronex上报给prometheus的监控数据
+- 规则调试websocket连接时走云边通道到NeuronEX未在url中带上token参数
+
+
+
+
 ## v2.2.0
 发布日期: 2024-03-27
 

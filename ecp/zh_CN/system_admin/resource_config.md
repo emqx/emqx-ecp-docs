@@ -1,6 +1,6 @@
 # 资源配置
 
-资源配置是基于 Docker 或 Kubernetes 安装部署的 ECP 对资源层的配置，主要包括 [基础配置](#基础配置)、[Docker部署模式配置](#Docker部署模式配置)、[Kubernetes部署模式配置](#Kubernetes部署模式配置)三大类。
+资源配置是基于 Docker 或 Kubernetes 安装部署的 ECP 对资源层的配置，主要包括 [基础配置](#基础配置)、[Docker 部署模式配置](#Docker部署模式配置)、[Kubernetes 部署模式配置](#Kubernetes部署模式配置)三大类。
 
 ## 基础配置
 
@@ -10,10 +10,10 @@ ECP 支持连接内部私有镜像仓库，通过镜像仓库，ECP 可以完成
 
 1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置**。
 2. 点击展开**镜像服务信息**部分。
-1. 点击**编辑**，进入编辑页面。
-2. 输入链接地址、用户名和密码。
-2. 完成设置后，点击**测试连接**检查连接的有效性。
-3. 最后点击**确认**，完成配置。
+3. 点击**编辑**，进入编辑页面。
+4. 输入链接地址、用户名和密码。
+5. 完成设置后，点击**测试连接**检查连接的有效性。
+6. 最后点击**确认**，完成配置。
 
 <img src="./_assets/manager-setting-mirrors-setting.png" style="zoom:60%;" align="middle">
 
@@ -37,27 +37,27 @@ ECP 支持连接内部私有镜像仓库，通过镜像仓库，ECP 可以完成
 
 可以从**纳管边缘服务认证配置**获取 ECP 在安装时自动生成的公钥文件，用于当**纳管**的 NeuronEX 开启认证时的秘钥。关于云边认证和 NeuronEX 开启认证请参考[边缘服务认证](../edge_service/e2c)。
 
-
 ![rsa](./_assets/manager-setting-rsa.png)
 
-## Docker部署模式配置
+## Docker 部署模式配置
 
-### Docker连接配置  
+### Docker 连接配置
 
 ECP 在 Docker 部署模式环境下提供了自定义连接信息功能，同时也提供了默认的配置。
 
 1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置**。
-2. 点击展开**Docker部署模式**部分，点击展开**Docker连接配置**。
+2. 点击展开**Docker 部署模式**部分，点击展开**Docker 连接配置**。
 3. 点击**编辑**，进入编辑页面，您可在此调整设置。
 
 :::tip 注意
 
-在通过 ECP [Docker方式批量安装边缘服务](../edge_service/batch_install.md)时，请先配置正确的`Docker连接配置`。
+在通过 ECP [Docker 方式批量安装边缘服务](../edge_service/batch_install.md)时，请先配置正确的`Docker连接配置`。
 
 :::
 <img src="./_assets/docker-info-config.png" style="zoom:80%;" align="middle">
 
 #### 不开启 TLS 认证
+
 当边缘服务的 Docker Engine 未开启 TLS 认证时，仅需要填入 Docker API 端口号即可。
 
 :::tip 注意
@@ -67,20 +67,20 @@ ECP 在 Docker 部署模式环境下提供了自定义连接信息功能，同�
 :::
 
 #### 开启 TLS 认证
+
 当边缘服务的 Docker Engine 开启 TLS 认证时，除了需要填入 Docker API 端口号，还需要填入 TLS 认证的相关信息。
 
-将[TLS 客户端证书](../edge_service/batch_install.md#开启-tls-认证)填入 ECP配置项， 从上到下依次填入 `ca.pem`证书文件、`cert.pem`客户端证书、`key.pem`客户端私钥。
+将[TLS 客户端证书](../edge_service/batch_install.md#开启-tls-认证)填入 ECP 配置项， 从上到下依次填入 `ca.pem`证书文件、`cert.pem`客户端证书、`key.pem`客户端私钥。
 
 :::tip 注意
-   该证书仅供测试使用，生产环境请使用自签名证书。
+该证书仅供测试使用，生产环境请使用自签名证书。
 :::
 
 ![ecp_docker_tls](./_assets/ecp_docker_tls.jpg)
 
-
 ### 边缘服务配置
 
-可以通过边缘服务配置修改**NeuronEX**的默认配置值，如修改默认的端口号、数据存储路径、日志存储路径等。ECP 通过Docker 批量创建边缘服务时，会根据此处的配置值创建容器。
+可以通过边缘服务配置修改**NeuronEX**的默认配置值，如修改默认的端口号、数据存储路径、日志存储路径等。ECP 通过 Docker 批量创建边缘服务时，会根据此处的配置值创建容器。
 
 1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置**。
 2. 点击展开**边缘服务配置**部分。
@@ -88,9 +88,9 @@ ECP 在 Docker 部署模式环境下提供了自定义连接信息功能，同�
 
 ![NeuronEX-Images](./_assets/quick-workspace-edge-quota.png)
 
-## Kubernetes部署模式配置
+## Kubernetes 部署模式配置
 
-### 配置 Kubernetes 连接设置
+### <span id="配置Kubernetes连接设置">配置 Kubernetes 连接设置</span>
 
 使用 ECP 管理 Kubernetes 资源之前，需要先配置 ECP 到 Kubernetes 的连接信息，方便 ECP 管理、控制和认证 Kubernetes 资源。
 
@@ -100,9 +100,9 @@ ECP 在 Docker 部署模式环境下提供了自定义连接信息功能，同�
 
 如所下载的 `kubeconfig` 文件中的以下三个字段指向外部文件路径
 
-- `certificate-authority-data`  
-- `client-certificate-data`  
-- `client-key-data`  
+- `certificate-authority-data`
+- `client-certificate-data`
+- `client-key-data`
 
 则需要将证书文件转换为 base64 编码过后的字符串：
 
@@ -132,14 +132,13 @@ certutil -f -encode "certificate file" "output file"
 
 1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置**。
 2. 点击展开 **Kubernetes 连接设置**部分。
-3. 点击新建 Kubernetes 连接，并在弹出的对话框中上传  `kubeconfig` 文件。更新将即刻生效。
+3. 点击新建 Kubernetes 连接，并在弹出的对话框中上传 `kubeconfig` 文件。更新将即刻生效。
 
 ![setting-k8s](./_assets/manager-setting-k8s.png)
 
 :::warning
 Kubernetes 的连接已建立、并有实际集群运行后，请尽量避免修改连接配置，否则当前运行的所有集群都会停止服务。
 :::
-
 
 ### 配置云端集群
 
@@ -150,10 +149,10 @@ Kubernetes 的连接已建立、并有实际集群运行后，请尽量避免修
 系统管理员可以新增、编辑或删除 EMQX 集群的镜像地址。在有公网连接的情况下，管理员可以直接配置公有镜像地址。如在使用私服镜像，也可以参照[镜像服务信息](#镜像服务信息)。
 
 1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置**。
-2. 点击展开**云端集群配置**部分，点击展开**EMQX容器镜像列表**。
+2. 点击展开**云端集群配置**部分，点击展开**EMQX 容器镜像列表**。
 3. 点击**编辑**，进入编辑页面。
-1. 您可点 + 新增一条镜像，并确定是否设为默认镜像。也可点击删除图标删除一条镜像。
-1. 点击**确认**完成设置。
+4. 您可点 + 新增一条镜像，并确定是否设为默认镜像。也可点击删除图标删除一条镜像。
+5. 点击**确认**完成设置。
 
 <img src="./_assets/manager-setting-mirrors.png" style="zoom:60%;" align="middle">
 
@@ -165,30 +164,24 @@ ECP 在 Kubernetes 环境下提供了自定义资源配额的功能，同时也�
 2. 点击展开**云端集群配置**部分，点击展开**集群资源配额**。
 3. 点击**编辑**，进入编辑页面，您可在此新增一条集群资源配额，调整配额，或者删除一条配额，删除配额不会对已运行的集群产生任何影响。
 
-
 以配置 CPU 为 1 核，内存为 1 Gi （ 1 Gi= 1024 Mi)，存储为 512 Mi 的规格，举例说明 EMQX 集群规格配置：
 
-
-|规格名称|规格/单位|解释|
-| :----------| :---------|:-------------------------|
-|EMQX 存储类名| `local-path`|Kubernetes 存储类名|
-|EMQX 存储大小|512Mi|占用磁盘空间大小|
-|是否默认|`true` 或 `false` |`true` 表示该规格被设置为默认选择规格，其他规格被自动设置为 `false`|
-|EMQX 配额列表说明|1C1G0.5G|最终在 EMQX 集群安装时显示的规格名称|
-|EMQX-cpu-limit|1000m|集群使用 CPU 的上限为 1 核|
-|EMQX-memory-limit|1024Mi|集群使用内存的上限为 1024Mi = 1Gi|
-|EMQX-cpu-request|1000m|集群使用 CPU 的下限为 1 核|
-|EMQX-memory-request|1024Mi|集群使用内存的下限为 1024Mi = 1Gi|
-|telegraf-cpu-limit|1000m|为 telegraf 分配 CPU 使用上限为 1 核|
-|telegraf-memory-limit|1024Mi|为 telegraf 分配内存上限为 1024Mi = 1Gi|
-|telegraf-cpu-request|100m|为 telegraf 分配 CPU 使用下限为 0.1 核|
-|telegraf-memory-request|100Mi|为 telegraf 分配内存下限为 100Mi|
-
+| 规格名称                | 规格/单位         | 解释                                                                |
+| :---------------------- | :---------------- | :------------------------------------------------------------------ |
+| EMQX 存储类名           | `local-path`      | Kubernetes 存储类名                                                 |
+| EMQX 存储大小           | 512Mi             | 占用磁盘空间大小                                                    |
+| 是否默认                | `true` 或 `false` | `true` 表示该规格被设置为默认选择规格，其他规格被自动设置为 `false` |
+| EMQX 配额列表说明       | 1C1G0.5G          | 最终在 EMQX 集群安装时显示的规格名称                                |
+| EMQX-cpu-limit          | 1000m             | 集群使用 CPU 的上限为 1 核                                          |
+| EMQX-memory-limit       | 1024Mi            | 集群使用内存的上限为 1024Mi = 1Gi                                   |
+| EMQX-cpu-request        | 1000m             | 集群使用 CPU 的下限为 1 核                                          |
+| EMQX-memory-request     | 1024Mi            | 集群使用内存的下限为 1024Mi = 1Gi                                   |
+| telegraf-cpu-limit      | 1000m             | 为 telegraf 分配 CPU 使用上限为 1 核                                |
+| telegraf-memory-limit   | 1024Mi            | 为 telegraf 分配内存上限为 1024Mi = 1Gi                             |
+| telegraf-cpu-request    | 100m              | 为 telegraf 分配 CPU 使用下限为 0.1 核                              |
+| telegraf-memory-request | 100Mi             | 为 telegraf 分配内存下限为 100Mi                                    |
 
 ![quota-add](./_assets/manager-setting-quota-add.png)
-
-
-
 
 #### 配置负载均衡
 
@@ -202,8 +195,7 @@ ECP 在 Kubernetes 环境下提供了自定义资源配额的功能，同时也�
 - 可以建立多个配置并让多个配置生效；
 - 配置默认按照业务连接数匹配生效；
 - 当配置的连接数有重叠时，默认匹配最早建的配置；
-- 配置的个数最大为100个；
-
+- 配置的个数最大为 100 个；
 
 ### 配置存储类
 
@@ -219,7 +211,7 @@ ECP 在 Kubernetes 环境下提供了自定义资源配额的功能，同时也�
 
    ```
    kubectl get sc
-   
+
    NAME                    PROVISIONER                      RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION        AGE
    alicloud-disk-ssd       diskplugin.csi.alibabacloud.com  Delete         Immediate             true                        170d
    alicloud-disk-topology  diskplugin.csi.alibabacloud.com  Delete         WaitForFirstConsumer  true                        170d
@@ -237,16 +229,36 @@ ECP 在 Kubernetes 环境下提供了自定义资源配额的功能，同时也�
 
 4. **保存**设置，新建的存储类会立即生效；
 
-
 ### Telegraf 镜像
 
-Telegraf 服务用于配置由ECP托管创建的 EMQX 集群的日志采集。
+Telegraf 服务用于配置由 ECP 托管创建的 EMQX 集群的日志采集。
 
 :::tip
 
-仅当 ECP 通过 Kubernetes 部署时，并且由ECP托管创建的 EMQX 集群才需要配置 Telegraf 镜像，ECP 纳管的 EMQX 集群不需要配置 Telegraf 镜像。
+仅当 ECP 通过 Kubernetes 部署时，并且由 ECP 托管创建的 EMQX 集群才需要配置 Telegraf 镜像，ECP 纳管的 EMQX 集群不需要配置 Telegraf 镜像。
 
 :::
 
 <img src="./_assets/manager-setting-Telegraf.png" alt="Telegraf 镜像" style="zoom:50%;" />
 
+### <span id="边缘服务配置Kubernetes">边缘服务配置（Kubernetes）</span>
+
+为**NeuronEX**提供了自定义资源配额的功能，同时也提供了默认的配额配置。ECP 通过 Kubernetes 批量创建边缘服务时，会根据此处的配置值创建容器。
+
+1. 以系统管理员的身份登录 ECP，在系统管理页面，点击**系统设置** -> **资源配置** -> **Kubernetes 部署模式**。
+2. 点击展开**边缘服务配置**部分。
+3. 点击**编辑**，进入编辑页面，您可在此调整设置。
+
+以配置 CPU 为 1 核，内存为 1 Gi （ 1 Gi= 1024 Mi)，存储为 512 Mi 的规格，举例说明 EMQX 集群规格配置：
+
+| 规格名称                | 规格/单位    | 解释                                     |
+| :---------------------- | :----------- | :--------------------------------------- |
+| NeuronEX 存储类名       | `local-path` | Kubernetes 存储类名                      |
+| NeuronEX 存储大小       | 512Mi        | 占用磁盘空间大小                         |
+| NeuronEX 配额列表说明   | 1C1G0.5G     | 最终在 NeuronEX 集群安装时显示的规格名称 |
+| NeuronEX-cpu-limit      | 1000m        | 边缘服务使用 CPU 的上限为 1 核           |
+| NeuronEX-memory-limit   | 1024Mi       | 边缘服务使用内存的上限为 1024Mi = 1Gi    |
+| NeuronEX-cpu-request    | 1000m        | 边缘服务使用 CPU 的下限为 1 核           |
+| NeuronEX-memory-request | 1024Mi       | 边缘服务使用内存的下限为 1024Mi = 1Gi    |
+
+![NeuronEX-Images](./_assets/quick-workspace-edge-quota-k8s.png)
