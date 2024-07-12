@@ -78,7 +78,7 @@ ECP provides the alarm management for cluster rules and connectors on the **Work
 
 To notify cluster alarms by email or Webhook, enable "Push EMQX Alarm" when creating notification.
 
-<img src="_assets/cluster-alarm-notification.png" align="middle">
+<img src="./_assets/cluster-alarm-notification.png" align="middle">
 
 For other details of alarm, see [Alarms](../monitor/alarm_rules.md))
 

@@ -78,7 +78,7 @@ ECP **工作台** -> **监控运维** -> **告警** 页面支持纳管集群的�
 
 如果您需要对集群中发生的告警设置邮件或 Webhook 通知，在创建告警推送时请启用“EMQX 告警推送”。
 
-<img src="_assets/cluster-alarm-notification.png" style="zoom: 50%;" align="middle">
+<img src="./_assets/cluster-alarm-notification.png" style="zoom: 50%;" align="middle">
 
 有关告警功能的其他详细解释，请参考[告警](../monitor/alarm_rules.md)。
 
