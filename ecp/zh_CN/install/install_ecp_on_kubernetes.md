@@ -71,6 +71,9 @@ helm pull emqx/kube-ecp-stack --untar
         username: "elastic"
         password: "elastic"
   ```
+:::tip 注意
+由于国内可能无法访问 `hub.docker.com`, 可以将 `global.image.registry` 和 `global.image.repository` 修改为 `registry-intl.cn-shanghai.aliyuncs.com` 和 `bchub`, 然后使用后文提到的 **无法访问 Internet时** 的方式进行安装。
+:::
 
 - 如果可以访问 Internet，请运行以下命令：
   ```shell

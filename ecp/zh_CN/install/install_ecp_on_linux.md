@@ -50,6 +50,10 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 全部回车跳过表示，使用默认的 ECP 版本，通过公共 docker 镜像仓库获取镜像，持久化数据保存路径为`[当前脚本路径]/datavolumes/`。
 ![configure](./_assets/configure.png)
 
+:::tip 注意
+由于国内可能无法访问 `hub.docker.com`, 可以在提示 `Please input EMQX ECP docker registry URL (default: docker.io)` 时输入 `registry-intl.cn-shanghai.aliyuncs.com`， 在提示 `Please input EMQX ECP docker registry repo name (default: )` 时输入 `bchub`, 使用阿里云备用镜像仓库进行安装。
+:::
+
 ### 启动服务
 
 - 如有必要， 可以修改配置文件 `emqx_ecp.conf`。 - 如已有 `ElasticSearch` 服务， 可能修改如下配置：
