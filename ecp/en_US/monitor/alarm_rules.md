@@ -48,7 +48,7 @@ You can configure the notification silence duration and the objects for which th
 
 If the silence duration applies to "Single alarm level", then ECP won't repeatedly send notifications for the same alarm within the silence duration period. Notifications will resume once the silence duration expires.
 
-If the silence duration applies to "Edge service instance level", then any alarms generated on the same edge service within the silence duration period won't trigger repeated notifications. Notifications will resume once the silence duration expires.
+If the silence duration applies to "Edge/Cluster service instance level", then any alarms generated on the same edge service or cluster within the silence duration period won't trigger repeated notifications. Notifications will resume once the silence duration expires.
 
 Notification silence settings only affect alarms notification through emails and Webhooks. All alarm events will still be displayed in the Active/History Alarms.
 
@@ -58,7 +58,7 @@ Log in as system admins, organization admins, or project admins, you can also se
 
 ![alert_rules](./_assets/alert-rules.png)
 
-ECP currently supports alarm rules triggered by edge services and those triggered by ECP itself. Rules triggered by edge services include NeuronEX driver exceptions, NeuronEX rule exceptions, and NeuronEX restarted event. ECP-triggered rules include NeuronEX offline event, email sending failures, and Webhook sending failures. For more details on these rules, please refer to the [Operations Management - Alarm Rules List](../monitor/rules.md).
+ECP currently supports alarm rules triggered by edge services, by EMQX clusters and by ECP itself. Rules triggered by edge services include NeuronEX driver exceptions, NeuronEX rule exceptions, NeuronEX offline event, and NeuronEX restarted event. Rules triggered by clusters include EMQX rule exceptions and EMQX connector exceptions. ECP-triggered rules include email sending failures, and Webhook sending failures. For more details on these rules, please refer to the [Operations Management - Alarm Rules List](../monitor/rules.md).
 
 You can set both the triggering conditions and rescovery conditions for each rule. The only exception is **NeuronEX restart** alarm rule, which you cannot set for either. You can set smaller triggering values if you want alarms to be more sensitive. Or you can set larger triggering values if you prefer to limit the frequency of alarms. Currently, the upper limit for triggering and recovery values is 10.
 
@@ -70,15 +70,19 @@ Log in as system admins, organization admins, or project admins, you can also se
 
 ![alarm-notification-config](./_assets/alarm-notification-config.png)
 
-ECP supports configuring one or more alarm notifications. Different alarm notifications are associated with different edge services by service tags. When alarms are triggered on these associated edge services, notifications will be sent to the corresponding email and Webhooks.
+ECP supports configuring one or more alarm notifications. Different alarm notifications are associated with different edge services by service tags, or associated to cluster if **Push EMQX Alarm** is enabled. When alarms are triggered on these associated edge services or clusters, notifications will be sent to the corresponding email and Webhooks.
 
-<img src="./_assets/alert-notification.png" style="zoom: 50%;" align="middle">
+<img src="./_assets/alert-notification.png" style="zoom: 80%;" align="middle">
 
 ### Alarmed Edge Services
 
 If "All" is selected, any alarms triggered on edge services within the project will be sent to the emails and Webhooks set in this configuration. Alternatively, one or more service tags can be chosen, and only alarms from edge services associated with these selected tags will be notified.
 
 Please note: If the alarm is triggered on project level, such as email sending failure or Webhook sending failure alarms, notifications will be sent to emails and Webhooks in all notification configurations.
+
+### Push EMQX Alarm
+
+If "Push EMQX Alarm" is enabled, any alarm generated on clusters within the project will be sent to the email or Webhook.
 
 ### Email Notification
 
