@@ -1,4 +1,4 @@
-# Monitor Edge Services
+# Monitor EMQX Cluster
 
 ECP provides a comprehensive operating status overview on the **Workspace - Maintenance - Monitoring - Data Integration Monitoring** page.
 
