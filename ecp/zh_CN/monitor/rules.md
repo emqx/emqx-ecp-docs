@@ -8,3 +8,5 @@
 | NeuronEX 重启告警 | 严重 |NeuronEX <code v-pre>{{实例名称}}</code> 重启 | 同一个 NeuronEX |
 | 邮件发送失败告警 | 一般 |邮件发送失败， 请检查邮件服务器配置。 |  |
 | Webhook 发送失败告警 | 一般 |Webhook 发送失败，Webhook 地址： <code v-pre>{{Webhook地址}}</code> |  |
+| EMQX 规则异常 | 严重 |EMQX <code v-pre>{{实例名称}}</code> 规则 <code v-pre>{{规则名称}}</code> 异常 | 同一个 EMQX 集群 |
+| EMQX 连接器异常 | 严重 |EMQX <code v-pre>{{实例名称}}</code> 连接器 <code v-pre>{{连接器名称}}</code> 异常 | 同一个 EMQX 集群 |

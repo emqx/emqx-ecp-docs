@@ -1,20 +1,27 @@
 # Add EMQX Clusters
 
-ECP supports adding clusters by creating (recommended) or adding existing EMQX clusters. It is recommended to add clusters by creating with ECP, which offers more extensive functionality and allows for license and connection quota sharing. 
+ECP supports adding clusters by creating (recommended) or adding existing EMQX clusters:
+
+- Creating clusters with ECP offers more extensive functionality and allows for license and connection quota sharing.
+- Adding clusters into ECP allows easy management for existing clusters. ECP supports management for EMQX v4 Enterprise Edition (4.4.6 and above) and EMQX v5 Enterprise Edition (5.6.0 and above).
 
 There are functional differences between creating (**Hosted Clusters**) and managing clusters (**Managed Clusters**) on the ECP platform, as shown in the table below.
 
-|Function|Hosted Clusters|Managed Clusters|
-|:--------:|:----:|:----:|
-|Start/Stop|✅|❌|
-|Horizontal Scaling|✅|❌|
-|Vertical Scaling|✅|❌|
-|Update Network Type|✅|❌|
-|Update Connection Limit|✅|❌|
-|Upgrade/Downgrade|✅|❌|
-|Cluster Transfer|✅|✅|
-|Delete|✅|✅|
-|Log|✅|✅|
+|Function|Hosted v4 Clusters|Managed v4 Clusters|Managed v5 Clusters|
+|:--------:|:----:|:----:|:----:|
+|Start/Stop|✅|❌|❌|
+|Deletion|✅|✅|✅|
+|Horizontal Scaling|✅|❌|❌|
+|Vertical Scaling|✅|❌|❌|
+|Update Network Type|✅|❌|❌|
+|Update Connection Limit|✅|❌|✅*|
+|Upgrade/Downgrade|✅|❌|❌|
+|Log|✅|✅|✅|
+|Cluster Monitor|❌|❌|✅|
+|Cluster Alarm|❌|❌|✅|
+|Cluster Transfer|✅|✅|✅|
+
+\* For managed clusters, **Update Connection Limit** feature applies to EMQX v5.7.0 and above.
 
 ## Create a Hosted Cluster
 
@@ -32,6 +39,30 @@ There are functional differences between creating (**Hosted Clusters**) and mana
 The newly-created clusters will be listed in the **Cluster List** panel with the status **Creating**. Wait till the status changes to **Running**, indicating the cluster is ready for production use. 
 
 <img src="./_assets/cluster-running.png" alt="cluster-running" style="zoom:50%;" />
+
+## Status for Hosted Cluster
+
+You can start or stop a cluster as your business requirement changes. 
+
+1. Log in as system admin, organization admin, or project admin. 
+2. On the target cluster, click the more icon and select **Stop**/**Start**. 
+
+Hosted EMQX cluster can be in the following states:
+
+| Status             | Description                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Creating           | Intermediate state during the process of new cluster creation |
+| Updating           | Intermediate state during cluster OM operations, such as horizontal or vertical scaling, network type modifications, connection number modifications, cluster upgrade or downgrade |
+| Starting           | When starting the service                                    |
+| Running            | Normal running state of the cluster                          |
+| Stopping           | When stopping the service or an intermediate state after deleting a cluster |
+| Stopped            | After stopping or deleting                                   |
+| Syncing Status     | Intermediate state during horizontal or vertical scaling, cluster upgrade or downgrade, network type modifications, connection number modifications |
+| Downgraded Running | One or more nodes of the cluster are unavailable, but the overall cluster is still usable |
+| Error              | The most recent task executed by the cluster failed (can auto-recover), or a cluster fault or dirty data occurred (this state rarely appears)<!--shall we remove the dirty data part?--> |
+| Nonexistent        | The task to create the cluster was not successfully issued   |
+
+For clusters in the state of Error, you can click the more icon and click **Try Fix**. If the problem is successfully solved, the cluster state will be Running; or consider deleting the cluster or reaching out to EMQ's technical support.
 
 ## Add an Existing Cluster
 
@@ -109,30 +140,18 @@ ECP also provides the capability to manage existing EMQX clusters. ECP supports 
 ![cluster-v5-dashboard](./_assets/cluster-v5-dashboard.png)  
 
 
-## Cluster Status
+## Status for Managed Cluster
 
-You can start or stop a cluster as your business requirement changes. 
+Managed EMQX cluster can be in the following states:
 
-1. Log in as system admin, organization admin, or project admin. 
-2. On the target cluster, click the more icon and select **Stop**/**Start**. 
+| Status      | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| Created     | Cluster with no node registered yet                          |
+| Registering | Intermediate state during cluster node registration          |
+| Running     | Normal running state of the cluster                          |
+| Deleting    | Intermediate state  before cluster deletion completes        |
+| Error       | Abnormal running state of the cluster, or network connection issue between agent and cluster or between agent and ECP |
 
-
-
-EMQX cluster can be in the following states:
-
-| Status             | Description                                                  |
-| ------------------ | ------------------------------------------------------------ |
-| Creating           | Intermediate state during the process of new cluster creation |
-| Updating           | Intermediate state during cluster OM operations, such as horizontal or vertical scaling, network type modifications, connection number modifications, cluster upgrade or downgrade |
-| Starting           | When starting the service                                    |
-| Running            | Normal running state of the cluster                          |
-| Stopping           | When stopping the service or an intermediate state after deleting a cluster |
-| Stopped            | After stopping or deleting                                   |
-| Syncing Status     | Intermediate state during horizontal or vertical scaling, cluster upgrade or downgrade, network type modifications, connection number modifications |
-| Downgraded Running | One or more nodes of the cluster are unavailable, but the overall cluster is still usable |
-| Error              | The most recent task executed by the cluster failed (can auto-recover), or a cluster fault or dirty data occurred (this state rarely appears)<!--shall we remove the dirty data part?--> |
-| Nonexistent        | The task to create the cluster was not successfully issued   |
-
-For clusters in the state of Error, you can click the more icon and click **Try Fix**. If the problem is successfully solved, the cluster state will be Running; or consider deleting the cluster or reaching out to EMQ's technical support.
+For clusters in the state of Error, you can click the Error status icon to view possible cause.
 
 <!--also the English for the status should be confirmed-->
