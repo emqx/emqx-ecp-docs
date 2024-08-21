@@ -9,4 +9,6 @@ See below for a list of alarms in ECP.
 | NeuronEX offline alarm                                       |        Critical        | NeuronEX <code v-pre>{{instance name}}</code> Offline        | From the same NeuronEX instance                    |
 | NeuronEX restart alarm                                       |        Critical        | NeuronEX <code v-pre>{{instance name}}</code> Restarted      | From the same NeuronEX instance                    |
 | Email send failed alarm                                      |         Normal         | Email sending failed,  please check mail server configuration. |                                                    |
-| Webhook send failed alarm                                    |         Normal         | Webhook sending failed, Webhook address: <code v-pre>{{address}}</code> |                                                    |
+| Webhook send failed alarm                                    |         Normal         | Webhook sending failed, Webhook address: <code v-pre>{{address}}</code>. |                                                    |
+| EMQX rule alarm                                              |        Critical        | EMQX <code v-pre>{{instance name}}</code> Rule <code v-pre>{{rule name}}</code> alarm. | From the same EMQX cluster                         |
+| EMQX connector alarm                                         |        Critical        | EMQX <code v-pre>{{instance name}}</code> Connector <code v-pre>{{connector name}}</code> alarm. | From the same EMQX cluster                         |

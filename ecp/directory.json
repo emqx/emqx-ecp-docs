@@ -138,7 +138,7 @@
                 },
                 {
                     "title": "EMQX 集群监控",
-                    "path": "https://docs.emqx.com/zh/enterprise/v4.4/getting-started/dashboard-ee.html#%E7%9B%91%E6%8E%A7"
+                    "path": "monitor/monitor_cluster"
                 },
                 {
                     "title": "边缘服务监控",
@@ -326,7 +326,7 @@
                 },
                 {
                     "title": "Monitor EMQX Clusters",
-                    "path": "https://docs.emqx.com/en/enterprise/v4.4/getting-started/dashboard-ee.html#monitor"
+                    "path": "monitor/monitor_cluster"
                 },
                 {
                     "title": "Monitor Edge Services",

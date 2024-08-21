@@ -86,7 +86,7 @@ To view the external IP and port, click on the Cluster name (or Cluster ID), or 
 ![LoadBalancer](./_assets/cluster-loadbalancer.png)
 
 
-## Update Connect Limit (Kubernetes Deployment)
+## Update Connect Limit
 
 You can dynamically modify the number of connections in the cluster according to business needs:
 
@@ -95,9 +95,9 @@ You can dynamically modify the number of connections in the cluster according to
 
 However, please be noted that:
 
-1. The number of connections is limited by the total number of connections allowed by the license. 
-2. If you are using the LoadBalancer network type, please avoid modifying the number of connections if not necessary, otherwise, it will cause the LoadBalancer's IP address to change.
-   
+1. For hosted cluster, if you are using the LoadBalancer network type, please avoid modifying the number of connections if not necessary, otherwise, it will cause the LoadBalancer's IP address to change.
+2. For managed cluster, This feature applies to EMQX v5.7.0 and above. The license quota on ECP will be restored once unregistration or cluster deletion completes, and the connections assigned to EMQX cluster will be reclaimed then. Please reset the EMQX license via **Reset License** from EMQX dashboard.
+3. For clusters in the state of Error, you can click the Error status icon to view possible cause.
 
 
 ## Upgrade (Kubernetes Deployment)
@@ -128,17 +128,44 @@ For easier management, ECP provides a feature for transferring EMQX clusters acr
 ECP offers a unified log feature. 
 
 1. Log in as system admin, organization admin, or project admin. 
-
-2. On the target cluster, click the more icon and select **Log**. 
+2. If the existing cluster is added into ECP, please enable and specify logs location when registering cluster node.
+   - parameter for enabling log collection: `--emqx-log-collection-enabled`
+   - parameter for cluster log directory path: `--emqx-log-collection-dir /opt/emqx/log`. If the cluster is installed via docker, please mount the log directory on the host machine into the container, and use the directory path on the host machine in the parameter.
+3. On the target cluster, click the more icon and select **Log**. 
 
 You will be directed to the **Log** page, where you can view the log level, generated time, and log messages. For more information on logs, see [Logs](../log/introduction.md).
 
 <img src="./_assets/cluster-log.png" alt="log" style="zoom:50%;" />
 
-## Delete Clusters
+## Delete Cluster
 
 For unused clusters, it's advisable to delete them to save IT resources. 
 
 1. Log in as system admin, organization admin, or project admin. 
-
 2. On the target cluster, click the more icon and select **Delete** and confirm the action. ECP will first stop the cluster before proceeding with the deletion.
+
+## Monitor Cluster
+
+ECP provides the status overview for managed clusters on the **Cluster Monitor** page. For details, see [Monitor EMQX Clusters](../monitor/monitor_cluster.md)
+
+:::tip 
+
+Monitoring on clusters feature applies to EMQX v5.
+
+:::
+
+## View Cluster Alarms
+
+ECP provides the alarm management for cluster rules and connectors on the **Alarm** page. 
+
+To notify cluster alarms by email or Webhook, enable "Push EMQX Alarm" when creating notification.
+
+<img src="./_assets/cluster-alarm-notification.png" style="zoom: 80%;" align="middle">
+
+For other details of alarm, see [Alarms](../monitor/alarm_rules.md)
+
+:::tip 
+
+Cluster alarms feature applies to EMQX v5.
+
+::
