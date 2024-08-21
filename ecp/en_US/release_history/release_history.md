@@ -20,6 +20,23 @@ Release Date: 07/12/2024
 - The alarm link address in the alarm information email and webhook push is incorrect
 
 
+## v2.2.2
+Release Date: 08/05/2024
+
+### Enhancements
+- Supports EMQX v5 management and license management for EMQX v5 (>=5.7 version)
+- Supports monitoring and alarming for managed EMQX v5 clusters
+- Managed EMQX v4 supports port mapping for Loadbalancer and NodePort
+- Display EMQX version information in connection field on the license page
+- When managing EMQX clusters, dashboard displays agent exception information
+- Optimize ECP backend logs
+
+### Fixes
+- Fix the configuration of SSO single sign-on options
+- Fix the error in NeuronEX management prompt information
+- Fix the error in deleting files after ECP jumps to the NeuronEX page
+
+
 ## v2.2.1
 Release Date: 05/20/2024
 
