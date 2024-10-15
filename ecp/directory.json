@@ -157,6 +157,10 @@
                     "path": "monitor/rules"
                 },
                 {
+                    "title": "链路追踪",
+                    "path": "monitor/trace"
+                },
+                {
                     "title": "操作审计",
                     "path": "system_admin/operation_audit"
                 },
@@ -347,6 +351,10 @@
                 {
                     "title": "Alarm List",
                     "path": "monitor/rules"
+                },
+                {
+                    "title": "Traces",
+                    "path": "monitor/trace"
                 },
                 {
                     "title": "Audit",
