@@ -1,5 +1,35 @@
 # Release History
 
+## v2.4.0
+Release Date: 2024-11-07
+
+### Enhancements
+
+- Optimized SSO Functionality
+  - When SSO users log into ECP, user registration page no longer appears. ECP will automatically synchronize the organization & project permissions for SSO users
+  - Dashboard now supports displaying “SP Entity ID”
+  - Configuration supports "Auto Bind IdP User" option
+  - New user creation supports the option to designate as SSO user
+- Added Trace Functionality
+  - Internal integration with OpenTelemetry
+  - Supports tracing of NeuronEX and EMQX messages
+  - Dashboard displays trace chain results
+- Enhanced Template Features
+  - Added template version management
+  - Added support for template parameter modification during distribution
+  - Added template sharing between multiple organizations
+  - ECP Dashboard supports synchronizing NeuronEX drivers and rule configurations as ECP templates
+- Added EMQX cluster registered node management, supporting helm installation method
+- Added storage of NeuronEX CPU and memory metrics to Prometheus
+
+### Fixes
+
+- Fixed pagination issue for abnormal driver list in edge service monitoring page
+- Fixed organization project frame ID flash issue
+- Fixed login failure issue caused by long email addresses during first SSO login
+- Fixed display issues with user information when email addresses are lengthy
+
+
 ## v2.3.0
 Release Date: 07/12/2024
 
