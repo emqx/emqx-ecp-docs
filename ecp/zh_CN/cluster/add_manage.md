@@ -1,6 +1,6 @@
 # 纳管集群
 
-如果您已经部署了一套或几套 EMQX 集群，可以通过 ECP 的集群纳管功能管理已有集群。ECP 目前支持 EMQX v4 企业版（4.4.6 及以上）及 v5 企业版（5.6.0 及以上）的纳管。
+如果您已经部署了一套或几套 EMQX 集群，可以使用 ECP 的集群纳管功能管理已有集群，该功能通过一个集群纳管代理来完成管理工作。ECP 目前支持 EMQX v4 企业版（4.4.6 及以上）及 v5 企业版（5.6.0 及以上）的纳管。
 
 ## ECP 纳管 EMQX 集群
 
@@ -14,36 +14,43 @@
 
 ![cluster-running](./_assets/cluster-existing-init.png) 
 
-
-
 5. 在集群卡片或集群列表中，点击**注册节点**，将弹出集群注册引导页。
-
-6. 在注册引导页，选择 CPU 架构，当前支持 AMD64、ARM、ARM64 三种架构；按照注册引导页的提示完成注册。
 
    <img src="./_assets/cluster-existing-reg.png" style="zoom:50%;" align="middle"> 
 
-7. 登录到 EMQX 集群安装的虚机环境，按顺序执行注册引导页中的命令；
+6. 在注册引导页，确定**注册方式**和**CPU 架构**，以选择合适的集群纳管代理进行下载安装。目前支持二进制包和 Kubernetes 两种安装方式 ，二进制安装方式下可以从 AMD64、ARM、ARM64 三种架构中进行选择。
+
+7. 登录到 EMQX 集群安装的虚机环境，按照引导完成集群纳管代理的下载。
 
    ```bash
    # 下载 EMQX Agent 
-   sudo curl -L -f --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
+   sudo curl -L -f -k --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
    
    # 修改 Agent 权限
    sudo chmod +x /usr/local/bin/emqxee-agent
    
    # 启动 Agent
    sudo /usr/local/bin/emqxee-agent start
-   
-   # 注册到 ECP
-   sudo /usr/local/bin/emqxee-agent register --url https://[ecp] --registration-token bf2779e5176446cd8e18fde81d826497
    ```
 
-8. 回到 ECP **数据接入**页，查看集群列表，可以看到被纳管的 EMQX 集群已被注册到 ECP 中，状态显示为**运行中**。
-    ![纳管集群](./_assets/cluster-existing.png) 
+8. 根据提示，在**节点配置**部分填写注册必要的信息。填写的内容将自动填充到注册命令中：
 
-9. 如果纳管的是 v4 版本集群，集群正常运行后，在操作列将出现 **进入Dashboard** 按钮，点击后可访问集群的 dashboard。如果没有出现该按钮，请检查 ECP 配置文件中的 `cluster.agent` 是否配置正确并可被 agent 访问。
+   - 如果使用二进制包安装方式，集群纳管代理与 EMQX 集群在同一台虚机上，`dashboardUrl` 和 `apiUrl` 可使用本地地址。
+   - 如果使用 Kubernetes 安装方式，请确保集群纳管代理可以通过填写的 `dashboardUrl` 和 `apiUrl` 访问到EMQX 集群。
 
-10. 如果纳管的是 v5 版本集群，正确设置集群服务地址后，在操作列将出现 **进入Dashboard** 按钮，点击即可在新窗口中直接查看集群的 dashboard。
+9. 拷贝**注册**部分的命令，在 EMQX 集群安装的虚机环境上运行命令，完成注册。
+
+   ```bash
+   # 注册到 ECP
+   sudo /usr/local/bin/emqxee-agent register --url https://[ecp] --registration-token [token] --emqx-dashboard-username [emqx-username] --emqx-dashboard-password [emqx-password] --emqx-dashboard-url [emqx-dashboard-url] --emqx-api-url [emqx-api-url]
+   ```
+
+10. 回到 ECP **数据接入**页，查看集群列表，可以看到被纳管的 EMQX 集群已被注册到 ECP 中，状态显示为**运行中**。
+     ![纳管集群](./_assets/cluster-existing.png) 
+
+11. 如果纳管的是 v4 版本集群，集群正常运行后，在操作列将出现 **进入Dashboard** 按钮，点击后可访问集群的 dashboard。如果没有出现该按钮，请检查 ECP 配置文件中的 `cluster.agent` 是否配置正确并可被 agent 访问。
+
+12. 如果纳管的是 v5 版本集群，正确设置集群服务地址后，在操作列将出现 **进入Dashboard** 按钮，点击即可在新窗口中直接查看集群的 dashboard。
 
 ## 集群状态
 
@@ -58,3 +65,7 @@
 |  异常  | 集群未正常运行，或者 agent 无法访问集群，或者 agent 无法与 ECP 正常通信 |
 
 如果集群状态显示为**异常**，可以点击**异常**状态查看原因。
+
+## 使用限制
+
+ECP 端每个纳管集群应对应单个 EMQX 集群，请不要注册多个 ECP 端纳管集群到同一个 EMQX 集群。

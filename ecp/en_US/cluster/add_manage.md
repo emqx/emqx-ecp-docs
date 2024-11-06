@@ -1,6 +1,6 @@
 # Add EMQX Clusters
 
-ECP supports adding existing EMQX clusters. ECP supports management for EMQX v4 Enterprise Edition (4.4.6 and above) and EMQX v5 Enterprise Edition (5.6.0 and above).
+ECP supports adding existing EMQX clusters by a cluster management agent. ECP supports management for EMQX v4 Enterprise Edition (4.4.6 and above) and EMQX v5 Enterprise Edition (5.6.0 and above).
 
 ## Add an Existing Cluster
 
@@ -12,35 +12,44 @@ ECP supports adding existing EMQX clusters. ECP supports management for EMQX v4 
 
 4. Click **Confirm** to finish the adding process. The newly-created clusters will be listed in the **Cluster List** panel with the status **Created**. 
 
-5. Click **Register Node** and follow the instructions on the cluster registration guide page to register the cluster node. 
-
    <img src="./_assets/cluster-existing-init.png" alt="cluster-running" style="zoom:50%;" />
 
-6. Select the CPU architecture in the **CPU Architecture** field, amd64, arm, and arm64 are supported. Follow the steps on this page to finish adding the existing cluster.
+5. Click **Register Node** and a cluster registration guide page will show.
 
-   <img src="./_assets/cluster-existing-reg.png" style="zoom: 50%;" align="middle"> 
+   <img src="./_assets/cluster-existing-reg.png" style="zoom: 50%;" align="middle">
 
-7. Log in to the virtual machine hosting the EMQX cluster, execute the commands provided on the registration guide page in sequential order.
+6. Select **Register Type** and **CPU Architecture** to choose how the cluster management agent be installed. Currently, the agent can be installed by binary or in Kubernetes. For binary installation, amd64, arm, and arm64 are supported. 
+
+7. Log in to the virtual machine hosting the EMQX cluster, execute the commands provided on the registration guide page to download the agent.
 
    ```bash
    # Download EMQX Agent
-   sudo curl -L -f --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
+   sudo curl -L -f -k --output /usr/local/bin/emqxee-agent https://[emqxee-agent]
    
    # Update EMQX Agent permission
    sudo chmod +x /usr/local/bin/emqxee-agent
    
    # Start EMQX Agent
    sudo /usr/local/bin/emqxee-agent start
-   
-   # Register on ECP
-   sudo /usr/local/bin/emqxee-agent register --url https://[emqxee-agent] --registration-token bf2779e5176446cd8e18fde81d826497
    ```
 
-8. Upon returning to the **Workspace - Data Integration - Data Access** page, you will find that the newly added existing cluster is now in the **Running** status.![](./_assets/cluster-existing.png) 
+8. Follow the instructions to fill in the fields in **Node Configuration** part. The content will be automatically filled into the registration command:
 
-9. If an EMQX v4 cluster is added for management, an **Enter Dashboard** button will display. Click it to view the EMQX v4 dashboard. If the **Enter Dashboard** button is not visible, please make sure `cluster.agent` section is correctly configured in ECP configuration file and the MQTT broker configured in it can be accessed by the agent.
+   - For binary installation, the agent and the EMQX cluster will be on the same virtual machine, therefore, localhost can be used in `dashboardUrl` and `apiUrl`.
+   - For Kubernetes installation, please be sure that the agent can visit the EMQX cluster by `dashboardUrl` and `apiUrl`.
 
-10. If an EMQX v5 cluster is added for management, an **Enter Dashboard** button will display if the **Cluster Address** has been configured. Click it to directly view the EMQX v5 dashboard in a new window.
+9. Copy and execute the command in **Register** part on the virtual machine to run the agent to finish registration.
+
+   ```bash
+   # Register on ECP
+   sudo /usr/local/bin/emqxee-agent register --url https://[ecp] --registration-token [token] --emqx-dashboard-username [emqx-username] --emqx-dashboard-password [emqx-password] --emqx-dashboard-url [emqx-dashboard-url] --emqx-api-url [emqx-api-url]
+   ```
+
+10. Upon returning to the **Workspace - Data Integration - Data Access** page, you will find that the newly added existing cluster is now in the **Running** status.![](./_assets/cluster-existing.png) 
+
+11. If an EMQX v4 cluster is added for management, an **Enter Dashboard** button will display. Click it to view the EMQX v4 dashboard. If the **Enter Dashboard** button is not visible, please make sure `cluster.agent` section is correctly configured in ECP configuration file and the MQTT broker configured in it can be accessed by the agent.
+
+12. If an EMQX v5 cluster is added for management, an **Enter Dashboard** button will display if the **Cluster Address** has been configured. Click it to directly view the EMQX v5 dashboard in a new window.
 
 
 
@@ -60,3 +69,7 @@ Managed EMQX cluster can be in the following states:
 For clusters in the state of Error, you can click the Error status icon to view possible cause.
 
 <!--also the English for the status should be confirmed-->
+
+## Limitation
+
+Each cluster on ECP side should map to a single EMQX cluster. Please do not register multiple clusters on ECP side to the same EMQX cluster.
