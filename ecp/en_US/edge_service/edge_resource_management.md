@@ -29,13 +29,25 @@ Click the **Template Distribution** button in the **Action** column to open the 
 
 ![template-deliver](./_assets/edge-template-deliver.png)
 
+#### Template Edit
+
 In the pop-up window, you can make necessary modifications to the template content. The modifications will only affect the current delivery and will not be saved in the template.
 
-![template-deliver-edit](./_assets/edge-template-deliver-1.png)
+Use **\$\{\}** to parameterize some parameters in the delivered configuration.
+
+For example, parameterize `192.168.1.100` as `host`.
+
+![template-deliver-edit](./_assets/edge-template-deliver-1_en.png)
 
 Click the **Next** button to choose the target edge services to which the template will be delivered. You can quickly locate service instances by filtering on their name, endpoint, version or tags and select them by checking the checkbox.
 
-![template-deliver-target](./_assets/edge-template-deliver-2.png)
+![template-deliver-target](./_assets/edge-template-deliver-2_en.png)
+
+In the **Parameters Edit** page, you can add parameters to the template edit page, and batch assign values to parameters of multiple edge services based on the parameterized variables added in the template edit page, improving the efficiency of edge configuration. 
+
+The input in the `default` row represents the default value, and the input in the `default` row can be left blank. The value of the parameter assigned to the specific edge service will override the input value in the `default` row. Click the **Preview** button to preview the delivered configuration.
+
+![template-deliver-result](./_assets/edge-template-deliver-3_en.png)
 
 Click the **Implement** button, and ECP will deliver the template to the specified target edge services. The delivery status will be displayed on the results page in real-time. Please wait on this page for a moment to view the following results:
 
@@ -43,7 +55,7 @@ Click the **Implement** button, and ECP will deliver the template to the specifi
 
 - Failure reasons can be checked in the **Reason** column.
 
-![template-deliver-result](./_assets/edge-template-deliver-3.png)
+![template-deliver-result](./_assets/edge-template-deliver-4_en.png)
 
 To review the previous delivery results, you can search from the **Audit** page under the **Administration** menu.
 
@@ -85,3 +97,16 @@ To review the previous delivery results, you can search from the **Audit** page 
 
 ![ext-deliver-audit](./_assets/edge-ext-deliver-audit.png)
 
+## Template and Plugin Version Management
+
+Starting from ECP v2.4.0, template and plugin version management is supported. The version management function supports storing and managing multiple versions in a template, and supports selecting different versions during distribution.
+
+![template-version-zh](./_assets/template_version_en.png)
+
+![plugin_version_zh](_assets/plugin_version_en.png)
+
+## Template and Plugin Sharing
+
+Starting from ECP v2.4.0, template and plugin sharing between multiple organizations and projects is supported.
+
+![template_share_zh](_assets/template_share_en.png)
