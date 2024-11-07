@@ -10,7 +10,8 @@ ECP supports creating users or inviting users by their emails.
 
 :::tip Prerequisite
 
-Ensure that you have the necessary email addresses of the users to be created.
+- Ensure that you have the necessary email addresses of the users to be created.
+- Enter **System Settings** -> **General Settings** -> **User Invite** as system admin and set **Invite Method** to 'None'.
 
 :::
 
@@ -20,17 +21,20 @@ Ensure that you have the necessary email addresses of the users to be created.
 
 3. Click **Create User**. Then in the pop-up dialog box, enter a username, their email, grant a role, and password. 
 
-   - **Username**: Username should be between 1 and 50 characters long; also support "_", "-", and blank spaces.
-   - **Email**: Input a valid email address. 
+   - **Email**: 
+     - Input one or more valid email addresses to create single or batch users.
    - **Role**: Choose either of the following roles:
      - **Admin**: Admin has the highest level of permissions to manage resources on the ECP platform, including all organizations and projects.
      - **User**: New users cannot access organizations or projects. To grant access, see [Edit Users](#edit-users) or [Organization and Project](./introduction.md).
-
-   - **Password**: Enter a password for the created users, it should contain at least 8 characters and should be a combination of letters, numbers, or symbols.
+   - **Organization and Project**: 
+     - Choose the default organization and project for the user, and choose either user or admin role for the organization and project.
+   - **SSO User**:
+     - An SSO user can only log into ECP via third-party sso authentication system, instead of username and password.
+     - A non-SSO user should be created with initial password configured. The password should contain at least 8 characters and should be a combination of letters, numbers, or symbols.
 
 4. Click **Confirm** to finish the creation. 
 
-![new-user](./_assets/manager-user-new.png)
+![new-user](./_assets/create-users.png)
 
 ## Invite Users
 
