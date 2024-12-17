@@ -1,5 +1,22 @@
 # Release History
 
+## v2.3.1
+Release Date: 2024-12-17
+
+### Enhancements
+
+- SAML SSO displays EntityID information
+
+### Fixes
+
+- Fix the error  when deleting files in the file management after ECP jumps to the NeuronEX page
+- Fix the page of abnormal driver list cannot be turned on the edge service monitoring page
+- Fix the problem that the managed NeuronEX displayed blank when entering the Dashboard when ECP 2.2.x is upgraded to 2.3.x
+- Fix the problem that the algorithm plugin name is different from the json file in the plugin zip package, and the displayed distribution result is inconsistent with the expectation
+- Fix the problem that the Root Adress must fill in the port regardless of the domain name or IP
+- Fix the problem that the error log is displayed when kubeconfig is not configured
+
+
 ## v2.4.0
 Release Date: 2024-11-07
 
