@@ -175,3 +175,86 @@ Please input your name:         # 请为您的账户设置一个显示名称，�
   echo "${YOUR_PASSWORD}" | docker login ${YOUR_REGISTRY} -u ${YOUR_USERNAME} --password-stdin
   ./retag.sh
   ```
+
+
+
+## 离线安装
+
+1. 下载 docker image 压缩包
+
+2. 解压缩
+
+   ```
+   mkdir  image & tar -zxvf   emqx-ecp-dependency-images-2.4.1-alpha.4.tar.gz -C  ./image
+   ```
+
+3. 导入docker image
+
+   在 Kubernetes 中，Docker 和 containerd 的区别主要在于它们作为容器运行时的实现方式不同：Docker 通过其自身的容器运行时来管理容器的生命周期，而 containerd 是一个更轻量级的容器运行时，直接与容器交互，通常提供更简洁的接口和更好的性能。这两种导入docker image的方式也有所不同。
+
+   :::tip 注意
+   您可以通过以下命令来判断 Kubernetes 集群中使用的是 Docker 还是 Containerd：
+
+   ```bash
+   kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.containerRuntimeVersion}'
+   ```
+
+   这条命令将返回每个节点使用的容器运行时版本信息。如果返回的信息包含“docker”，则为 Docker；如果为“containerd”，则为 Containerd。
+   :::
+
+   - **docker**
+
+     ```
+     cd image 
+     for t in *.image; do docker load -i "$t"; done
+     ```
+
+   - **containerd**
+
+     ```shell
+     #!/bin/bash
+     
+     # 遍历当前文件夹下所有以 .image 结尾的文件
+     for image_file in *.image; do
+         # 获取不带 .image 扩展名的文件名
+         base_name="${image_file%.image}"
+         
+         # 重命名文件，将 .image 扩展名改为 .tar.gz
+         mv "$image_file" "${base_name}.tar.gz"
+         
+         # 解压缩 .tar.gz 文件
+         gunzip "${base_name}.tar.gz"
+         
+         # 导入解压缩后的 .tar 文件到 containerd
+         ctr -n k8s.io image import "${base_name}.tar"
+         
+         # 可选：删除解压缩后的 .tar 文件，以节省空间
+         # rm "${base_name}.tar"
+     done
+     ```
+
+     1. 将上述脚本保存为一个文件，例如 `import_images.sh`。
+
+     2. 脚本执行：
+
+        ```
+        chmod +x import_images.sh
+        ./import_images.sh
+        ```
+
+     3. 查看镜像是否导入成功 
+
+        ```
+        crictl images
+        ```
+
+4. 通过上面的方式安装启动ECP
+
+   ```
+   helm pull emqx/kube-ecp-stack --version ${version} --untar
+   cd kube-ecp-stack
+   helm upgrade --install ${YOUR_RELEASE_NAME} . --namespace ${YOUR_NAMESPACE} --create-namespace
+   ```
+
+   
+

@@ -129,3 +129,25 @@ Please input your name:         # 请为您的账户设置一个显示名称，�
 ![login](./_assets/login.png)
 
 通过超级用户帐户登录后，您可开始[创建用户](../system_admin/user_management.md)，配置[访问控制规则](../acl/introduction.md)，并开始设置[组织和项目](../system_admin/introduction.md)。
+
+
+
+## 离线安装
+
+1. 下载 docker image 压缩包
+
+2. 导入docker image
+
+   ```
+   mkdir  image & tar -zxvf   emqx-ecp-dependency-images-2.4.1-alpha.4.tar.gz -C  ./image
+   cd image 
+   for t in *.image; do docker load -i "$t"; done
+   ```
+
+3. 通过上面的方式安装启动ECP
+
+   ```
+   ./emqx_ecp_ctl start
+   ```
+
+   
