@@ -137,4 +137,85 @@ Please input your name:         # Set a display name for your account, for examp
 Now that you have successfully deployed ECP, the default access address of ECP is `http://{kubernetes-node-ip}:31900`. Log in to ECP with your superuser account to start the system initialization.
 
 <img src="./_assets/ECP-login.png" alt="Log in" style="zoom:50%;" />
+
 Log in with your superuser account, and you can now start to [create users](../system_admin/user_management.md), configure [access control rules](../acl/introduction.md), and begin to set up [organizations and projects](../system_admin/introduction.md).
+
+
+
+## Offline Installation
+
+1. Download the Docker image compressed package.
+
+2. Decompress
+
+   ```
+   mkdir image & tar -zxvf emqx-ecp-dependency-images-2.4.1-alpha.4.tar.gz -C ./image
+   ```
+
+3. Import Docker image
+
+   In Kubernetes, the main difference between Docker and containerd lies in their implementation as container runtimes: Docker manages the lifecycle of containers through its own runtime, while containerd is a lighter-weight runtime that interacts directly with containers, typically offering a more streamlined interface and better performance. The methods for importing Docker images also differ between the two.
+
+   :::tip Note
+   You can determine whether your Kubernetes cluster is using Docker or containerd by running the following command:
+
+   ```bash
+   kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.containerRuntimeVersion}'
+   ```
+
+   This command will return the container runtime version information for each node. If the returned information includes "docker," it indicates Docker; if it includes "containerd," it indicates containerd.
+   :::
+
+   - **docker**
+
+     ```
+     cd image
+     for t in *.image; do docker load -i "$t"; done
+     ```
+
+   - **containerd**
+
+     ```shell
+     #!/bin/bash
+     
+     # Loop through all files in the current directory that end with .image
+     for image_file in *.image; do
+         # Get the filename without the .image extension
+         base_name="${image_file%.image}"
+         
+         # Rename the file, changing the .image extension to .tar.gz
+         mv "$image_file" "${base_name}.tar.gz"
+         
+         # Decompress the .tar.gz file
+         gunzip "${base_name}.tar.gz"
+         
+         # Import the decompressed .tar file into containerd
+         ctr -n k8s.io image import "${base_name}.tar"
+         
+         # Optional: Delete the decompressed .tar file to save space
+         # rm "${base_name}.tar"
+     done
+     ```
+
+     1. Save the above script as a file, for example, `import_images.sh`.
+
+     2. Execute the script:
+
+        ```
+        chmod +x import_images.sh
+        ./import_images.sh
+        ```
+
+     3. Check if the images have been imported successfully:
+
+        ```
+        crictl images
+        ```
+
+4. Install and start ECP using the above method
+
+   ```
+   helm pull emqx/kube-ecp-stack --version ${version} --untar
+   cd kube-ecp-stack
+   helm upgrade --install ${YOUR_RELEASE_NAME} . --namespace ${YOUR_NAMESPACE} --create-namespace
+   ```
