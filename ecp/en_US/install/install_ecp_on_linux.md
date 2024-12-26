@@ -126,3 +126,21 @@ You have now successfully deployed ECP with Docker. Open your web browser and en
 <img src="./_assets/ECP-login.png" alt="Log in" style="zoom:50%;" />
 
 Log in with your superuser account, and you can now start to [create users](../system_admin/user_management.md), configure [access control rules](../acl/introduction.md), and begin to set up [organizations and projects](../system_admin/introduction.md).
+
+## Offline Installation
+
+1. Download the [Docker image package](https://github.com/emqx/EMQX-Business-Critical/releases/download/2.4.1-alpha.4/emqx-ecp-dependency-images-2.4.1-alpha.4.tar.gz). If you are unable to download it, you can also [contact us](https://www.emqx.com/zh/contact?product=emqx-ecp) to obtain an offline installation package.
+
+2. Import the Docker image
+
+   ```
+   mkdir image & tar -zxvf emqx-ecp-dependency-images-2.4.1-alpha.4.tar.gz -C ./image
+   cd image
+   for t in *.image; do docker load -i "$t"; done
+   ```
+
+3. Install and start ECP using the above method
+
+   ```
+   ./emqx_ecp_ctl start
+   ```
