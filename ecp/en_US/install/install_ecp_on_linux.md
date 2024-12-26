@@ -129,7 +129,7 @@ Log in with your superuser account, and you can now start to [create users](../s
 
 ## Offline Installation
 
-1. Download the Docker image package
+1. Download the [Docker image package](https://github.com/emqx/EMQX-Business-Critical/releases/download/2.4.1-alpha.4/emqx-ecp-dependency-images-2.4.1-alpha.4.tar.gz). If you are unable to download it, you can also [contact us](https://www.emqx.com/zh/contact?product=emqx-ecp) to obtain an offline installation package.
 
 2. Import the Docker image
 

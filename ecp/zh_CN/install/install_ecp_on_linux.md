@@ -134,7 +134,7 @@ Please input your name:         # 请为您的账户设置一个显示名称，�
 
 ## 离线安装
 
-1. 下载 docker image 压缩包
+1. 下载 [docker image 压缩包](https://github.com/emqx/EMQX-Business-Critical/releases/download/2.4.1-alpha.4/emqx-ecp-dependency-images-2.4.1-alpha.4.tar.gz)，如果无法下载， 您也可以[联系我们](https://www.emqx.com/zh/contact?product=emqx-ecp)，获取离线安装包。
 
 2. 导入docker image
 
