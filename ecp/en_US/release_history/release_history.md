@@ -1,5 +1,23 @@
 # Release History
 
+## v2.4.1
+Release Date: 2025-01-10
+
+### Enhancements
+
+- hosted NeuronEX supports configuration of authentication on or off by default
+- Support password complexity configuration
+
+### Fixes
+
+- Fix ECP container image security vulnerability
+- Fix the error that the Root Address must be filled in with the port
+- Fix the error that the email has been used when creating a user
+- Create sso users without invitation, and the re-invite option reports 500 error
+- Fix the error when allocating licenses for managed EMQX clusters
+- Fix the problem of verifying password parameters when creating sso users
+
+
 ## v2.3.1
 Release Date: 2024-12-17
 
