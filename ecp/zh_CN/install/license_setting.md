@@ -10,7 +10,12 @@ ECP 采用浮动许可证机制，允许多个 NeuronEX 共享许可证点位数
 
 ## 申请许可证
 
-EMQX ECP 安装包自带的试用 License，点位数和边缘服务数均有限制，如需更大规格的 15 天试用 License，请点击[链接](https://www.emqx.com/zh/apply-licenses/emqx-ecp) 下载试用，我们会将您申请的试用 License直接发到您的邮箱。
+EMQX ECP 安装包自带的试用 License，点位数和边缘服务数均有限制，如需更大规格的 15 天试用 License，请点击[链接](https://www.emqx.com/zh/apply-licenses/emqx-ecp) 下载试用，我们会将您申请的试用 License 直接发到您的邮箱。官网 15 天试用 License 规格如下：
+
+- 点位数：5000
+- 边缘服务数：10
+- 集群数：1
+- 连接数：100
 
 如您希望长期使用 EMQX ECP 软件进行试用或者商用，您可通过官网[联系我们](https://www.emqx.com/zh/contact?product=emqx-ecp)页面，完成解决方案沟通和采购流程。
 
