@@ -8,7 +8,12 @@ ECP utilizes a floating license mechanism that enables multiple EMQX clusters to
 
 ## Apply for License
 
-The trial license that comes with the EMQX ECP installation package has limits on the number of data tags and edge services. If you need a larger 15-day trial license, please click [link](https://www.emqx.com/en/apply-licenses/emqx-ecp) Download and try it out, we will send the trial license you applied for directly to your email.
+The trial license that comes with the EMQX ECP installation package has limits on the number of data tags and edge services. If you need a larger 15-day trial license, please click [link](https://www.emqx.com/en/apply-licenses/emqx-ecp) Download and try it out, we will send the trial license you applied for directly to your email. The 15-day trial license specification is as follows:
+
+- Data Tags : 5000
+- Edge Service : 10
+- EMQX Cluster : 1
+- EMQX Connection : 100
 
 If you want to use EMQX ECP software for long-term trial or commercial use, you can communicate and purchase through the official website [Contact Us](https://www.emqx.com/en/contact?product=emqx-ecp).
 
