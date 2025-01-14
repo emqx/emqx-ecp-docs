@@ -228,15 +228,30 @@ Release Date: 12/11/2023
 
 ### Fixes
 
-Fixed the issue of incorrect operation audit information for starting/restarting/stopping docker edge services in batches
+- Fixed the issue of incorrect operation audit information for starting/restarting/stopping docker edge services in batches
 
-Fixed the issue where the cluster name contains multiple consecutive spaces, which may cause the cluster to fail to be deleted.
+- Fixed the issue where the cluster name contains multiple consecutive spaces, which may cause the cluster to fail to be deleted.
 
-Fixed the issue of duplicate IP addresses when setting up edge nodes
+- Fixed the issue of duplicate IP addresses when setting up edge nodes
 
-Fix the log file of Neuron installed by docker that cannot be successfully downloaded
+- Fix the log file of Neuron installed by docker that cannot be successfully downloaded
 
-Fixed the problem of missing organization and project names in the audit log information of operations such as template distribution.
+- Fixed the problem of missing organization and project names in the audit log information of operations such as template distribution.
+
+
+## v1.11.2
+Release Date: 01/14/2025
+
+### Fixes
+
+- Fixed the issue where debug logs could not be enabled when managing Neuron 2.6.3.
+
+- Fixed the issue where the interface parameter for enabling debug logs in Neuron 2.6.3 driver should be debug instead of notice.
+
+- Fixed the issue where the prompt message is incorrect when disabling node debug logs.
+
+- Removed the custom alert threshold feature from the frontend.
+
 
 ## v1.11.0
 Release Date: 09/15/2023
