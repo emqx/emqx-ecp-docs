@@ -21,6 +21,10 @@ To set the root URL:
 
 <img src="./_assets/manager-setting-DNS.png" alt="访问域名" style="zoom:50%;" />
 
+:::tip 
+If a domain name is used, the corresponding port information must be added after the domain name; for example, `http://test.emqxecp.com:80`
+:::
+
 
 ## Configure Emails
 
