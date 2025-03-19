@@ -16,7 +16,7 @@ ECP supports adding existing EMQX clusters by a cluster management agent. ECP su
 
 5. Click **Register Node** and a cluster registration guide page will show.
 
-   <img src="./_assets/cluster-existing-reg.png" style="zoom: 50%;" align="middle">
+   <img src="./_assets/cluster-existing-reg.png" align="middle">
 
 6. Select **Register Type** and **CPU Architecture** to choose how the cluster management agent be installed. Currently, the agent can be installed by binary or in Kubernetes. For binary installation, amd64, arm, and arm64 are supported. 
 
@@ -37,6 +37,7 @@ ECP supports adding existing EMQX clusters by a cluster management agent. ECP su
 
    - For binary installation, the agent and the EMQX cluster will be on the same virtual machine, therefore, localhost can be used in `dashboardUrl` and `apiUrl`.
    - For Kubernetes installation, please be sure that the agent can visit the EMQX cluster by `dashboardUrl` and `apiUrl`.
+   - To enable cluster logs collection, set `enableLog` to `True`, and specify the cluster logs directory path which can be accessed by the agent in `logDir`.
 
 9. Copy and execute the command in **Register** part on the virtual machine to run the agent to finish registration.
 
