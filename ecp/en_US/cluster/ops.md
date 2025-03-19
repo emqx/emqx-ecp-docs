@@ -12,16 +12,21 @@ There are some functional differences across EMQX cluster versions. For details,
 
 ## Update Connect Limit
 
-You can dynamically modify the number of connections in the cluster according to business needs:
+You can dynamically modify the number of maximum connections in the cluster according to business needs:
 
 1. Log in as system admin, organization admin, or project admin. 
-2. On the specific cluster, click the more icon and select **Update Connect Limit**. The change will take effect in a moment. 
+
+2. On the specific cluster, click the more icon and select **Update Connect Limit**. If the dynamic license management is diabled, click the `True` radio button to enable it, and set the desired maximum connections for the cluster. The change will take effect in a moment. 
+
+3. To disable the dynamic license management, click the `False` radio button. The change will take effect in a moment.
+
+<img src="./_assets/cluster-update-lic-conn.png" align="middle">
 
 :::tip 
 
-- This feature applies to EMQX v5.7.0 and above.
+- This feature applies to EMQX v4.4.6 and above, or EMQX v5.7.0 and above. Please obtain ECP license for corresponding cluster version in advance.
 - The number of connections is limited by the total number of connections allowed by the license. 
-- The license quota on ECP will be restored once unregistration or cluster deletion completes, and the connections assigned to EMQX cluster will be reclaimed then. Please reset the EMQX license via **Reset License** from EMQX dashboard.
+- The license quota on ECP will be restored once unregistration or cluster deletion completes or disabling dynamic license management, and the connections assigned to EMQX cluster will be reclaimed then. Please reset the EMQX license via **Update License** or **Reset License** from EMQX dashboard.
 
 :::
 
@@ -38,14 +43,16 @@ For easier management, ECP provides a feature for transferring EMQX clusters acr
 
 ## View Cluster Logs
 
-ECP offers a unified log feature. To use this feature for managed clusters, enable and specify logs location when registering cluster node.
-
-- parameter for enabling log collection: `--emqx-log-collection-enabled`
-- parameter for cluster log directory path: `--emqx-log-collection-dir /opt/emqx/log`. If the cluster is installed via docker, please mount the log directory on the host machine into the container, and use the directory path on the host machine in the parameter.
+ECP offers a unified log feature. To use this feature for managed clusters, enable and specify logs location when registering cluster node. If the cluster is installed via docker, please mount the log directory on the host machine into the container, and use the directory path on the host machine in the parameter.
 
 Then on the target cluster, click the more icon and select **Log**. You will be directed to the **Log** page, where you can view the log level, generated time, and log messages. For more information on logs, see [Logs](../log/introduction.md).
 
 <img src="./_assets/cluster-log.png" alt="log" style="zoom:50%;" />
+
+
+### Cluster Logs Collection for Multiple Nodes
+
+To collect logs for a cluster containing multiple nodes, the cluster management agents need to be installed and registered on each of the servers where the nodes are located. On registration, use the localhost or the ip/host address of the current node for `dashboardUrl` and `apiUrl`, in order to ensure that each agent can correctly access the corresponding cluster node. After registration is complete, click the more icon and select **View Nodes** to check whether each node is in a normal managed state. Then select **Log** to view the cluster logs from each of the node.
 
 ## Delete Clusters
 

@@ -16,7 +16,7 @@
 
 5. 在集群卡片或集群列表中，点击**注册节点**，将弹出集群注册引导页。
 
-   <img src="./_assets/cluster-existing-reg.png" style="zoom:50%;" align="middle"> 
+   <img src="./_assets/cluster-existing-reg.png" align="middle"> 
 
 6. 在注册引导页，确定**注册方式**和**CPU 架构**，以选择合适的集群纳管代理进行下载安装。目前支持二进制包和 Kubernetes 两种安装方式 ，二进制安装方式下可以从 AMD64、ARM、ARM64 三种架构中进行选择。
 
@@ -36,7 +36,8 @@
 8. 根据提示，在**节点配置**部分填写注册必要的信息。填写的内容将自动填充到注册命令中：
 
    - 如果使用二进制包安装方式，集群纳管代理与 EMQX 集群在同一台虚机上，`dashboardUrl` 和 `apiUrl` 可使用本地地址。
-   - 如果使用 Kubernetes 安装方式，请确保集群纳管代理可以通过填写的 `dashboardUrl` 和 `apiUrl` 访问到EMQX 集群。
+   - 如果使用 Kubernetes 安装方式，请确保集群纳管代理可以通过填写的 `dashboardUrl` 和 `apiUrl` 访问到 EMQX 集群。
+   - 如果需要开启 EMQX 集群日志采集功能，`enableLog` 设置为 `True`，并且在 `logDir` 中指定纳管代理能访问到的集群日志所在文件夹路径。
 
 9. 拷贝**注册**部分的命令，在 EMQX 集群安装的虚机环境上运行命令，完成注册。
 
