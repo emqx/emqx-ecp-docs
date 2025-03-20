@@ -1,5 +1,26 @@
 # Release History
 
+## v2.5.0
+Release Date: 2025-03-20
+
+### Enhancements
+
+- EMQX Cluster Management
+  - Managed EMQX v4 clusters supports unified License management through ECP
+  - Managed EMQX v4/v5 clusters supports unified log collection for multiple EMQX nodes in clusters
+  - Managed EMQX v4/v5 clusters support independent configuration of License management enablement
+- Trace Function
+  - Support end-to-end EMQX cluster and industrial trace capabilities
+  - Provide more dimensions for trace query conditions
+  - Provide richer dashboard visualization charts
+- Security vulnerability fixes for ECP container images
+- Enhanced password strength policy
+- Hosted NeuronEX supports configuring default authentication settings (enable/disable)
+
+### Fixes
+
+- Fixed issue with special characters not being supported in email addresses during user creation
+
 ## v2.4.1
 Release Date: 2025-01-10
 
