@@ -6,7 +6,8 @@ Version compatibility is the measure of how effectively different versions of EM
 ## EMQX Clusters
 |     Product     | Version                                                 |
 | :--------------| :-----------------------------------------------------------|
-| EMQX | 4.4.6 and above |
+| EMQX Enterprise v4 | 4.4.6 and above |
+| EMQX Enterprise v5 | 5.6.0 and above |
 
 
 ## Edge Services
