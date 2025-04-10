@@ -24,7 +24,7 @@ After the traces data is uploaded to ECP, on the **Workspace** interface, click 
 
 ### EMQX Cluster Trace Configuration
 
-By adding a trace configuration for the EMQX cluster, the traces data of the EMQX cluster can be sent to ECP. Then, you can [query the traces data of the EMQX cluster](#query-emqx-cluster-traces-records).
+By adding a trace configuration for the EMQX cluster, the traces data of the EMQX cluster can be sent to ECP. Then, you can [query the traces data of the EMQX cluster](#query-for-emqx-cluster-traces-records).
 
 Login to the Web management page of the EMQX cluster, enter the **Management** -> **Monitoring** -> **Integration** page, select the **OpenTelemetry** tab, check the Traces function, and configure the OpenTelemetry Collector service address provided by ECP. Then, the traces data of the EMQX cluster can be sent to ECP.
 
