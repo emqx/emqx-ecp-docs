@@ -42,6 +42,11 @@ In the trace advanced configuration, you can configure the message types that EM
 
 ![trace-emqx-config-advanced](_assets/trace-emqx-2-en.png)
 
+::: tip
+
+EMQX cluster trace function, requires EMQX version 5.8.3 or later.
+
+:::
 
 ### Query for EMQX Cluster Traces Records
 

@@ -39,6 +39,12 @@
 
 ![trace-emqx-config-advanced](_assets/trace-emqx-2-zh.png)
 
+::: tip
+
+EMQX 集群的链路追踪功能，需要 EMQX 版本为 5.8.3 及以上。
+
+:::
+
 ### 查询 EMQX 集群链路数据
 
 如果 EMQX 集群启用了端到端追踪，并配置了 ECP 提供的 OpenTelemetry Collector 服务地址，在 ECP 端可以查找指定客户端 ID 及主题的 MQTT 消息追踪链路数据，以及相应的上下线记录和订阅/取消订阅记录。配置方式详细参考[EMQX 集群追踪数据配置](#emqx-集群追踪数据配置)。
