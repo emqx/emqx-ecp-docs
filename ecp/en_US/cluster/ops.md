@@ -1,6 +1,12 @@
 # Manage EMQX Clusters
 
-ECP provides a comprehensive suite of management and operational services for EMQX cluster management, allowing you to centrally manage and operate EMQX clusters on ECP.
+Each managed cluster in the ECP corresponds to an EMQX cluster. If you need to manage multiple clusters, you should create a cluster entry for each EMQX cluster.
+
+- If the EMQX cluster to manage contains multiple nodes and you need to collect logs from each node, you can achieve this by installing the agent on **each node**. For details, see [Cluster Logs Collection for Multiple Nodes](./ops.md#cluster-logs-collection-for-multiple-nodes).
+
+- If you do not need log collection, you can choose to install the agent on the virtual machine of **one of the nodes** in the EMQX cluster, which will manage information from all cluster nodes for you.
+
+After registering the EMQX cluster to the ECP through the agent, you can centrally manage and operate EMQX clusters on ECP.
 
 :::tip
 
