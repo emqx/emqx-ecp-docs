@@ -1,5 +1,25 @@
 # Release History
 
+## v2.5.1
+Release Date: 2025-04-30
+
+### Enhancements
+
+- Added AI analysis feature for tracing function
+- Industrial link tracing supports querying by device name/rule ID
+- Tracing query adaptive aggregation window
+- SQL optimization related to tracing advanced query
+- Optimization of filter conditions for tracing advanced query
+- EMQX agent starts as a service
+
+### Fixes
+
+- Fixed the issue of abnormal display after upgrading the managed EMQX cluster
+- Fixed the issue where the data access page can only display up to 10 clusters
+- Fixed the issue where offline agents sometimes incorrectly show as online again
+- Fixed the issue with version display after the managed cluster upgrade
+- Fixed the issue with the license connection number sometimes being reset when registering the managed cluster
+
 ## v2.5.0
 Release Date: 2025-03-20
 
