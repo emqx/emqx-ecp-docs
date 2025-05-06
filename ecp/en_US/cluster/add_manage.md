@@ -20,7 +20,7 @@ ECP supports adding existing EMQX clusters by a cluster management agent. ECP su
 
 6. Select **Register Type** and **CPU Architecture** to choose how the cluster management agent be installed. Currently, the agent can be installed by binary or in Kubernetes. For binary installation, amd64, arm, and arm64 are supported. 
 
-7. Log in to the virtual machine hosting the EMQX cluster, execute the commands provided on the registration guide page to download the agent.
+7. Log in to the virtual machine hosting the EMQX cluster, execute the commands provided on the registration guide page to download, install and register the agent.
 
    ```bash
    # Download EMQX Agent
@@ -28,6 +28,9 @@ ECP supports adding existing EMQX clusters by a cluster management agent. ECP su
    
    # Update EMQX Agent permission
    sudo chmod +x /usr/local/bin/emqxee-agent
+
+   # Install EMQX Agent
+   sudo /usr/local/bin/emqxee-agent install
    
    # Start EMQX Agent
    sudo /usr/local/bin/emqxee-agent start
@@ -53,6 +56,20 @@ ECP supports adding existing EMQX clusters by a cluster management agent. ECP su
 12. If an EMQX v5 cluster is added for management, an **Enter Dashboard** button will display if the **Cluster Address** has been configured. Click it to directly view the EMQX v5 dashboard in a new window.
 
 
+## Agent Commands
+
+If you have installed the agent on a Linux system using a binary package, in addition to the installation and registration commands introduced above, the agent also supports a variety of operation commands. The detailed commands are as follows:
+
+|  Command  | Description                                                         |
+| :----: | :----------------------------------------------------------- |
+| install | Install the agent. Once installed, the agent will be managed as a systemd service, and it will be automatically restarted if stops unexpectedly.                              |
+| uninstall | Uninstall the agent from system                                     |
+| start | Start the agent                                     |
+| stop | Stop the agent                                   |
+| restart | Restart the agent                                     |
+| status | View the running status of the agent                                     |
+| register | register EMQX cluster to ECP for management                                             |
+| unregister | unregister EMQX cluster from ECP                                         |
 
 
 ## Cluster Status
@@ -70,7 +87,3 @@ Managed EMQX cluster can be in the following states:
 For clusters in the state of Error, you can click the Error status icon to view possible cause.
 
 <!--also the English for the status should be confirmed-->
-
-## Limitation
-
-Each cluster on ECP side should map to a single EMQX cluster. Please do not register multiple clusters on ECP side to the same EMQX cluster.
