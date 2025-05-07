@@ -30,7 +30,7 @@ Login to the Web management page of the EMQX cluster, enter the **Management** -
 
 - Endpoint: Input the OpenTelemetry Collector service address provided by ECP. Note: EMQX only supports the gRPC service address - `[Root Address]:4317`
 - Trace Mode: Select "End-to-End".
-- Cluster Identifier: Input a custom cluster identifier name to distinguish different EMQX clusters, making it easier to filter in ECP when querying.
+- Cluster Identifier: Input a custom cluster identifier name to distinguish different EMQX clusters, making it easier to filter in ECP when querying. For example, `emqx_test`.
 
 ![trace-emqx-config](_assets/trace-emqx-1-en.png)
 
@@ -52,9 +52,16 @@ EMQX cluster trace function, requires EMQX version 5.8.3 or later.
 
 If EMQX has enabled end-to-end tracing and configured the OpenTelemetry Collector service address provided by ECP, you can find MQTT message tracing data for specified client IDs and topics, as well as corresponding online/offline records and subscription/unsubscription records in ECP.
 
-Click the **Edit Query Filters** button, and choose 'Query by Client ID' or 'Query by Topic' for the query type. Specify a time range and enter or select the cluster identifier. Then, filter for the needed client IDs and topic names. The query results are visually displayed in a chart. You can view a bubble chart showing the distribution of message traces data over time and the overall duration. Similarly, you can also switch to a table view.
+Click the **Edit Query Filters** button, and choose 'Query by Client ID' or 'Query by Topic' for the query type. Specify a time range and enter or select the cluster identifier. Then, filter for the needed client IDs and topic names. 
+
+::: tip
+After adding the EMQX cluster trace configuration for the first time, you need to manually enter the cluster identifier (such as `emqx_test` in the previous step) on the **Edit Query Filters** page, otherwise you will not be able to query the trace data of the EMQX cluster.
+
+:::
 
 ![trace-emqx-query](_assets/trace-emqx-query.png)
+
+The query results are visually displayed in a chart. You can view a bubble chart showing the distribution of message traces data over time and the overall duration. Similarly, you can also switch to a table view.
 
 Click on a tracing record to view the details and observe the tracing situation. If there is an error in a tracing record, it will be highlighted in red in the chart, making it easy for you to quickly identify and troubleshoot the issue.
 
