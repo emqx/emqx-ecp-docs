@@ -119,7 +119,7 @@
             "path": "cluster/introduction",
             "children": [
                 {
-                    "title": "添加集群",
+                    "title": "纳管集群",
                     "path": "cluster/add_manage"
                 },
                 {
