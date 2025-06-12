@@ -28,7 +28,7 @@ The management functionalities for different EMQX clusters vary across cluster v
 
 |        Function         | ECP v4 cluster | ECP v5 cluster |
 | :---------------------: | :------------: | :------------: |
-| Update Connection Limit |       ❌        |      ✅ *       |
+| Update Connection Limit |       ✅        |      ✅ *       |
 |       Cluster Log       |       ✅        |       ✅        |
 |     Cluster Monitor     |       ❌        |       ✅        |
 |      Cluster Alarm      |       ❌        |       ✅        |
