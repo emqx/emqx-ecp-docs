@@ -36,6 +36,9 @@ jobs:
       with:
         node-version-file: 'frontend/.nvmrc'
 
+    - name: enable corepack
+      run: corepack enable
+
     - name: use pnpm
       uses: pnpm/action-setup@v4
       with:
@@ -89,7 +92,8 @@ jobs:
     - name: build redoc
       run: |
         cd frontend
-        yarn global add redoc-cli
+        corepack enable
+        pnpm add -g redoc-cli
         LANGS=(zh en)
         for lang in "${LANGS[@]}"; do
           redoc-cli bundle redoc/swagger-${lang}.json -t redoc/template-emqx-ecp.hbs \
