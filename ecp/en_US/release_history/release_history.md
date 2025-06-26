@@ -1,5 +1,36 @@
 # Release History
 
+## v2.6.0
+Release Date: 2025-06-25
+
+### Enhancements
+- New EMQX V5 Metrics Monitoring Page
+  - Introduced a default dashboard displaying over 30 core metrics for EMQX.
+  - Added the ability to switch between different EMQX clusters to view their specific metrics.
+  - Users can now customize dashboard layouts and add new panels.
+  - Supported panel types include: Line, Stat, Table, and Gauge.
+  - Added support for importing and exporting monitoring configurations.
+- Redesigned Alarms Page
+  - Includes over 10 built-in alarm rules for core EMQX events.
+  - Users can now flexibly configure alarm rules, including expressions, trigger conditions, and severity levels.
+  - Added the ability to enable or disable individual alarm rules.
+  - Alarm notification messages can now be customized.
+- Trace Function
+  - The AI-powered analysis for Trace now supports integration with a knowledge base.
+  - Trace data from EMQX clusters is now collected automatically, eliminating the need for manual configuration.
+  - Administration
+- Added a feature to reset the administrator password.
+
+### Fixes
+
+- Fixed an issue where some traces could not be displayed correctly in the Trace feature.
+- Resolved an issue in Trace where the "All" option was not available in the time range selector.
+
+### Breaking Changes
+
+- The internal database has been switched to Datalayers. Important: Due to this change, direct upgrades from v2.5 to v2.6 are not supported.
+
+
 ## v2.5.1
 Release Date: 2025-04-30
 
