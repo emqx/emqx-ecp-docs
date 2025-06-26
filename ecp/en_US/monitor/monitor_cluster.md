@@ -30,7 +30,7 @@ This page provides a monitoring dashboard based on EMQX v5 metrics. It includes 
 - From the dropdown list on the left side of the top operation bar, select the `Cluster` to view metrics from and the `Interval`. The interval determines the time interval between data points in the charts. You can set an appropriate interval based on the cluster's metric push period (default 10 seconds).
 - From the right side of the top operation bar, select the `Time Range` for monitoring metric data and the `Dashboard Data Refresh Interval`.
 
-![cluster-top-bar](_assets/cluster-top-bar.png)
+![cluster-monitor-top-bar](_assets/cluster-monitor-top-bar.png)
 
 ### Edit Dashboard
 
