@@ -90,18 +90,68 @@ Content-Type: application/json
 ```
 
 
-
 ## Alarm Rules Settings
 
 Log in as system admins, organization admins, or project admins, you can also set for alarm rules on **Alarm Rule Setting** tab.
 
 ![alert_rules](./_assets/alert-rules.png)
 
-ECP currently supports alarm rules triggered by ECP itself, by edge services and by EMQX clusters. ECP-triggered rules include email sending failures and Webhook sending failures. Rules triggered by edge services include NeuronEX driver exceptions, NeuronEX rule exceptions, NeuronEX offline event, and NeuronEX restarted event. Rules triggered by clusters include EMQX rule exceptions and EMQX connector exceptions. For more details on these rules, please refer to the [Operations Management - Alarm Rules List](../monitor/rules.md).
+ECP currently supports alarm rules triggered by ECP itself, and by edge services. ECP-triggered rules include email sending failures and Webhook sending failures. Rules triggered by edge services include NeuronEX driver exceptions, NeuronEX rule exceptions, NeuronEX offline event, and NeuronEX restarted event. For more details on these rules, please refer to the [Operation Management - Alarm List](../monitor/rules.md).
 
 You can set both the triggering conditions and rescovery conditions for each rule. The only exception is **NeuronEX restart** alarm rule, which you cannot set for either. You can set smaller triggering values if you want alarms to be more sensitive. Or you can set larger triggering values if you prefer to limit the frequency of alarms. Currently, the upper limit for triggering and recovery values is 10.
 
 You can also set severity level for each rule as 'Critical' or 'Normal'. If the notification scope is set to "Notify Critical Alarms Only", alarms with level of 'Normal' will only be displayed in the Active/History Alarms tabs and won't be sent through emails or Webhooks.
+
+## Cloud Cluster Alarm Rule
+
+Log in to ECP as a system/organization/project administrator, and in the **Cloud Cluster Alarm Rule** tab of the alarm page, you can set alarm rules triggered by managed EMQX clusters. Currently, only EMQX v5 is supported. Cloud cluster alarm rules are based on EMQX metric values to determine whether to trigger. ECP has built-in 10+ core alarm rules, and users can specify which alarm rules to enable and flexibly configure alarm thresholds, trigger conditions, and alarm levels. It also supports user-defined cluster alarm rules. For rule details, please refer to [Operation Management - Alarm List](../monitor/rules.md).
+
+![cluster_alert_rules](./_assets/cluster-alert-rules.png)
+
+### Cluster Alarm Implementation
+Cluster alarms are triggered based on metric data stored in datalayers. Each alarm rule needs to define a datalayers query expression, and when necessary, specify thresholds based on query results. The query expression and threshold together serve as the basis for determining whether the query conditions are met.
+
+Additionally, you need to define trigger conditions (N consecutive times meeting query conditions) and alarm recovery conditions (P consecutive times not meeting query conditions) in the cluster alarm rules. ECP will periodically evaluate each enabled cluster alarm rule according to the check interval configured in system settings, determine whether query results meet query conditions within the current evaluation time period, and compare consecutive counts to determine if trigger or recovery conditions are met.
+
+### Set Cluster Alarm Rule Check Interval
+
+- In the Administration interface, click **System Settings** -> **General Settings** -> **Alarm**
+- Select the `Alarm Rule Check Interval` time.
+
+![cluster_alert_sys_config](./_assets/cluster-alert-sys-config.png)
+
+### Enable/Disable Cluster Alarm Rules
+
+ECP's built-in cluster alarm rules are disabled by default. If you need to enable an alarm, simply turn on the toggle button in the `Enable Alarm` column of the corresponding rule.
+
+### Edit Cluster Alarm Rules
+
+<img src="./_assets/cluster-alert-rule-edit.png" alt="cluster_alert_rule_edit" style="zoom:50%;" />
+
+Click the `Edit` button in the `Action` column of the rule, and configure the following rule properties in the popup dialog:
+- Whether to enable alarm
+- Alarm Type: Will be used to display in the "Alarm Type" column of the alarm list.
+- Alarm Message: Will be used to display in the "Alarm Information" column of the alarm list. Alarm messages support using placeholders (such as: %node%) to dynamically display real data. When an alarm is triggered, these placeholders will be automatically replaced with the values of corresponding columns (such as: node column) in the query results.
+- Alarm Expression: Define the datalayers query expression. The expression supports using the following built-in variables:
+  - `$thresholdFilter`: Used to represent threshold. For example: `GROUP BY node HAVING cpu $thresholdFilter`, if the threshold condition is `> 80`, `$thresholdFilter` will be replaced with `> 80` in the actual query.
+  - `$timeFilter`: Used to represent the time range for this query evaluation. For example: `WHERE $timeFilter(ts)` means the values in the column named ts must be within the time period of this evaluation.
+  - `$clusterFilter`: Used to represent cluster scope, i.e., the organization and project where the cluster is located. For example: `WHERE $clusterFilter` means it must satisfy the organization and project conditions where the rule is located.
+- Alarm Threshold Condition: Consists of an operator and a numeric value. If the `$thresholdFilter` built-in variable is used in the alarm expression, the threshold condition must be specified. By configuring thresholds, you can quickly specify key query conditions without modifying the alarm expression.
+- Alarm Trigger Condition N Value: If the alarm rule has not been triggered, an alarm will be triggered when query conditions are met consecutively N times.
+- Alarm Recovery Condition P Value: If the alarm rule has been triggered, the alarm will be cleared when query conditions are not met consecutively P times.
+- Alarm Level: Set "Critical" or "Normal" alarm level to identify severity.
+
+### Add New Cluster Alarm Rules
+
+Click the `Add` button in the upper right corner of the rule list, configure various rule properties in the popup dialog and confirm to create a new cluster alarm rule.
+
+### Delete Cluster Alarm Rules
+
+Click the `Delete` button in the `Action` column of the rule to delete unwanted cluster alarm rules.
+
+### Reset Cluster Alarm Rules
+
+Click the `Reset` button in the upper right corner of the rule list to restore cluster alarm rules to their initial default rule state. All user-created alarm rules will also be deleted. Please use with caution.
 
 ## Alarm Notification Settings
 
