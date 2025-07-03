@@ -26,6 +26,23 @@ ECP 在 **工作台** -> **监控运维** -> **监控** 页面提供了两种不
 
 ![cluster-emqx-monitor](_assets/cluster-emqx-monitor.png)
 
+### 安装配置 EMQX Prometheus Exporter
+仪表盘中的默认监控指标来自于 EMQX 原生 Prometheus 指标以及 EMQX Prometheus Exporter 采集的指标。如果希望查看到完整的监控指标，请先按以下方式安装 EMQX Prometheus Exporter，并在集群纳管代理上加以配置：
+- 选择合适的方式，安装并启动 [Exporter](https://github.com/emqx/emqx-exporter)。
+- 修改集群纳管代理的配置文件 `/opt/emqxee-agent/etc/agent.yaml`，在 `agent` 的 `monitoring` 部分增加 exporter_url 配置项，设置为 Exporter 的服务地址。示例：
+  ```
+  agent:
+    logger:
+        mode: file
+        level: warn
+        file: /opt/emqxee-agent/log/agent.log
+    heartbeat:
+        interval: 10s
+    monitoring:
+        interval: 10s
+        exporter_url: http://127.0.0.1:8085
+  ```
+
 ### 查看仪表盘
 - 从顶部操作栏左侧的下拉列表中选择要查看指标的`集群`，以及`采样间隔`。采样间隔决定了图表中数据点之间的间隔时间，您可以根据集群推送指标的周期（默认 10 秒）来确定合适的采样间隔时间。
 - 从顶部操作栏右侧选择监控指标数据的`时间范围`，以及`仪表盘自动刷新时间`。

@@ -26,6 +26,23 @@ This page provides a monitoring dashboard based on EMQX v5 metrics. It includes 
 
 ![cluster-emqx-monitor](_assets/cluster-emqx-monitor.png)
 
+### Install and Configure EMQX Prometheus Exporter
+The default monitoring metrics in the dashboard come from native EMQX Prometheus metrics as well as metrics collected by the EMQX Prometheus Exporter. If you want to view the complete set of monitoring metrics, please install the EMQX Prometheus Exporter as follows and configure it on the cluster management agent:
+- Choose an appropriate way to install and start the [Exporter](https://github.com/emqx/emqx-exporter).
+- Modify the cluster management agent's configuration file `/opt/emqxee-agent/etc/agent.yaml`, by adding the `exporter_url` configuration under the `monitoring` section of `agent`, setting it to the service address of the Exporter. Example:
+  ```
+  agent:
+    logger:
+        mode: file
+        level: warn
+        file: /opt/emqxee-agent/log/agent.log
+    heartbeat:
+        interval: 10s
+    monitoring:
+        interval: 10s
+        exporter_url: http://127.0.0.1:8085
+  ```
+
 ### View Dashboard
 - From the dropdown list on the left side of the top operation bar, select the `Cluster` to view metrics from and the `Interval`. The interval determines the time interval between data points in the charts. You can set an appropriate interval based on the cluster's metric push period (default 10 seconds).
 - From the right side of the top operation bar, select the `Time Range` for monitoring metric data and the `Dashboard Data Refresh Interval`.
