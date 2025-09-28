@@ -133,6 +133,16 @@
             ]
         },
         {
+            "title": "UNS 数据集成",
+            "path": "uns/introduction",
+            "children": [
+                {
+                    "title": "配置指南",
+                    "path": "uns/configuration"
+                }
+            ]
+        },
+        {
             "title": "统一运维服务",
             "path": "monitor/introduction",
             "children": [
