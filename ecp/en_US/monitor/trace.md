@@ -132,4 +132,4 @@ Traces data TPS is limited to 1000 records/second by default. If you need to inc
 
 Add the obtained License to the ECP end to increase the TPS configuration, as shown in the figure below.
 
-![license-tps-demo](_assets/license-tps-demo-zh.png)
+![license-tps-demo](_assets/license-tps-demo-en.png)
