@@ -122,3 +122,12 @@ EMQX 集群的链路追踪功能，需要 EMQX 版本为 5.8.3 及以上。
 点击 **修改查询条件** 按钮，查询方式选择“工业全链路查找”，并指定时间范围，选择操作类型，并有选择地提供服务名称、Span 名称、属性，来定位所属的工业链路数据。
 
 ![trace-neuronex-query](_assets/trace-neuronex-query.png)
+
+## 链路追踪数据 TPS 限制
+
+链路追踪数据 TPS 默认限制为 1000 条/秒。如需提高 TPS 限制，请联系 ECP 团队获取更大的 TPS 配置的 License 。
+将获得的 License 添加到 ECP 端，即可提高 TPS 配置, 如下图所示
+
+![license-tps-demo](_assets/license-tps-demo-zh.png)
+
+
