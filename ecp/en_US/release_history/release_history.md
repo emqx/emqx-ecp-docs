@@ -50,6 +50,21 @@ ECP v2.7.0 introduces a powerful Data Integration Module. Built on the Unified N
 
       - Change: ECP does not start the Telegraf service by default. Its startup is determined by the `TELEGRAF_ENABLE` setting in `emqx_ecp.conf`, which defaults to `false`.
 
+## v2.6.1
+Release Date: 2025-09-30
+
+### Enhancements
+- Managed Edge Services by Agent: Enhanced the Agent Management feature to use the MQTT channel for reporting NeuronEX status information.
+- EMQX Cluster Auditing: Include EMQX cluster connection counts in the Operation Audit logs.
+- Trace Optimization: Optimized the display and handling of query results for tracing.
+- Telegraf Deployment: Allowed the Telegraf container to start on demand (as needed).
+- AI Agent Output: Optimized the return results of the AI Agent.
+
+### Fixes
+
+- Fixed an issue where the AI Agent analysis results were incorrect after filtering the trace results in the distributed tracing view.
+- Fixed and optimized an issue where the startup time was displayed incorrectly when an EMQX node went offline unexpectedly.
+
 ## v2.6.0
 Release Date: 2025-06-25
 
