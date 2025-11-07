@@ -133,6 +133,32 @@
             ]
         },
         {
+            "title": "UNS 数据集成",
+            "path": "uns/introduction",
+            "children": [
+                {
+                    "title": "配置指南",
+                    "path": "uns/configuration"
+                },
+                {
+                    "title": "总览",
+                    "path": "uns/overview"
+                },
+                {
+                    "title": "数据分析",
+                    "path": "uns/analysis"
+                },
+                {
+                    "title": "事件查询",
+                    "path": "uns/event"
+                },
+                {
+                    "title": "AI 问答",
+                    "path": "uns/ai_assistant"
+                }
+            ]
+        },
+        {
             "title": "统一运维服务",
             "path": "monitor/introduction",
             "children": [

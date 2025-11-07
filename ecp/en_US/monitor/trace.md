@@ -125,3 +125,11 @@ If NeuronEX has enabled trace and configured the OpenTelemetry Collector service
 Click the **Edit Query Filters** button, and choose 'IIoT Full Chain Query' for the query type. Specify a time range and select the operation type. Optionally, provide the service name, span name, and attributes to locate the IIoT tracing data.
 
 ![trace-neuronex-query](_assets/trace-neuronex-query.png)
+
+## Traces Data TPS Limit
+
+Traces data TPS is limited to 1000 records/second by default. If you need to increase the TPS limit, please contact ECP to obtain a larger TPS configuration License.
+
+Add the obtained License to the ECP end to increase the TPS configuration, as shown in the figure below.
+
+![license-tps-demo](_assets/license-tps-demo-en.png)
