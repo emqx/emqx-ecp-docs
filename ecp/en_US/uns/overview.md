@@ -165,7 +165,7 @@ ECP provides RESTful API interfaces that support programmatic control of device 
 **Interface Information**
 
 - **Interface Path**: `/api/sparkplug/metrics/metric/values`
-- **Request Method**: POST
+- **Request Method**: PUT
 - **Content-Type**: application/json
 
 **Request Parameter Description**
