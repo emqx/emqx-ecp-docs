@@ -1,5 +1,55 @@
 # Release History
 
+## v2.7.0
+Release Date: 2025-11-07
+
+### Enhancements
+
+ECP v2.7.0 introduces a powerful Data Integration Module. Built on the Unified Namespace (UNS) and the SparkplugB standard, this module is designed to bridge the data link from the edge to the cloud, enabling the seamless convergence of industrial equipment, applications, and AI to provide a solid data foundation for smart manufacturing.
+
+1. New Data Integration Module: Building an Industrial AI Data Hub Based on UNS
+- Data Integration -> Overview Page
+
+    - Hierarchical Tree Structure: The new "Overview" page utilizes UNS + SparkplugB data modeling to display NeuronEX edge nodes, devices, and data points in a clearly layered tree structure, faithfully representing the physical hierarchy and business logic of the industrial site.
+
+    - Real-time Status Monitoring: Within the UNS tree, users can visually check the real-time online/offline status of edge nodes and devices, as well as get an overview of the count for nodes, devices, and points.
+
+    - Alias and Hierarchy Management: Supports customizing aliases for nodes and devices at all levels, allowing users to identify and manage them in a business-friendly manner. It also supports deleting offline nodes to maintain a clean data topology.
+
+- Integrated Time-Series Data Storage and Analysis
+
+    - Built-in Datalayers Database: ECP now integrates the Datalayers time-series database by default, supporting second-level storage for up to 100,000 data points. It also supports connecting to an external Datalayers cluster for high-demand, long-term storage of millions of data points.
+
+    - SQL Data Analysis: A new "Data Analysis" page allows users to perform SQL queries and analysis on historical data stored in Datalayers. This feature is consistent with the NeuronEX 3.6.0 Data Analysis module experience, supporting smart SQL input and chart-based result visualization.
+
+    - AI-Assisted Analysis: AI capabilities are integrated to generate complex SQL queries via natural language, helping users quickly gain data insights.
+
+- AI-Driven Operations and Maintenance (O&M)
+
+    - AI Operations Assistant: New "AI Q&A" feature allows users to ask questions about device status and anomalies using natural language, referencing point IDs or aliases.
+
+    - Integrated Knowledge Base: Built-in NeuronEX O&M knowledge base, combined with a Large Language Model (LLM), helps users quickly resolve issues related to NeuronEX configuration, usage, and troubleshooting.
+
+- Event Query and Traceability
+
+    - Provides the "Event Query" function, supporting queries of historical online/offline events based on criteria such as edge node or device UID, and time range, facilitating problem traceability and auditing.
+
+- Device Reverse Control 
+
+    - A standardized reverse control mechanism is provided for data tags connected via SparkplugB.
+
+    - Supports device control for single data tag via the ECP UI.
+
+    - Supports device control for single or multiple data tags via API / MQTT.
+
+2. Other Enhancements & Changes
+   
+      - The Edge Services List page supports searching for all Northbound and Southbound drivers, rules, and other metadata within NeuronEX.
+
+      - ECP Trace functionality now supports license-controlled Trace TPS (Transactions Per Second).
+
+      - Change: ECP does not start the Telegraf service by default. Its startup is determined by the `TELEGRAF_ENABLE` setting in `emqx_ecp.conf`, which defaults to `false`.
+
 ## v2.6.1
 Release Date: 2025-09-30
 

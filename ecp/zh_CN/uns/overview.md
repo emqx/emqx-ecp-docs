@@ -165,7 +165,7 @@ ECP 提供了 RESTful API 接口，支持通过编程方式对设备点位进行
 **接口信息**
 
 - **接口路径**：`/api/sparkplug/metrics/metric/values`
-- **请求方法**：POST
+- **请求方法**：PUT
 - **Content-Type**：application/json
 
 **请求参数说明**

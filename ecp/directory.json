@@ -355,6 +355,32 @@
             ]
         },
         {
+            "title": "UNS Data Integration",
+            "path": "uns/introduction",
+            "children": [
+                {
+                    "title": "Configuration Guide",
+                    "path": "uns/configuration"
+                },
+                {
+                    "title": "Overview",
+                    "path": "uns/overview"
+                },
+                {
+                    "title": "Data Analysis",
+                    "path": "uns/analysis"
+                },
+                {
+                    "title": "Event Query",
+                    "path": "uns/event"
+                },
+                {
+                    "title": "AI Assistant",
+                    "path": "uns/ai_assistant"
+                }
+            ]
+        },
+        {
             "title": "Operation Management",
             "path": "monitor/introduction",
             "children": [
