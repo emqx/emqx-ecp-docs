@@ -1,5 +1,24 @@
 # Release History
 
+## v2.7.1
+Release Date: 2026-03-23
+
+### Enhancements
+
+- Support hybrid management of EMQX V4 and V5 clusters. Allocate connections to various EMQX clusters through a unified License connection quota.
+
+- Display and configure built-in MQTT broker information in the ECP Dashboard.
+
+- Support redirected access to managed EMQX V5 Dashboard via ECP; the agent supports both V4 and V5 Dashboards.
+
+- Optimized the onboarding guide for managed cluster registration.
+
+### Fixes
+
+- Fixed the liveness probe failure for NeuronEX in Managed - Direct Connection mode.
+
+- Fixed issues with the NeuronEX rule debugging feature in both Managed - Direct Connection and Managed - Agent modes on the ECP side.
+
 ## v2.7.0
 Release Date: 2025-11-07
 
