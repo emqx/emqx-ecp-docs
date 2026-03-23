@@ -1,5 +1,23 @@
 # 发版历史
 
+## v2.7.1
+发布日期: 2026-03-23
+
+### 增强
+- 支持混合管理 EMQX V4、V5集群。通过一个总的 License 连接数，分配到各类 EMQX 集群。
+
+- 在 ECP Dashboard 中展示并可配置内置 MQTT broker 信息
+
+- ECP 纳管 EMQX V5 Dashboard 跳转，agent 端同时支持 V4/V5 Dashboard
+
+- 纳管集群注册引导优化
+
+### 修复
+
+- 修复直连纳管 NeuronEX 探活失败
+
+- 修复 ecp 端直连和代理方式下，NeuronEX 规则调试功能问题
+
 ## v2.7.0
 发布日期: 2025-11-07
 
