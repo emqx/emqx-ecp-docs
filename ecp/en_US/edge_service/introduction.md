@@ -14,19 +14,7 @@ Managed mode, ECP supports two methods: [Managed - Direct Connection](./batch_im
 
 Hosting mode, ECP supports [Host Edge Services By Docker](./batch_intall.md) method.
 
-There are functional differences between managed and hosted edge services, as follows:
-
-|Function Category| Function Name | Hosted Edge Service | Managed Edge Service |
-| :--------------| :-------| :----| :----|
-|Edge Services Management|Edge Services NeuronEX Management|✅|✅|
-||Edge Service Monitoring|✅|✅|
-||Edge service alarm|✅|✅|
-||Edge service log management|✅|✅|
-||Edge service configuration delivery|✅|✅|
-||Tags|✅|✅|
-||Edge service installation|✅|❌|
-||Edge service upgrade|✅|❌|
-||Edge service start and stop control|✅|❌|
+For the functional differences between hosted and managed edge services, see [Functional Difference Between Managed and Hosted Edge Services](#functional-difference-between-managed-and-hosted-edge-services).
 
 Please refer to the following chapters for the specific content of this chapter:
 
@@ -58,4 +46,62 @@ There are some functional differences between ECP deployments based on Kubernete
 
 ![edge-list](./_assets/edge-list.png) 
 
+## NeuronEX Information Sync and Search
+
+### Sync NeuronEX Information
+
+On the edge services list page, ECP provides the **Sync All NeuronEX Information** feature to batch collect and store detailed information from all online NeuronEX instances.
+
+After clicking the first button in the upper right corner, ECP will automatically call the interfaces of all online NeuronEX to collect and store the following information:
+
+- **South Driver Name**
+- **Group Name**
+- **Tag Name**
+- **North Application Name**
+- **Source Name**
+- **Rule Name**
+- **Rule Id**
+
+After synchronization is complete, all information will be stored in the ECP platform for subsequent search and management.
+
+### Search NeuronEX Information
+
+The edge services list page provides powerful search functionality to quickly locate NeuronEX information.
+
+**Search Methods:**
+
+1. **Fuzzy Search**: Enter keywords in the search box, and the system will automatically perform fuzzy matching across all fields and return relevant edge service nodes.
+
+2. **Specified Field Search**: Supports precise search by the following fields:
+   - Edge Service Name
+   - Edge Node Name
+   - South Driver
+   - North Application
+   - Source Name
+   - Rule Name
+   - All
+
+**Search Results:**
+
+After performing a search, the edge services list page will **only display** NeuronEX nodes that match the search conditions, and nodes that do not match will be filtered out to quickly locate target edge services.
+
+## Functional Difference Between Managed and Hosted Edge Services
+
+**Hosted Edge Services**: Hosted edge services are edge services NeuronEX created and deployed by the ECP platform.
+
+**Managed Edge Services**: Managed edge services are edge services NeuronEX created and deployed by users and then added to ECP for management.
+
+ECP supports deploying edge services directly by ECP through [Docker](batch_intall) and Kubernetes (under development). The functional differences between hosted and managed edge services are as follows:
+
+|Function Category| Function Name | Hosted Edge Service | Managed Edge Service |
+| :--------------| :-------| :----| :----|
+|Edge Management Service|Edge Service NeuronEX Management|✅|✅|
+||Edge Service Monitoring|✅|✅|
+||Edge Service Alarm|✅|✅|
+||Edge Service Log Management|✅|✅|
+||Edge Service Configuration Delivery|✅|✅|
+||Tags|✅|✅|
+||Batch Installation|✅|❌|
+||Batch Upgrade|✅|❌|
+||Batch Start/Stop Control|✅|❌|
 

@@ -12,6 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'emqx'
     steps:
+    
+    - name: Generate GitHub App token
+      id: app-token
+      uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2.0.6
+      with:
+        app-id: ${{ vars.AUTH_APP_ID }}
+        private-key: ${{ secrets.AUTH_APP_PRIVATE_KEY }}
+        owner: ${{ github.repository_owner }}
+
     - name: clone docs
       uses: actions/checkout@main
       with:
@@ -23,7 +32,7 @@ jobs:
       with:
         repository: 'emqx/docs-emqx-com-frontend'
         ref: next
-        token: ${{ secrets.CI_GIT_TOKEN }}
+        token: ${{ steps.app-token.outputs.token }}
         path: frontend
 
     - name: use python
