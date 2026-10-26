@@ -54,6 +54,8 @@ EMQX ECP 部署前，请确认您的环境满足以下要求：
 由于国内可能无法访问 `hub.docker.com`, 可以在提示 `Please input EMQX ECP docker registry URL (default: docker.io)` 时输入 `registry-intl.cn-shanghai.aliyuncs.com`， 在提示 `Please input EMQX ECP docker registry repo name (default: )` 时输入 `bchub`, 使用阿里云备用镜像仓库进行安装。
 :::
 
+若计划启用[二次验证（TOTP）](../acl/totp_mfa.md)，`configure` 会在 `.env` 中自动生成并保留 `ECP_MFA_MASTER_KEY`（用于加密用户验证器密钥）。请勿随意更换该值；确需轮换时使用 `./emqx_ecp_ctl configure --rotate-mfa-key`。全体超管无法网页重置时，可在部署目录执行 `./emqx_ecp_ctl reset-admin-mfa` 对指定本地账号紧急重置，详见[紧急重置](../acl/totp_mfa.md#紧急重置)。
+
 ### 启动服务
 
 - 如有必要， 可以修改配置文件 `emqx_ecp.conf`。 - 如已有 `ElasticSearch` 服务， 可能修改如下配置：
