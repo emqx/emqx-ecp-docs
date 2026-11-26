@@ -40,7 +40,17 @@
                         },
                         {
                             "title": "单点登录",
-                            "path": "acl/sso"
+                            "path": "acl/sso",
+                            "children": [
+                                {
+                                    "title": "SAML",
+                                    "path": "acl/saml"
+                                },
+                                {
+                                    "title": "OIDC",
+                                    "path": "acl/oidc"
+                                }
+                            ]
                         },
                         {
                             "title": "二次验证（TOTP）",
@@ -272,7 +282,17 @@
                 },
                 {
                     "title": "Single Sign-On",
-                    "path": "acl/sso"
+                    "path": "acl/sso",
+                    "children": [
+                        {
+                            "title": "SAML",
+                            "path": "acl/saml"
+                        },
+                        {
+                            "title": "OIDC",
+                            "path": "acl/oidc"
+                        }
+                    ]
                 },
                 {
                     "title": "Two-Factor Authentication (TOTP)",

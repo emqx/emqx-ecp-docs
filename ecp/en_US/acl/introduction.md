@@ -7,7 +7,7 @@ ECP access control serves as a vital mechanism for restricting and managing the 
 This chapter elaborates on the following topics: 
 
 1. [Login Authentication](./ecp_login.md) explains how to sign in to ECP with an email address and password.
-2. [Single Sign-On](./sso.md) shows how to set up OIDC with Okta and sign in to ECP with a company account.
+2. [Single Sign-On](./sso.md) explains how to configure [SAML](./saml.md) and [OIDC](./oidc.md) (Okta is used as the OIDC example) and sign in to ECP with a company account.
 3. [Two-Factor Authentication (TOTP)](./totp_mfa.md): This section explains how to enable authenticator-app MFA for local accounts, and how to bind, sign in daily, use recovery codes, reset MFA as an admin, and perform emergency reset on the host.
 4. [Authorization](./authorize.md): This section delves into the configuration of roles and permissions within the ECP.
 5. [Users Management](../system_admin/user_management.md): ECP implements RBAC (Role-Based Access Control) for access control. This section introduces how system admin can perform user management-related tasks such as creating users and resetting passwords, and monitor user access and activities for platform stability and security.
