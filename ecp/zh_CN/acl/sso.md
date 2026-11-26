@@ -69,7 +69,7 @@ Okta 是企业身份与访问管理平台，管理员可以用它统一管理企
 4. 在应用的 **General** 标签页记录 **Client ID** 和 **Client Secret**。客户端认证方式使用 **Client secret**。
 5. 在应用的 **Assignments** 标签页，点击 **Assign**，将应用分配给可以登录 ECP 的用户或用户组。详见 [Okta Web 应用配置](https://developer.okta.com/docs/guides/sign-into-web-app-redirect/main/)。
 
-> **截图待补** Okta 应用的 Assignments 标签页，显示已分配的示例用户或组。`./_assets/oidc-okta-assignments.png`
+![Okta 应用的 Assignments 标签页，显示已分配的示例用户或组](./_assets/oidc-okta-assignments.png)
 
 ### 3. 获取 Okta 颁发者 URL
 
