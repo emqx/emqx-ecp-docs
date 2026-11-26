@@ -2,7 +2,7 @@
 
 The ECP authentication system is an essential component for verifying user identities. It encompasses various functionalities such as user account management, authentication, authorization, and access control. These features collectively provide a reliable, secure, and user-friendly mechanism for authenticating users within the ECP platform. 
 
-ECP offers two methods for authenticating user login: [basic authentication](#log-in-with-username-and-password) and [integration with third-party authentication](#integrate-with-third-party-authentication-systems) using the SAML protocol.
+ECP offers two methods for authenticating user login: [basic authentication](#log-in-with-username-and-password) and [single sign-on](./sso.md) using OIDC or SAML 2.0.
 
 ## Log in with Username and Password
 
@@ -30,7 +30,7 @@ ECP also supports integration with SAML-based third-party authentication systems
 
 2. Click **System Settings** -> **General Settings** -> **SSO**.
 
-3. Click the **Add SAML Service** button. In the popup dialog box, set as follows:
+3. Click **Add Identity Provider**, select **SAML 2.0** for **Protocol**, and configure the following settings.
 
    - Input a **Name** for the SSO configuration.
    - Toggle the **Enabled** switch to enable SSO.

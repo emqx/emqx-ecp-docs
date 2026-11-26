@@ -39,6 +39,10 @@
                             "path": "acl/ecp_login"
                         },
                         {
+                            "title": "单点登录",
+                            "path": "acl/sso"
+                        },
+                        {
                             "title": "二次验证（TOTP）",
                             "path": "acl/totp_mfa"
                         },
@@ -265,6 +269,10 @@
                 {
                     "title": "Authentication",
                     "path": "acl/ecp_login"
+                },
+                {
+                    "title": "Single Sign-On",
+                    "path": "acl/sso"
                 },
                 {
                     "title": "Two-Factor Authentication (TOTP)",
