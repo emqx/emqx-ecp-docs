@@ -51,6 +51,8 @@ Press Enter to skip all, which means that the default ECP version is used, the i
 
 ![configure](./_assets/configure.png)
 
+If you plan to enable [two-factor authentication (TOTP)](../acl/totp_mfa.md), `configure` automatically generates and keeps `ECP_MFA_MASTER_KEY` in `.env` (used to encrypt user authenticator secrets). Do not rotate this value casually; use `./emqx_ecp_ctl configure --rotate-mfa-key` only when you intend to rotate. If no signed-in system admin can reset MFA on the web, run `./emqx_ecp_ctl reset-admin-mfa` in the deployment directory for a local account; see [Emergency reset](../acl/totp_mfa.md#emergency-reset).
+
 ### Start ECP Service
 
 - If necessary, modify the configuration file `emqx_ecp.conf`. - If the `ElasticSearch` service already exists, the following configuration may be modified：

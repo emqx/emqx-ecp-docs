@@ -39,6 +39,10 @@
                             "path": "acl/ecp_login"
                         },
                         {
+                            "title": "二次验证（TOTP）",
+                            "path": "acl/totp_mfa"
+                        },
+                        {
                             "title": "授权",
                             "path": "acl/authorize"
                         },
@@ -261,6 +265,10 @@
                 {
                     "title": "Authentication",
                     "path": "acl/ecp_login"
+                },
+                {
+                    "title": "Two-Factor Authentication (TOTP)",
+                    "path": "acl/totp_mfa"
                 },
                 {
                     "title": "Authorization",

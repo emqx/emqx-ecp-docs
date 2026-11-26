@@ -10,6 +10,8 @@ Superusers can [create or invite](../system_admin/user_management.md) ECP admins
 
 You also have the option to check the **Remember me** checkbox, which enables the automatic filling of your login credentials for future logins.
 
+If a system admin has turned on two-factor authentication, local accounts must complete authenticator binding or enter the current verification code after a correct password before entering the system. See [Two-Factor Authentication (TOTP)](./totp_mfa.md) for details.
+
 <img src="./_assets/login.png" alt="ECP-login" style="zoom:50%;" />
 
 ## Reset Password

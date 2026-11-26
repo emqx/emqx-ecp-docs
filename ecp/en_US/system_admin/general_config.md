@@ -2,7 +2,9 @@
 
 In **General Settings**, system admins can configure the email server, root URL for accessing ECP, user invite method, log settings, monitoring and alarm configurations, and system language settings.  
 
-In addition to the ability to configure settings like the email server, access URL, user invitation methods, Telegraf image, and language preferences, ECP also supports configuring logs, monitoring, and alarms at the system level. For more instructions,  see [Logs and Observability](../monitor/introduction.md#system-level-configurations).
+In addition to the ability to configure settings like the email server, access URL, user invitation methods, Telegraf image, and language preferences, ECP also supports configuring logs, monitoring, and alarms at the system level. For more instructions, see [Logs and Observability](../monitor/introduction.md#system-level-configurations).
+
+For local-account two-factor authentication (TOTP), see [Two-Factor Authentication (TOTP)](../acl/totp_mfa.md).
 
 ## Configure Root Address
 

@@ -77,3 +77,4 @@ On the **Users** page, system admins can manage users by utilizing the icons ava
   - **Reset Password**: Allows you to reset the user's password.
   - **Add to Organization**: Enables you to add the user to an organization.
   - **Delete**: Clicking **Delete** permanently removes the user. Please confirm the action in the pop-up dialog box before proceeding.
+- Reset two-factor authentication: When global [two-factor authentication (TOTP)](../acl/totp_mfa.md) is enabled, the user list shows MFA status. For a local user, choose **Reset two-factor authentication** and enter a reason to unbind them; their existing sessions become invalid, and they must re-bind with the same password. SSO users do not have this action. If no signed-in system admin is available, perform an emergency reset on the deployment host; see [Emergency reset](../acl/totp_mfa.md#emergency-reset).

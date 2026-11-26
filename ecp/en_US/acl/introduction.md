@@ -7,7 +7,8 @@ ECP access control serves as a vital mechanism for restricting and managing the 
 This chapter elaborates on the following topics: 
 
 1. [Login Authentication](./ecp_login.md): This section outlines the authentication process specific to the ECP Cloud-Edge Integrated Platform, including the basic authentication with username and password and integration with third-party authentication systems.
+2. [Two-Factor Authentication (TOTP)](./totp_mfa.md): This section explains how to enable authenticator-app MFA for local accounts, and how to bind, sign in daily, use recovery codes, reset MFA as an admin, and perform emergency reset on the host.
 3. [Authorization](./authorize.md): This section delves into the configuration of roles and permissions within the ECP.
-3. [Users Management](../system_admin/user_management.md): ECP implements RBAC (Role-Based Access Control) for access control. This section introduces how system admin can perform user management-related tasks such as creating users and resetting passwords, and monitor user access and activities for platform stability and security.
+4. [Users Management](../system_admin/user_management.md): ECP implements RBAC (Role-Based Access Control) for access control. This section introduces how system admin can perform user management-related tasks such as creating users and resetting passwords, and monitor user access and activities for platform stability and security.
 
 Furthermore, ECP also includes an [audit logging](../system_admin/operation_audit.md) feature that records and analyzes user activities and access patterns. This facilitates the prompt identification and resolution of any anomalous behavior, thereby bolstering the overall security of EMQX products.
