@@ -1,26 +1,25 @@
-# Integrate with Third-Party Authentication
+# SAML
 
-<!--not needed anymore-->
+ECP supports integration with SAML 2.0 identity providers. For OIDC, see [OIDC](./oidc.md).
 
-ECP offers two methods for authenticating user login: basic authentication and integration with third-party authentication using the SAML protocol.
+[SAML (Security Assertion Markup Language)](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) is an XML-based open standard protocol used for exchanging authentication and authorization data in cross-network communications. SAML aims to facilitate secure communication and enable single sign-on (SSO) for user authentication across various network resources.
 
-## What is the SAML Protocol?
+## Configure SAML
 
-SAML (Security Assertion Markup Language) is an XML-based open standard protocol used for exchanging authentication and authorization data in cross-network communications. SAML aims to facilitate secure communication and enable Single Sign-On (SSO) for user authentication across various network resources. 
+1. Log in as system admin.
 
-## Configure SSO
+2. Click **System Settings** -> **General Settings** -> **SSO**.
 
-Log in as system administrator. Click **System Settings** -> **General Settings**. 使用**系统管理员**在系统管理界面的**系统设置**-**通用配置**中设置**单点登录**。
+3. Click **Add Identity Provider**, select **SAML 2.0** for **Protocol**, and configure the following settings.
 
-1. 点击**添加 SAML 服务**，弹出配置对话框；
-2. 添加 SSO 的**名称**；
-3. **启用** SAML 服务；
-4. 填写**登录 URL**，即第三方认证的登录地址；
-5. 填写**登出 URL**，即第三方认证的登出地址；
-6. 可以开启**签名请求**，如果开启，ECP 会自动生成一个签名；
-7. 可以开启**强制登录**，如果开启，通过第三方登录时每次都需要输入用户名密码；
-8. 可以开启**校验签名**，如果开启，请上传从第三方认证系统导出的公钥文件，并以 Base64 加密后上传；
-9. 点击**确认**，以上配置生效。
+   - Input a **Name** for the SSO configuration.
+   - Toggle the **Enabled** switch to enable SSO.
+   - Input the **Login URL**, which is the login address of the third-party authentication system.
+   - [Optional] Input the **Logout URL**, which is the logout address of the third-party authentication system.
+   - [Optional] Toggle the **Sign Request** switch to enable request signing. ECP will automatically generate a signature if enabled.
+   - [Optional] Toggle the **Force Login** switch to require users to enter their username and password every time they log in through the third-party SSO.
+   - [Optional] Toggle the **Validate Signature** switch to enable signature validation. Upload the public key file exported from the third-party authentication system, encrypted in Base64 format.
+   - [Optional] Toggle the **Auto Bind IdP User** switch to enable auto bind with third-party authentication system. If enabled, the email address used by the third-party authentication system will be auto bound to the user account on ECP side. When the user log into ECP uses SSO, the user account on ECP side will be automatically created or activated. If not enabled, when a user logs into ECP for the first time using SSO,  the user is required to manually fill out the registration information to complete user account creation on ECP side.
+   - Click **Confirm** to finish the setting.
 
-
-<img src="./_assets/saml.png" style="zoom:100%;" align="middle">
+![ECP 的 SAML 认证服务配置](./_assets/saml.png)

@@ -4,6 +4,8 @@ In **General Settings**, system admins can configure the email server, root URL 
 
 In addition to the ability to configure settings like the email server, access URL, user invitation methods, Telegraf image, and language preferences, ECP also supports configuring logs, monitoring, and alarms at the system level. For more instructions, see [Logs and Observability](../monitor/introduction.md#system-level-configurations).
 
+For OIDC and SAML, see [Single Sign-On](../acl/sso.md).
+
 For local-account two-factor authentication (TOTP), see [Two-Factor Authentication (TOTP)](../acl/totp_mfa.md).
 
 ## Configure Root Address
